@@ -1,0 +1,47 @@
+\documentclass[12pt,letterpaper,oneside]{book}
+\pagestyle{plain}
+
+\usepackage[]{natbib}
+\usepackage{chapterbib}
+
+\usepackage{bu_ece_thesis_minimal}
+
+\usepackage{setspace}
+\doublespacing
+
+\usepackage{mathspec}
+\setmainfont{FreeSans}[
+    Path=fonts/,
+    BoldFont=FreeSansBold,
+    ItalicFont=FreeSansOblique,
+    BoldItalicFont=FreeSansBoldOblique
+]
+\setmathrm[Path=fonts/]{FreeSans}
+
+\usepackage[paper=letterpaper,
+            layout=letterpaper,
+            lmargin=1.5in,
+            rmargin=1.0in,
+            tmargin=1.5in,
+            bmargin=1.25in,
+            footskip=0.50in]{geometry}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\frontmatter
+\include{tex/frontmatter}
+\cleardoublepage
+
+\mainmatter
+\include{tex/chapter_1}
+\cleardoublepage
+
+\include{tex/chapter_2}
+\cleardoublepage
+
+\include{tex/chapter_3}
+\cleardoublepage
+
+\end{document}
