@@ -4,3 +4,5 @@
 *.brf
 .snakemake/
 figures/
+Rplots.pdf
+compile.log

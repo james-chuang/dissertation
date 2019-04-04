@@ -25,3 +25,57 @@ figures:
                 - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_5-Dia.bed
                 - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_6-Amino.bed
                 - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_7-Nit.bed
+        tfiib_coverage:
+            width: 6
+            height: "9/16*6"
+            transcript_annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_polIItranscripts-adjustedTSS.bed
+            orf_annotation: ../../intragenic/genome/annotations/Scer_nondubious_ORFs_and_blocked_reading_frames-adjustedATG.bed
+            data:
+                ASE1:
+                    paths:
+                        - ../../intragenic/stress-data-integration/browser-shots/ASE1-diamide/ASE1-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/ASE1-aminoacid/ASE1-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/ASE1-nitrogen/ASE1-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                    upstream: 300
+                    downstream: 0
+                DSK2:
+                    paths:
+                        - ../../intragenic/stress-data-integration/browser-shots/DSK2-diamide/DSK2-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/DSK2-aminoacid/DSK2-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/DSK2-nitrogen/DSK2-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                    upstream: 350
+                    downstream: 0
+                HEM15:
+                    paths:
+                        - ../../intragenic/stress-data-integration/browser-shots/HEM15-diamide/HEM15-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/HEM15-aminoacid/HEM15-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/HEM15-nitrogen/HEM15-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                    upstream: 250
+                    downstream: 0
+                RRT8:
+                    paths:
+                        - ../../intragenic/stress-data-integration/browser-shots/RRT8-diamide/RRT8-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/RRT8-aminoacid/RRT8-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/RRT8-nitrogen/RRT8-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                    upstream: 350
+                    downstream: 0
+        promoter_tss_diffexp_summary:
+            genic_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
+            intra_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
+            anti_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/antisense/diamide-v-YPD_antisense-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
+            inter_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intergenic/diamide-v-YPD_intergenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
+            height: 4
+            width: 3
+        promoter_tss_expression:
+            genic_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200-matched-up.tsv
+            intra_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200-matched-up.tsv
+            counts_path: ../../intragenic/tss-seq/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-counts-rlogtransformed.tsv
+            height: 4
+            width: 6
+        promoter_tss_polyenrichment:
+            matched_peaks_genic: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
+            matched_peaks_intra: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
+            polyenrichment_genic: ../../intragenic/polysome-diamide-tss-comparison/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-diffexp-results-with-polysome-enrichment-genic.tsv
+            polyenrichment_intra: ../../intragenic/polysome-diamide-tss-comparison/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-diffexp-results-with-polysome-enrichment-intragenic.tsv
+            height: 4
+            width: 6
