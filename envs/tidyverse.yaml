@@ -1,0 +1,24 @@
+name: tidyverse
+channels:
+    - conda-forge
+dependencies:
+    - r-tidyverse=1.2.1
+    - r-ggthemes=4.0.1
+    - r-viridis=0.5.1
+    - r-gridextra=2.3
+    - r-gtable=0.2.0
+    - r-svglite=1.2.1
+    - r-gdtools=0.1.7
+    - r-stringi=1.2.4
+    - r-hexbin=1.27.2
+    - r-cowplot=0.9.3
+    - r-ggally=1.4.0
+    - r-cairo=1.5_9
+    - r-extrafont=0.17
+    - r-ggridges=0.5.1
+    - r-ggrepel=0.8.0
+    # - r-broom=0.5.1
+    # - r-ggpmisc=0.3.0
+    # - r-psych=1.8.4
+    # - r-seriation=1.2_3
+

@@ -1,0 +1,29 @@
+name: plot
+channels:
+    - conda-forge
+dependencies:
+    - r-tidyverse=1.2.1
+    - r-ggthemes=4.0.1
+    - r-viridis=0.5.1
+    - r-gridextra=2.3
+    - r-svglite=1.2.1
+    - r-hexbin=1.27.2
+    - r-cowplot=0.9.4
+    - r-ggally=1.4.0
+    - r-cairo=1.5_9
+    - r-extrafont=0.17
+    - r-ggridges=0.5.1
+    - r-ggrepel=0.8.0
+    - r-ggseqlogo=0.1
+    # - r-stringi=1.4.3
+    # - r-gdtools=0.1.7
+    # - svg2png=4.1.1=0
+    # - r-gtable=0.3.0
+    # - r-broom=0.5.1
+    # - r-ggpmisc=0.3.0
+    # - r-psych=1.8.4
+    # - r-seriation=1.2_3
+    # - r-gtools=3.5.0=r3.4.1_0
+    # - r-mgcv=1.8_17=r3.4.1_0
+    # - r-ggforce=0.1.1=r3.4.1_0
+

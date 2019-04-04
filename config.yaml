@@ -1,0 +1,27 @@
+---
+theme_spec: scripts/thesis_theme.R
+
+fonts_path: fonts/
+
+tss_fdr_cutoff: 0.1
+
+figures:
+    stress:
+        tfiib_ridgelines:
+            width: 6
+            height: 8.25
+            data_path: /n/groups/winston/jc459/intragenic/chipnexus-tfiib/datavis/genes-with-stress-induced-intra-peaks/libsizenorm/genes-with-stress-induced-intra-peaks-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
+            diamide_genic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
+            diamide_intragenic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/intragenic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv
+            amino_genic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/genic/SD-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
+            amino_intragenic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/intragenic/SD-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv
+            nitrogen_genic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/nitrogen-v-SC/libsizenorm/genic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
+            nitrogen_intragenic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/nitrogen-v-SC/libsizenorm/intragenic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv
+            annotations:
+                - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_1-DiaAminoNit.bed
+                - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_2-DiaAmino.bed
+                - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_3-DiaNit.bed
+                - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_4-AminoNit.bed
+                - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_5-Dia.bed
+                - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_6-Amino.bed
+                - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_7-Nit.bed
