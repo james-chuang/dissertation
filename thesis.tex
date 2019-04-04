@@ -1,9 +1,14 @@
 \documentclass[12pt,letterpaper,oneside]{book}
 \pagestyle{plain}
 
+\usepackage{sectsty}
+
+\chapternumberfont{\normalsize}
+\chaptertitlefont{\normalsize}
+\sectionfont{\normalsize}
+
 \usepackage[]{natbib}
 \usepackage[]{chapterbib}
-% \usepackage[nottoc,numbib]{tocbibind}
 \sectionbib{\section}{section}
 
 \usepackage{bu_ece_thesis_minimal}
@@ -28,6 +33,19 @@
             bmargin=1.25in,
             footskip=0.50in]{geometry}
 
+\usepackage{xcolor}
+\definecolor{blue}{HTML}{114477}
+\definecolor{purple}{HTML}{440154}
+\usepackage[colorlinks=true,
+            linkcolor=black,
+            urlcolor=blue,
+            citecolor=purple,
+            backref,
+            linktoc=all,
+            breaklinks=false,
+            pdftitle=Title\ of\ thesis,
+            pdfcreator=James\ Chuang]{hyperref}
+
 \usepackage{lipsum}
 
 \begin{document}
@@ -49,6 +67,12 @@
 
 \newpage
 \addcontentsline{toc}{chapter}{Bibliography}
+\begingroup
+\singlespacing
 \bibliography{}
+\endgroup
+\cleardoublepage
+
+\include{tex/vita}
 
 \end{document}
