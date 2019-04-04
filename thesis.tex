@@ -2,7 +2,9 @@
 \pagestyle{plain}
 
 \usepackage[]{natbib}
-\usepackage{chapterbib}
+\usepackage[]{chapterbib}
+% \usepackage[nottoc,numbib]{tocbibind}
+\sectionbib{\section}{section}
 
 \usepackage{bu_ece_thesis_minimal}
 
@@ -29,6 +31,7 @@
 \usepackage{lipsum}
 
 \begin{document}
+\bibliographystyle{plainnat}
 
 \frontmatter
 \include{tex/frontmatter}
@@ -43,5 +46,9 @@
 
 \include{tex/chapter_3}
 \cleardoublepage
+
+\newpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{}
 
 \end{document}
