@@ -2,6 +2,9 @@
 *.aux
 *.bbl
 *.brf
+*.nav
+*.snm
+*.xdv
 .snakemake/
 figures/
 Rplots.pdf
