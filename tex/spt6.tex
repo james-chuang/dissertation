@@ -1,14 +1,111 @@
-\chapter{Spt6}
+\chapter{Genomics of transcription elongation factor Spt6}
 
-\section{background}
+\section{Collaborators}
 
-\lipsum
+\begin{description}[align=right, labelwidth=5cm, noitemsep]
+    \item [Steve Doris] optimized TSS-seq and ChIP-nexus protocols
+    \item [] generated TSS-seq and ChIP-nexus libraries
+    \item [Olga Viktorovskaya] generated MNase-seq libraries
+    \item [Magdalena Murawska] generated NET-seq libraries
+    \item [Dan Spatt] wetlab experiments for publication
+\end{description}
 
-Please work \cite{doris2018}.
+\section{Introduction to Spt6 and intragenic transcription}
+
+The aim of this work is related to understanding how a eukaryotic cell specifies which sites in its genome are permitted to become sites of transcription initiation.
+From genetic studies in yeast, it is known that some factors controlling the specificity of transcription initiation are actually transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes \citep{kaplan2003, cheung2008, hennig2013}.
+My collaborators on this project are interested in the role of the transcription elongation factor \textbf{Spt6} in this process.
+The following is a quick introduction to Spt6 \citep{doris2018}:
+
+\begin{itemize}[nosep, topsep=.5em]
+\item Spt6 interacts directly with:
+	\begin{itemize}[nosep]
+	\item RNA polymerase II (RNAPII) \citep{close2011, diebold2011, liu2011, sdano2017, sun2010, yoh2007}
+	\item histones \citep{bortvin1996, mccullough2015}
+	\item the essential factor Spn1 (IWS1) \citep{diebold2010b, li2018, mcdonald2010}
+	\end{itemize}
+\item Spt6 is believed to function primarily as an elongation factor based on:
+	\begin{itemize}[nosep]
+	\item association with elongating RNAPII \citep{andrulis2000, ivanovska2011, kaplan2000, mayer2010}
+	\item ability to enhance elongation in vitro \citep{endoh2004} and in vivo \citep{ardehali2009}
+	\end{itemize}
+\item Spt6 has been shown to regulate initiation in some cases \citep{adkins2006, ivanovska2011}
+\item Spt6 regulates:
+	\begin{itemize}[nosep]
+	\item chromatin structure \citep{bortvin1996, degennaro2013, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}
+	\item histone modifications, including:
+		\begin{itemize}[nosep]
+		\item H3K36 methylation \citep{carrozza2005, chu2006, yoh2008, youdell2008}
+		\item in some organisms, H3K4 and H3K27 methylation \citep{begum2012, chen2012, degennaro2013, wang2017, wang2013}
+		\end{itemize}
+	\end{itemize}
+\item Spt6 is likely a histone chaperone required to reassemble nucleosomes in the wake of transcription \citep{duina2011}.
+\end{itemize}
+
+Previous studies in the yeasts \textit{S. cerevisiae} and \textit{S. pombe} have examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
+Many of these studies make use of the same temperature-sensitive \textit{S. cerevisiae} \textit{spt6} mutant used in this project, \textbf{\textit{spt6-1004}}, in which Spt6 protein is depleted at the non-permissive temperature of 37\textdegree C \citep{kaplan2003}.
+The most notable phenotype of the \textit{spt6-1004} mutant is the expression of \textbf{intragenic transcripts}, transcripts which appear to start within protein-coding genes, both in the same orientation and in the antisense orientation relative to the coding gene (Figure \ref{fig:txn-diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
+
+Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{uwimana2017}.
+These methods assay steady-state RNA levels, making them unable to determine whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly turned over in wild-type, or C) processing of full-length protein-coding RNAs.
+Additionally, these methods are suboptimal for identifying where intragenic transcription occurs, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figure \ref{fig:txn-diagram}) \citep{cheung2008, lickwar2009}.
+
+To overcome these issues, one of my collaborators applied two assays to study transcription in \textit{spt6-1004}: transcription start-site sequencing (\textbf{TSS-seq}), and \textbf{ChIP-nexus of TFIIB}, a component of the RNA polymerase II pre-initiation complex (PIC).
+The TSS-seq technique sequences the 5$^\prime$ end of capped and polyadenylated RNAs \citep{arribere2013, malabat2015}, allowing separation of intragenic from genic RNA signals and identification of intragenic transcript starts with single-nucleotide resolution.
+The ChIP-nexus technique used is a high-resolution chromatin immunoprecipitation technique in which the ChIPed DNA is exonuclease digested up to the bases crosslinked with the factor of interest before sequencing \citep{he2015}.
+When applied to the PIC component TFIIB, ChIP-nexus provides a way to determine whether intragenic transcripts result from new intragenic transcription initiation.
+
+\section{pipeline development for TSS-seq and ChIP-nexus}
+
+In order to use TSS-seq and ChIP-nexus to answer questions about Spt6 and intragenic transcription, I developed analysis pipelines for TSS-seq and ChIP-nexus data.
+The pipelines are written using the Python-based Snakemake workflow specification language \citep{koster2012}, and perform steps including read cleaning \citep{martin2011}, various quality controls \citep{andrews2012}, read alignment \citep{kim2013, langmead2012}, data normalization, coverage track generation \citep{quinlan2010}, peak calling \citep{zhang2008}, differential expression/binding analyses \citep{love2014}, data visualization with clustering, motif enrichment analyses \citep{bailey2015}, and gene ontology analyses \citep{young2010}.
+The Snakemake framework allows these data analyses to be reproducible and scalable from workstations up to computing clusters.
+Updated versions of these pipelines with more details on their capabilities are available at \href{https://github.com/winston-lab}{github.com/winston-lab}.
+In the following subsections I will describe the thought behind only a few of the more novel pipeline steps before moving on to results relating to Spt6 and intragenic transcription.
+
+\subsection{TSS-seq peak calling}
+
+TSS-seq data from a single region of transcription initiation tends to occur as a cluster of signal distributed over a range of positions, rather than a single nucleotide (Figure \ref{fig:tss_coverage}) \citep{arribere2013, malabat2015}.
+It is reasonable to consider such a cluster of TSS-seq signal as a single entity, because the signals within the cluster are usually highly correlated to one another across different conditions.
+Therefore, to identify TSSs from TSS-seq data and quantify them for downstream analyses such as differential expression, it is necessary to annotate these groups of signal by using the data to perform peak-calling.
+
+In its current state, the TSS-seq pipeline calls peaks using 1-D \href{https://en.wikipedia.org/wiki/Watershed_(image_processing)}{watershed segmentation}, followed by filtering for reproducibility by the Irreproducible Discovery Rate (IDR) method \citep{li2011}.
+First, a smoothed version of the TSS-seq coverage is generated for each sample using a discretized Gaussian kernel.
+Next, an initial set of peaks is generated by: 1) assigning all nonzero signal in the original, unsmoothed coverage to the nearest local maximum of the smoothed coverage in the direction of positive derivative, and 2) taking the minimum and maximum genomic coordinates of the original coverage assigned to each local maximum as the peak boundaries.
+The peaks are then trimmed to the smallest genomic window that includes 95\% of the original coverage, and the probability of the peak being generated by noise is estimated by a Poisson model where $\lambda$, the expected coverage, is the maximum of the expected coverage over the chromosome and the expected coverage in a window upstream of the peak (as for the ChIP-seq peak caller MACS2 \citep{zhang2008}).
+The influence of local read density on $\lambda$ is intended to reduce false positive peaks within gene bodies, especially for highly expressed genes: Since there are more fragments of RNA present for highly expressed genes, more fragments within the gene body will make it into the final library, even if they are not true 5' ends.
+To generate the final set of peaks, the peaks are ranked by significance under the Poisson model, and filtered by IDR.
+In brief, IDR attempts to separate true peaks from experimental noise based on the intuition that, when peaks in each replicate are independently ranked by a metric such as significance, true peaks will have more similar ranks between replicates than peaks representing noise \citep{li2011}.
+
+The IDR algorithm currently only works for two replicates.
+Future improvements could include expanding the IDR implementation to handle more replicates and improve the accuracy of peak calling with more data.
+
+\subsection{ChIP-nexus peak calling}
+
+A number of tools have been created specifically for peak-calling using data from high-resolution ChIP techniques such as ChIP-nexus and ChIP-exo \citep{wang2014, hansen2016}.
+When applied to our TFIIB ChIP-nexus data, these tools tended to split what appeared to be a single TFIIB binding event into multiple peaks.
+This may be because TFIIB has been observed to crosslink to DNA at multiple points (Figure \ref{fig:tfiib_tata}) \citep{rhee2012}, which suggests that while these tools may work well for factors that bind symmetrically with a single crosslinking point on either side, there is still room for improvement when it comes to factors with more complex binding patterns.
+For the purposes of this project, the standard ChIP-seq peak caller MACS2 was used \citep{zhang2008}.
+
+ChIP-seq peaks lack strand information, as DNA binding factors usually do not bind DNA in a strand-specific manner.
+Because of this, we could not separate intragenic TFIIB peaks into peaks associated with sense or antisense transcription.
+The distinctive shape of the aggregate TFIIB ChIP-nexus signal (Figure \ref{fig:tfiib_tata}) suggests that information about the strand of transcription may be present in the ChIP-nexus binding profile.
+Future work could include learning the direction of transcription from labeled ChIP-nexus training data.
+
+\section{TSS-seq and TFIIB ChIP-nexus results from \textit{spt6-1004}}
+
+To assay transcription start sites and transcription initiation in \textit{spt6-1004}, one of my collaborators performed TSS-seq and ChIP-nexus of TFIIB.
+In wild-type cells, TSS-seq and TFIIB ChIP-nexus signal has the expected distribution over the genome, with most TSS-seq signal at annotated genic TSSs and most TFIIB signal just upstream (Figures \ref{fig:tss_heatmaps}, \ref{fig:tfiib_heatmaps}).
+In \textit{spt6-1004}, the signal for both assays infiltrates gene bodies, consistent with a role for intragenic initiation in the intragenic transcription phenotype.
+Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur towards the 3' end of genes, while antisense strand TSS-seq signal tends to occur towards the 5' ends of genes.
+
+The TSS-seq data were quantified by peak calling and differential expression analysis, and classified into genomic categories based on their position relative to coding genes (Figure \ref{fig:tss_diffexp_summary}).
+The results from this analysis support the pattern observed in the heatmap visualization (Figure \ref{fig:tss_heatmaps}), with most genic TSSs downregulated and almost 8000 TSSs upregulated intragenic or antisense to genes.
+The overall effect of this on expression levels is to equalize expression levels between the different classes of transcripts (Figure \ref{fig:tss_expression_levels}).
 
 \newpage
-\bibliographystyle{plainnat}
+\bibliographystyle{apalike}
 \begingroup
 \singlespacing
-\bibliography{references/stress}
+\bibliography{references/spt6}
 \endgroup

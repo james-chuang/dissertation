@@ -6,8 +6,9 @@
 \chapternumberfont{\normalsize}
 \chaptertitlefont{\normalsize}
 \sectionfont{\normalsize}
+\subsectionfont{\normalsize}
 
-\usepackage[]{natbib}
+\usepackage[round, sort, comma]{natbib}
 \usepackage[]{chapterbib}
 \sectionbib{\section}{section}
 
@@ -33,16 +34,18 @@
             bmargin=1.25in,
             footskip=0.50in]{geometry}
 
+\usepackage{enumitem}
+
 \usepackage{graphicx}
 \usepackage{float}
 
 \usepackage{xcolor}
 \definecolor{blue}{HTML}{114477}
-\definecolor{purple}{HTML}{440154}
+\definecolor{grey}{HTML}{888888}
 \usepackage[colorlinks=true,
             linkcolor=black,
             urlcolor=blue,
-            citecolor=purple,
+            citecolor=grey,
             backref,
             linktoc=all,
             breaklinks=false,
@@ -59,6 +62,9 @@
 \cleardoublepage
 
 \mainmatter
+\include{tex/introduction}
+\cleardoublepage
+
 \include{tex/spt6}
 \cleardoublepage
 

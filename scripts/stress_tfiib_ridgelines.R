@@ -205,7 +205,7 @@ main = function(theme_spec,
 
     figure_1a = plot_grid(diagram, tfiib_heatmap, align = "h",
               axis = "tb", nrow=1,
-              rel_widths = c(0.2, 1))
+              rel_widths = c(0.15, 1))
 
     ggplot2::ggsave(pdf_out, plot=figure_1a, width=fig_width, height=fig_height, units="in")
     embed_fonts(pdf_out)
