@@ -13,6 +13,7 @@ onsuccess:
 rule target:
     input:
         "figures/six/six_gene_diagram.pdf",
+        "figures/six/six_aat_assay_comparison.pdf",
         "figures/stress/stress_tfiib_ridgelines.pdf",
         "figures/stress/stress_tfiib_coverage.pdf",
         "figures/stress/stress_promoter_tss_diffexp_summary.pdf",
