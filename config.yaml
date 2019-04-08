@@ -6,6 +6,10 @@ fonts_path: fonts/
 tss_fdr_cutoff: 0.1
 
 figures:
+    six:
+        gene_diagram:
+            width: 2.75
+            height: 1
     stress:
         tfiib_ridgelines:
             width: 6

@@ -12,10 +12,30 @@
 
 \section{Introduction to Spt6 and intragenic transcription}
 
-The aim of this work is related to understanding how a eukaryotic cell specifies which sites in its genome are permitted to become sites of transcription initiation.
-From genetic studies in yeast, it is known that some factors controlling the specificity of transcription initiation are actually transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes \citep{kaplan2003, cheung2008, hennig2013}.
-My collaborators on this project are interested in the role of the transcription elongation factor \textbf{Spt6} in this process.
-The following is a quick introduction to Spt6 \citep{doris2018}:
+The work described in this chapter relates to understanding how a eukaryotic cell specifies which sites in its genome are permitted to become sites of transcription initiation.
+To get a rough idea of the specificity of transcription initiation, it is useful to start with a simple back-of-the-envelope calculation of the proportion of the human genome at which transcription initiation occurs.
+The human genome is approximately three billion base pairs in length, and each base pair can potentially be transcribed from each of its two strands.
+Each gene in the genome can have multiple transcription start sites (TSSs), which I assume to be five in number for the average gene.
+At last count, the human genome contains about twenty thousand protein-coding genes.
+To be conservative in our estimate with regards to specificity, we assume that all twenty thousand genes are expressed, which leads to the following proportion:
+\begin{align*}
+    \frac{\left(2 \times 10^5 \; \text{genes}\right) \left(5 \; \frac{\text{TSS}}{\text{gene}} \right)}
+         {\left(3 \times 10^9 \; \text{base pairs} \right) \left(2 \; \frac{\text{TSS}}{\text{base pair}} \right)}.
+\end{align*}
+However, this expression underestimates the extent of transcription initiation by only considering protein-coding genes, neglecting the many classes of noncoding genes present in the genome.
+If we assume that there are five noncoding genes for each coding gene, the updated expression,
+\begin{align*}
+    \frac{\left(1.2 \times 10^6 \; \text{genes}\right) \left(5 \; \frac{\text{TSS}}{\text{gene}} \right)}
+         {\left(3 \times 10^9 \; \text{base pairs} \right) \left(2 \; \frac{\text{TSS}}{\text{base pair}} \right)}
+    &= 0.001,
+\end{align*}
+says that when presented with a thousand positions to choose from, RNA polymerase chooses just one to start transcribing from!
+
+Where transcription initiates is determined in large part by DNA sequence: the presence of certain sequence motifs increases the probability that RNA polymerase binds to DNA along with numerous co-factors required for initiation.
+However, DNA sequence alone does not entirely account for the specificity of transcription initiation.
+Genetic studies in yeast first showed that some transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes, play a role in restricting where transcription is allowed to initiate \citep{kaplan2003, cheung2008, hennig2013}.
+In this project, we study the role of a particular transcription elongation factor called \textbf{Spt6} in this process.
+Many years of research on Spt6 is summarised as follows \citep{doris2018}:
 
 \begin{itemize}[nosep, topsep=.5em]
 \item Spt6 interacts directly with:
@@ -42,9 +62,16 @@ The following is a quick introduction to Spt6 \citep{doris2018}:
 \item Spt6 is likely a histone chaperone required to reassemble nucleosomes in the wake of transcription \citep{duina2011}.
 \end{itemize}
 
-Previous studies in the yeasts \textit{S. cerevisiae} and \textit{S. pombe} have examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
+\begin{wrapfigure}[7]{r}{2.75in}
+\centering
+\includegraphics[width=2.75in]{figures/six/six_gene_diagram.pdf}
+\caption{Diagram of transcript orientation with respect to coding DNA sequences, for the categories of transcripts referred to in this document.}
+\label{fig:six_gene_diagram}
+\end{wrapfigure}
+
+Previous studies in the yeasts \textit{Saccharomyces cerevisiae} and \textit{Schizosaccharomyces pombe} have examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
 Many of these studies make use of the same temperature-sensitive \textit{S. cerevisiae} \textit{spt6} mutant used in this project, \textbf{\textit{spt6-1004}}, in which Spt6 protein is depleted at the non-permissive temperature of 37\textdegree C \citep{kaplan2003}.
-The most notable phenotype of the \textit{spt6-1004} mutant is the expression of \textbf{intragenic transcripts}, transcripts which appear to start within protein-coding genes, both in the same orientation and in the antisense orientation relative to the coding gene (Figure \ref{fig:txn-diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
+The most notable phenotype of the \textit{spt6-1004} mutant is the expression of \textbf{intragenic transcripts}, transcripts which appear to start within protein-coding genes, both in the same orientation and in the antisense orientation relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
 Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{uwimana2017}.
 These methods assay steady-state RNA levels, making them unable to determine whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly turned over in wild-type, or C) processing of full-length protein-coding RNAs.
