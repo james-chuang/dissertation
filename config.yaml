@@ -11,9 +11,34 @@ figures:
             width: 2.75
             height: 0.9
         aat_assay_comparison:
-            width: 6
-            height: 4
+            width: 4
+            height: 2.4
             data_path: ../../intragenic/spt6-data-integration/browser-shots/AAT2/AAT2_all-assays.tsv.gz
+        tss_seq_heatmaps:
+            annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
+            tss_sense: ../../intragenic/tss-seq/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/spikenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tss-seq-spikenorm-SENSE.tsv.gz
+            tss_antisense: ../../intragenic/tss-seq/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/spikenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tss-seq-spikenorm-ANTISENSE.tsv.gz
+            height: 3.75
+            width: 6
+        tfiib_heatmap:
+            tfiib_data: ../../intragenic/chipnexus-tfiib/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
+            annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
+            height: 3.75
+            width: 3
+        tss_diffexp_summary:
+            genic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/genic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
+            intragenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
+            antisense: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/antisense/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
+            intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
+            height: 1.75
+            width: 2.875
+        tss_expression_levels:
+            tss_genic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/genic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
+            tss_intragenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
+            tss_antisense: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/antisense/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
+            tss_intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
+            height: 1.75
+            width: 2.875
     stress:
         tfiib_ridgelines:
             width: 6

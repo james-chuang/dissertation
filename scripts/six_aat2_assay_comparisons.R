@@ -47,10 +47,13 @@ main = function(theme_spec,
               panel.spacing.y = unit(0, "pt"),
               panel.border = element_blank(),
               panel.grid = element_blank(),
-              axis.line.y = element_line(size=0.2))
+              axis.line.y = element_line(size=0.2,
+                                         color="black"),
+              axis.ticks = element_line(color="black"),
+              plot.margin = margin(t=-0.3, unit="cm"))
 
     diagram = ggplot() +
-        annotate(geom="segment", color="black",
+        annotate(geom="segment", color="grey50",
                  x=0, xend=1.348, y=0, yend=0) +
         annotate(geom="polygon", fill="grey80",
                  x=c(.028, (1.257)*.93+0.028, 1.257,
@@ -66,11 +69,11 @@ main = function(theme_spec,
                            expand=c(0,0)) +
         scale_y_continuous(limits = c(-1.1, 1.1), expand=c(0,0)) +
         theme_void() +
-        theme(plot.margin = margin(-20,0,-20,0,"pt"))
+        theme(plot.margin = margin(0,0,-0.3,0,"cm"))
 
     plot = plot_grid(diagram, coverage,
                      ncol = 1,
-                     rel_heights = c(0.22,1),
+                     rel_heights = c(0.17,1),
                      rel_widths = c(1,1),
                      align = "vh",
                      axis = "trbl")

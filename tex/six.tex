@@ -73,16 +73,16 @@ Previous studies in the yeasts \textit{Saccharomyces cerevisiae} and \textit{Sch
 Many of these studies make use of the same temperature-sensitive \textit{S. cerevisiae} \textit{spt6} mutant used in this project, \textbf{\textit{spt6-1004}}, in which Spt6 protein is depleted at the non-permissive temperature of 37\textdegree C \citep{kaplan2003}.
 The most notable phenotype of the \textit{spt6-1004} mutant is the expression of \textbf{intragenic transcripts}, transcripts which appear to start within protein-coding genes, both in the same orientation and in the antisense orientation relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
-\begin{wrapfigure}[7]{r}{2.75in}
+\begin{wrapfigure}[11]{r}{4in}
 \centering
-\includegraphics[width=2.75in]{figures/six/six_aat_assay_comparison.pdf}
-\caption[RNA-seq, TSS-seq, and TFIIB ChIP-nexus signal at the \textit{AAT2} gene, in \textit{spt6-1004} after 80 minutes at 37\textdegree C.]{asdflkjskldjf}
+\includegraphics[width=4in]{figures/six/six_aat_assay_comparison.pdf}
+\caption[RNA-seq, TSS-seq, and TFIIB ChIP-nexus signal at the \textit{AAT2} gene, in \textit{spt6-1004} after 80 minutes at 37\textdegree C.]{Sense strand RNA-seq signal, sense strand TSS-seq signal, and TFIIB ChIP-nexus protection at the \textit{AAT2} gene, in \textit{spt6-1004} after 80 minutes at 37\textdegree C.}
 \label{fig:six_aat_assay_comparison}
 \end{wrapfigure}
 
 Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{uwimana2017}.
 These methods assay steady-state RNA levels, making them unable to determine whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly turned over in wild-type, or C) processing of full-length protein-coding RNAs.
-Additionally, these methods are suboptimal for identifying where intragenic transcription occurs, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figure \ref{fig:txn-diagram}) \citep{cheung2008, lickwar2009}.
+Additionally, these methods are suboptimal for identifying where intragenic transcription occurs, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figure \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}.
 
 To overcome these issues, one of my collaborators applied two assays to study transcription in \textit{spt6-1004}: transcription start-site sequencing (\textbf{TSS-seq}), and \textbf{ChIP-nexus of TFIIB}, a component of the RNA polymerase II pre-initiation complex (PIC).
 The TSS-seq technique sequences the 5$^\prime$ end of capped and polyadenylated RNAs \citep{arribere2013, malabat2015}, allowing separation of intragenic from genic RNA signals and identification of intragenic transcript starts with single-nucleotide resolution.
@@ -129,13 +129,47 @@ Future work could include learning the direction of transcription from labeled C
 \section{TSS-seq and TFIIB ChIP-nexus results from \textit{spt6-1004}}
 
 To assay transcription start sites and transcription initiation in \textit{spt6-1004}, one of my collaborators performed TSS-seq and ChIP-nexus of TFIIB.
-In wild-type cells, TSS-seq and TFIIB ChIP-nexus signal has the expected distribution over the genome, with most TSS-seq signal at annotated genic TSSs and most TFIIB signal just upstream (Figures \ref{fig:tss_heatmaps}, \ref{fig:tfiib_heatmaps}).
+In wild-type cells, TSS-seq and TFIIB ChIP-nexus signal has the expected distribution over the genome, with most TSS-seq signal at annotated genic TSSs and most TFIIB signal just upstream (Figures \ref{fig:six_tss_seq_heatmaps}, \ref{fig:six_tfiib_heatmap}).
 In \textit{spt6-1004}, the signal for both assays infiltrates gene bodies, consistent with a role for intragenic initiation in the intragenic transcription phenotype.
 Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur towards the 3' end of genes, while antisense strand TSS-seq signal tends to occur towards the 5' ends of genes.
 
-The TSS-seq data were quantified by peak calling and differential expression analysis, and classified into genomic categories based on their position relative to coding genes (Figure \ref{fig:tss_diffexp_summary}).
-The results from this analysis support the pattern observed in the heatmap visualization (Figure \ref{fig:tss_heatmaps}), with most genic TSSs downregulated and almost 8000 TSSs upregulated intragenic or antisense to genes.
+\begin{figure}[H]
+\centering
+\includegraphics[width=6in]{figures/six/six_tss_seq_heatmaps.pdf}
+\caption[Heatmaps of sense and antisense TSS-seq signal over non-overlapping coding genes, from wild-type and \textit{spt6-1004} cells, both after 80 minutes at 37\textdegree C.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3' of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 92nd percentile are set to the 92nd percentile for visualization.}
+\label{fig:six_tss_seq_heatmaps}
+\end{figure}
+
+The TSS-seq data were quantified by peak calling and differential expression analysis, and classified into genomic categories based on their position relative to coding genes (Figure \ref{fig:six_tss_diffexp_summary}).
+The results from this analysis support the pattern observed in the heatmap visualization (Figure \ref{fig:six_tss_seq_heatmaps}), with most genic TSSs downregulated and almost 8000 TSSs upregulated intragenic or antisense to genes.
 The overall effect of this on expression levels is to equalize expression levels between the different classes of transcripts (Figure \ref{fig:tss_expression_levels}).
+
+\begin{wrapfigure}[19]{R}{3in}
+\centering
+\includegraphics[width=3in]{figures/six/six_tfiib_heatmap.pdf}
+\caption[Heatmaps of TFIIB ChIP-nexus protection over non-overlapping coding genes, from wild-type and \textit{spt6-1004} cells, both after 80 minutes at 37\textdegree C]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85th percentile are set to the 85th percentile for visualization.}
+\label{fig:six_tfiib_heatmap}
+\end{wrapfigure}
+
+\lipsum
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{2.875in}
+        \centering
+        \includegraphics[width=2.875in]{figures/six/six_tss_diffexp_summary.pdf}
+        \caption[Bar plots of the number of TSS-seq peaks in different genomic classes differentially expressed in \textit{spt6-1004} versus wild-type.]{Bar plots of the number of TSS-seq peaks differentially expressed in \textit{spt6-1004} after 80 minutes at 37\textdegree C versus wild-type after 80 minutes at 37\textdegree C. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
+        \label{fig:six_tss_diffexp_summary}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{2.875in}
+        \centering
+        \includegraphics[width=2.875in]{figures/six/six_tss_expression_levels.pdf}
+        \caption[Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \text{spt6-1004} cells, both after 80 minutes at 37\textdegree C.]{Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004}, both after 80 minutes at 37\textdegree C. Normalized counts are the mean of spike-in size factor normalized counts from two replicates.}
+        \label{fig:six_tss_expression_levels}
+    \end{minipage}
+\end{figure}
+
+\lipsum[1]
 
 \newpage
 \bibliographystyle{apalike}
