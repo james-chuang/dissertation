@@ -22,6 +22,7 @@ rule target:
         "figures/six/six_tss_v_tfiib.pdf",
         "figures/six/six_mnase_metagene.pdf",
         "figures/six/six_global_nuc_occ_fuzz.pdf",
+        "figures/six/six_mnase_som.pdf",
         "figures/six/six_mnase_heatmaps.pdf",
         "figures/six/six_intragenic_mnase_metagenes.pdf",
         "figures/six/six_tss_seqlogos.pdf",

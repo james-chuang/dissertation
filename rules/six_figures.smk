@@ -186,6 +186,21 @@ rule six_mnase_heatmaps:
     script:
         "../scripts/six_mnase_heatmaps.R"
 
+rule six_mnase_som:
+    input:
+        som_data = FIGURES["six"]["mnase_som"]["som_data"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_mnase_som.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["mnase_som"]["height"])),
+        width = eval(str(FIGURES["six"]["mnase_som"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_mnase_som.R"
+
 rule six_intragenic_mnase_metagenes:
     input:
         mnase_data = FIGURES["six"]["intragenic_mnase_metagenes"]["mnase_data"],

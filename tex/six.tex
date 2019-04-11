@@ -171,6 +171,97 @@ The overall effect of this on expression levels is to equalize expression levels
 
 \lipsum[1]
 
+\begin{SCfigure}[50][h]
+\centering
+\includegraphics[width=4in]{figures/six/six_tfiib_spreading_ssa4.pdf}
+\caption[foo bar]{
+    \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
+        \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004} strains over 20 kb of chromosome II flanking the \textit{SSA4} gene.
+        \item [bottom)] Expanded view of TFIIB protection over the \textit{SSA4} gene.
+    \end{description}
+}
+\label{fig:six_tfiib_spreading_ssa4}
+\end{SCfigure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=6in]{figures/six/six_tss_v_tfiib.pdf}
+\caption{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
+\end{figure}
+
+\lipsum[1]
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{2.875in}
+        \centering
+        \includegraphics[width=2.875in]{figures/six/six_mnase_metagene.pdf}
+        \caption{Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over 3522 non-overlapping genes aligned by wild-type +1 nucleosome dyad. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and the inter-quartile range.}
+        \label{fig:six_mnase_metagene}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{2.875in}
+        \centering
+        \includegraphics[width=2.875in]{figures/six/six_global_nuc_occ_fuzz.pdf}
+        \caption{Contour plot of the global distributions of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
+        \label{fig:six_global_nuc_fuzz}
+    \end{minipage}
+\end{figure}
+
+\lipsum[1]
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
+\caption[foo bar]{
+    \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
+        \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nucleotides downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
+        \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type).
+        \item [right)] Heatmaps of fold-change in nucleosome occupancy and fuzziness for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel.
+    \end{description}
+}
+\label{fig:six_mnase_heatmaps}
+\end{figure}
+
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[width=8.25in]{figures/six/six_mnase_som.pdf}
+    \caption[foo]{bar}
+    \label{fig:six_mnase_som}
+\end{sidewaysfigure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=6in]{figures/six/six_intragenic_mnase_metagenes.pdf}
+\caption[foo bar]{
+    \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=6.2em, font=\normalfont]
+        \item [top row)] Average MNase-seq dyad signal for two clusters of \textit{spt6-1004} intragenic TSSs (clustered by wild-type and \textit{spt6-1004} MNase-seq dyad signal flanking the TSS), as well as all genic TSSs detected in wild-type and \textit{spt6-1004}. Values are the mean of spike-in normalized dyad coverage in non-overlapping 10 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and inter-quartile range.
+        \item [bottom row)] Average GC content of the DNA sequence, as above.
+    \end{description}
+}
+\label{fig:six_intragenic_mnase_metagenes}
+\end{figure}
+
+\lipsum[1]
+
+\begin{wrapfigure}[12]{R}{3in}
+\centering
+\includegraphics[width=3in]{figures/six/six_tss_seqlogos.pdf}
+\caption{Sequence logos of the information content of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.}
+\label{fig:six_tss_seqlogos}
+\end{wrapfigure}
+
+\lipsum[1]
+
+\begin{wrapfigure}[15]{r}{3in}
+\centering
+\includegraphics[width=3in]{figures/six/six_intragenic_tata.pdf}
+\caption{Scaled density of occurrences of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is multiplied by the number of motif occurrences in the genomic category and divided by the number of regions in the category.}
+\label{fig:six_intragenic_tata}
+\end{wrapfigure}
+
+\lipsum[1]
+
+
 \newpage
 \bibliographystyle{apalike}
 \begingroup
