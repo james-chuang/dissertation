@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-rule gene_diagram:
+rule six_gene_diagram:
     input:
         fonts_path = config["fonts_path"],
         theme = config["theme_spec"]
@@ -14,7 +14,7 @@ rule gene_diagram:
     script:
         "../scripts/six_gene_diagram.R"
 
-rule aat_assay_comparison:
+rule six_aat_assay_comparison:
     input:
         data_path = FIGURES["six"]["aat_assay_comparison"]["data_path"],
         fonts_path = config["fonts_path"],
@@ -29,7 +29,7 @@ rule aat_assay_comparison:
     script:
         "../scripts/six_aat2_assay_comparisons.R"
 
-rule tss_seq_heatmaps:
+rule six_tss_seq_heatmaps:
     input:
         fonts_path = config["fonts_path"],
         theme = config["theme_spec"],
@@ -47,7 +47,7 @@ rule tss_seq_heatmaps:
     script:
         "../scripts/six_tss_seq_heatmaps.R"
 
-rule tfiib_heatmap:
+rule six_tfiib_heatmap:
     input:
         fonts_path = config["fonts_path"],
         theme = config["theme_spec"],
@@ -64,7 +64,7 @@ rule tfiib_heatmap:
     script:
         "../scripts/six_tfiib_heatmap.R"
 
-rule tss_diffexp_summary:
+rule six_tss_diffexp_summary:
     input:
         in_genic = FIGURES["six"]["tss_diffexp_summary"]["genic"],
         in_intra = FIGURES["six"]["tss_diffexp_summary"]["intragenic"],
@@ -83,7 +83,7 @@ rule tss_diffexp_summary:
     script:
         "../scripts/six_tss_diffexp_summary.R"
 
-rule tss_expression_levels:
+rule six_tss_expression_levels:
     input:
         tss_genic = FIGURES["six"]["tss_expression_levels"]["tss_genic"],
         tss_intragenic = FIGURES["six"]["tss_expression_levels"]["tss_intragenic"],
@@ -103,5 +103,135 @@ rule tss_expression_levels:
         "../envs/plot.yaml"
     script:
         "../scripts/six_tss_expression_levels.R"
+
+rule six_tfiib_spreading_ssa4:
+    input:
+        tfiib_data = FIGURES["six"]["tfiib_spreading_ssa4"]["tfiib_data"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_tfiib_spreading_ssa4.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["tfiib_spreading_ssa4"]["height"])),
+        width = eval(str(FIGURES["six"]["tfiib_spreading_ssa4"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_tfiib_spreading_ssa4.R"
+
+rule six_tss_vs_tfiib:
+    input:
+        genic = FIGURES["six"]["tss_vs_tfiib"]["genic"],
+        intragenic = FIGURES["six"]["tss_vs_tfiib"]["intragenic"],
+        antisense = FIGURES["six"]["tss_vs_tfiib"]["antisense"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_tss_v_tfiib.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["tss_vs_tfiib"]["height"])),
+        width = eval(str(FIGURES["six"]["tss_vs_tfiib"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_tss_vs_tfiib.R"
+
+rule six_mnase_metagene:
+    input:
+        mnase_data = FIGURES["six"]["mnase_metagene"]["mnase_data"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_mnase_metagene.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["mnase_metagene"]["height"])),
+        width = eval(str(FIGURES["six"]["mnase_metagene"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_mnase_metagene.R"
+
+rule six_global_nuc_occ_fuzz:
+    input:
+        wt_mnase_quant = FIGURES["six"]["global_nuc_occ_fuzz"]["wt_mnase_quant"],
+        spt6_mnase_quant = FIGURES["six"]["global_nuc_occ_fuzz"]["spt6_mnase_quant"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_global_nuc_occ_fuzz.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["global_nuc_occ_fuzz"]["height"])),
+        width = eval(str(FIGURES["six"]["global_nuc_occ_fuzz"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_global_nuc_occ_fuzz.R"
+
+rule six_mnase_heatmaps:
+    input:
+        netseq_data = FIGURES["six"]["mnase_heatmaps"]["netseq_data"],
+        mnase_data = FIGURES["six"]["mnase_heatmaps"]["mnase_data"],
+        quant_data = FIGURES["six"]["mnase_heatmaps"]["quant_data"],
+        annotation = FIGURES["six"]["mnase_heatmaps"]["annotation"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_mnase_heatmaps.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["mnase_heatmaps"]["height"])),
+        width = eval(str(FIGURES["six"]["mnase_heatmaps"]["width"])),
+        assay = "NET-seq"
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_mnase_heatmaps.R"
+
+rule six_intragenic_mnase_metagenes:
+    input:
+        mnase_data = FIGURES["six"]["intragenic_mnase_metagenes"]["mnase_data"],
+        gc_data = FIGURES["six"]["intragenic_mnase_metagenes"]["gc_data"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_intragenic_mnase_metagenes.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["intragenic_mnase_metagenes"]["height"])),
+        width = eval(str(FIGURES["six"]["intragenic_mnase_metagenes"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_intragenic_mnase_metagenes.R"
+
+rule six_tss_seqlogos:
+    input:
+        data_paths = FIGURES["six"]["tss_seqlogos"]["data_paths"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_tss_seqlogos.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["tss_seqlogos"]["height"])),
+        width = eval(str(FIGURES["six"]["tss_seqlogos"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_tss_seqlogos.R"
+
+rule six_intragenic_tata:
+    input:
+        tata_genic_path = FIGURES["six"]["intragenic_tata"]["tata_genic"],
+        tata_intra_path = FIGURES["six"]["intragenic_tata"]["tata_intragenic"],
+        tata_random_path = FIGURES["six"]["intragenic_tata"]["tata_random"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_intragenic_tata.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["intragenic_tata"]["height"])),
+        width = eval(str(FIGURES["six"]["intragenic_tata"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_intragenic_tata.R"
 
 

@@ -15,6 +15,7 @@ dependencies:
     - r-ggridges=0.5.1
     - r-ggrepel=0.8.0
     - r-ggseqlogo=0.1
+    - r-ggforce=0.2.1
     # - r-stringi=1.4.3
     # - r-gdtools=0.1.7
     # - svg2png=4.1.1=0
@@ -25,5 +26,4 @@ dependencies:
     # - r-seriation=1.2_3
     # - r-gtools=3.5.0=r3.4.1_0
     # - r-mgcv=1.8_17=r3.4.1_0
-    # - r-ggforce=0.1.1=r3.4.1_0
 
