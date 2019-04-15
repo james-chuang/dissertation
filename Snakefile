@@ -4,8 +4,9 @@ configfile: "config.yaml"
 
 FIGURES = config["figures"]
 
-include: "rules/stress_figures.smk"
 include: "rules/six_figures.smk"
+include: "rules/five_figures.smk"
+include: "rules/stress_figures.smk"
 
 onsuccess:
     shell("(bash compile.sh) > compile.log")
@@ -27,6 +28,7 @@ rule target:
         "figures/six/six_intragenic_mnase_metagenes.pdf",
         "figures/six/six_tss_seqlogos.pdf",
         "figures/six/six_intragenic_tata.pdf",
+        "figures/five/five_netseq_metagene.pdf",
         "figures/stress/stress_tfiib_ridgelines.pdf",
         "figures/stress/stress_tfiib_coverage.pdf",
         "figures/stress/stress_promoter_tss_diffexp_summary.pdf",

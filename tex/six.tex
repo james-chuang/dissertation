@@ -12,6 +12,8 @@
 
 \section{Introduction to Spt6 and intragenic transcription}
 
+In eukaryotic cells, transcription of protein-coding genes is carried out by the protein complex RNA polymerase II.
+
 The work described in this chapter relates to understanding how a eukaryotic cell specifies which sites in its genome are permitted to become sites of transcription initiation.
 To get a rough idea of the specificity of transcription initiation, it is useful to start with a simple back-of-the-envelope calculation of the proportion of the human genome at which transcription initiation occurs.
 The human genome is approximately three billion base pairs in length, and each base pair can potentially be transcribed from each of its two strands.
@@ -136,7 +138,7 @@ Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur toward
 \begin{figure}[H]
 \centering
 \includegraphics[width=6in]{figures/six/six_tss_seq_heatmaps.pdf}
-\caption[Heatmaps of sense and antisense TSS-seq signal over non-overlapping coding genes, from wild-type and \textit{spt6-1004} cells, both after 80 minutes at 37\textdegree C.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3' of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 92nd percentile are set to the 92nd percentile for visualization.}
+\caption[Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes aligned by wild-type genic TSS.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3' of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 92nd percentile are set to the 92nd percentile for visualization.}
 \label{fig:six_tss_seq_heatmaps}
 \end{figure}
 
@@ -147,7 +149,7 @@ The overall effect of this on expression levels is to equalize expression levels
 \begin{wrapfigure}[19]{R}{3in}
 \centering
 \includegraphics[width=3in]{figures/six/six_tfiib_heatmap.pdf}
-\caption[Heatmaps of TFIIB ChIP-nexus protection over non-overlapping coding genes, from wild-type and \textit{spt6-1004} cells, both after 80 minutes at 37\textdegree C]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85th percentile are set to the 85th percentile for visualization.}
+\caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes aligned by wid-type genic TSS.]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85th percentile are set to the 85th percentile for visualization.}
 \label{fig:six_tfiib_heatmap}
 \end{wrapfigure}
 
@@ -158,13 +160,13 @@ The overall effect of this on expression levels is to equalize expression levels
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/six/six_tss_diffexp_summary.pdf}
-        \caption[Bar plots of the number of TSS-seq peaks in different genomic classes differentially expressed in \textit{spt6-1004} versus wild-type.]{Bar plots of the number of TSS-seq peaks differentially expressed in \textit{spt6-1004} after 80 minutes at 37\textdegree C versus wild-type after 80 minutes at 37\textdegree C. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
+        \caption[Bar plot of the number of TSS-seq peaks of various genomic classes differentially expressed in \textit{spt6-1004} versus wild-type.]{Bar plots of the number of TSS-seq peaks differentially expressed in \textit{spt6-1004} after 80 minutes at 37\textdegree C versus wild-type after 80 minutes at 37\textdegree C. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
         \label{fig:six_tss_diffexp_summary}
     \end{minipage}\hfill
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/six/six_tss_expression_levels.pdf}
-        \caption[Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \text{spt6-1004} cells, both after 80 minutes at 37\textdegree C.]{Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004}, both after 80 minutes at 37\textdegree C. Normalized counts are the mean of spike-in size factor normalized counts from two replicates.}
+        \caption[Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004} cells.]{Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004}, both after 80 minutes at 37\textdegree C. Normalized counts are the mean of spike-in size factor normalized counts from two replicates.}
         \label{fig:six_tss_expression_levels}
     \end{minipage}
 \end{figure}
@@ -174,7 +176,7 @@ The overall effect of this on expression levels is to equalize expression levels
 \begin{SCfigure}[50][h]
 \centering
 \includegraphics[width=4in]{figures/six/six_tfiib_spreading_ssa4.pdf}
-\caption[foo bar]{
+\caption[TFIIB ChIP-nexus protection over the 20 kb flanking the gene \textit{SSA4}, in wild-type and \textit{spt6-1004} cells.]{
     \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
         \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004} strains over 20 kb of chromosome II flanking the \textit{SSA4} gene.
         \item [bottom)] Expanded view of TFIIB protection over the \textit{SSA4} gene.
@@ -186,7 +188,7 @@ The overall effect of this on expression levels is to equalize expression levels
 \begin{figure}[h]
 \centering
 \includegraphics[width=6in]{figures/six/six_tss_v_tfiib.pdf}
-\caption{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
+\caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
 \end{figure}
 
 \lipsum[1]
@@ -196,13 +198,13 @@ The overall effect of this on expression levels is to equalize expression levels
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/six/six_mnase_metagene.pdf}
-        \caption{Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over 3522 non-overlapping genes aligned by wild-type +1 nucleosome dyad. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and the inter-quartile range.}
+        \caption[Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over non-overlapping genes aligned by wild-type +1 nucleosome dyad.]{Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over 3522 non-overlapping genes aligned by wild-type +1 nucleosome dyad. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and the inter-quartile range.}
         \label{fig:six_mnase_metagene}
     \end{minipage}\hfill
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/six/six_global_nuc_occ_fuzz.pdf}
-        \caption{Contour plot of the global distributions of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
+        \caption[Contour plot of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}.]{Contour plot of the global distributions of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
         \label{fig:six_global_nuc_fuzz}
     \end{minipage}
 \end{figure}
@@ -212,7 +214,7 @@ The overall effect of this on expression levels is to equalize expression levels
 \begin{figure}[H]
 \centering
 \includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
-\caption[foo bar]{
+\caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, aligned by genic TSS and arranged by sense NET-seq signal.]{
     \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
         \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nucleotides downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
         \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type).
@@ -225,14 +227,14 @@ The overall effect of this on expression levels is to equalize expression levels
 \begin{sidewaysfigure}
     \centering
     \includegraphics[width=8.25in]{figures/six/six_mnase_som.pdf}
-    \caption[foo]{bar}
+    \caption[Average wild-type and \textit{spt6-1004} MNase-seq dyad signal around all \textit{spt6-1004}-induced intragenic TSSs, grouped by a self-organizing map of the MNase-seq signal.]{bar}
     \label{fig:six_mnase_som}
 \end{sidewaysfigure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=6in]{figures/six/six_intragenic_mnase_metagenes.pdf}
-\caption[foo bar]{
+\caption[Average wild-type and \textit{spt6-1004} MNase-seq dyad signal and GC content for three clusters of \textit{spt6-1004}-induced intragenic TSSs, as well as genic TSSs.]{
     \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=6.2em, font=\normalfont]
         \item [top row)] Average MNase-seq dyad signal for two clusters of \textit{spt6-1004} intragenic TSSs (clustered by wild-type and \textit{spt6-1004} MNase-seq dyad signal flanking the TSS), as well as all genic TSSs detected in wild-type and \textit{spt6-1004}. Values are the mean of spike-in normalized dyad coverage in non-overlapping 10 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and inter-quartile range.
         \item [bottom row)] Average GC content of the DNA sequence, as above.
@@ -246,7 +248,7 @@ The overall effect of this on expression levels is to equalize expression levels
 \begin{wrapfigure}[12]{R}{3in}
 \centering
 \includegraphics[width=3in]{figures/six/six_tss_seqlogos.pdf}
-\caption{Sequence logos of the information content of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.}
+\caption[Sequence logos of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.]{Sequence logos of the information content of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.}
 \label{fig:six_tss_seqlogos}
 \end{wrapfigure}
 
@@ -255,12 +257,18 @@ The overall effect of this on expression levels is to equalize expression levels
 \begin{wrapfigure}[15]{r}{3in}
 \centering
 \includegraphics[width=3in]{figures/six/six_intragenic_tata.pdf}
-\caption{Scaled density of occurrences of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is multiplied by the number of motif occurrences in the genomic category and divided by the number of regions in the category.}
+\caption[Kernel density estimate of matches to a consensus TATA-box motif upstream of genic and \textit{spt6-1004}-induced intragenic TSSs.]{Scaled density of occurrences of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is multiplied by the number of motif occurrences in the genomic category and divided by the number of regions in the category.}
 \label{fig:six_intragenic_tata}
 \end{wrapfigure}
 
 \lipsum[1]
 
+\begin{figure}[]
+% \centering
+% \includegraphics[width=6in]{figures/six/six_intragenic_mnase_metagenes.pdf}
+    \caption[Sequence logos of motifs enriched upstream of \textit{spt6-1004}-induced intragenic and antisense TSSs.]{}
+% \label{fig:six_intragenic_mnase_metagenes}
+\end{figure}
 
 \newpage
 \bibliographystyle{apalike}

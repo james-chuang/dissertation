@@ -87,6 +87,14 @@ figures:
             tata_random: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_control_allFIMOresults.tsv.gz
             height: 1.6
             width: 3
+    five:
+        netseq_metagene:
+            netseq_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_NET-seq-sense.tsv.gz
+            chipseq_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-RNAPII.tsv.gz
+            annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
+            height: 3.6
+            width: 3
+
 
 
 
