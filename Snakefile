@@ -13,12 +13,14 @@ onsuccess:
 
 rule target:
     input:
+        "figures/six/six_spt6_western.pdf",
         "figures/six/six_gene_diagram.pdf",
         "figures/six/six_aat_assay_comparison.pdf",
         "figures/six/six_tss_seq_heatmaps.pdf",
         "figures/six/six_tfiib_heatmap.pdf",
         "figures/six/six_tss_diffexp_summary.pdf",
         "figures/six/six_tss_expression_levels.pdf",
+        "figures/six/six_intragenic_genes_bvenn.pdf",
         "figures/six/six_tfiib_spreading_ssa4.pdf",
         "figures/six/six_tss_v_tfiib.pdf",
         "figures/six/six_mnase_metagene.pdf",

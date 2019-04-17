@@ -7,9 +7,14 @@ tss_fdr_cutoff: 0.1
 
 figures:
     six:
+        spt6_western:
+            data_path: ../../intragenic/spt6-small-data/spt6-western/Spt6_western_quantification_2.tsv
+            blot_path: ../../intragenic/spt6-small-data/spt6-western/spt6-western-3.png
+            height: 1
+            width: 3
         gene_diagram:
-            width: 2.75
-            height: 0.9
+            width: 3
+            height: 1.2
         aat_assay_comparison:
             width: 4
             height: 2.4
@@ -39,6 +44,13 @@ figures:
             tss_intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
             height: 1.75
             width: 2.875
+        intragenic_genes_bvenn:
+            common_names: ../../intragenic/genomefiles_cerevisiae/Scer-sys-to-common-name.tsv
+            cheung_data: ../../intragenic/other-datasets/cheung08/cheung08-S3.tsv
+            uwimana_data: ../../intragenic/other-datasets/uwimana17/uwimana17-S2.tsv
+            tss_data: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-up.tsv
+            height: 2
+            width: 3
         tfiib_spreading_ssa4:
             tfiib_data: ../../intragenic/spt6-data-integration/datavis/spreading-ssa4/spreading-ssa4_TFIIB-ChIP-nexus-protection.tsv.gz
             height: 1.6

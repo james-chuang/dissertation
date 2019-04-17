@@ -1,5 +1,21 @@
 #!/usr/bin/env python
 
+rule spt6_western:
+    input:
+        data_path = FIGURES["six"]["spt6_western"]["data_path"],
+        blot_path = FIGURES["six"]["spt6_western"]["blot_path"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_spt6_western.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["spt6_western"]["height"])),
+        width = eval(str(FIGURES["six"]["spt6_western"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_spt6_western.R"
+
 rule six_gene_diagram:
     input:
         fonts_path = config["fonts_path"],
@@ -103,6 +119,24 @@ rule six_tss_expression_levels:
         "../envs/plot.yaml"
     script:
         "../scripts/six_tss_expression_levels.R"
+
+rule intragenic_genes_bvenn:
+    input:
+        common_names = FIGURES["six"]["intragenic_genes_bvenn"]["common_names"],
+        cheung_data = FIGURES["six"]["intragenic_genes_bvenn"]["cheung_data"],
+        uwimana_data = FIGURES["six"]["intragenic_genes_bvenn"]["uwimana_data"],
+        tss_data = FIGURES["six"]["intragenic_genes_bvenn"]["tss_data"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_intragenic_genes_bvenn.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["intragenic_genes_bvenn"]["height"])),
+        width = eval(str(FIGURES["six"]["intragenic_genes_bvenn"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_intragenic_genes_bvenn.R"
 
 rule six_tfiib_spreading_ssa4:
     input:

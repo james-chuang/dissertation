@@ -16,6 +16,7 @@ dependencies:
     - r-ggrepel=0.8.0
     - r-ggseqlogo=0.1
     - r-ggforce=0.2.1
+    - r-png=0.1_7
     # - r-stringi=1.4.3
     # - r-gdtools=0.1.7
     # - svg2png=4.1.1=0
