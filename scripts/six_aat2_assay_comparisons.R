@@ -42,7 +42,7 @@ main = function(theme_spec,
                            breaks = scales::pretty_breaks(n=2)) +
         theme_default +
         theme(axis.title.x = element_blank(),
-              # strip.text = element_text(hjust=0, margin = margin(0, 0, -10, 0, "pt")),
+              axis.text.x = element_text(size=9, family="FreeSans"),
               strip.text = element_text(hjust=0, family="FreeSans"),
               panel.spacing.y = unit(0, "pt"),
               panel.border = element_blank(),
@@ -67,13 +67,13 @@ main = function(theme_spec,
                  size=9/72*25.4) +
         scale_x_continuous(limits = c(-0.2, 1.6),
                            expand=c(0,0)) +
-        scale_y_continuous(limits = c(-1.1, 1.1), expand=c(0,0)) +
+        scale_y_continuous(limits = c(-1, 1), expand=c(0,0)) +
         theme_void() +
-        theme(plot.margin = margin(0,0,-0.3,0,"cm"))
+        theme(plot.margin = margin(-2,0,-0.3,0,"cm"))
 
     plot = plot_grid(diagram, coverage,
                      ncol = 1,
-                     rel_heights = c(0.17,1),
+                     rel_heights = c(0.20,1),
                      rel_widths = c(1,1),
                      align = "vh",
                      axis = "trbl")

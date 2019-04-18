@@ -115,7 +115,7 @@ main = function(theme_spec,
 
     supp_one_f = bvenn(list("\"Cheung\" ~ italic(\"et al.\")*\", 2008\""=cheung_genes$sys_ORF_name,
                            "\"Uwimana\" ~ italic(\"et al.\")*\", 2017\""=uwimana_genes$sys_gene_name,
-                           "\"this work\""=doris_genes$sys_name),
+                           "phantom(g)*this ~ work*phantom(g)"=doris_genes$sys_name),
                       scale=0.9, title="genes with sense intragenic transcripts")
 
     ggsave(pdf_out, plot=supp_one_f, width=fig_width, height=fig_height, units="in")

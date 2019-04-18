@@ -14,10 +14,10 @@ figures:
             width: 3
         gene_diagram:
             width: 3
-            height: 1.2
+            height: 1
         aat_assay_comparison:
-            width: 4
-            height: 2.4
+            width: 4.4
+            height: 2.2
             data_path: ../../intragenic/spt6-data-integration/browser-shots/AAT2/AAT2_all-assays.tsv.gz
         tss_seq_heatmaps:
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
@@ -43,14 +43,14 @@ figures:
             tss_antisense: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/antisense/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
             tss_intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
             height: 1.75
-            width: 2.875
+            width: 3
         intragenic_genes_bvenn:
             common_names: ../../intragenic/genomefiles_cerevisiae/Scer-sys-to-common-name.tsv
             cheung_data: ../../intragenic/other-datasets/cheung08/cheung08-S3.tsv
             uwimana_data: ../../intragenic/other-datasets/uwimana17/uwimana17-S2.tsv
             tss_data: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-up.tsv
-            height: 2
-            width: 3
+            height: 1.75
+            width: 2.875
         tfiib_spreading_ssa4:
             tfiib_data: ../../intragenic/spt6-data-integration/datavis/spreading-ssa4/spreading-ssa4_TFIIB-ChIP-nexus-protection.tsv.gz
             height: 1.6

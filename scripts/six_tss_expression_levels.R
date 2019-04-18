@@ -55,7 +55,8 @@ main = function(theme_spec,
                          # limits = c("genic", "intragenic", "antisense", "intergenic", "")) +
         scale_y_log10(name = "normalized counts",
                       breaks = c(10, 1000), labels = c(bquote(10^1), bquote(10^3))) +
-        scale_fill_ptol(labels = c("WT", bquote(italic("spt6-1004"))),
+        scale_fill_ptol(labels = c(expression(phantom(p)*WT*phantom(p)),
+                                   expression(italic("spt6-1004"))),
                         guide=guide_legend(label.position="top",
                                            label.hjust=0.5,
                                            keywidth=unit(30, "pt"),

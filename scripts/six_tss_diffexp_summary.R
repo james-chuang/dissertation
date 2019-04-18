@@ -132,7 +132,7 @@ main = function(theme_spec,
         # scale_y_reverse(limits = c(max(summary_df[["ymax_unscaled"]]), -.5),
         #                 expand = c(0,0))+
         theme_void() +
-        theme(plot.margin = margin(l=0, t=11/2, unit="pt"))
+        theme(plot.margin = margin(0,0,0,0,"pt"))
 
     ggsave(pdf_out, plot=diffexp_summary, width=fig_width, height=fig_height, units="in")
     embed_fonts(pdf_out)

@@ -28,16 +28,16 @@ main = function(theme_spec,
                           gp=gpar(fill="grey80",
                                   lwd=NA))
     inter = textGrob(label = "intergenic",
-                     x=0.17,
-                     y=0.17,
+                     x=0.2,
+                     y=0.2,
                      hjust=1,
                      vjust=0.5,
                      gp=gpar(fontsize=9,
                              fontfamily="FreeSans"))
-    inter_dash = linesGrob(x=c(0.17, 0.17),
+    inter_dash = linesGrob(x=c(0.2, 0.2),
                            y=c(0.40, 0.30),
                            gp=gpar(lty="twodash"))
-    inter_arrow = linesGrob(x=c(0.17, 0.04),
+    inter_arrow = linesGrob(x=c(0.2, 0.04),
                             y=c(0.30, 0.30),
                             arrow=arrow(length=unit(0.15, "cm")))
     intra = textGrob(label = "intragenic",
