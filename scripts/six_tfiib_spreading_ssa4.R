@@ -27,7 +27,7 @@ main = function(theme_spec,
                        aes(x=position,
                            y=signal,
                            fill=group)) +
-        geom_area(alpha=0.75,
+        geom_area(alpha=0.6,
                   position=position_identity()) +
         scale_x_continuous(expand=c(0,0),
                            breaks=scales::pretty_breaks(3),
@@ -47,7 +47,8 @@ main = function(theme_spec,
                  x=0,
                  xend=2.111,
                  y=0.7,
-                 yend=0.7) +
+                 yend=0.7,
+                 color="grey50") +
         annotate(geom="polygon",
                  x=c(0.054,
                      1.929*.93+0.054,
@@ -68,16 +69,16 @@ main = function(theme_spec,
         ggtitle("TFIIB ChIP-nexus protection") +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
-              strip.background = element_rect(fill="grey80", size=0, color=NA),
-              axis.title.y = element_text(margin=margin(r=6, unit="pt")),
+              strip.background = element_rect(fill="grey90", size=0, color=NA),
+              axis.title.y = element_text(margin=margin(r=1, unit="pt")),
               axis.title.x = element_blank(),
               panel.border = element_blank(),
-              axis.line.y = element_line(size=0.25, color="grey65"),
+              axis.line.y = element_line(size=0.25, color="grey70"),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.x = element_blank(),
               panel.grid.minor.y = element_blank(),
               panel.spacing.y = unit(1, "pt"),
-              plot.margin = margin(0, 11, 0, 0))
+              plot.margin=margin(r=11, t=1, unit="pt"))
 
     ggplot2::ggsave(pdf_out, plot=fig_two_b, width=fig_width, height=fig_height, units="in")
     embed_fonts(pdf_out)

@@ -53,8 +53,8 @@ figures:
             width: 2.875
         tfiib_spreading_ssa4:
             tfiib_data: ../../intragenic/spt6-data-integration/datavis/spreading-ssa4/spreading-ssa4_TFIIB-ChIP-nexus-protection.tsv.gz
-            height: 1.6
-            width: 4
+            height: 2.6
+            width: 3.5
         tss_vs_tfiib:
             genic: ../../intragenic/tss-v-tfiib-nexus/window_diff_binding/spt6-1004-37C-v-WT-37C/tss-spikenorm/spt6-1004-37C-v-WT-37C_tss-spikenorm-window-200-tfiib-chipnexus-libsizenorm-diffbind-results-genic.tsv
             intragenic: ../../intragenic/tss-v-tfiib-nexus/window_diff_binding/spt6-1004-37C-v-WT-37C/tss-spikenorm/spt6-1004-37C-v-WT-37C_tss-spikenorm-window-200-tfiib-chipnexus-libsizenorm-diffbind-results-intragenic.tsv
@@ -80,7 +80,7 @@ figures:
             width: 6
         mnase_som:
             som_data: ../../intragenic/cluster_intragenic_mnase/spt6-1004-37C-induced-intragenic-SOM-data.tsv.gz
-            height: 4
+            height: 4.5
             width: 8.25
         intragenic_mnase_metagenes:
             mnase_data: ../../intragenic/spt6-data-integration/datavis/spt6-induced-intragenic-TSSs-MNase-clusters-v-genic/spt6-induced-intragenic-TSSs-MNase-clusters-v-genic_MNase-seq.tsv.gz

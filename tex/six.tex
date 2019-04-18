@@ -184,14 +184,18 @@ As a result of intragenic/antisense induction and genic repression, expression l
     \label{fig:six_tss_expression_levels}
 \end{wrapfigure}
 
-\lipsum[1]
+The changes in transcript levels in \textit{spt6-1004} observed by TSS-seq correspond with substantial differences in the pattern of TFIIB binding on the genome.
+In contrast to the discrete peaks in promoter regions seen in wild-type, TFIIB in \textit{spt6-1004} binds much more promiscuously, with many loci having TFIIB signal spread over broad regions of the genome (Figure \ref{fig:six_tfiib_spreading_ssa4}).
+This difference in binding pattern makes peak calling ineffective for quantifying TFIIB signal in this case: ChIP-seq peak callers generally use different algorithms for calling `narrow' peaks (e.g. for sequence-specific transcription factors) and `broad' peaks (e.g. for histone modifications), meaning that a single algorithm is unable to call peaks that are meaningful for differential binding analyses between wild-type and \textit{spt6-1004}.
+Therefore, to see if changes in transcript levels in \textit{spt6-1004} correspond to changes in transcription initiation, we compared the change in TSS-seq signal at TSS-seq peaks in \textit{spt6-1004} to the change in TFIIB ChIP-nexus signal in the window extending 200 bp upstream of the TSS-seq peak.
+Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class, indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
 
 \begin{SCfigure}[50][h]
 \centering
-\includegraphics[width=4in]{figures/six/six_tfiib_spreading_ssa4.pdf}
+\includegraphics[width=3.5in]{figures/six/six_tfiib_spreading_ssa4.pdf}
 \caption[TFIIB ChIP-nexus protection over the 20 kb flanking the gene \textit{SSA4}, in wild-type and \textit{spt6-1004} cells.]{
     \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
-        \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004} strains over 20 kb of chromosome II flanking the \textit{SSA4} gene.
+        \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004}, over 20 kb of chromosome II flanking the \textit{SSA4} gene.
         \item [bottom)] Expanded view of TFIIB protection over the \textit{SSA4} gene.
     \end{description}
 }
@@ -231,11 +235,11 @@ As a result of intragenic/antisense induction and genic repression, expression l
 \begin{sidewaysfigure}
     \centering
     \includegraphics[width=8.25in]{figures/six/six_mnase_som.pdf}
-    \caption[Average wild-type and \textit{spt6-1004} MNase-seq dyad signal around all \textit{spt6-1004}-induced intragenic TSSs, grouped by a self-organizing map of the MNase-seq signal.]{bar}
+    \caption[Average MNase-seq dyad signal around all \textit{spt6-1004}-induced intragenic TSSs, grouped by a self-organizing map of the MNase-seq signal.]{Average MNase-seq dyad signal around all \textit{spt6-1004}-induced intragenic TSSs, grouped by assignment to nodes of a 6x8 super-organizing map (SOM). The number of TSSs assigned to each node is shown in the upper right of each panel, and is shaded by the node's assignment to a cluster determined by agglomerative hierarchical clustering of the nodes. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates (\textit{spt6-1004}) or one experiment (wild-type), in non-overlapping 5 bp bins.}
     \label{fig:six_mnase_som}
 \end{sidewaysfigure}
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
 \caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, aligned by genic TSS and arranged by sense NET-seq signal.]{
@@ -251,9 +255,9 @@ As a result of intragenic/antisense induction and genic repression, expression l
 \begin{figure}[H]
 \centering
 \includegraphics[width=6in]{figures/six/six_intragenic_mnase_metagenes.pdf}
-\caption[Average wild-type and \textit{spt6-1004} MNase-seq dyad signal and GC content for three clusters of \textit{spt6-1004}-induced intragenic TSSs, as well as genic TSSs.]{
+\caption[Average wild-type and \textit{spt6-1004} MNase-seq dyad signal and GC content for three clusters of \textit{spt6-1004}-induced intragenic TSSs, as well as wild-type genic TSSs.]{
     \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=6.2em, font=\normalfont]
-        \item [top row)] Average MNase-seq dyad signal for two clusters of \textit{spt6-1004} intragenic TSSs (clustered by wild-type and \textit{spt6-1004} MNase-seq dyad signal flanking the TSS), as well as all genic TSSs detected in wild-type and \textit{spt6-1004}. Values are the mean of spike-in normalized dyad coverage in non-overlapping 10 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and inter-quartile range.
+        \item [top row)] Average MNase-seq dyad signal for \textit{spt6-1004} intragenic TSSs, both aggregated and grouped into three clusters by the wild-type and \textit{spt6-1004} MNase-seq dyad signal flanking the TSS, as well as all genic TSSs detected in wild-type. Values are the mean of spike-in normalized dyad coverage in non-overlapping 10 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and inter-quartile range.
         \item [bottom row)] Average GC content of the DNA sequence, as above.
     \end{description}
 }
