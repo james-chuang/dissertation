@@ -8,16 +8,13 @@
 \sectionfont{\normalsize}
 \subsectionfont{\normalsize}
 
-\usepackage[round, sort, comma]{natbib}
-\usepackage[]{chapterbib}
-\sectionbib{\section}{section}
-
 \usepackage{bu_ece_thesis_minimal}
 
 \usepackage{setspace}
 \doublespacing
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{mathspec}
 \setmainfont{FreeSans}[
     Path=fonts/,
@@ -48,6 +45,7 @@
 \usepackage{xcolor}
 \definecolor{blue}{HTML}{114477}
 \definecolor{grey}{HTML}{aaaaaa}
+\definecolor{lightpurple}{HTML}{beaed4}
 \usepackage[colorlinks=true,
             linkcolor=black,
             urlcolor=blue,
@@ -57,6 +55,14 @@
             breaklinks=false,
             pdftitle=Title\ of\ thesis,
             pdfcreator=James\ Chuang]{hyperref}
+
+\usepackage[round, sort]{natbib}
+\setcitestyle{aysep={,}, citesep={;}}
+\usepackage[]{chapterbib}
+\sectionbib{\section}{section}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes}
 
 \usepackage{lipsum}
 

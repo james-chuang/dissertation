@@ -100,16 +100,29 @@ figures:
             height: 1.6
             width: 3
     five:
-        netseq_metagene:
+        summary_metagenes:
             netseq_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_NET-seq-sense.tsv.gz
-            chipseq_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-RNAPII.tsv.gz
+            rnapii_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-RNAPII.tsv.gz
+            spt5_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-Spt5.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
             height: 3.6
             width: 3
-
-
-
-
+        rnapii_phosphomark_enrichment:
+            data_paths:
+                - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_non-depleted-Rpb1-melted.tsv.gz
+                - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_depleted-Rpb1-melted.tsv.gz
+                - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_non-depleted-Ser5P-melted.tsv.gz
+                - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_depleted-Ser5P-melted.tsv.gz
+                - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_non-depleted-Ser2P-melted.tsv.gz
+                - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_depleted-Ser2P-melted.tsv.gz
+            annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
+            height: 1.5
+            width: 4.5
+        rnaseq_heatmaps:
+            rnaseq_data: ../../spt5/rna-seq/datavis/coding-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/coding-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-libsizenorm-wholeread-ANTISENSE.tsv.gz
+            annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
+            height: 3.3
+            width: 3
 
 
     stress:

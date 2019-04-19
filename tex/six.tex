@@ -208,9 +208,11 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
 \caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
 \end{figure}
 
-\lipsum[1]
-
 \section{MNase-seq results from \textit{spt6-1004}}
+
+Because a primary function of Spt6 is to act as histone chaperone that reassembles nucleosomes in the wake of transcription \citep{duina2011}, it is reasonable to expect that the transcriptional changes seen in \textit{spt6-1004} would be associated with changes in chromatin structure.
+The requirement for Spt6 in maintaining normal chromatin structure has been demonstrated in previous studies \citep{bortvin1996, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}.
+To re-examine this requirement in higher resolution, we assayed nucleosome protection genome-wide using micrococcal nuclease digestion of chromatin followed by sequencing (MNase-seq).
 
 \begin{figure}[H]
     \centering
@@ -224,11 +226,35 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
         \centering
         \includegraphics[width=2.875in]{figures/six/six_global_nuc_occ_fuzz.pdf}
         \caption[Contour plot of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}.]{Contour plot of the global distributions of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
-        \label{fig:six_global_nuc_fuzz}
+        \label{fig:six_global_nuc_occ_fuzz}
     \end{minipage}
 \end{figure}
 
-\lipsum[1]
+In wild-type, the MNase-seq data recapitulate the expected signature over genes, with a nucleosome-depleted region upstream of a strongly positioned `+1' nucleosome, and a regularly phased array of nucleosomes over the gene body (Figure \ref{fig:six_mnase_metagene}).
+In \textit{spt6-1004}, nucleosome signal is severely reduced at canonical nucleosome positions and spreads into inter-nucleosome regions.
+Changes in aggregate nucleosome signal such as those observed in Figure \ref{fig:six_mnase_metagene} are the combination of changes to nucleosome occupancy (the number of reads assigned to a nucleosome), fuzziness (the standard deviation of read positions for a nucleosome), and position (the coordinate with the maximum reads for a nucleosome) \citep{chen2013}.
+Using DANPOS2 \citep{chen2013}, we called nucleosome positions and quantified these metrics for wild-type and \textit{spt6-1004}.
+Wild-type nucleosomes span a relatively wide range of occupancy and fuzziness space, with highly occupied nucleosomes tending to be less fuzzy (i.e., more well-positioned) (Figure \ref{fig:six_global_nuc_occ_fuzz}).
+In \textit{spt6-1004}, the population of nucleosomes is much more homogeneous: nucleosome occupancy is decreased globally, and nucleosome fuzziness is restricted to the high end of the wild-type distribution.
+
+Previous studies observed two trends: 1) In wild-type cells, nucleosome positioning is weaker over highly transcribed genes than over moderately transcribed genes \citep{shivaswamy2008}, and 2) In \textit{spt6-1004} cells, the decrease in nucleosome occupancy is greater for highly transcribed genes \citep{ivanovska2011}.
+To re-examine these trends, we looked at the MNase-seq data in the context of NET-seq data, which reports the position of actively transcribing RNAPII and reflects a gene's level of transcription (Figure \ref{fig:six_mnase_heatmaps}) \citep{churchman2012}.
+The data support the first trend: in wild-type, genes with the strongest NET-seq signal have decreased MNase-seq signal.
+However, there is no obvious relationship between transcription level and the nucleosome changes observed in \textit{spt6-1004} (Figure \ref{fig:six_mnase_heatmaps}).
+The apparent discrepancy might be explained by the improved resolution and breadth of MNase-seq versus the MNase and microarray of chromosome III used in the previous study \citep{ivanovska2011}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
+    \caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, aligned by genic TSS and arranged by sense NET-seq signal.]{
+        \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
+            \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nucleotides downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
+            \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type).
+            \item [right)] Heatmaps of fold-change in nucleosome occupancy and fuzziness for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel.
+        \end{description}
+    }
+    \label{fig:six_mnase_heatmaps}
+\end{figure}
 
 \subsection{Clustering of MNase-seq profiles at \textit{spt6-1004}-induced intragenic TSSs}
 
@@ -240,19 +266,6 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
 \end{sidewaysfigure}
 
 \begin{figure}[h]
-\centering
-\includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
-\caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, aligned by genic TSS and arranged by sense NET-seq signal.]{
-    \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
-        \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nucleotides downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
-        \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type).
-        \item [right)] Heatmaps of fold-change in nucleosome occupancy and fuzziness for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel.
-    \end{description}
-}
-\label{fig:six_mnase_heatmaps}
-\end{figure}
-
-\begin{figure}[H]
 \centering
 \includegraphics[width=6in]{figures/six/six_intragenic_mnase_metagenes.pdf}
 \caption[Average wild-type and \textit{spt6-1004} MNase-seq dyad signal and GC content for three clusters of \textit{spt6-1004}-induced intragenic TSSs, as well as wild-type genic TSSs.]{

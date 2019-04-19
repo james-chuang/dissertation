@@ -8,28 +8,47 @@
 
 \section{Introduction to Spt5 and prior work}
 
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-    \caption[Diagram of the dual-shutoff system used to deplete Spt5 from \textit{S. pombe}]{Caption wsdasdr zzzz.}
-% \label{fig:stress_promoter_tss_polyenrichment}
-\end{figure}
+\begin{wrapfigure}[11]{r}{3in}
+    \begin{tikzpicture}[x=3in, y=1in]
+        \draw [line width=2pt] (0,0.1) -- (0.95,0.1);
+        \draw [->, line width=3pt] (0.1,0.1) -- (0.1,0.25) -- (0.25,0.25);
+        \draw [line width=2pt] (0.175,0.6) -- (0.175, 0.32);
+        \draw [line width=2pt] (0.15, 0.32) -- (0.20, 0.32);
+        \node at (0.175, 0.7) {\normalsize thiamine};
+        \draw [fill=lightpurple, line width=1pt] (0.28, 0) rectangle (0.8, 0.2);
+        \node at (0.54, 0.1) {\normalsize spt5};
+        \draw [->, line width=2pt] (0.33, 0.3) to [out=90, in=180] (0.5,0.7);
+        \draw [fill=lightpurple, line width=1pt] (0.62, 0.7) circle [x radius=0.1, y radius=0.15];
+        \node at (0.62, 0.7) {\normalsize Spt5};
+        \draw [->, line width=2pt] (0.73, 0.7) to (0.85, 0.7);
+        \node at (0.77, 1) {\normalsize auxin};
+        \draw [, line width=2pt] (0.77, 0.9) to [out=270, in=180] (0.80,0.7);
+        \node at (0.9, 0.7) {\scalebox{2}{$\varnothing$}};
+    \end{tikzpicture}
+    \caption[Diagram of the dual-shutoff system used to deplete Spt5 from \textit{S. pombe}]{Diagram of the dual-shutoff system used to deplete Spt5 from \textit{S. pombe}. Spt5 is expressed from a thiamine-repressible promoter, and tagged with an auxin-inducible degron tag for specific degradation upon addition of auxin.}
+    \label{fig:five_depletion_diagram}
+\end{wrapfigure}
+
+\lipsum
+
+\begin{wrapfigure}[14]{r}{3in}
+    \includegraphics[width=3in]{figures/five/five_summary_metagenes.pdf}
+    \caption[Average Spt5 ChIP-seq, RNAPII ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5 depleted and non-depleted cells.]{Average Spt5 ChIP-seq, RNAPII ChIP-seq, and sense NET-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates, in non-overlapping 20 bp bins.}
+    \label{fig:five_suummary_metagenes}
+\end{wrapfigure}
+
+\lipsum[2]
+
+\begin{wrapfigure}[6]{r}{4.5in}
+    \includegraphics[width=4.5in]{figures/five/five_rnapii_phosphomark_enrichment.pdf}
+    \caption[Enrichment of RNAPII phospho-serine 5 and phospho-serine 2 over non-overlapping coding genes, in Spt5 depleted and non-depleted cells.]{Caption wsdasdr zzzz.}
+    \label{fig:five_rnapii_phosphomark_enrichment}
+\end{wrapfigure}
 
 \begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-\caption[Average Spt5 ChIP-seq, RNAPII ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5 depleted and non-depleted cells.]{Caption wsdasdr zzzz.}
-% \label{fig:stress_promoter_tss_polyenrichment}
-\end{figure}
-
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-\caption[Enrichment of RNAPII phospho-serine 5 and phospho-serine 2 over non-overlapping coding genes, in Spt5 depleted and non-depleted cells.]{Caption wsdasdr zzzz.}
-% \label{fig:stress_promoter_tss_polyenrichment}
-\end{figure}
-
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-\caption[Heatmaps of antisense RNA-seq signal from Spt5 depleted and non-depleted cells, over non-overlapping coding genes.]{Caption wsdasdr zzzz.}
-% \label{fig:stress_promoter_tss_polyenrichment}
+    \includegraphics[width=3in]{figures/five/five_rnaseq_heatmaps.pdf}
+    \caption[Heatmaps of antisense RNA-seq signal from Spt5 depleted and non-depleted cells, over non-overlapping coding genes.]{Caption wsdasdr zzzz.}
+    \label{fig:five_rnaseq_heatmaps}
 \end{figure}
 
 \section{An aside on spike-in normalization for ChIP-seq}
