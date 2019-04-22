@@ -270,6 +270,7 @@ rule six_intragenic_tata:
     input:
         tata_genic_path = FIGURES["six"]["intragenic_tata"]["tata_genic"],
         tata_intra_path = FIGURES["six"]["intragenic_tata"]["tata_intragenic"],
+        tata_anti_path = FIGURES["six"]["intragenic_tata"]["tata_antisense"],
         tata_random_path = FIGURES["six"]["intragenic_tata"]["tata_random"],
         theme = config["theme_spec"],
         fonts_path = config["fonts_path"],
@@ -283,4 +284,35 @@ rule six_intragenic_tata:
     script:
         "../scripts/six_intragenic_tata.R"
 
+rule six_build_motif_input:
+    input:
+        intragenic = FIGURES["six"]["meme_motifs"]["intragenic"],
+        antisense = FIGURES["six"]["meme_motifs"]["antisense"],
+    output:
+        intragenic = "figures/six/six_intragenic_motif.meme",
+        antisense = "figures/six/six_antisense_motif.meme"
+    conda:
+        "../envs/meme.yaml"
+    shell: """
+        meme2meme <(meme-get-motif -a -id GAHRATGAAGAWGADGAHGAT-MEME-1 {input.intragenic}) > {output.intragenic}
+        meme2meme <(meme-get-motif -a -id TCWTCDTCNTCDWCTTCTTCWTCDTYWTC-MEME-1 {input.antisense}) \\
+                <(meme-get-motif -a -id TATWTAKATATATATATAYWT-MEME-2 {input.antisense}) \\
+                <(meme-get-motif -a -id RAARAAADWRAAAAARAARRA-MEME-3 {input.antisense}) > {output.antisense}
+        """
+
+rule six_meme_motifs:
+    input:
+        intragenic = "figures/six/six_intragenic_motif.meme",
+        antisense = "figures/six/six_antisense_motif.meme",
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/six/six_meme_motifs.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["meme_motifs"]["height"])),
+        width = eval(str(FIGURES["six"]["meme_motifs"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/six_meme_motifs.R"
 

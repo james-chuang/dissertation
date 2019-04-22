@@ -102,7 +102,8 @@ main = function(theme_spec,
               legend.position="right",
               legend.justification=c(0, 0.5),
               legend.title=element_text(size=7),
-              legend.text=element_text(size=5))
+              legend.text=element_text(size=5),
+              panel.grid = element_blank())
 
     ggsave(pdf_out, plot=enrichment_plot, width=fig_width, height=fig_height, units="in")
     embed_fonts(pdf_out)

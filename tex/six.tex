@@ -248,7 +248,7 @@ The apparent discrepancy might be explained by the improved resolution and bread
     \includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
     \caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, aligned by genic TSS and arranged by sense NET-seq signal.]{
         \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
-            \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nucleotides downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
+            \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nt downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
             \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type).
             \item [right)] Heatmaps of fold-change in nucleosome occupancy and fuzziness for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel.
         \end{description}
@@ -258,6 +258,11 @@ The apparent discrepancy might be explained by the improved resolution and bread
 
 \subsection{Clustering of MNase-seq profiles at \textit{spt6-1004}-induced intragenic TSSs}
 
+The aggregate MNase-seq dyad signal around all \textit{spt6-1004} intragenic TSSs is aperiodic (Figure \ref{fig:six_intragenic_mnase_metagenes}, top left panel), which occurs as a result of destructive interference from offset nucleosome phasing patterns.
+To discover these phasing patterns, we used the wild-type and \textit{spt6-1004} MNase-seq data flanking intragenic TSSs to train a self-organizing map to assign TSSs with similar MNase-seq patterns to nearby nodes in a rectangular grid (Figure \ref{fig:six_mnase_som}).
+This allowed us to see that, although there is considerable diversity in the nucleosome pattern surrounding intragenic TSSs, most intragenic TSSs occur in areas between the positions of nucleosome dyads.
+By hierarchically clustering the `code vectors' representing each node of the self-organizing map, we further grouped intragenic TSSs into three major clusters differing primarily by the phasing of the nucleosome array relative to the TSS, as shown in Figure \ref{fig:six_intragenic_mnase_metagenes}.
+
 \begin{sidewaysfigure}
     \centering
     \includegraphics[width=8.25in]{figures/six/six_mnase_som.pdf}
@@ -265,52 +270,64 @@ The apparent discrepancy might be explained by the improved resolution and bread
     \label{fig:six_mnase_som}
 \end{sidewaysfigure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=6in]{figures/six/six_intragenic_mnase_metagenes.pdf}
 \caption[Average wild-type and \textit{spt6-1004} MNase-seq dyad signal and GC content for three clusters of \textit{spt6-1004}-induced intragenic TSSs, as well as wild-type genic TSSs.]{
     \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=6.2em, font=\normalfont]
-        \item [top row)] Average MNase-seq dyad signal for \textit{spt6-1004} intragenic TSSs, both aggregated and grouped into three clusters by the wild-type and \textit{spt6-1004} MNase-seq dyad signal flanking the TSS, as well as all genic TSSs detected in wild-type. Values are the mean of spike-in normalized dyad coverage in non-overlapping 10 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and inter-quartile range.
-        \item [bottom row)] Average GC content of the DNA sequence, as above.
+        \item [left column)] Average MNase-seq dyad signal for \textit{spt6-1004} intragenic TSSs, both aggregated and grouped into three clusters by the wild-type and \textit{spt6-1004} MNase-seq dyad signal flanking the TSS, as well as all genic TSSs detected in wild-type. Values are the mean of spike-in normalized dyad coverage in non-overlapping 10 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and inter-quartile range.
+        \item [right column)] Average GC content of the DNA sequence in a 21 bp window, as above.
     \end{description}
 }
 \label{fig:six_intragenic_mnase_metagenes}
 \end{figure}
 
-\lipsum[1]
+\clearpage
 
 \section{Other features of \textit{spt6-1004} intragenic promoters}
 
-\subsection{Information content of intragenic TSSs}
+The resolution with which we were able to identify intragenic TSSs allowed us to closely examine their sequence features and compare them to genic TSSs.
 
-\begin{wrapfigure}[12]{R}{3in}
+\subsection{Information content and sequence preference of intragenic TSSs}
+
+\begin{wrapfigure}[13]{R}{3in}
 \centering
 \includegraphics[width=3in]{figures/six/six_tss_seqlogos.pdf}
-\caption[Sequence logos of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.]{Sequence logos of the information content of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.}
+\caption[Sequence logos of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.]{Sequence logos depicting information content and sequence preference of TSS-seq reads overlapping genic and intragenic TSS-seq peaks in \textit{spt6-1004}.}
 \label{fig:six_tss_seqlogos}
 \end{wrapfigure}
 
-\lipsum[1]
+To examine the DNA sequence preference of intragenic and genic TSSs in \textit{spt6-1004}, we aligned the sequences of all TSS-seq reads overlapping TSS-seq peaks of each class, and calculated the information content and sequence distribution for each class (Figure \ref{fig:six_tss_seqlogos}).
+Intragenic TSSs have a sequence preference almost identical to previously observed sequence preference of genic TSSs \citep{malabat2015}, suggesting that RNA polymerase initiates transcription similarly at genic and intragenic TSSs, and that the lack of intragenic initiation in wild-type is due to inaccessibility of the initiation sequence, possibly due to histones.
 
 \subsection{Sequence motifs enriched at intragenic TSSs}
 
-\begin{wrapfigure}[15]{r}{3in}
-\centering
-\includegraphics[width=3in]{figures/six/six_intragenic_tata.pdf}
-\caption[Kernel density estimate of matches to a consensus TATA-box motif upstream of genic and \textit{spt6-1004}-induced intragenic TSSs.]{Scaled density of occurrences of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is multiplied by the number of motif occurrences in the genomic category and divided by the number of regions in the category.}
-\label{fig:six_intragenic_tata}
-\end{wrapfigure}
+To examine whether sequence-specific transcription factors contribute to the expression of intragenic transcripts in \textit{spt6-1004}, we looked for enrichment or depletion of the DNA sequence motifs associated with these factors upstream of intragenic TSSs.
+Exact matches to the TATA element consensus sequence TATAWAWR are enriched upstream between 100 and 150 nt upstream of intragenic TSSs, in the same position but to a lesser degree than the TATA enrichment observed upstream of genic TSSs (Figure \ref{fig:six_intragenic_tata}).
+This further supports the model that \textit{spt6-1004} intragenic promoters are sequences similar to canonical genic promoters, which become accessible for transcription initiation when the normal chromatin state is disturbed.
 
-\lipsum[1]
+\begin{SCfigure}[50][h]
+    \centering
+    \includegraphics[width=3in]{figures/six/six_intragenic_tata.pdf}
+    \caption[Kernel density estimate of matches to a consensus TATA-box motif upstream of genic and \textit{spt6-1004}-induced intragenic TSSs.]{Scaled density of occurrences of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is scaled by the number of motif occurrences per region.}
+    \label{fig:six_intragenic_tata}
+\end{SCfigure}
 
-\begin{figure}[]
-% \centering
-% \includegraphics[width=6in]{figures/six/six_intragenic_mnase_metagenes.pdf}
-    \caption[Sequence logos of motifs enriched upstream of \textit{spt6-1004}-induced intragenic and antisense TSSs.]{}
-% \label{fig:six_intragenic_mnase_metagenes}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6in]{figures/six/six_meme_motifs.pdf}
+    \caption[Sequence logos of motifs discovered by MEME upstream of \textit{spt6-1004}-induced intragenic and antisense TSSs.]{Sequence logos of motifs discovered by MEME \citep{bailey2015} in the window -100 to +30 bp relative to \textit{spt6-1004} intragenic and antisense TSSs. The number of motif occurrences and the E-value, indicating the expected number of motif occurrences if the input sequences were scrambled, are shown for each motif.}
+    \label{fig:six_meme_motifs}
 \end{figure}
 
 \section{Summary}
+
+\section{Methods}
+
+\subsection{Yeast strain construction and grown conditions}
+
+All yeast strains were constructed by standard yeast transformation or crosses.
+The \textit{spt6-1004} and wild-type strains were grown as previously described \citep{cheung2008}: Cells were grown in YPD at 30\textdegree C to a concentration of approximately $1 \times 10^7$ cells/ml (OD$_{600} = 0.6$), at which point an equal volume of YPD medium pre-warmed to 44\textdegree C was added, and the cultures were shifted to 37\textdegree C for 80 minutes.
 
 \newpage
 \bibliographystyle{apalike}

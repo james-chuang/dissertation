@@ -1,0 +1,8 @@
+name: meme
+channels:
+    - bioconda
+    - conda-forge
+
+dependencies:
+    - meme=5.0.2=py36pl526h96dd833_5
+

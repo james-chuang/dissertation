@@ -51,3 +51,38 @@ rule five_rnaseq_heatmaps:
     script:
         "../scripts/five_rnaseq_heatmaps.R"
 
+rule five_tss_diffexp_summary:
+    input:
+        in_genic = FIGURES["five"]["tss_diffexp_summary"]["genic"],
+        in_intra = FIGURES["five"]["tss_diffexp_summary"]["intragenic"],
+        in_anti = FIGURES["five"]["tss_diffexp_summary"]["antisense"],
+        in_inter = FIGURES["five"]["tss_diffexp_summary"]["intergenic"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/five/five_tss_diffexp_summary.pdf",
+    params:
+        fdr_cutoff_tss = config["tss_fdr_cutoff"],
+        height = eval(str(FIGURES["five"]["tss_diffexp_summary"]["height"])),
+        width = eval(str(FIGURES["five"]["tss_diffexp_summary"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_tss_diffexp_summary.R"
+
+rule five_mnase_metagene:
+    input:
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+        mnase_data = FIGURES["five"]["mnase_metagene"]["mnase_data"],
+    output:
+        pdf = "figures/five/five_mnase_metagene.pdf"
+    params:
+        height = eval(str(FIGURES["five"]["mnase_metagene"]["height"])),
+        width = eval(str(FIGURES["five"]["mnase_metagene"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_mnase_metagene.R"
+
+

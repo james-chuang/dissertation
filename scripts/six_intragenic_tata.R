@@ -14,7 +14,10 @@ import = function(path, annotation_id){
 
 main = function(theme_spec,
                 fonts_path,
-                tata_genic_path, tata_intra_path, tata_random_path,
+                tata_genic_path,
+                tata_intra_path,
+                tata_anti_path,
+                tata_random_path,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
@@ -26,6 +29,7 @@ main = function(theme_spec,
     df = tata_genic_path %>%
         import(annotation_id = "genic") %>%
         bind_rows(tata_intra_path %>% import(annotation_id = "intragenic")) %>%
+        bind_rows(tata_anti_path %>% import(annotation_id = "antisense")) %>%
         bind_rows(tata_random_path %>% import(annotation_id = "random")) %>%
         group_by(annotation) %>%
         mutate(n_regions = n_distinct(chrom, region_start, region_end, region_strand)) %>%
@@ -60,13 +64,14 @@ main = function(theme_spec,
                            labels = function(x) case_when(x==-200 ~ "-200 nt",
                                                           x==0 ~ "TSS",
                                                           TRUE ~ as.character(x))) +
-        scale_y_continuous(limits = c(0, 0.0105),
+        scale_y_continuous(#limits = c(0, 0.0105),
                            expand = c(0,0),
                            breaks = scales::pretty_breaks(n=1),
                            name = "scaled density") +
-        scale_fill_manual(values = c("#1F77B4",
-                                     "#FF7F0E",
-                                     "#2CA02C")) +
+        scale_fill_tableau() +
+        # scale_fill_manual(values = c("#1F77B4",
+        #                              "#FF7F0E",
+        #                              "#2CA02C")) +
         ggtitle("TATA consensus") +
         theme_default +
         theme(axis.title.x = element_blank(),
@@ -89,6 +94,7 @@ main(theme_spec = snakemake@input[["theme"]],
      fonts_path = snakemake@input[["fonts_path"]],
      tata_genic_path = snakemake@input[["tata_genic_path"]],
      tata_intra_path = snakemake@input[["tata_intra_path"]],
+     tata_anti_path = snakemake@input[["tata_anti_path"]],
      tata_random_path = snakemake@input[["tata_random_path"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],

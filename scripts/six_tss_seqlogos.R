@@ -1,32 +1,4 @@
 
-#from ggseqlogo by Omar Wagih
-#https://github.com/omarwagih/ggseqlogo
-get_font = function(font){
-
-    GGSEQLOGO_FONT_BASE = getOption('GGSEQLOGO_FONT_BASE')
-    if(is.null(GGSEQLOGO_FONT_BASE)){
-        GGSEQLOGO_FONT_BASE=system.file("extdata", "", package = "ggseqlogo")
-        options(GGSEQLOGO_FONT_BASE=GGSEQLOGO_FONT_BASE)
-    }
-
-    #all_fonts = c('sf_bold', 'sf_regular', 'ms_bold', 'ms_regular', 'xkcd_regular')
-    font = match.arg(tolower(font), list_fonts(F))
-    font_filename = paste0(font, '.font')
-    font_obj_name = sprintf('.ggseqlogo_font_%s', font)
-
-    font_obj = getOption(font_obj_name)
-    if(is.null(font_obj)){
-        # Not loaded into global env yet - load it into options
-        font_path = file.path(GGSEQLOGO_FONT_BASE, font_filename)
-        font_obj_list = list( tmp=readRDS(font_path) )
-        names(font_obj_list) = font_obj_name
-        options(font_obj_list)
-        font_obj = font_obj_list[[1]]
-    }
-    # Return font data
-    as_tibble(font_obj)
-}
-
 main = function(theme_spec,
                 fonts_path,
                 data_paths,
@@ -41,7 +13,7 @@ main = function(theme_spec,
     loadfonts()
 
     slop=20
-    tss_classes = c('genic', 'intragenic')
+    tss_classes = c('genic', 'intragenic', 'antisense')
 
     df = tibble()
     for (i in 1:length(data_paths)){
@@ -55,7 +27,7 @@ main = function(theme_spec,
             arrange(height, .by_group=TRUE) %>%
             mutate(base_low = lag(cumsum(height), default=0),
                    base_high = base_low+height) %>%
-            left_join(get_font('helvetica_bold'), b=c("base"="letter")) %>%
+            left_join(ggseqlogo:::get_font("helvetica_bold"), by=c("base"="letter")) %>%
             group_by(position, base) %>%
             mutate(x = scales::rescale(x, to=c((1-(first(weight)))/2, 1-(1-first(weight))/2)),
                    x = x+(position-0.5),
@@ -63,12 +35,14 @@ main = function(theme_spec,
                    tss_class = tss_classes[i]) %>%
             bind_rows(df, .)
     }
-    df = df %>% mutate(tss_class = fct_inorder(tss_class, ordered=TRUE))
+    df %<>%
+        mutate(tss_class = fct_inorder(tss_class, ordered=TRUE))
 
     fig_five_c = ggplot() +
         geom_polygon(data = df, aes(x=x, y=y, group=interaction(position, base), fill=base),
                      alpha=0.95) +
-        geom_label(data = tibble(tss_class=c("genic", "intragenic")),
+        geom_label(data=df %>%
+                    distinct(tss_class),
                   aes(label=tss_class),
                   x=-12,
                   y=max(df[["y"]])*0.8,
@@ -100,8 +74,7 @@ main = function(theme_spec,
                                          margin=margin(1,0,0,0,"pt")),
               axis.line = element_line(size=0.25, color="grey65"),
               panel.grid = element_blank(),
-              panel.border = element_blank(),
-              plot.margin = margin(11/2, 0, 11/2, 0, "pt"))
+              panel.border = element_blank())
 
     ggsave(pdf_out, plot=fig_five_c, width=fig_width, height=fig_height, units="in")
     embed_fonts(pdf_out)
