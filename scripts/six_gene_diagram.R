@@ -96,8 +96,12 @@ main = function(theme_spec,
                                    anti_dash, anti_arrow,
                                    orf_box, orf_label, inter, intra, anti, genic))
 
-    ggplot2::ggsave(pdf_out, plot=diagram, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=diagram,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

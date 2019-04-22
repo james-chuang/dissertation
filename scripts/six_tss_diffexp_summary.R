@@ -70,7 +70,7 @@ main = function(theme_spec,
     diffexp_summary = ggplot(data = summary_df) +
         geom_segment(aes(x=if_else(category=="genic", upregulated, -downregulated),
                          xend=if_else(category=="genic", 1700, -3000),
-                         y=y+800, yend=y+800),
+                         y=y+500, yend=y+500),
                          # y=y_unscaled+0.17, yend=y_unscaled+0.17),
                      alpha=0.2, size=0.2) +
         geom_rect(aes(xmin=0, xmax=upregulated,
@@ -134,8 +134,12 @@ main = function(theme_spec,
         theme_void() +
         theme(plot.margin = margin(0,0,0,0,"pt"))
 
-    ggsave(pdf_out, plot=diffexp_summary, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=diffexp_summary,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

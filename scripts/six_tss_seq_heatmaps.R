@@ -39,8 +39,12 @@ main = function(theme_spec,
                                 colorbar_title="antisense TSS-seq signal")
     figure_two = arrangeGrob(sense_heatmap, anti_heatmap, nrow=1)
 
-    ggsave(pdf_out, plot=figure_two, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=figure_two,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

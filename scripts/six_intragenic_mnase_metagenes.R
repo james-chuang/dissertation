@@ -60,7 +60,7 @@ metagene = function(df,
               axis.title.y = element_text(hjust=0.5),
               panel.spacing.x = unit(10, "pt"),
               panel.grid = element_blank(),
-              plot.margin = margin(0,11/2,0,0,"pt"))
+              plot.margin = margin(0.5,2,0,0,"pt"))
     if (assay != "GC%"){
         plot = plot +
             geom_label(data = df %>%
@@ -116,8 +116,12 @@ main = function(theme_spec,
                            nrow=1,
                      align="h", axis="tb")
 
-    ggplot2::ggsave(pdf_out, plot=fig_five_a, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=fig_five_a,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

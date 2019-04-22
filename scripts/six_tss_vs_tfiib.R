@@ -77,10 +77,10 @@ main = function(theme_spec,
         # scale_y_continuous(limits = c(min(df[["tfiib_lfc"]]-df[["tfiib_lfc_SE"]]),
         #                               max(df[["tfiib_lfc"]]+df[["tfiib_lfc_SE"]])),
         scale_y_continuous(name = expression(atop("TFIIB ChIP-nexus",
-                                                  log[2] ~ textstyle(frac(italic("spt6-1004"), "WT"))))) +
+                                                  "log"[2] * textstyle(frac(italic("spt6-1004"), "WT"))))) +
         # scale_x_continuous(limits = c(min(df[["tss_lfc"]]-df[["tss_lfc_SE"]]),
         #                               max(df[["tss_lfc"]]+df[["tss_lfc_SE"]])),
-        scale_x_continuous(name = expression("TSS-seq" ~ log[2] ~ textstyle(frac(italic("spt6-1004"), "WT")))) +
+        scale_x_continuous(name = expression("TSS-seq " * "log"[2] * textstyle(frac(italic("spt6-1004"), "WT")))) +
         theme_default +
         theme(strip.text = element_text(size=9, color="black"),
               axis.title.x = element_text(size=8),
@@ -88,11 +88,14 @@ main = function(theme_spec,
               panel.grid.minor.x = element_blank(),
               panel.grid.minor.y = element_blank(),
               panel.grid.major = element_line(size=0.1),
-              panel.spacing.y = unit(0, "pt"),
-              plot.margin=margin(0,0,-5,0,"pt"))
+              panel.spacing.y = unit(0, "pt"))
 
-    ggsave(pdf_out, plot=fig_two_d, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=fig_two_d,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

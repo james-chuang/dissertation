@@ -79,18 +79,23 @@ main = function(theme_spec,
                            expand = c(0,0.02),
                            breaks = scales::pretty_breaks(n=3),
                            labels = function(x) 100*x) +
-        scale_x_continuous(name=expression(polysome ~ enrichment %==%
-                                               log[2] ~ textstyle(frac(polysome ~ RNA,
-                                                                       total ~ RNA)))) +
+        scale_x_continuous(name=expression("polysome enrichment" %==%
+                                               "log"[2] ~ textstyle(frac("polysome RNA",
+                                                                       "total RNA")))) +
         ggtitle("polysome enrichment in oxidative stress",
                 subtitle = "oxidative stress-induced TSSs") +
         scale_color_tableau() +
         theme_default +
         theme(legend.position = c(0.4, 0.7),
-              plot.subtitle = element_text(size=7))
+              plot.subtitle = element_text(size=7),
+              plot.margin=margin(0.5,0,0,0,"pt"))
 
-    ggplot2::ggsave(pdf_out, plot=figure_3b, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=figure_3b,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

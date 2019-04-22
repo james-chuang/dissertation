@@ -172,7 +172,7 @@ As a result of intragenic/antisense induction and genic repression, expression l
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/six/six_intragenic_genes_bvenn.pdf}
-        \caption[Set diagram of the number of genes with \textit{spt6-1004}-induced intragenic transcripts reported in \citet{cheung2008}, \citet{uwimana2017}, and our TSS-seq data.]{Set diagram of the number of genes reported to have \textit{spt6-1004}-induced intragenic transcripts using tiled arrays \citet{cheung2008}, RNA-seq \citet{uwimana2017}, and TSS-seq (this work).}
+        \caption[Set diagram of the number of genes with \textit{spt6-1004}-induced intragenic transcripts reported in \citet{cheung2008}, \citet{uwimana2017}, and our TSS-seq data.]{Set diagram of the number of genes reported to have \textit{spt6-1004}-induced intragenic transcripts using tiled arrays \citep{cheung2008}, RNA-seq \citep{uwimana2017}, and TSS-seq (this work).}
         \label{fig:six_intragenic_genes_bvenn}
     \end{minipage}
 \end{figure}
@@ -329,9 +329,30 @@ This further supports the model that \textit{spt6-1004} intragenic promoters are
 All yeast strains were constructed by standard yeast transformation or crosses.
 The \textit{spt6-1004} and wild-type strains were grown as previously described \citep{cheung2008}: Cells were grown in YPD at 30\textdegree C to a concentration of approximately $1 \times 10^7$ cells/ml (OD$_{600} = 0.6$), at which point an equal volume of YPD medium pre-warmed to 44\textdegree C was added, and the cultures were shifted to 37\textdegree C for 80 minutes.
 
-\newpage
+\subsection{Sequencing library preparation\\(TSS-seq, ChIP-nexus, MNase-seq, NET-seq)}
+
+All library preparation methods are detailed in \citet{doris2018}.
+
+\subsection{Genome builds}
+
+The genome build used for \textit{S. cerevisiae} was R64-2-1.
+The genome build used for \textit{S. pombe} was ASM294v2.
+
+\subsection{TSS-seq data analysis}
+
+An up-to-date version of the Snakemake \citep{koster2012} workflow used to process TSS-seq libraries is maintained at \href{https://github.com/winston-lab/tss-seq}{github.com/winston-lab/tss-seq}.
+At the time of writing, removal of adapter sequences and random hexamer sequences from the 3$^\prime$ end of the read and 3$^\prime$ quality trimming were performed using cutadapt \citep{martin2011}.
+The random hexamer molecular barcode on the 5$^\prime$ end of the read was then removed and processed using a custom Python script (adapted from \citet{mayer2015}).
+Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} reference genomes using Tophat2 \citep{kim2013} without a reference transcriptome, and uniquely mapping reads were selected using SAMtools \citep{li2009}.
+Reads mapping to the same location as another read with the same molecular barcode were identified as PCR duplicates and removed using a custom Python script (adapted from \citet{mayer2015}).
+Coverage of the 5$^\prime$-most base, corresponding to the TSS, was extracted using bedtools genomecov \citep{quinlan2010} and normalized to the total number of reads uniquely mapping to the \textit{S. pombe} genome.
+Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \citep{andrews2014}.
+
+The pipeline additionally performs TSS-seq peak calling, differential expression, classification of peaks into genome categories, gene ontology analysis, motif enrichment analysis, \textit{de novo} motif discovery, sequence logo visualization, and data visualization with the option to separate data into clusters of similar signal.
+
+\clearpage
 \bibliographystyle{apalike}
 \begingroup
-\singlespacing
-\bibliography{references/spt6}
+    \singlespacing
+    \bibliography{references/spt6}
 \endgroup

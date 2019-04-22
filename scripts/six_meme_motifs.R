@@ -73,7 +73,8 @@ motif_plot = function(df,
                   y=2,
                   hjust=1,
                   vjust=1,
-                  size=5/72*25.4) +
+                  size=5/72*25.4,
+                  family="FreeSans") +
         facet_grid(motif~direction) +
         scale_fill_manual(values = c('#109648', '#255C99', '#F7B32B', '#D62839', '#D62839'),
                           breaks = c('A','C','G','T','U'),
@@ -172,8 +173,12 @@ get_motif_metadata = function(meme_path){
                                          title="antisense"),
                               heights=c(0.32, 0.68))
 
-    ggsave(pdf_out, plot=motif_plots, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=motif_plots,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

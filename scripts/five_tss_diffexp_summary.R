@@ -140,8 +140,12 @@ main = function(theme_spec,
         theme_void() +
         theme(plot.margin = margin(0,0,0,0,"pt"))
 
-    ggsave(pdf_out, plot=diffexp_summary, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=diffexp_summary,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

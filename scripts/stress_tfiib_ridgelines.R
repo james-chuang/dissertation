@@ -133,9 +133,8 @@ main = function(theme_spec,
         scale_fill_distiller(palette = "PRGn",
                              limits = c(-2,2),
                              oob = scales::squish,
-                             name = expression(log[2] ~ textstyle(frac(condition, control))),
-                             labels = c(paste0("\U2264", "2"), "-1", "0", "1",
-                                        paste0("\U2265", "2")),
+                             name = expression("log"[2] * textstyle(frac("condition", "control"))),
+                             labels = c("≤-2", "-1", "0", "1","≥2"),
                              guide=guide_colorbar(barwidth=10, barheight=0.8,
                                                   title.vjust=1),
                              na.value = "gray70") +
@@ -196,19 +195,23 @@ main = function(theme_spec,
         scale_y_continuous(expand = c(0,1)) +
         coord_cartesian(clip="off") +
         theme_heatmap +
-        theme(plot.margin = margin(r=-0.3, unit="cm"),
-              axis.text.x.top = element_text(angle=15, vjust=0, hjust=0.1,
+        theme(plot.margin = margin(r=-0.15, unit="cm"),
+              axis.text.x.top = element_text(angle=15, vjust=0, hjust=0,
                                              margin = margin(b=5, unit="pt")),
-              axis.title.x = element_text(size=9, color="black"))
-              # axis.title.x = element_text(size=9, color="black"),
+              axis.title.x = element_text(size=9, color="black"),
+              axis.title.y = element_blank())
               # panel.border = element_rect(color="red", fill=NA))
 
     figure_1a = plot_grid(diagram, tfiib_heatmap, align = "h",
               axis = "tb", nrow=1,
               rel_widths = c(0.15, 1))
 
-    ggplot2::ggsave(pdf_out, plot=figure_1a, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=figure_1a,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

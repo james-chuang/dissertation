@@ -41,9 +41,9 @@ main = function(theme_spec,
                              complete(group, index, position, fill=list(signal=0)),
                          aes(x=position, y=index, fill=signal)) +
         geom_raster() +
-        scale_x_continuous(breaks = c(0, 0.4),
+        scale_x_continuous(breaks = c(0, 0.5),
                            labels = function(x){case_when(x==0 ~ "TSS",
-                                                          x==0.4 ~ paste(x, "kb"),
+                                                          x==0.5 ~ paste(x, "kb"),
                                                           TRUE ~ as.character(x))},
                            expand = c(0.025, 0)) +
         scale_y_reverse(breaks = function(x){seq(min(x)+500, max(x)-500, 500)},
@@ -67,7 +67,7 @@ main = function(theme_spec,
               panel.grid.major.x = element_line(color="black"),
               panel.grid.major.y = element_line(color="black"),
               legend.box.margin = margin(0, 0, -5, 0, "pt"),
-              plot.margin = margin(4,4,4,0,"pt" ))
+              plot.margin = margin(0,4,0,0.5,"pt" ))
 
     mnase_plot = ggplot(data = mnase_df %>%
                             complete(group, index, position, fill=list(signal=0)),
@@ -97,7 +97,7 @@ main = function(theme_spec,
               panel.grid.minor.x = element_line(color="black"),
               panel.grid.major.y = element_line(color="black"),
               legend.box.margin = margin(0, 0, -5, 0, "pt"),
-              plot.margin = margin(4,4,4,0,"pt" ))
+              plot.margin = margin(0,4,0,0,"pt" ))
 
     quant_df = read_tsv(quant_data,
                         col_types = "ciicdcciiiiiiidddddddddddddddic") %>%
@@ -153,7 +153,7 @@ main = function(theme_spec,
               panel.grid.major.x = element_line(color="grey50"),
               panel.grid.minor.x = element_line(color="grey50"),
               panel.grid.major.y = element_line(color="grey80"),
-              plot.margin = margin(4,4,4,0,"pt" ))
+              plot.margin = margin(0,4,0,0,"pt" ))
 
     occ_plot = ggplot(data = quant_df %>%
                           filter(nuc_center-50>=-400 &
@@ -188,13 +188,17 @@ main = function(theme_spec,
               panel.grid.major.x = element_line(color="grey50"),
               panel.grid.minor.x = element_line(color="grey50"),
               panel.grid.major.y = element_line(color="grey80"),
-              plot.margin = margin(4,4,4,0,"pt" ))
+              plot.margin = margin(0,4,0,0,"pt" ))
 
     fig_four_b = plot_grid(netseq_plot, mnase_plot, occ_plot, fuzz_plot, align="h", axis="tb", nrow=1,
                      rel_widths = c(0.2, 1, 0.5, 0.5))
 
-    ggplot2::ggsave(pdf_out, plot=fig_four_b, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=fig_four_b,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

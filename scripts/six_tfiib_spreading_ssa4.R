@@ -80,8 +80,12 @@ main = function(theme_spec,
               panel.spacing.y = unit(1, "pt"),
               plot.margin=margin(r=11, t=1, unit="pt"))
 
-    ggplot2::ggsave(pdf_out, plot=fig_two_b, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=fig_two_b,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 

@@ -56,7 +56,7 @@ main = function(theme_spec,
         scale_x_continuous(limits = c(35, 70),
                            breaks = scales::pretty_breaks(n=3),
                            expand = c(0,0),
-                           name = expression(fuzziness %==% std. ~ dev ~ of ~ dyad ~ positions ~ (bp))) +
+                           name = expression("fuzziness" %==% "std. dev of dyad positions (bp)")) +
         scale_y_continuous(limits = c(0, 200),
                            breaks = scales::pretty_breaks(n=2),
                            labels = function(x){x/1e2},
@@ -71,8 +71,12 @@ main = function(theme_spec,
               legend.position = c(0.8, 0.99),
               plot.margin = margin(11, 11/2, 0, 0, "pt"))
 
-    ggsave(pdf_out, plot=fig_four_c, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=fig_four_c,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

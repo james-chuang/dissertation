@@ -60,7 +60,7 @@ main = function(theme_spec,
                                         fontfamily="FreeSans"),
                               x=text_edge+start+c(1,5)*increment/2,
                               y=1,
-                              vjust=1)
+                              vjust=1.1)
     antigen_labels = textGrob(label=c("Spt6-FLAG",
                                       "Dst1-Myc",
                                       "Spt6:"),
@@ -82,7 +82,7 @@ main = function(theme_spec,
                              y=0.82,
                              gp=gpar(fontsize=9,
                                      fontface="italic",
-                                     fontfamly="FreeSans"),
+                                     fontfamily="FreeSans"),
                              vjust=0.5)
     blot = rasterGrob(readPNG(blot_path),
                       width=1-text_edge+0.04,
@@ -120,8 +120,12 @@ main = function(theme_spec,
         spt6_outline, dst_outline,
         quant_labels))
 
-    ggsave(pdf_out, plot=western, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=western,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

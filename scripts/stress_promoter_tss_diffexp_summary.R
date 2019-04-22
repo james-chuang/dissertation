@@ -133,8 +133,12 @@ main = function(theme_spec,
 
     figure_2a = arrangeGrob(diagram, diffexp_summary, ncol=1, heights=c(0.5, 1))
 
-    ggplot2::ggsave(pdf_out, plot=figure_2a, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=figure_2a,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

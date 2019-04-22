@@ -74,8 +74,12 @@ main = function(theme_spec,
               legend.position = c(0.7, 0.27),
               legend.background = element_rect(color=NA, fill="white", size=0))
 
-    ggsave(pdf_out, plot=plot, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=plot,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

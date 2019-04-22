@@ -147,8 +147,12 @@ main = function(theme_spec,
               ncol=1,
               rel_heights = c(0.1, 1))
 
-    ggplot2::ggsave(pdf_out, plot=figure_1b, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=figure_1b,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

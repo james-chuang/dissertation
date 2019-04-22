@@ -104,8 +104,12 @@ main = function(theme_spec,
 
     # fig_one_e = arrangeGrob(tss_plot, tfiib_plot, ncol=1, heights = c(1, 1)) %>%
 
-    ggsave(pdf_out, plot=tss_plot, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=tss_plot,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

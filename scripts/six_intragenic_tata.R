@@ -86,8 +86,12 @@ main = function(theme_spec,
               legend.spacing.x = unit(1, "pt"),
               plot.margin = margin(11/2, 11, 11/2, 0, "pt"))
 
-    ggsave(pdf_out, plot=tata, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=tata,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

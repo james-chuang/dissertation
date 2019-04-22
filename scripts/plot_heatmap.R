@@ -8,9 +8,15 @@ import = function(path, sample_list, experiment){
         ungroup()
 
     if (experiment=="spt6"){
-        df %<>% mutate(group = ordered(group,
-                                       levels = c("WT-37C", "spt6-1004-37C"),
-                                       labels = c("WT", "italic(\"spt6-1004\")")))
+        df %<>%
+            mutate(group = ordered(group,
+                                   levels = c("WT-37C", "spt6-1004-37C"),
+                                   labels = c("WT", "italic(\"spt6-1004\")")))
+    } else if (experiment=="spt5"){
+        df %<>%
+            mutate(group = ordered(group,
+                                   levels = c("non-depleted", "depleted"),
+                                   labels = c("\"non-depleted\"", "\"depleted\"")))
     }
     return(df)
 }

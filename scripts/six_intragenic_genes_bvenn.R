@@ -60,7 +60,8 @@ bvenn = function(lists, scale=1, title){
         ggtitle(title) +
         theme_void() +
         theme(plot.title=element_text(size=9, face="plain", hjust=0.5,
-                                      margin = margin(t=4, b=2, unit="pt")),
+                                      margin = margin(t=4, b=2, unit="pt"),
+                                      family="FreeSans"),
               plot.margin = margin(4, 0, 0, 4, "pt"))
     return(plot)
 }
@@ -113,13 +114,17 @@ main = function(theme_spec,
                       uwimana_genes$sys_gene_name,
                       doris_genes$sys_name)
 
-    supp_one_f = bvenn(list("\"Cheung\" ~ italic(\"et al.\")*\", 2008\""=cheung_genes$sys_ORF_name,
-                           "\"Uwimana\" ~ italic(\"et al.\")*\", 2017\""=uwimana_genes$sys_gene_name,
-                           "phantom(g)*this ~ work*phantom(g)"=doris_genes$sys_name),
+    supp_one_f = bvenn(list("\"Cheung \" * italic(\"et al.\") * \", 2008\""=cheung_genes$sys_ORF_name,
+                           "\"Uwimana \" * italic(\"et al.\") * \", 2017\""=uwimana_genes$sys_gene_name,
+                           "phantom(g)*\"this work\"*phantom(g)"=doris_genes$sys_name),
                       scale=0.9, title="genes with sense intragenic transcripts")
 
-    ggsave(pdf_out, plot=supp_one_f, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=supp_one_f,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

@@ -63,17 +63,22 @@ main = function(theme_spec,
                            expand = c(0,0.03),
                            breaks = scales::pretty_breaks(n=3),
                            labels = function(x) 100*x) +
-        scale_x_continuous(name=expression(list(log[2] (normalized ~ counts), regularized)),
+        scale_x_continuous(name=expression("log"[2] * "(normalized counts), regularized"),
                            breaks = scales::pretty_breaks(n=4)) +
         ggtitle("TSS expression levels in oxidative stress",
                 subtitle = "oxidative stress-induced promoters") +
         scale_color_tableau() +
         theme_default +
         theme(legend.position = c(0.8, 0.40),
-              plot.subtitle = element_text(size=7))
+              plot.subtitle = element_text(size=7),
+              plot.margin=margin(0.5,0,0,0,"pt"))
 
-    ggplot2::ggsave(pdf_out, plot=figure_2b, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=figure_2b,
+                    width=fig_width,
+                    height=fig_height,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

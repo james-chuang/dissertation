@@ -54,8 +54,12 @@ main = function(theme_spec,
               panel.grid = element_blank(),
               plot.margin = margin(11, 11, 4, 0, "pt"))
 
-    ggsave(pdf_out, plot=fig_four_a, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=fig_four_a,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

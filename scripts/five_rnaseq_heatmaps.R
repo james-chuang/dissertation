@@ -24,8 +24,12 @@ main = function(theme_spec,
                         y_label = "nonoverlapping coding genes",
                         colorbar_title="antisense RNA-seq signal")
 
-    ggsave(pdf_out, plot=plot, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=plot,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

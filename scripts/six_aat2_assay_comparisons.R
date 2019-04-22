@@ -20,7 +20,7 @@ main = function(theme_spec,
                                levels = c("RNA-seq-sense",
                                           "TSS-seq-sense",
                                           "TFIIB-ChIP-nexus-protection"),
-                               labels = c("\"RNA-seq\" ~ (Uwimana ~ italic(et ~ al.,) ~ 2017)",
+                               labels = c("\"RNA-seq (Uwimana \" * italic(\"et al\")*\".,\" * \" 2017)\"",
                                           "\"TSS-seq\"",
                                           "\"TFIIB ChIP-nexus protection\"")))
 
@@ -44,7 +44,7 @@ main = function(theme_spec,
         theme(axis.title.x = element_blank(),
               axis.text.x = element_text(size=9, family="FreeSans"),
               strip.text = element_text(hjust=0, family="FreeSans"),
-              panel.spacing.y = unit(0, "pt"),
+              panel.spacing.y = unit(1, "pt"),
               panel.border = element_blank(),
               panel.grid = element_blank(),
               axis.line.y = element_line(size=0.2,
@@ -78,8 +78,12 @@ main = function(theme_spec,
                      align = "vh",
                      axis = "trbl")
 
-    ggplot2::ggsave(pdf_out, plot=plot, height=fig_height, width=fig_width, units="in")
-    embed_fonts(pdf_out)
+    ggplot2::ggsave(pdf_out,
+                    plot=plot,
+                    height=fig_height,
+                    width=fig_width,
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],

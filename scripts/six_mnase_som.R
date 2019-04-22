@@ -40,7 +40,8 @@ main = function(theme_spec,
                    label.r=unit(0,"pt"),
                    label.padding=unit(3,"pt"),
                    show.legend = FALSE,
-                   size=7/72*25.4) +
+                   size=7/72*25.4,
+                   family="FreeSans") +
         facet_wrap(~unit,
                    ncol=8) +
         scale_x_continuous(expand=c(0,0),
@@ -67,8 +68,12 @@ main = function(theme_spec,
               legend.text.align=0,
               panel.grid=element_blank())
 
-    ggsave(pdf_out, plot=som_plot, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=som_plot,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],
