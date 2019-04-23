@@ -261,7 +261,7 @@ The apparent discrepancy might be explained by the improved resolution and bread
 The aggregate MNase-seq dyad signal around all \textit{spt6-1004} intragenic TSSs is aperiodic (Figure \ref{fig:six_intragenic_mnase_metagenes}, top left panel), which occurs as a result of destructive interference from offset nucleosome phasing patterns.
 To discover these phasing patterns, we used the wild-type and \textit{spt6-1004} MNase-seq data flanking intragenic TSSs to train a self-organizing map to assign TSSs with similar MNase-seq patterns to nearby nodes in a rectangular grid (Figure \ref{fig:six_mnase_som}).
 This allowed us to see that, although there is considerable diversity in the nucleosome pattern surrounding intragenic TSSs, most intragenic TSSs occur in areas between the positions of nucleosome dyads.
-By hierarchically clustering the `code vectors' representing each node of the self-organizing map, we further grouped intragenic TSSs into three major clusters differing primarily by the phasing of the nucleosome array relative to the TSS, as shown in Figure \ref{fig:six_intragenic_mnase_metagenes}.
+By hierarchically clustering the nodes of the self-organizing map, we further grouped intragenic TSSs into three major clusters differing primarily by the phasing of the nucleosome array relative to the TSS, as shown in Figure \ref{fig:six_intragenic_mnase_metagenes}.
 
 \begin{sidewaysfigure}
     \centering
@@ -320,8 +320,9 @@ This further supports the model that \textit{spt6-1004} intragenic promoters are
     \label{fig:six_meme_motifs}
 \end{figure}
 
-\section{Summary}
+\section{Discussion}
 
+\clearpage
 \section{Methods}
 
 \subsection{Yeast strain construction and grown conditions}
@@ -345,10 +346,101 @@ At the time of writing, removal of adapter sequences and random hexamer sequence
 The random hexamer molecular barcode on the 5$^\prime$ end of the read was then removed and processed using a custom Python script (adapted from \citet{mayer2015}).
 Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} reference genomes using Tophat2 \citep{kim2013} without a reference transcriptome, and uniquely mapping reads were selected using SAMtools \citep{li2009}.
 Reads mapping to the same location as another read with the same molecular barcode were identified as PCR duplicates and removed using a custom Python script (adapted from \citet{mayer2015}).
-Coverage of the 5$^\prime$-most base, corresponding to the TSS, was extracted using bedtools genomecov \citep{quinlan2010} and normalized to the total number of reads uniquely mapping to the \textit{S. pombe} genome.
+Coverage of the 5$^\prime$-most base, corresponding to the TSS, was extracted using bedtools genomecov \citep{quinlan2010} and normalized to the total number of uniquely mapping, non-duplicate \textit{S. pombe} reads.
 Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \citep{andrews2014}.
 
 The pipeline additionally performs TSS-seq peak calling, differential expression, classification of peaks into genome categories, gene ontology analysis, motif enrichment analysis, \textit{de novo} motif discovery, sequence logo visualization, and data visualization with the option to separate data into clusters of similar signal.
+
+\subsubsection{Reannotation of \textit{S. cerevisiae} TSSs using TSS-seq data}
+
+TSS-seq coverage from two replicates of a wild-type \textit{S. cerevisiae} strain grown at 30\textdegree C in YPD was averaged and used to adjust the 5$^\prime$ ends of an annotation of major transcript isoforms based on TIF-seq data \citep{pelechano2013}.
+The 5$^\prime$ end of the original annotation was changed to the position of maximum TSS-seq signal in a window $\pm$ 250 nt of the original 5$^\prime$ end if the maximum TSS-seq signal was greater than the 95th percentile of all non-zero TSS-seq signal.
+
+\subsubsection{TSS-seq peak calling}
+\label{subsubsec:tss_peak_calling}
+
+TSS-seq data representing transcription from a single promoter tends to occur as a cluster of signal distributed over a range of positions, rather than a single nucleotide \citep{arribere2013, malabat2015}.
+It is reasonable to consider such a cluster of TSS-seq signal as a single entity, because the signals within the cluster are usually highly correlated to one another across different conditions.
+Therefore, to identify TSSs from TSS-seq data and quantify them for downstream analyses such as differential expression, it is necessary to annotate these groups of TSS-seq signal by using the data to perform peak-calling.
+
+At the time of writing, TSS-seq peak calling for a given experimental group was performed by 1-D watershed segmentation of the data for each sample in the group, followed by filtering for reproducibility within the group by the Irreproducible Discovery Rate (IDR) method \citep{li2011}.
+First, a smoothed version of the TSS-seq coverage is generated for each sample using an adaptive two-stage kernel density estimation with a discretized Gaussian kernel \citep{silverman1986}.
+For a given nucleotide, the adaptive kernel bandwidth, $\sigma_{\text{adaptive}}$, is given by
+\begin{align*}
+    \sigma_{\text{adaptive}} &= \sigma_\text{pilot} \left( \frac{\rho_{\text{pilot}}}{g} \right)^{-\alpha},
+\end{align*}
+where $\sigma_\text{pilot}$ is the standard, fixed bandwidth of a Gaussian kernel used to calculate the pilot signal density $\rho_\text{pilot}$ at that nucleotide, $g$ is the geometric mean of $\rho_\text{pilot}$ over the whole genome, and $\alpha$ is a parameter in $[0,1]$ that determines the degree to which the pilot density $\rho_\text{pilot}$ affects $\sigma_\text{adaptive}$.
+The adaptive kernel adjusts the kernel bandwidth to be smaller in regions of high signal density and larger in regions of lower signal density, allowing the smoother to better accommodate both `sharp' TSSs where the signal is distributed over a relatively small window, as well as `broad' TSSs where the signal is more dispersed.
+For all analyses in this document, adaptive smoothing was performed with $\sigma_\text{pilot} = 10$ and $\alpha = 0.2$.
+
+Following smoothing, an initial set of peaks is formed by assigning all nonzero signal in the original, unsmoothed coverage to the nearest local maximum of the smoothed coverage, and taking the minimum and maximum genomic coordinates of the original coverage as the peak boundaries for each local maximum of the smoothed coverage.
+Peaks are then trimmed to the smallest genomic interval that includes 95\% of the original coverage, and the probability of the peak begin generated by noise is estimated by a Poisson model where $\lambda$, the expected coverage, is the maximum of the expected coverage over the chromosome and the expected coverage in the 2 kb window upstream of the peak (\`a la the ChIP-seq peak caller MACS2 \citep{zhang2008}).
+Finally, peaks are ranked by their significance under the Poisson model, and a final list of peaks for the group is generated using the IDR method ($\text{IDR}=0.1$) \citep{li2011}.
+In brief, IDR compares ranked lists of regions in order to set a cutoff, beyond which the regions are no longer consistent between replicates.
+
+The python script used for 1-D watershed segmentation of TSS-seq data is \href{https://github.com/winston-lab/tss-seq/blob/master/scripts/tss_peakcalling.py}{available as part of the TSS-seq pipeline}, and the IDR implementation used in the pipeline is also \href{https://github.com/nboley/idr}{available on GitHub}.
+
+\subsubsection{TSS differential expression analysis}
+
+For TSS-seq differential expression analysis, TSS-seq peak-calling was performed \hyperref[subsubsec:tss_peak_calling]{as described above} for both \textit{S. cerevisiae} and the \textit{S. pombe} spike-in.
+The read counts for each peak in each condition were used as the input to differential expression analysis by DESeq2 \citep{love2014}, with the alternative hypothesis $\allowbreak \left\lvert\log_2 \left(\text{fold-change}\right) \right\rvert > 1.5$ and a false discovery rate of 0.1.
+To normalize by spike-in, the size factors of the \textit{S. pombe} spike-in counts were used as the size factors for \textit{S. cerevisiae}, although we note that due to the median of ratios normalization used in DESeq2, the major TSS-seq results of this work are still observed when \textit{S. cerevisiae} size factors are used.
+
+\subsubsection{Classification of TSS-seq peaks into genomic categories}
+\label{subsubsec:tss_peak_classification}
+
+TSS-seq peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above} and an annotation of all verified open reading frames (ORFs) and blocked reading frames in \textit{S. cerevisiae} \citep{crooks2004, engel2014}.
+First, `genic' regions were defined as follows: If a gene was present in both the transcript and ORF annotations, the genic region was defined as the interval (annotated TSS-30 nt, start codon).
+If gene was present in the transcript annotation but not the ORF annotation, the genic region was defined as the interval (annotated TSS - 30 nt, annotated TSS + 30 nt).
+If a gene was present only in the ORF annotation, the genic region was defined as the interval (start codon - 30 nt, start codon).
+For the purposes of peak classification, regions were considered overlapping if they had at least one base of overlap.
+TSS-seq peaks were classified as genic if they overlapped a genic region on the same strand.
+Peaks were classified as intragenic if they were not classified as as genic peak, and their summit position overlapped an open or closed reading frame on the same strand.
+Peaks were classified as antisense if their summit position overlapped a transcript on the opposite strand.
+Finally, peaks were classified as intergenic if they did not overlap a transcript, reading frame, or genic region on either strand.
+
+\subsubsection{TSS information content and sequence composition}
+
+TSS-seq alignments were pooled for all replicates in a condition, and the DNA sequence flanking the position of every read overlapping TSS-seq peaks of a particular genomic category was extracted using SAMtools \citep{li2009} and bedtools \citep{quinlan2010}.
+The information content and sequence composition was quantified using WebLogo \citep{crooks2004}, with the zeroth-order Markov model of the \textit{S. cerevisiae} genomic sequence as the background composition.
+Sequence logos were plotting using helper functions from ggseqlogo \citep{wagih2017}.
+
+\subsection{ChIP-nexus data analysis}
+An up-to-date version of the Snakemake \citep{koster2012} workflow used to process ChIP-nexus libraries is maintained at \href{https://github.com/winston-lab/chip-nexus}{github.com/winston-lab/chip-nexus}.
+At the time of writing, filtering for reads containing the constant region of the adapter on the 5$^\prime$ end of the read, 3$^\prime$ adapter removal, and 3$^\prime$ quality trimming were performed using cutadapt \citep{martin2011}.
+The random pentamer molecular barcode on the 5$^\prime$ end of the read was then removed and processed using a custom Python script modified from \citet{mayer2015}.
+Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} genomes using Bowtie2 \citep{langmead2012}, and uniquely mapping reads were selected using SAMtools \citep{li2009}.
+Reads mapping to the same location as another read with the same molecular barcode were identified as PCR duplicates and removed using a custom Python script modified from \citet{mayer2015}.
+Coverage of the 5$^\prime$-most base, corresponding to the point of crosslinking, was extracted using bedtools genomecov \citep{quinlan2010}.
+The median fragment size estimated by MACS2 \citep{zhang2008} over all samples was used to generate coverage of factor protection and fragment midpoints, by extending reads to the fragment size, or by shifting reads by half the fragment size, respectively.
+Coverage was normalized to the total number of reads uniquely mapping to \textit{S. cerevisiae}.
+Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \cite{andrews2014}.
+
+\subsubsection{A note on ChIP-nexus peak calling}
+\label{subsubsec:tfiib_peak_calling}
+
+\subsubsection{TFIIB ChIP-nexus differential binding analysis}
+For TFIIB ChIP-nexus differential binding analysis, TFIIB peaks were called by MACS2 and IDR filtering \hyperref[subsubsec:tfiib_peak_calling]{as described above}.
+A non-redundant list of peaks called in the condition and control groups being compared was generated using bedtools multiinter \citep{quinlan2010}, and the counts of fragment midpoints for each peak in each sample were used as the input to differential binding analysis by DESeq2 \citep{love2014}, with the alternative hypothesis $\allowbreak \left\lvert\log_2 \left(\text{fold-change}\right) \right\rvert > 1.5$ and a false discovery rate of 0.1.
+For estimation of change in TFIIB binding upstream of TSS-seq peaks, TFIIB fragment midpoint counts in the window extending 200 bp upstream of the TSS-seq peak summit were used as the input to DESeq2.
+\textit{S. cerevisiae} counts were used for size factor calculation.
+
+\subsubsection{Classification of TFIIB ChIP-nexus peaks into genomic categories}
+
+As for TSS-seq peaks, TFIIB ChIP-nexus peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above}, an annotation of all verified open reading frames (ORFs) and blocked reading frames \citep{crooks2004, engel2014}, and \hyperref[subsubsec:tss_peak_classification]{an annotation of `genic' regions derived from the transcript and ORF annotations}.
+TFIIB ChIP-nexus peaks were classified as genic if they overlapped a genic region.
+Peaks were classified as intragenic if they were not classified as a genic peak, and the entire peak overlapped an open or closed reading frame.
+Finally, peaks were classified as intergenic if they did not overlap a transcript, reading frame, or genic region.
+
+\subsection{MNase-seq data analysis}
+
+\subsubsection{Nucleosome quantification}
+
+\subsubsection{Clustering of MNase-seq signal at \textit{spt6-1004} intragenic TSSs}
+
+\subsection{Motif enrichment}
+
+\subsection{\textit{De novo} motif discover motif discovery}
 
 \clearpage
 \bibliographystyle{apalike}

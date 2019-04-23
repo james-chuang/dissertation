@@ -144,7 +144,7 @@ figures:
     stress:
         tfiib_ridgelines:
             width: 6
-            height: 8.25
+            height: 6.2
             data_path: /n/groups/winston/jc459/intragenic/chipnexus-tfiib/datavis/genes-with-stress-induced-intra-peaks/libsizenorm/genes-with-stress-induced-intra-peaks-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
             diamide_genic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             diamide_intragenic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/intragenic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv
