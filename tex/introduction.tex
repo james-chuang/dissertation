@@ -2,9 +2,39 @@
 
 \section{A brief introduction to transcription}
 
-In eukaryotic cells, transcription of protein-coding genes is carried out by the protein complex RNA polymerase II
+In eukaryotic cells, transcription of protein-coding genes is carried out by the protein complex RNA polymerase II (Pol II), and broadly occurs in three sequential stages of transcription initiation, elongation, and termination.
+During each of these stages, the Pol II complex is associated with distinct sets of factors which modulate the activity of Pol II and carry out important co-transcriptional processes such as RNA capping, RNA splicing, histone modification, RNA cleavage, and RNA polyadenylation, to name just a few.
+Given how fundamental transcription is to gene expression, and thus, to life, it is unsurprising that every stage of transcription is highly regulated.
 
-\lipsum[1]
+To get a rough idea of just how tightly transcription is regulated, it is useful to consider a back-of-the-envelope calculation of the specificity of transcription initiation in the human genome.
+That is, what proportion of the human genome at which transcription could initiate does transcription initiation actually occur?
+
+The number of positions at which transcription could theoretically initiate is simply the size of the genome: The human genome is approximately three billion base pairs in length, and since each base pair can be transcribed from each of its two strands, there are $6 \times 10^9$ available positions.
+
+The number of positions at which transcription \textit{does} initiate can be estimated from the number of genes transcribed by Pol II and the number of positions that Pol II initiates from for each gene.
+At last count, the human genome contains about twenty thousand protein-coding genes.
+To be conservative in our estimate with regards to specificity, we will assume that all twenty thousand genes are expressed.
+We also know that protein-coding genes are only a subset of the genes transcribed by Pol II: Pol II also transcribes multiple classes of non-coding genes, including enhancers and long non-coding RNAs.
+If we assume that there are five non-coding genes for each coding gene, this brings our estimate of the number of genes transcribed by Pol II to $1.2 \times 10^5$ genes.
+
+As you will see from yeast transcription start site data in later chapters, transcription initiation for a single gene generally occurs at multiple nucleotides, generating multiple major transcript isoforms per gene.
+Assuming that there are five major transcription start sites (TSSs) per gene, the proportion of the human genome at which transcription initiation occurs is
+\begin{align*}
+    \frac{\left(1.2 \times 10^5 \; \text{genes}\right) \left(5 \; \frac{\text{TSSs}}{\text{gene}} \right)}
+         {\left(6 \times 10^9 \; \text{possible TSSs} \right)}
+    &= 1 \times 10^{-4},
+\end{align*}
+which says that, when presented with ten thousand positions to choose from, RNA polymerase starts transcription from just one!
+
+Many factors contribute to the remarkable specificity of transcription initiation.
+Most notably, transcription initiation requires specific DNA sequence motifs to be present to increase the probability of Pol II binding to DNA together with the initiation factors that are required to start transcription.
+That factors known to associate with Pol II during transcription initiation control transcription initiation is unsurprising.
+Less obviously, however, it was first shown in genetic studies of yeast that some transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes, also play a role in restricting where transcription initiation is allowed to occur \citep{kaplan2003, cheung2008, hennig2013}.
+Evidence suggests that these transcription elongation factors are likely required to maintain normal chromatin structure over transcribed regions, and that the disruption of normal chromatin structure allows Pol II to initiate transcription in regions which are normally inacessible \citep{}.
+Chapters \ref{chapter:six} and \ref{chapter:five} of this dissertation describe our studies of \textbf{Spt6} and \textbf{Spt5}, two transcription elongation factors involved in this process.
+One phenotype observed when these elongation factors are disrupted is \textbf{intragenic transcription}, transcription appearing to arise from within protein-coding sequences.
+In chapter \ref{chapter:stress}, I describe our efforts to understand how intragenic transcription might play a role in the cellular response to various stress conditions.
+In the remainder of this introduction, I will introduce Spt6 and Spt5, and end with a description of the considerations taken into account to make the data analyses presented in this dissertation as transparent and reproducible as possible.
 
 \section{Transcription elongation factors Spt6 and Spt5}
 

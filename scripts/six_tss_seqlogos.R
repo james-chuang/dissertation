@@ -75,7 +75,7 @@ main = function(theme_spec,
               axis.line = element_line(size=0.25, color="grey65"),
               panel.grid = element_blank(),
               panel.border = element_blank(),
-              plot.margin = margin(0.5,0,0,0,"pt"))
+              plot.margin = margin(1,0,0,0,"pt"))
 
     ggsave(pdf_out, plot=fig_five_c, width=fig_width, height=fig_height, units="in")
     embed_fonts(pdf_out)

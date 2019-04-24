@@ -10,7 +10,7 @@ figures:
         spt6_western:
             data_path: ../../intragenic/spt6-small-data/spt6-western/Spt6_western_quantification_2.tsv
             blot_path: ../../intragenic/spt6-small-data/spt6-western/spt6-western-3.png
-            height: 1
+            height: 0.97
             width: 3
         gene_diagram:
             width: 3
@@ -29,7 +29,7 @@ figures:
             tfiib_data: ../../intragenic/chipnexus-tfiib/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
             height: 3.75
-            width: 3
+            width: 4
         tss_diffexp_summary:
             genic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/genic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             intragenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv

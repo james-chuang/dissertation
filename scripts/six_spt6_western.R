@@ -53,7 +53,7 @@ main = function(theme_spec,
                                    gp = gpar(lty="dashed"))
     temp_lines = segmentsGrob(x0=c(0,2)*increment-0.06+text_edge+start,
                                  x1=c(1,3)*increment+0.06+text_edge+start,
-                                 y0=0.89, y1=0.89)
+                                 y0=0.88, y1=0.88)
     temp_labels = textGrob(label = c(paste0("30", "\U00B0", "C"),
                                      paste0("37", "\U00B0", "C")),
                               gp = gpar(fontsize=9,
@@ -73,13 +73,13 @@ main = function(theme_spec,
                               hjust=1)
     plus_labels = textGrob(label = "+",
                            x=text_edge+start+c(0,2)*increment,
-                           y=0.82,
+                           y=0.81,
                            gp=gpar(fontsize=9,
                                    fontfamily="FreeSans"),
                            vjust=0.5)
     mutant_labels = textGrob(label = "1004",
                              x=text_edge+start+c(1,3)*increment,
-                             y=0.82,
+                             y=0.81,
                              gp=gpar(fontsize=9,
                                      fontface="italic",
                                      fontfamily="FreeSans"),
@@ -107,7 +107,7 @@ main = function(theme_spec,
                                     fontfamily="FreeSans"),
                             x=text_edge+start+seq(0,3)*increment,
                             y=0,
-                            vjust=0)
+                            vjust=0.05)
 
     western = gTree(children = gList(
         # alignment_lines,

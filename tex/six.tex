@@ -1,4 +1,5 @@
 \chapter{Genomics of transcription elongation factor Spt6}
+\label{chapter:six}
 
 \section{Collaborators}
 
@@ -12,28 +13,6 @@
 
 \section{Introduction to Spt6 and intragenic transcription}
 
-% The work described in this chapter relates to understanding how a eukaryotic cell specifies which sites in its genome are permitted to become sites of transcription initiation.
-% To get a rough idea of the specificity of transcription initiation, it is useful to start with a simple back-of-the-envelope calculation of the proportion of the human genome at which transcription initiation occurs.
-% The human genome is approximately three billion base pairs in length, and each base pair can potentially be transcribed from each of its two strands.
-% Each gene in the genome can have multiple transcription start sites (TSSs), which I assume to be five in number for the average gene.
-% At last count, the human genome contains about twenty thousand protein-coding genes.
-% To be conservative in our estimate with regards to specificity, we assume that all twenty thousand genes are expressed, which leads to the following proportion:
-% \begin{align*}
-%     \frac{\left(2 \times 10^4 \; \text{genes}\right) \left(5 \; \frac{\text{TSS}}{\text{gene}} \right)}
-%          {\left(3 \times 10^9 \; \text{base pairs} \right) \left(2 \; \frac{\text{TSS}}{\text{base pair}} \right)}.
-% \end{align*}
-% However, this expression underestimates the extent of transcription initiation by only considering protein-coding genes, neglecting the many classes of noncoding genes present in the genome.
-% If we assume that there are five noncoding genes for each coding gene, the updated expression,
-% \begin{align*}
-%     \frac{\left(1.2 \times 10^5 \; \text{genes}\right) \left(5 \; \frac{\text{TSS}}{\text{gene}} \right)}
-%          {\left(3 \times 10^9 \; \text{base pairs} \right) \left(2 \; \frac{\text{TSS}}{\text{base pair}} \right)}
-%     &= 0.0001,
-% \end{align*}
-% says that when presented with a thousand positions to choose from, RNA polymerase chooses just one to start transcribing from!
-
-% Where transcription initiates is determined in large part by DNA sequence: the presence of certain sequence motifs increases the probability that RNA polymerase binds to DNA along with numerous co-factors required for initiation.
-% However, DNA sequence alone does not entirely account for the specificity of transcription initiation.
-% Genetic studies in yeast first showed that some transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes, play a role in restricting where transcription is allowed to initiate \citep{kaplan2003, cheung2008, hennig2013}.
 % In this project, we study the role of a particular transcription elongation factor called \textbf{Spt6} in this process.
 % Many years of research on Spt6 is summarised as follows \citep{doris2018}:
 
@@ -62,18 +41,11 @@
 % \item Spt6 is likely a histone chaperone required to reassemble nucleosomes in the wake of transcription \citep{duina2011}.
 % \end{itemize}
 
-\begin{wrapfigure}[18]{r}{3in}
+\begin{wrapfigure}[9]{r}{3.5in}
     \centering
     \includegraphics[width=3in]{figures/six/six_spt6_western.pdf}
-    \caption[Western blot showing Spt6 protein levels in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37 \textdegree C.]{Western blot showing Spt6 protein levels in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37 \textdegree C. Immunoblotting was performed using $\alpha$-FLAG antibody to detect Spt6 and $\alpha$-Myc antibody to detect Dst1 from a spike-in strain. The quantification shown is the mean $\pm$ standard deviation of three blots.}
+    \caption[Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C.]{Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C. Spt6 and Dst1 from a spike-in were detected using $\alpha$-FLAG and $\alpha$-Myc antibodies, respectively. The mean $\pm$ standard deviation of three blots are shown below each lane.}
     \label{fig:six_spt6_western}
-
-    \vspace{0.5em}
-
-    \centering
-    \includegraphics[width=3in]{figures/six/six_gene_diagram.pdf}
-    \caption[Diagram of transcript classes.]{Diagram of transcript orientation with respect to coding DNA sequences, for the categories of transcripts referred to in this document.}
-    \label{fig:six_gene_diagram}
 \end{wrapfigure}
 
 Studies in the yeasts \textit{Saccharomyces cerevisiae} and \textit{Schizosaccharomyces pombe} have previously examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
@@ -81,16 +53,22 @@ As Spt6 is essential for viability in \textit{S. cerevisiae}, many of these stud
 When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels (Figure \ref{fig:six_spt6_western}).
 The most notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences, in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
+\begin{wrapfigure}[8]{r}{3in}
+    \centering
+    \includegraphics[width=3in]{figures/six/six_gene_diagram.pdf}
+    \caption[Diagram of transcript classes.]{Diagram of transcript orientation with respect to coding DNA sequences, for the categories of transcripts referred to in this document.}
+    \label{fig:six_gene_diagram}
+\end{wrapfigure}
+Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{uwimana2017}.
+Studying intragenic transcription is difficult with these methods, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figure \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}. Therefore, these methods can only discover intragenic transcripts which are highly expressed relative to the corresponding genic transcript, and are likely to find many false positives.
+Additionally, these methods are assays of steady-state RNA levels, which makes them unable to distinguish whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly degraded in wild-type, or C) processing of full-length protein-coding RNAs.
+
 \begin{SCfigure}[40][h]
     \centering
     \includegraphics[width=4.4in]{figures/six/six_aat_assay_comparison.pdf}
     \caption[RNA-seq, TSS-seq, and TFIIB ChIP-nexus signal at the \textit{AAT2} gene, in \textit{spt6-1004} after 80 minutes at 37\textdegree C.]{Sense strand RNA-seq signal, sense strand TSS-seq signal, and TFIIB ChIP-nexus protection at the \textit{AAT2} gene, in \textit{spt6-1004} after 80 minutes at 37\textdegree C.}
     \label{fig:six_aat_assay_comparison}
 \end{SCfigure}
-
-Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{uwimana2017}.
-Studying intragenic transcription is difficult with these methods, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figure \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}. Therefore, these methods can only discover intragenic transcripts which are highly expressed relative to the corresponding genic transcript, and are likely to find many false positives.
-Additionally, these methods are assays of steady-state RNA levels, which makes them unable to distinguish whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly degraded in wild-type, or C) processing of full-length protein-coding RNAs.
 
 To address these challenges to studying intragenic transcription, we applied two genomic assays to \textit{spt6-1004}: transcription start-site sequencing (\textbf{TSS-seq}), and \textbf{ChIP-nexus of TFIIB}, a component of the RNA polymerase II pre-initiation complex (PIC).
 TSS-seq sequences the 5$^\prime$ end of capped and polyadenylated RNAs \citep{arribere2013, malabat2015}, allowing separation of intragenic from genic RNA signals and identification of intragenic transcript starts with single-nucleotide resolution (Figure \ref{fig:six_aat_assay_comparison}).
@@ -104,23 +82,6 @@ When applied to the PIC component TFIIB, ChIP-nexus reports where transcription 
 % The Snakemake framework allows these data analyses to be reproducible and scalable from workstations up to computing clusters.
 % Updated versions of these pipelines with more details on their capabilities are available at \href{https://github.com/winston-lab}{github.com/winston-lab}.
 % In the following subsections I will describe the thought behind only a few of the more novel pipeline steps before moving on to results relating to Spt6 and intragenic transcription.
-
-\subsection{TSS-seq peak calling}
-
-% TSS-seq data from a single region of transcription initiation tends to occur as a cluster of signal distributed over a range of positions, rather than a single nucleotide (Figure \ref{fig:tss_coverage}) \citep{arribere2013, malabat2015}.
-% It is reasonable to consider such a cluster of TSS-seq signal as a single entity, because the signals within the cluster are usually highly correlated to one another across different conditions.
-% Therefore, to identify TSSs from TSS-seq data and quantify them for downstream analyses such as differential expression, it is necessary to annotate these groups of signal by using the data to perform peak-calling.
-
-% In its current state, the TSS-seq pipeline calls peaks using 1-D \href{https://en.wikipedia.org/wiki/Watershed_(image_processing)}{watershed segmentation}, followed by filtering for reproducibility by the Irreproducible Discovery Rate (IDR) method \citep{li2011}.
-% First, a smoothed version of the TSS-seq coverage is generated for each sample using a discretized Gaussian kernel.
-% Next, an initial set of peaks is generated by: 1) assigning all nonzero signal in the original, unsmoothed coverage to the nearest local maximum of the smoothed coverage in the direction of positive derivative, and 2) taking the minimum and maximum genomic coordinates of the original coverage assigned to each local maximum as the peak boundaries.
-% The peaks are then trimmed to the smallest genomic window that includes 95\% of the original coverage, and the probability of the peak being generated by noise is estimated by a Poisson model where $\lambda$, the expected coverage, is the maximum of the expected coverage over the chromosome and the expected coverage in a window upstream of the peak (as for the ChIP-seq peak caller MACS2 \citep{zhang2008}).
-% The influence of local read density on $\lambda$ is intended to reduce false positive peaks within gene bodies, especially for highly expressed genes: Since there are more fragments of RNA present for highly expressed genes, more fragments within the gene body will make it into the final library, even if they are not true 5' ends.
-% To generate the final set of peaks, the peaks are ranked by significance under the Poisson model, and filtered by IDR.
-% In brief, IDR attempts to separate true peaks from experimental noise based on the intuition that, when peaks in each replicate are independently ranked by a metric such as significance, true peaks will have more similar ranks between replicates than peaks representing noise \citep{li2011}.
-
-% The IDR algorithm currently only works for two replicates.
-% Future improvements could include expanding the IDR implementation to handle more replicates and improve the accuracy of peak calling with more data.
 
 \subsection{A note on ChIP-nexus peak calling}
 
@@ -148,16 +109,17 @@ Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur toward
 \label{fig:six_tss_seq_heatmaps}
 \end{figure}
 
-\begin{wrapfigure}[19]{R}{3in}
-    \centering
-    \includegraphics[width=3in]{figures/six/six_tfiib_heatmap.pdf}
-    \caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85th percentile are set to the 85th percentile for visualization.}
-    \label{fig:six_tfiib_heatmap}
-\end{wrapfigure}
-
 The TSS-seq data were quantified by peak calling and differential expression analysis, and classified into genomic categories based on their position relative to coding genes.
 As suggested by the heatmap visualization (Figure \ref{fig:six_tss_seq_heatmaps}), we detect significant induction of over 4000 intragenic and antisense TSSs in \textit{spt6-1004} (Figure \ref{fig:six_tss_diffexp_summary}).
 Compared to previous studies identifying \textit{spt6-1004} intragenic transcription by tiled microarray and RNA-seq, we identify intragenic transcription at over 1000 additional genes (Figure \ref{fig:six_intragenic_genes_bvenn}) and have the exact start sites of all identified TSSs.
+
+\begin{SCfigure}[50][h]
+    \centering
+    \includegraphics[width=4in]{figures/six/six_tfiib_heatmap.pdf}
+    \caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85th percentile are set to the 85th percentile for visualization.}
+    \label{fig:six_tfiib_heatmap}
+\end{SCfigure}
+
 The TSS-seq data also revealed an unexpected downregulation of most genic TSSs: In this experiment, we detected a significant downregulation to levels below 67\% of wild-type levels at 75\% (3579/4792) of genic TSSs (Figure \ref{fig:six_tss_diffexp_summary}).
 As a result of intragenic/antisense induction and genic repression, expression levels in \textit{spt6-1004} of all classes of transcripts become similar to one another (Figure \ref{fig:six_tss_expression_levels}).
 
@@ -177,7 +139,7 @@ As a result of intragenic/antisense induction and genic repression, expression l
     \end{minipage}
 \end{figure}
 
-\begin{wrapfigure}[10]{r}{3in}
+\begin{wrapfigure}[12]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/six/six_tss_expression_levels.pdf}
     \caption[Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004} cells.]{Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004}, both after 80 minutes at 37\textdegree C. Normalized counts are the mean of spike-in size factor normalized counts from two replicates.}
