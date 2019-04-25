@@ -46,6 +46,7 @@
 \usepackage{xcolor}
 \definecolor{blue}{HTML}{114477}
 \definecolor{grey}{HTML}{aaaaaa}
+\definecolor{black}{HTML}{000000}
 \definecolor{lightpurple}{HTML}{beaed4}
 \usepackage[colorlinks=true,
             linkcolor=black,
@@ -58,7 +59,7 @@
             pdfcreator=James\ Chuang]{hyperref}
 
 \usepackage[round, sort]{natbib}
-\setcitestyle{aysep={,}, citesep={;}}
+\bibpunct{\color{black}(}{\color{black})}{\color{grey};}{a}{\color{grey},}{\color{grey},}
 \usepackage[]{chapterbib}
 \sectionbib{\section}{section}
 

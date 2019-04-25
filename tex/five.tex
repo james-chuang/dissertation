@@ -102,6 +102,195 @@
 
 \section{Methods}
 
+\subsection{A note on spike-in normalization for ChIP-seq experiments with input samples}
+
+In the course of developing a ChIP-Seq pipeline, I came across the following error in a published spike-in normalization method.
+Throughout, I use `experimental' and `spike-in' to refer to the two genomes, e.g., experimental signal and spike-in signal.
+
+The goal when including spike-ins in a ChIP-seq experiment is to end up with a normalized experimental signal which is proportional to the absolute abundance of the factor being immunoprecipitated.
+A straightforward method to accomplish this normalization is to linearly scale the experimental signal of a library by a normalization factor, which we will call $\alpha$.
+To calculate $\alpha$ for each library, we can use the fact that a normalized `spike-in signal' should be the same for all libraries, since the biological state of the spike-in cells is the same in all libraries.
+The key to correctly determining $\alpha$ is defining exactly what this spike-in signal is.
+
+The measurement we begin with for determination of the spike-in signal of a library is the number of reads in the library which map uniquely to the spike-in genome ($R_{\text{spike}}$).
+This value will vary based on two factors: the sequencing depth of the library, and the proportion of cells which were spike-in cells ($\phi$):
+\begin{align*}
+    R_{\text{spike}} &\equiv \text{the number of reads in the library mapping uniquely to the spike-in genome}; \\
+    \phi &\equiv \text{the proportion of spike-in cells in the sample}.
+\end{align*}
+However, the derivation of $\alpha$ is more easily understood in terms of absolute cell numbers rather than $\phi$:
+\begin{align*}
+    C_{\text{exp}} &\equiv \text{the number of experimental cells used to prepare a library}; \\
+    C_{\text{spike}} &\equiv \text{the number of spike-in cells used to prepare a library}. \\
+\end{align*}
+We can express the \textbf{number of spike-in reads per spike-in cell} by simply taking the fraction $\frac{R_{\text{spike}}}{C_{\text{spike}}}$.
+We know that the biological state of a spike-in cell is the same regardless of which sample it belongs to, so we \textit{could} set $\frac{R_{\text{spike}}}{C_{\text{spike}}}$ equal to all samples in order to calculate $\alpha$.
+However, this would not account for differences in $\phi$ between samples.
+Two libraries representing the same condition and sequenced to the same depth should have equivalent values of $\frac{R_{\text{spike}}}{C_{\text{spike}}}$ but they would not if they differed in the amount of spike-in added.
+
+The metric for `spike-in signal' that leads to the correct expression for $\alpha$ is the \textbf{number of spike-in reads per spike-in cell \textit{per experimental cell}}:
+\begin{align*}
+    & \frac{ \frac{R_\text{spike}}{C_\text{spike}}}{C_\text{exp}} \\
+    = & \frac{R_\text{spike} C_\text{exp}}{C_\text{spike}}.
+\end{align*}
+From here, it's simple to calculate $\alpha$ by setting this value to be the same for all samples.
+Since the actual value of the spike-in signal doesn't matter as long as it's the same for all libraries, we can arbitrarily set it to $1$ for convenience:
+\begin{align*}
+    \alpha \frac{R_\text{spike} C_\text{exp}}{C_\text{spike}} &= 1 \\
+    \alpha &= \frac{C_\text{spike}}{R_\text{spike} C_\text{exp}}.
+\end{align*}
+Notice that you only need to know the ratio of spike-in to experimental cells to calculate $\alpha$, and not their absolute values.
+We can also rewrite this in terms of $\phi$, the proportion of the sample that was spike-in cells:
+\begin{align*}
+    \phi &= \frac{C_\text{spike}}{C_\text{spike} + C_\text{exp}} \\
+    C_\text{spike} & = \phi \left(C_\text{spike} + C_\text{exp} \right) \\
+    C_\text{spike} \left(1-\phi \right) & = \phi C_\text{exp} \\
+    \frac{C_\text{spike}}{C_\text{exp}} & = \frac{\phi}{1-\phi} & \alpha &= \frac{C_\text{spike}}{R_\text{spike} C_\text{exp}} \\
+                                        && \alpha &= \frac{\phi}{R_\text{spike} \left(1-\phi \right)}.
+\end{align*}
+Notice how this form for $\alpha$ is different than the one derived in \citet{orlando}:
+\begin{align*}
+    \alpha &= \frac{\phi}{R_\text{spike} \left(1-\phi \right)} & \alpha_\text{orlando} &= \frac{\phi}{R_\text{spike}}.
+\end{align*}
+Let's do some examples with both versions to make sure the $\alpha$ values we get make sense, and compare them to $\alpha_\text{orlando}$.
+First, we'll vary sequencing depth, keeping everything else constant.
+Consider a single ChIP library prep in which 20\% of the cells were spike-in cells (i.e., $\phi=0.2$).
+The library is then unevenly split into two aliquots and sequenced.
+One library has four times the reads of the other library.
+\begin{align*}
+    R_{\text{spike}_1} &= 1 & R_{\text{spike}_2} &= 4 \\
+    R_{\text{exp}_1} &= 4 & R_{\text{exp}_2} &= 16 \\
+\end{align*}
+\begin{align*}
+    \alpha_1 &= \frac{\phi}{R_{\text{spike}_1} \left(1-\phi \right)} &
+    \alpha_2 &= \frac{\phi}{R_{\text{spike}_2} \left(1-\phi \right)} &
+    \alpha_{\text{orlando}_1} &= \frac{\phi}{R_{\text{spike}_1}} &
+    \alpha_{\text{orlando}_2} &= \frac{\phi}{R_{\text{spike}_2}} \\
+    \alpha_1 &= \frac{0.2}{1 \left(0.8 \right)} &
+    \alpha_2 &= \frac{0.2}{4 \left(0.8 \right)} &
+    \alpha_{\text{orlando}_1} &= \frac{0.2}{1} &
+    \alpha_{\text{orlando}_2} &= \frac{0.2}{4} \\
+    \alpha_1 &= \frac{4}{16} &
+    \alpha_2 &= \frac{1}{16} &
+    \alpha_{\text{orlando}_1} &= \frac{4}{20} &
+    \alpha_{\text{orlando}_2} &= \frac{1}{20}.
+\end{align*}
+The total levels of spike-in normalized experimental signal can be found for each library by multiplying $\alpha$ by $R_\text{exp}$:
+\begin{align*}
+    \text{signal}_1 &= \alpha_1 R_{\text{exp}_1}  &
+    \text{signal}_2 &= \alpha_2 R_{\text{exp}_2}  &
+    \text{signal}_{\text{orlando}_1} &= \alpha_{\text{orlando}_1} R_{\text{exp}_1} &
+    \text{signal}_{\text{orlando}_2} &= \alpha_{\text{orlando}_2} R_{\text{exp}_2} & \\
+    \text{signal}_1 &=  \frac{4}{16} \left(4 \right)  &
+    \text{signal}_2 &=  \frac{1}{16} \left(16 \right)  &
+    \text{signal}_{\text{orlando}_1} &= \frac{4}{20} \left(4\right) &
+    \text{signal}_{\text{orlando}_1} &= \frac{1}{20} \left(16\right) & \\
+    \text{signal}_1 &=  1 &
+    \text{signal}_2 &=  1 &
+    \text{signal}_{\text{orlando}_1} &= 0.8 &
+    \text{signal}_{\text{orlando}_1} &= 0.8 &
+\end{align*}
+
+Only the relative abundances within normalization methods matter, so in this case both calculations correctly normalized for library size and say that the normalized signal in the two libraries are the same.
+
+Now let's consider two libraries from two different conditions with $\phi=0.1$. In condition 2, there is a known global decrease in experimental signal expected. I'll skip the algebra this time:
+\begin{align*}
+    R_{\text{spike}_1} &= 1 & R_{\text{spike}_2} &= 4 \\
+    R_{\text{exp}_1} &= 9 & R_{\text{exp}_2} &= 6 \\
+\end{align*}
+\begin{align*}
+    % \alpha_1 &= \frac{\phi}{R_{\text{spike}_1} \left(1-\phi \right)} &
+    % \alpha_2 &= \frac{\phi}{R_{\text{spike}_2} \left(1-\phi \right)} &
+    % \alpha_{\text{orlando}_1} &= \frac{\phi}{R_{\text{spike}_1}} &
+    % \alpha_{\text{orlando}_2} &= \frac{\phi}{R_{\text{spike}_2}} \\
+    % \alpha_1 &= \frac{0.1}{1 \left(0.9 \right)} &
+    % \alpha_2 &= \frac{0.1}{4 \left(0.9 \right)} &
+    % \alpha_{\text{orlando}_1} &= \frac{0.1}{1} &
+    % \alpha_{\text{orlando}_2} &= \frac{0.1}{4} \\
+    \alpha_1 &= \frac{4}{36} &
+    \alpha_2 &= \frac{1}{36} &
+    \alpha_{\text{orlando}_1} &= \frac{4}{40} &
+    \alpha_{\text{orlando}_2} &= \frac{1}{40}
+\end{align*}
+\begin{align*}
+    % \text{signal}_1 &= \alpha_1 R_{\text{exp}_1}  &
+    % \text{signal}_2 &= \alpha_2 R_{\text{exp}_2}  &
+    % \text{signal}_{\text{orlando}_1} &= \alpha_{\text{orlando}_1} R_{\text{exp}_1} &
+    % \text{signal}_{\text{orlando}_2} &= \alpha_{\text{orlando}_2} R_{\text{exp}_2} & \\
+    % \text{signal}_1 &=  \frac{4}{36} \left(9 \right)  &
+    % \text{signal}_2 &=  \frac{1}{36} \left(6 \right)  &
+    % \text{signal}_{\text{orlando}_1} &= \frac{4}{40} \left(9\right) &
+    % \text{signal}_{\text{orlando}_1} &= \frac{1}{40} \left(6\right) & \\
+    \text{signal}_1 &=  1 &
+    \text{signal}_2 &=  1/6 &
+    \text{signal}_{\text{orlando}_1} &= 0.9 &
+    \text{signal}_{\text{orlando}_1} &= 0.15 &
+\end{align*}
+
+Both methods correctly detect that experimental signal levels in library 2 are 1/6th that of library 1.
+
+Finally, let's consider two libraries from the same condition which were spiked in with different amounts of spike-in cells. Both libraries are sequenced to the same depth. Since the libraries are from the same condition, we expect their total experimental signal to be the same after normalization, even though they had different amounts of spike-in added.
+\begin{align*}
+    \phi_1 &= 0.2 & \phi_2 &=0.4 \\
+    R_{\text{spike}_1} &= 2 & R_{\text{spike}_2} &= 4 \\
+    R_{\text{exp}_1} &= 8 & R_{\text{exp}_2} &= 6 \\
+\end{align*}
+\begin{align*}
+    \alpha_1 &= \frac{\phi_1}{R_{\text{spike}_1} \left(1-\phi_1 \right)} &
+    \alpha_2 &= \frac{\phi_2}{R_{\text{spike}_2} \left(1-\phi_2 \right)} &
+    \alpha_{\text{orlando}_1} &= \frac{\phi_1}{R_{\text{spike}_1}} &
+    \alpha_{\text{orlando}_2} &= \frac{\phi_2}{R_{\text{spike}_2}} \\
+    \alpha_1 &= \frac{0.2}{2 \left(0.8 \right)} &
+    \alpha_2 &= \frac{0.4}{4 \left(0.6 \right)} &
+    \alpha_{\text{orlando}_1} &= \frac{0.2}{2} &
+    \alpha_{\text{orlando}_2} &= \frac{0.4}{4} \\
+    \alpha_1 &= \frac{3}{24} &
+    \alpha_2 &= \frac{4}{24} &
+    \alpha_{\text{orlando}_1} &= \frac{1}{10} &
+    \alpha_{\text{orlando}_2} &= \frac{1}{10}
+\end{align*}
+\begin{align*}
+    \text{signal}_1 &= \alpha_1 R_{\text{exp}_1}  &
+    \text{signal}_2 &= \alpha_2 R_{\text{exp}_2}  &
+    \text{signal}_{\text{orlando}_1} &= \alpha_{\text{orlando}_1} R_{\text{exp}_1} &
+    \text{signal}_{\text{orlando}_2} &= \alpha_{\text{orlando}_2} R_{\text{exp}_2} & \\
+    \text{signal}_1 &=  \frac{3}{24} \left(8 \right)  &
+    \text{signal}_2 &=  \frac{4}{24} \left(6 \right)  &
+    \text{signal}_{\text{orlando}_1} &= \frac{1}{10} \left(8\right) &
+    \text{signal}_{\text{orlando}_1} &= \frac{1}{10} \left(6\right) & \\
+    \text{signal}_1 &=  1 &
+    \text{signal}_2 &=  1 &
+    \text{signal}_{\text{orlando}_1} &= 0.8 &
+    \text{signal}_{\text{orlando}_1} &= 0.6 &
+\end{align*}
+
+Here, our method correctly normalizes the two samples to the same total experimental signal while using the Orlando $\alpha$ results in an apparent decrease in signal in library 2. This is because the Orlando $\alpha$ fails to account for the fact that when you add more spike-in to a sample, you necessarily decrease the proportion of the sample that is experimental. In most experiments with spike-ins, this isn't really a problem because we assume that $\phi$ is the same for all samples. However, with ChIP-seq experiments that include input samples, if we assume that the experimental and spike-in input sample read counts are proportional to the amounts of experimental and spike-in cells mixed, we can plug these values in for values of $\phi$ to get a more reliable estimation of experimental signal levels. In this case, it becomes important to use the correct equation for $\alpha$.
+
+So, putting everything together, here's how I use the spike-in to normalize an IP ChIP-seq library paired with an input ChIP-seq library.
+
+As stated above, we assume that the experimental and spike-in read counts in the input sample are proportional to the numbers of experimental and spike-in cells used to prepare the library:
+
+\begin{align*}
+    R_{\text{input}_\text{exp}} \propto C_\text{exp}, \\
+    R_{\text{input}_\text{spike}} \propto C_\text{spike}
+\end{align*}
+
+Therefore, we can plug these values in for $C$ for both the input and IP libraries (using the form of $\alpha$ without $\phi$):
+
+\begin{align*}
+    \alpha_\text{input} &= \frac{C_{\text{input}_\text{spike}}}{R_{\text{input}_\text{spike}} C_{\text{input}_\text{exp}}} &
+    \alpha_\text{IP} &= \frac{C_{\text{input}_\text{spike}}}{R_{\text{IP}_\text{spike}} C_{\text{input}_\text{exp}}} \\
+    \alpha_\text{input} &\propto \frac{R_{\text{input}_\text{spike}}}{R_{\text{input}_\text{spike}} R_{\text{input}_\text{exp}}} &
+    \alpha_\text{IP} &\propto \frac{R_{\text{input}_\text{spike}}}{R_{\text{IP}_\text{spike}} R_{\text{input}_\text{exp}}} \\
+    \alpha_\text{input} &\propto \frac{1}{R_{\text{input}_\text{exp}}} &
+\end{align*}
+
+Notice how $\alpha_\text{input}$ reduces down to normalizing by the experimental library size, with no dependence at all on the spike-in. This makes sense because the input always represents the same state, regardless of how much spike-in is added to it. The function of the spike-in in the input is only to allow us to estimate abundances in the corresponding IP library. Rewriting $\alpha_\text{IP}$ in the form below shows that $\alpha_\text{IP}$ will basically scale the experimental IP signal to the same scale as the experimental input signal, using the spike-in as a link between the two samples. This makes it natural to subtract the normalized input signal from the normalized IP signal: since they are on the same scale, the resulting coverage can be interpreted as reporting how much more IP signal was detected than was expected based on the input.
+
+\begin{align*}
+    \alpha_\text{IP} &\propto \frac{1}{R_{\text{IP}_\text{spike}} \frac{R_{\text{input}_\text{exp}}}{R_{\text{input}_\text{spike}}}}
+\end{align*}
+
 \newpage
 \bibliographystyle{apalike}
 \begingroup
