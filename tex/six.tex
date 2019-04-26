@@ -13,7 +13,12 @@
 
 \section{Introduction to Spt6 and intragenic transcription}
 
-\begin{wrapfigure}[9]{r}{3.5in}
+The conserved transcription elongation factor Spt6 interacts directly with RNA polymerase II \citep{close2011, diebold2011, liu2011, sdano2017, sun2010, yoh2007}, histones \citep{bortvin1996, mccullough2015}, and another elongation factor called Spn1/Iws1 \citep{diebold2010b, li2018, mcdonald2010}.
+The classification of Spt6 as a transcription elongation factor is based on its association with elongating Pol II \citep{andrulis2000, ivanovska2011, kaplan2000, mayer2010}, and its ability to enhance elongation both \textit{in vitro} \citep{endoh2004} and \textit{in vivo} \citep{ardehali2009}, though Spt6 has also been shown to regulate initiation in a small number of cases \citep{adkins2006, ivanovska2011}.
+Evidence suggests that as Spt6 travels with elongating Pol II, it acts as a histone chaperone, reassembling nucleosomes in the wake of transcription \citep{duina2011}.
+Consistent with its histone chaperone function, Spt6 influences chromatin structure \citep{bortvin1996, degennaro2013, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}; Spt6 is also required for some histone modifications, including H3K36 methylation \citep{carrozza2005, chu2006, yoh2008, youdell2008}, and, in some organisms, H3K4 and H3K27 methylation \citep{begum2012, chen2012, degennaro2013, wang2017, wang2013}.
+
+\begin{wrapfigure}[10]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/six/six_spt6_western.pdf}
     \caption[Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C.]{Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C. Spt6 and Dst1 from a spike-in were detected using $\alpha$-FLAG and $\alpha$-Myc antibodies, respectively. The mean $\pm$ standard deviation of three blots are shown below each lane.}
@@ -23,7 +28,7 @@
 Studies in the yeasts \textit{Saccharomyces cerevisiae} and \textit{Schizosaccharomyces pombe} have previously examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
 As Spt6 is essential for viability in \textit{S. cerevisiae}, many of these studies use the same temperature-sensitive \textit{spt6} mutant used in this project, \textbf{\textit{spt6-1004}}, which encodes an in-frame deletion of a helix-hairpin-helix domain within Spt6 \citep{kaplan2003}.
 When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels (Figure \ref{fig:six_spt6_western}).
-The most notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences, in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
+A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences, in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
 \begin{wrapfigure}[8]{r}{3in}
     \centering
@@ -32,9 +37,8 @@ The most notable phenotype of the \textit{spt6-1004} mutant is the appearance of
     \label{fig:six_gene_diagram}
 \end{wrapfigure}
 Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{uwimana2017}.
-Studying intragenic transcription is difficult with these methods, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figure \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}. Therefore, these methods can only discover intragenic transcripts which are highly expressed relative to the corresponding genic transcript, and are likely to find many false positives.
+Studying intragenic transcription is difficult with these methods, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figures \ref{fig:six_gene_diagram}, \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}. Therefore, these methods can only discover intragenic transcripts which are highly expressed relative to the corresponding genic transcript, and are likely to find many false positives.
 Additionally, these methods are assays of steady-state RNA levels, which makes them unable to distinguish whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly degraded in wild-type, or C) processing of full-length protein-coding RNAs.
-
 \begin{SCfigure}[40][h]
     \centering
     \includegraphics[width=4.4in]{figures/six/six_aat_assay_comparison.pdf}
@@ -47,31 +51,11 @@ TSS-seq sequences the 5$^\prime$ end of capped and polyadenylated RNAs \citep{ar
 ChIP-nexus is a high-resolution chromatin immunoprecipitation technique, in which the immunoprecipitated DNA is exonuclease digested up to the bases crosslinked with the protein of interest before sequencing \citep{he2015}.
 When applied to the PIC component TFIIB, ChIP-nexus reports where transcription initiation is occurring, thus allowing us to determine if intragenic transcripts in \textit{spt6-1004} result from new transcription initiation.
 
-\section{Data analysis pipelines for TSS-seq and ChIP-nexus}
-
-% In order to use TSS-seq and ChIP-nexus to answer questions about Spt6 and intragenic transcription, I developed analysis pipelines for TSS-seq and ChIP-nexus data.
-% The pipelines are written using the Python-based Snakemake workflow specification language \citep{koster2012}, and perform steps including read cleaning \citep{martin2011}, various quality controls \citep{andrews2012}, read alignment \citep{kim2013, langmead2012}, data normalization, coverage track generation \citep{quinlan2010}, peak calling \citep{zhang2008}, differential expression/binding analyses \citep{love2014}, data visualization with clustering, motif enrichment analyses \citep{bailey2015}, and gene ontology analyses \citep{young2010}.
-% The Snakemake framework allows these data analyses to be reproducible and scalable from workstations up to computing clusters.
-% Updated versions of these pipelines with more details on their capabilities are available at \href{https://github.com/winston-lab}{github.com/winston-lab}.
-% In the following subsections I will describe the thought behind only a few of the more novel pipeline steps before moving on to results relating to Spt6 and intragenic transcription.
-
-\subsection{A note on ChIP-nexus peak calling}
-
-% A number of tools have been created specifically for peak-calling using data from high-resolution ChIP techniques such as ChIP-nexus and ChIP-exo \citep{wang2014, hansen2016}.
-% When applied to our TFIIB ChIP-nexus data, these tools tended to split what appeared to be a single TFIIB binding event into multiple peaks.
-% This may be because TFIIB has been observed to crosslink to DNA at multiple points (Figure \ref{fig:tfiib_tata}) \citep{rhee2012}, which suggests that while these tools may work well for factors that bind symmetrically with a single crosslinking point on either side, there is still room for improvement when it comes to factors with more complex binding patterns.
-% For the purposes of this project, the standard ChIP-seq peak caller MACS2 was used \citep{zhang2008}.
-
-% ChIP-seq peaks lack strand information, as DNA binding factors usually do not bind DNA in a strand-specific manner.
-% Because of this, we could not separate intragenic TFIIB peaks into peaks associated with sense or antisense transcription.
-% The distinctive shape of the aggregate TFIIB ChIP-nexus signal (Figure \ref{fig:tfiib_tata}) suggests that information about the strand of transcription may be present in the ChIP-nexus binding profile.
-% Future work could include learning the direction of transcription from labeled ChIP-nexus training data.
-
 \section{TSS-seq and TFIIB ChIP-nexus results for \textit{spt6-1004}}
 
 To study the relationship between Spt6 and transcription, TSS-seq and TFIIB ChIP-nexus libraries were prepared from wild-type and \textit{spt6-1004} cells, both shifted from 30\textdegree C to 37\textdegree C for 80 minutes.
 In wild-type cells, TSS-seq and TFIIB ChIP-nexus recapitulate their expected distributions over the genome: Most TSS signal is restricted to annotated genic TSSs, while most TFIIB signal is localized just upstream of the TSS (Figures \ref{fig:six_tss_seq_heatmaps}, \ref{fig:six_tfiib_heatmap}).
-In \textit{spt6-1004}, the signal for both assays infiltrates gene bodies, already suggesting that new transcription initiation does contribute to the intragenic transcription phenotype.
+In \textit{spt6-1004}, the signal for both assays infiltrates gene bodies, reflecting widespread intragenic expression of capped and polyadenylated transcripts, and suggesting that new transcription initiation contributes to the intragenic transcription phenotype.
 Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur towards the 3$^\prime$ end of genes, while antisense strand TSS-seq signal tends to occur towards the 5$^\prime$ end of genes.
 
 \begin{figure}[H]
@@ -124,23 +108,24 @@ This difference in binding pattern makes peak calling ineffective for quantifyin
 Therefore, to see if changes in transcript levels in \textit{spt6-1004} correspond to changes in transcription initiation, we compared the change in TSS-seq signal at TSS-seq peaks in \textit{spt6-1004} to the change in TFIIB ChIP-nexus signal in the window extending 200 bp upstream of the TSS-seq peak.
 Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class, indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
 
-\begin{SCfigure}[50][h]
-\centering
-\includegraphics[width=3.5in]{figures/six/six_tfiib_spreading_ssa4.pdf}
-\caption[TFIIB ChIP-nexus protection over the 20 kb flanking the gene \textit{SSA4}, in wild-type and \textit{spt6-1004} cells.]{
-    \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
-        \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004}, over 20 kb of chromosome II flanking the \textit{SSA4} gene.
-        \item [bottom)] Expanded view of TFIIB protection over the \textit{SSA4} gene.
-    \end{description}
-}
-\label{fig:six_tfiib_spreading_ssa4}
-\end{SCfigure}
-
 \begin{figure}[h]
-\centering
-\includegraphics[width=6in]{figures/six/six_tss_v_tfiib.pdf}
-\caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
+    \centering
+    \includegraphics[width=6in]{figures/six/six_tfiib_spreading_ssa4.pdf}
+    \caption[TFIIB ChIP-nexus protection over the 20 kb flanking the gene \textit{SSA4}, in wild-type and \textit{spt6-1004} cells.]{
+        \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
+            \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004}, over 20 kb of chromosome II flanking the \textit{SSA4} gene.
+            \item [bottom)] Expanded view of TFIIB protection over the \textit{SSA4} gene.
+        \end{description}
+    }
+    \label{fig:six_tfiib_spreading_ssa4}
+
+    \vspace{0.5em}
+
+    \includegraphics[width=6in]{figures/six/six_tss_v_tfiib.pdf}
+    \caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
 \end{figure}
+
+\clearpage
 
 \section{MNase-seq results from \textit{spt6-1004}}
 

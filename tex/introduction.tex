@@ -3,8 +3,8 @@
 \section{A brief introduction to transcription}
 
 In eukaryotic cells, transcription of protein-coding genes is carried out by the protein complex RNA polymerase II (Pol II), and broadly occurs in three sequential stages of transcription initiation, elongation, and termination.
-During each of these stages, the Pol II complex is associated with distinct sets of factors which modulate the activity of Pol II and carry out important co-transcriptional processes such as RNA capping, RNA splicing, histone modification, RNA cleavage, and RNA polyadenylation, to name just a few.
-Given how fundamental transcription is to gene expression, and thus, to life, it is unsurprising that every stage of transcription is highly regulated.
+During each of these stages, the Pol II complex is associated with distinct sets of factors which modulate the activity of Pol II and carry out co-transcriptional processes such as RNA capping, RNA splicing, histone modification, RNA cleavage, and RNA polyadenylation.
+Given how fundamental transcription is to gene expression, it is unsurprising that every stage of transcription is highly regulated.
 
 To get a rough idea of just how tightly transcription is regulated, it is useful to consider a back-of-the-envelope calculation of the specificity of transcription initiation in the human genome.
 That is, what proportion of the human genome at which transcription could initiate does transcription initiation actually occur?
@@ -34,69 +34,21 @@ Evidence suggests that these elongation factors are likely required to maintain 
 Chapters \ref{chapter:six} and \ref{chapter:five} of this dissertation describe our studies of \textbf{Spt6} and \textbf{Spt5}, two of the transcription elongation factors involved in this process.
 One phenotype observed when these factors are disrupted is \textbf{intragenic transcription}, transcription appearing to arise from within protein-coding sequences.
 In chapter \ref{chapter:stress}, I describe our efforts to understand how intragenic transcription might play a role in the cellular response to various stress conditions.
-In the remainder of this introduction, I present background information about Spt6 and Spt5, and end with a description of the considerations taken into account to make the data analyses presented in this dissertation as transparent and reproducible as possible.
-
-\section{Spt6 background information}
-
-Chapter \ref{chapter:six} describes our work studying the transcription elongation factor Spt6.
-Here, I summarize information about Spt6 that is relevant to understanding our studies \citep{doris2018}:
-
-\begin{itemize}[nosep, topsep=.5em]
-\item Spt6 interacts directly with:
-	\begin{itemize}[nosep]
-	\item RNA polymerase II (Pol II) \citep{close2011, diebold2011, liu2011, sdano2017, sun2010, yoh2007}
-	\item histones \citep{bortvin1996, mccullough2015}
-	\item the essential factor Spn1 (IWS1) \citep{diebold2010b, li2018, mcdonald2010}
-	\end{itemize}
-\item Spt6 is believed to function primarily as an elongation factor based on:
-	\begin{itemize}[nosep]
-	\item association with elongating RNA Pol II \citep{andrulis2000, ivanovska2011, kaplan2000, mayer2010}
-	\item ability to enhance elongation in vitro \citep{endoh2004} and in vivo \citep{ardehali2009}
-	\end{itemize}
-\item Spt6 has been shown to regulate initiation in some cases \citep{adkins2006, ivanovska2011}
-\item Spt6 regulates:
-	\begin{itemize}[nosep]
-	\item chromatin structure \citep{bortvin1996, degennaro2013, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}
-	\item histone modifications, including:
-		\begin{itemize}[nosep]
-		\item H3K36 methylation \citep{carrozza2005, chu2006, yoh2008, youdell2008}
-		\item in some organisms, H3K4 and H3K27 methylation \citep{begum2012, chen2012, degennaro2013, wang2017, wang2013}
-		\end{itemize}
-	\end{itemize}
-\item Spt6 is likely a histone chaperone required to reassemble nucleosomes in the wake of transcription \citep{duina2011}.
-\end{itemize}
-
-\section{Spt5 background information}
-
-Chapter \ref{chapter:five} deals with another transcription elongation factor, Spt5.
-Relevant information about Spt5 is summarized as follows \citep{shetty2017}:
-
-\begin{itemize}[nosep, topsep=.5em]
-    \item Spt5 is the only transcription factor known to be conserved in all three domains of life \citep{hartzog2013, werner2012}.
-    \item Spt5 co-localizes with elongating RNA Pol II \citep{mayer2010, rahl2010}.
-    \item Spt5 binds over the Pol II clamp domain, likely stabilizing the elongation complex \citep{hirtreiter2010, klein2011, martinez-rucobo2011}.
-    \item Spt5 physically recruits factors to the elongating transcription complex, in a manner dependent on the modification status of its C-terminal region (CTR) \citep{hartzog2013}:
-    \begin{itemize}[nosep]
-        \item in its unphosphorylated state, the CTR aids in recruiting the mRNA capping enzyme \citep{doamekpor2014, doamekpor2015, schneider2010, wen1999}
-        \item in its phosphorylated state, the CTR recruits the Paf1 complex, which is important for Pol II elongation \citep{liu2009, mbogning2013, wier2013, zhou2009}
-        \item Spt5 helps to recruit mRNA 3' end processing factors \citep{mayer2012, stadelmayer2014, yamamoto2014}.
-        \item Spt5 helps to recruit the Rpd3S histone deacetylase complex \citep{drouin2010}.
-    \end{itemize}
-\end{itemize}
+The remainder of this introduction provides a brief overview of the considerations taken into account in order to make the data analyses behind this dissertation as transparent and reproducible as possible.
 
 \section{Reproducible data analysis for genomics}
 
-My role in the projects of this dissertation is a mix of \href{https://blog.insightdatascience.com/data-science-vs-data-engineering-62da7678adaa}{\textbf{data scientist}} and \href{https://blog.insightdatascience.com/data-science-vs-data-engineering-62da7678adaa}{\textbf{data engineer}}: I build pipelines for processing (usually genomic) datasets, taking raw data through data processing and statistical analysis all the way to data visualization.
+My role in the projects in this dissertation is a mix of \href{https://blog.insightdatascience.com/data-science-vs-data-engineering-62da7678adaa}{\textbf{data scientist}} and \href{https://blog.insightdatascience.com/data-science-vs-data-engineering-62da7678adaa}{\textbf{data engineer}}: I build pipelines for processing (usually genomic) datasets, taking raw data through processing, statistical analysis, and data visualization.
 This mostly entails surveying available tools, selecting the tools most suitable for the task, and coding solutions to problems when existing tools are insufficient.
 
-The analysis of complex datasets like genomic data presents challenges to achieving transparency and reproducibility when reporting methods and results in the literature.
+The analysis of complex datasets like those generated by genomic assays presents challenges to achieving transparency and reproducibility when reporting methods and results.
 In building the data analysis pipelines behind the results of this dissertation, I have tried to meet these challenges by following best practices that would be standards for publication in an ideal world.
 All of my data analyses are open source (\href{https://github.com/winston-lab}{github.com/winston-lab}), and are designed to be reproducible by others: For all publications, an self-contained archive is uploaded which includes everything needed to go from raw data to the figures and results of the publication (e.g. \url{https://doi.org/10.5281/zenodo.1409826}).
-This level of accessibility is greatly facilitated by building data analyses in Snakemake, one of several available frameworks for workflow management.
+This level of accessibility is greatly facilitated by building data analyses using Snakemake \citep{koster2012}, one of several available frameworks for workflow management.
 Snakemake's scalable execution and its ability to specify dependencies in virtual environments allow workflows to truly be reproducible: data analyses can be re-run on personal computers, computing clusters, or cloud environments, and the exact versions of the software used when initially running the data analysis will automagically be deployed.
 
-The open sharing of data and code is essential to the scientific process.
-When analysis pipelines routinely consist of tens of steps with tens of parameters each, seeing the data and code is really the only way for those interested to know exactly how the data were handled.
+Open sharing of data and code like this is essential to the scientific process.
+When analysis pipelines routinely consist of tens of steps with tens of parameters each, seeing the data and code is the only way for those interested to know exactly how the data were handled.
 Altogether, this allows for more informed evaluation of results from the literature, as well as the possibility of finding and correcting errors in analysis.
 
 \clearpage

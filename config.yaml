@@ -54,7 +54,7 @@ figures:
         tfiib_spreading_ssa4:
             tfiib_data: ../../intragenic/spt6-data-integration/datavis/spreading-ssa4/spreading-ssa4_TFIIB-ChIP-nexus-protection.tsv.gz
             height: 2.6
-            width: 3.5
+            width: 6
         tss_vs_tfiib:
             genic: ../../intragenic/tss-v-tfiib-nexus/window_diff_binding/spt6-1004-37C-v-WT-37C/tss-spikenorm/spt6-1004-37C-v-WT-37C_tss-spikenorm-window-200-tfiib-chipnexus-libsizenorm-diffbind-results-genic.tsv
             intragenic: ../../intragenic/tss-v-tfiib-nexus/window_diff_binding/spt6-1004-37C-v-WT-37C/tss-spikenorm/spt6-1004-37C-v-WT-37C_tss-spikenorm-window-200-tfiib-chipnexus-libsizenorm-diffbind-results-intragenic.tsv
