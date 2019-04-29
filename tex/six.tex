@@ -15,7 +15,7 @@
 
 The conserved transcription elongation factor Spt6 interacts directly with RNA polymerase II \citep{close2011, diebold2011, liu2011, sdano2017, sun2010, yoh2007}, histones \citep{bortvin1996, mccullough2015}, and another elongation factor called Spn1/Iws1 \citep{diebold2010b, li2018, mcdonald2010}.
 The classification of Spt6 as a transcription elongation factor is based on its association with elongating Pol II \citep{andrulis2000, ivanovska2011, kaplan2000, mayer2010}, and its ability to enhance elongation both \textit{in vitro} \citep{endoh2004} and \textit{in vivo} \citep{ardehali2009}, though Spt6 has also been shown to regulate initiation in a small number of cases \citep{adkins2006, ivanovska2011}.
-Evidence suggests that as Spt6 travels with elongating Pol II, it acts as a histone chaperone, reassembling nucleosomes following their displacement from DNA by the act of transcription \citep{duina2011}.
+Evidence suggests that as Spt6 travels with elongating Pol II, it acts as a histone chaperone, reassembling nucleosomes after their displacement from DNA due to transcription \citep{duina2011}.
 Consistent with its histone chaperone function, Spt6 influences chromatin structure \citep{bortvin1996, degennaro2013, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}; Spt6 is also required for some histone modifications, including H3K36 methylation \citep{carrozza2005, chu2006, yoh2008, youdell2008}, and, in some organisms, H3K4 and H3K27 methylation \citep{begum2012, chen2012, degennaro2013, wang2017, wang2013}.
 
 \begin{wrapfigure}[10]{r}{3in}
@@ -67,7 +67,7 @@ Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur toward
 
 The TSS-seq data were quantified by peak calling and differential expression analysis, and classified into genomic categories based on their position relative to coding genes.
 As suggested by the heatmap visualization (Figure \ref{fig:six_tss_seq_heatmaps}), we detect significant induction of over 4000 intragenic and antisense TSSs in \textit{spt6-1004} (Figure \ref{fig:six_tss_diffexp_summary}).
-Compared to previous studies identifying \textit{spt6-1004} intragenic transcription by tiled microarray and RNA-seq, we identify intragenic transcription at over 1000 additional genes (Figure \ref{fig:six_intragenic_genes_bvenn}) and have the exact start sites of all identified TSSs.
+Compared to previous studies identifying \textit{spt6-1004} intragenic transcription by tiled microarray and RNA-seq \citep{cheung2008, uwimana2017}, we identify intragenic transcription at over 1000 additional genes (Figure \ref{fig:six_intragenic_genes_bvenn}), with the additional information of exact start sites for all identified TSSs.
 
 \begin{SCfigure}[50][h]
     \centering
@@ -84,7 +84,7 @@ As a result of intragenic/antisense induction and genic repression, expression l
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/six/six_tss_diffexp_summary.pdf}
-        \caption[Bar plot of the number of TSS-seq peaks of various genomic classes differentially expressed in \textit{spt6-1004} versus wild-type.]{Bar plots of the number of TSS-seq peaks differentially expressed in \textit{spt6-1004} after 80 minutes at 37\textdegree C versus wild-type after 80 minutes at 37\textdegree C. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
+        \caption[Bar plot of the number of TSS-seq peaks of various genomic classes differentially expressed in \textit{spt6-1004} versus wild-type.]{Bar plots of the number of TSS-seq peaks differentially expressed in \textit{spt6-1004} versus wild-type, both after 80 minutes at 37\textdegree C. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
         \label{fig:six_tss_diffexp_summary}
     \end{minipage}\hfill
     \begin{minipage}[t]{2.875in}
@@ -106,7 +106,7 @@ The changes in transcript levels in \textit{spt6-1004} observed by TSS-seq corre
 In contrast to the discrete peaks in promoter regions seen in wild-type, TFIIB in \textit{spt6-1004} binds much more promiscuously, with many loci having TFIIB signal spread over broad regions of the genome (Figure \ref{fig:six_tfiib_spreading_ssa4}).
 This difference in binding pattern makes peak calling ineffective for quantifying TFIIB signal in this case: ChIP-seq peak callers generally use different algorithms for calling `narrow' peaks (e.g. for sequence-specific transcription factors) and `broad' peaks (e.g. for histone modifications), meaning that a single algorithm is unable to call peaks that are meaningful for differential binding analyses between wild-type and \textit{spt6-1004}.
 Therefore, to see if changes in transcript levels in \textit{spt6-1004} correspond to changes in transcription initiation, we compared the change in TSS-seq signal at TSS-seq peaks in \textit{spt6-1004} to the change in TFIIB ChIP-nexus signal in the window extending 200 bp upstream of the TSS-seq peak.
-Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class, indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
+Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class \ref{fig:six_tss_v_tfiib}, indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
 
 \begin{figure}[h]
     \centering
@@ -123,6 +123,7 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
 
     \includegraphics[width=6in]{figures/six/six_tss_v_tfiib.pdf}
     \caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
+    \label{fig:six_tss_v_tfiib}
 \end{figure}
 
 \clearpage
@@ -133,22 +134,19 @@ Because a primary function of Spt6 is to act as histone chaperone that reassembl
 The requirement for Spt6 in maintaining normal chromatin structure has been demonstrated in previous studies \citep{bortvin1996, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}.
 To re-examine this requirement in higher resolution, we assayed nucleosome protection genome-wide using micrococcal nuclease digestion of chromatin followed by sequencing (MNase-seq).
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \begin{minipage}[t]{2.875in}
-        \centering
-        \includegraphics[width=2.875in]{figures/six/six_mnase_metagene.pdf}
-        \caption[Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over non-overlapping genes aligned by wild-type +1 nucleosome dyad.]{Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over 3522 non-overlapping genes aligned by wild-type +1 nucleosome dyad. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type). The solid line and shading are the median and the inter-quartile range.}
-        \label{fig:six_mnase_metagene}
-    \end{minipage}\hfill
-    \begin{minipage}[t]{2.875in}
-        \centering
-        \includegraphics[width=2.875in]{figures/six/six_global_nuc_occ_fuzz.pdf}
-        \caption[Contour plot of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}.]{Contour plot of the global distributions of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
-        \label{fig:six_global_nuc_occ_fuzz}
-    \end{minipage}
+    \includegraphics[width=5in]{figures/six/six_mnase_metagene.pdf}
+    \caption[Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over non-overlapping genes aligned by wild-type +1 nucleosome dyad.]{Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over 3522 non-overlapping genes aligned by wild-type +1 nucleosome dyad. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates (\textit{spt6-1004}) or one experiment (wild-type), in non-overlapping 20 bp bins.}
+    \label{fig:six_mnase_metagene}
 \end{figure}
 
+\begin{wrapfigure}[11]{r}{3in}
+    \centering
+    \includegraphics[width=3in]{figures/six/six_global_nuc_occ_fuzz.pdf}
+    \caption[Contour plot of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}.]{Contour plot of the distribution of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
+    \label{fig:six_global_nuc_occ_fuzz}
+\end{wrapfigure}
 In wild-type, the MNase-seq data recapitulate the expected signature over genes, with a nucleosome-depleted region upstream of a strongly positioned `+1' nucleosome, and a regularly phased array of nucleosomes over the gene body (Figure \ref{fig:six_mnase_metagene}).
 In \textit{spt6-1004}, nucleosome signal is severely reduced at canonical nucleosome positions and spreads into inter-nucleosome regions.
 Changes in aggregate nucleosome signal such as those observed in Figure \ref{fig:six_mnase_metagene} are the combination of changes to nucleosome occupancy (the number of reads assigned to a nucleosome), fuzziness (the standard deviation of read positions for a nucleosome), and position (the coordinate with the maximum reads for a nucleosome) \citep{chen2013}.
@@ -219,7 +217,7 @@ The resolution with which we were able to identify intragenic TSSs allowed us to
 To examine the DNA sequence preference of intragenic and genic TSSs in \textit{spt6-1004}, we aligned the sequences of all TSS-seq reads overlapping TSS-seq peaks of each class, and calculated the information content and sequence distribution for each class (Figure \ref{fig:six_tss_seqlogos}).
 Intragenic TSSs have a sequence preference almost identical to previously observed sequence preference of genic TSSs \citep{malabat2015}, suggesting that RNA polymerase initiates transcription similarly at genic and intragenic TSSs, and that the lack of intragenic initiation in wild-type is due to inaccessibility of the initiation sequence, possibly due to histones.
 
-\subsection{Sequence motifs enriched at intragenic TSSs}
+\subsection{Enrichment of the TATA box at intragenic TSSs}
 
 To examine whether sequence-specific transcription factors contribute to the expression of intragenic transcripts in \textit{spt6-1004}, we looked for enrichment or depletion of the DNA sequence motifs associated with these factors upstream of intragenic TSSs.
 Exact matches to the TATA element consensus sequence TATAWAWR are enriched upstream between 100 and 150 nt upstream of intragenic TSSs, in the same position but to a lesser degree than the TATA enrichment observed upstream of genic TSSs (Figure \ref{fig:six_intragenic_tata}).
@@ -231,6 +229,8 @@ This further supports the model that \textit{spt6-1004} intragenic promoters are
     \caption[Kernel density estimate of matches to a consensus TATA-box motif upstream of genic and \textit{spt6-1004}-induced intragenic TSSs.]{Scaled density of occurrences of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is scaled by the number of motif occurrences per region.}
     \label{fig:six_intragenic_tata}
 \end{SCfigure}
+
+\subsection{\textit{De novo} motif discovery at intragenic TSSs}
 
 \begin{figure}[h]
     \centering

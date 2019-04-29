@@ -36,10 +36,10 @@ main = function(theme_spec,
                                                         x %>% near(2) ~ "+2 kb",
                                                         x > 0 ~ paste0("+", x),
                                                         TRUE ~ as.character(x))) +
-        scale_y_continuous(limits = c(NA, 1),
+        scale_y_continuous(limits = c(NA, 0.9),
                            oob=scales::squish,
                            expand=c(0,0),
-                           breaks=scales::pretty_breaks(n=1),
+                           breaks=c(0,9),
                            name="normalized counts") +
         facet_zoom(xlim=c(-0.3, 2.111+0.3),
                    zoom.size=1) +
