@@ -2,7 +2,7 @@
 
 \section{A brief introduction to transcription}
 
-In eukaryotic cells, transcription of protein-coding genes is carried out by the protein complex RNA polymerase II (Pol II), and broadly occurs in three sequential stages of transcription initiation, elongation, and termination.
+In eukaryotic cells, transcription of protein-coding genes is carried out by the protein complex RNA polymerase II (Pol II), and broadly occurs in three sequential stages of transcription initiation, elongation, and termination \citep{shandilya2012}.
 During each of these stages, the Pol II complex is associated with distinct sets of factors which modulate the activity of Pol II and carry out co-transcriptional processes such as RNA capping, RNA splicing, histone modification, RNA cleavage, and RNA polyadenylation.
 Given how fundamental transcription is to gene expression, it is unsurprising that every stage of transcription is highly regulated.
 
@@ -12,9 +12,10 @@ That is, what proportion of the human genome at which transcription could initia
 The number of positions at which transcription could theoretically initiate is simply the size of the genome: The human genome is approximately three billion base pairs in length (BNID 111378, \citet{griffin2009}), and since each base pair can be transcribed from each of its two strands, there are $6 \times 10^9$ available positions.
 
 The number of positions at which transcription \textit{does} initiate can be estimated from the number of genes transcribed by Pol II and the number of positions that Pol II initiates from for each gene.
-At last count, the human genome contains about twenty thousand protein-coding genes (BNID 105447, \citet{griffin2009}).
+At last count, the human genome contains about twenty thousand protein-coding genes \citep{encode2012}.
 To be conservative in our estimate with regards to specificity, we will assume that all twenty thousand genes are expressed.
-We also know that protein-coding genes are only a subset of the genes transcribed by Pol II: Pol II also transcribes multiple classes of non-coding genes, including enhancers and long non-coding RNAs.
+We also know that protein-coding genes are only a subset of the genes transcribed by Pol II: Pol II also transcribes multiple classes of non-coding genes, including enhancers and long non-coding RNAs \citep{kaikkonen2018}.
+Compared to protein-coding genes, the number of non-coding genes is less certain.
 If we assume that there are five non-coding genes for each coding gene, this brings our estimate of the number of genes transcribed by Pol II to $1.2 \times 10^5$ genes.
 
 As you will see from yeast transcription start site data in later chapters, transcription initiation for a single gene generally occurs at multiple nucleotides, generating multiple major transcript isoforms per gene.
@@ -24,10 +25,10 @@ Assuming that there are five major transcription start sites (TSSs) per gene, th
          {\left(6 \times 10^9 \; \text{possible TSSs} \right)}
     &= 1 \times 10^{-4}.
 \end{align*}
-Our rough estimate says that, when presented with ten thousand positions to choose from, RNA polymerase starts transcription from only one!
+Our rough estimate says that, when presented with ten thousand positions to choose from, RNA polymerase starts transcription from only one!\footnote{A similar conclusion is reached by examining ENCODE CAGE-seq data: At the time of writing, ENCODE reports roughly 150,000 TSS peaks across 30 cell types/cell lines. Assuming the signal is concentrated at 5 nucleotides per peak, then $\frac{\left(1.5 \times 10^5 \text{peaks} \right) \left(5 \frac{\text{nt}}{\text{peaks}} \right)}{6 \times 10^9 \text{nt}} = \frac{1}{8000}$.}
 
 Many factors are known to contribute to this remarkable specificity.
-Most notably, transcription initiation requires the presence of specific DNA sequence motifs, which increase the probability of Pol II binding to DNA together with necessary initiation factors.
+Most notably, transcription initiation requires the presence of specific DNA sequence motifs, which increase the probability of Pol II binding to DNA together with necessary initiation factors \citep{haberle2018}.
 That factors known to associate with Pol II during transcription initiation control transcription initiation is hardly surprising.
 A less obvious fact is that some transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes, also play a role in restricting where transcription initiation is allowed to occur \citep{kaplan2003, cheung2008, hennig2013}.
 Evidence suggests that these elongation factors are likely required to maintain normal chromatin structure over transcribed regions, and that the disruption of normal chromatin structure allows Pol II to initiate transcription in regions which are normally inacessible \citep{}.
@@ -41,10 +42,10 @@ The remainder of this introduction provides a brief overview of the consideratio
 My role in the projects in this dissertation is a mix of \href{https://blog.insightdatascience.com/data-science-vs-data-engineering-62da7678adaa}{\textbf{data scientist}} and \href{https://blog.insightdatascience.com/data-science-vs-data-engineering-62da7678adaa}{\textbf{data engineer}}: I build pipelines for processing (usually genomic) datasets, taking raw data through processing, statistical analysis, and data visualization.
 This mostly entails surveying available tools, selecting the tools most suitable for the task, and coding solutions to problems when existing tools are insufficient.
 
-The analysis of complex datasets like those generated by genomic assays presents challenges to achieving transparency and reproducibility when reporting methods and results.
+The analysis of complex datasets like those in genomcs presents challenges to achieving transparency and reproducibility when reporting methods and results.
 In building the data analysis pipelines behind the results of this dissertation, I have tried to meet these challenges by following best practices that would be standards for publication in an ideal world.
 All of my data analyses are open source (\href{https://github.com/winston-lab}{github.com/winston-lab}), and are designed to be reproducible by others: For all publications, an self-contained archive is uploaded which includes everything needed to go from raw data to the figures and results of the publication (e.g. \url{https://doi.org/10.5281/zenodo.1409826}).
-This level of accessibility is greatly facilitated by building data analyses using Snakemake \citep{koster2012}, one of several available frameworks for workflow management.
+This level of accessibility is greatly facilitated by building data analyses using Snakemake \citep{koster2012}, one of several available frameworks for workflow management \citep{voss2017, ditommaso2017}.
 Snakemake's scalable execution and its ability to specify dependencies in virtual environments allow workflows to truly be reproducible: data analyses can be re-run on personal computers, computing clusters, or cloud environments, and the exact versions of the software used when initially running the data analysis will automagically be deployed.
 
 Open sharing of data and code like this is essential to the scientific process.
