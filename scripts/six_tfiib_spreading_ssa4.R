@@ -36,10 +36,10 @@ main = function(theme_spec,
                                                         x %>% near(2) ~ "+2 kb",
                                                         x > 0 ~ paste0("+", x),
                                                         TRUE ~ as.character(x))) +
-        scale_y_continuous(limits = c(NA, 0.9),
+        scale_y_continuous(limits = c(NA, 0.8),
                            oob=scales::squish,
                            expand=c(0,0),
-                           breaks=c(0,9),
+                           breaks=c(0,0.8),
                            name="normalized counts") +
         facet_zoom(xlim=c(-0.3, 2.111+0.3),
                    zoom.size=1) +
@@ -69,6 +69,7 @@ main = function(theme_spec,
         ggtitle("TFIIB ChIP-nexus protection") +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
+              legend.position = c(0.78, 0.85),
               strip.background = element_rect(fill="grey90", size=0, color=NA),
               axis.title.y = element_text(margin=margin(r=1, unit="pt")),
               axis.title.x = element_blank(),

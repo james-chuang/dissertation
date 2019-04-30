@@ -50,7 +50,7 @@ main = function(theme_spec,
         scale_fill_ptol(labels = c("wild-type", bquote(italic("spt6-1004")))) +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
-              legend.position = c(0.7, 0.95),
+              legend.position = c(0.65, 0.75),
               panel.grid = element_blank(),
               plot.margin = margin(11, 11, 4, 0, "pt"))
 

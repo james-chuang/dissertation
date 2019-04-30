@@ -55,7 +55,7 @@ main = function(theme_spec,
                      aes(x=tss_lfc, y=tfiib_lfc, color=(..count..)),
                      binwidth=c(0.12, 0.12),
                      alpha=0.6,
-                     size=0.3,
+                     size=0.5,
                      shape=16,
                      fill=NA) +
         geom_label(data=count_df,

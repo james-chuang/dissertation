@@ -48,7 +48,7 @@ main = function(theme_spec,
                            expand = c(0.025, 0)) +
         scale_y_reverse(breaks = function(x){seq(min(x)+500, max(x)-500, 500)},
                         name = paste(n_distinct(netseq_df[["index"]]), "nonoverlapping coding genes"),
-                        expand = c(0, 50)) +
+                        expand = c(0, 30)) +
         scale_fill_viridis(option="inferno",
                            limits = c(NA, quantile(netseq_df[["signal"]], probs=netseq_cutoff)),
                            oob=scales::squish,
@@ -61,9 +61,13 @@ main = function(theme_spec,
         facet_grid(.~group, labeller=label_parsed) +
         theme_heatmap +
         theme(strip.text.x = element_text(size=9,
+                                          margin=margin(6,0,0,0,"pt"),
+                                          angle=0,
                                           color="black",
                                           face="plain",
-                                          vjust=0.5),
+                                          family="FreeSans",
+                                          vjust=0.5,
+                                          hjust=0.5),
               panel.grid.major.x = element_line(color="black"),
               panel.grid.major.y = element_line(color="black"),
               legend.box.margin = margin(0, 0, -5, 0, "pt"),
@@ -79,7 +83,7 @@ main = function(theme_spec,
                                                           TRUE ~ as.character(x))},
                            expand = c(0, 0.025)) +
         scale_y_reverse(breaks = function(x){seq(min(x)+500, max(x)-500, 500)},
-                        expand = c(0, 50), name=NULL) +
+                        expand = c(0, 30), name=NULL) +
         scale_fill_viridis(option="inferno",
                            limits = c(NA, quantile(mnase_df[["signal"]], probs=mnase_cutoff)),
                            oob=scales::squish,
@@ -90,9 +94,13 @@ main = function(theme_spec,
         facet_grid(.~group, labeller=label_parsed) +
         theme_heatmap +
         theme(strip.text.x = element_text(size=9,
+                                          margin=margin(6,0,0,0,"pt"),
+                                          angle=0,
                                           color="black",
                                           face="plain",
-                                          vjust=0.5),
+                                          family="FreeSans",
+                                          vjust=0.5,
+                                          hjust=0.5),
               panel.grid.major.x = element_line(color="black"),
               panel.grid.minor.x = element_line(color="black"),
               panel.grid.major.y = element_line(color="black"),
@@ -109,7 +117,7 @@ main = function(theme_spec,
             mutate(feat_start=start, feat_end=end) %>%
             select(-c(start, end, nuc_chrom, overlap)) %>%
             mutate_at(vars(nuc_start, nuc_end, nuc_center, ctrl_summit_loc, cond_summit_loc, diff_summit_loc),
-                      funs(if_else(feat_strand=="+", .-feat_start, feat_end-.))) %>%
+                      ~if_else(feat_strand=="+", .-feat_start, feat_end-.)) %>%
             group_by(annotation) %>%
             mutate(anno_labeled = paste(n_distinct(feat_name), annotation)) %>%
             ungroup() %>% mutate(annotation=anno_labeled) %>% select(-anno_labeled) %>%
@@ -135,7 +143,7 @@ main = function(theme_spec,
                                                           TRUE ~ as.character(x/1000))},
                            expand = c(0, 25)) +
         scale_y_reverse(breaks = function(x){seq(min(x)+500, max(x)-500, 500)},
-                        expand = c(0, 50), name=NULL) +
+                        expand = c(0, 30), name=NULL) +
         # scale_fill_gradientn(colors = coolwarm(100), limits = c(-0.7, 0.7),
         scale_fill_gradientn(colors = coolwarm, limits = c(-0.7, 0.7),
                              oob=scales::squish,
@@ -146,13 +154,17 @@ main = function(theme_spec,
         facet_grid(.~label, labeller = label_parsed) +
         theme_heatmap +
         theme(strip.text.x = element_text(size=9,
+                                          margin=margin(6,0,0,0,"pt"),
+                                          angle=0,
                                           color="black",
                                           face="plain",
-                                          vjust=0.5),
+                                          family="FreeSans",
+                                          vjust=0.5,
+                                          hjust=0.5),
               legend.box.margin = margin(0, 0, -5, 0, "pt"),
               panel.grid.major.x = element_line(color="grey50"),
               panel.grid.minor.x = element_line(color="grey50"),
-              panel.grid.major.y = element_line(color="grey80"),
+              panel.grid.major.y = element_line(color="grey70"),
               plot.margin = margin(0,4,0,0,"pt" ))
 
     occ_plot = ggplot(data = quant_df %>%
@@ -170,7 +182,7 @@ main = function(theme_spec,
                                                           TRUE ~ as.character(x/1000))},
                            expand = c(0, 25)) +
         scale_y_reverse(breaks = function(x){seq(min(x)+500, max(x)-500, 500)},
-                        expand = c(0, 50), name=NULL) +
+                        expand = c(0, 30), name=NULL) +
         # scale_fill_gradientn(colors = coolwarm(100), limits = c(-2, 2),
         scale_fill_gradientn(colors = coolwarm, limits = c(-2, 2),
                              oob=scales::squish,
@@ -181,13 +193,17 @@ main = function(theme_spec,
         facet_grid(.~label, labeller = label_parsed) +
         theme_heatmap +
         theme(strip.text.x = element_text(size=9,
+                                          margin=margin(6,0,0,0,"pt"),
+                                          angle=0,
                                         color="black",
                                         face="plain",
-                                        vjust=0.5),
+                                        family="FreeSans",
+                                        vjust=0.5,
+                                        hjust=0.5),
               legend.box.margin = margin(0, 0, -5, 0, "pt"),
               panel.grid.major.x = element_line(color="grey50"),
               panel.grid.minor.x = element_line(color="grey50"),
-              panel.grid.major.y = element_line(color="grey80"),
+              panel.grid.major.y = element_line(color="grey70"),
               plot.margin = margin(0,4,0,0,"pt" ))
 
     fig_four_b = plot_grid(netseq_plot, mnase_plot, occ_plot, fuzz_plot, align="h", axis="tb", nrow=1,

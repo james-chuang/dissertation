@@ -21,7 +21,7 @@ Consistent with its histone chaperone function, Spt6 influences chromatin struct
 \begin{wrapfigure}[10]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/six/six_spt6_western.pdf}
-    \caption[Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C.]{Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C. Spt6 and Dst1 from a spike-in were detected using $\alpha$-FLAG and $\alpha$-Myc antibodies, respectively. The mean $\pm$ standard deviation of three blots are shown below each lane.}
+    \caption[Western blot for Spt6 in wild-type and \textit{spt6-1004} cells,\\ at 30\textdegree C and after 80 minutes at 37\textdegree C.]{Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C. Spt6 and Dst1 from a spike-in were detected using $\alpha$-FLAG and $\alpha$-Myc antibodies, respectively. The mean $\pm$ standard deviation of three blots are shown below each lane.}
     \label{fig:six_spt6_western}
 \end{wrapfigure}
 
@@ -106,7 +106,7 @@ The changes in transcript levels in \textit{spt6-1004} observed by TSS-seq corre
 In contrast to the discrete peaks in promoter regions seen in wild-type, TFIIB in \textit{spt6-1004} binds much more promiscuously, with many loci having TFIIB signal spread over broad regions of the genome (Figure \ref{fig:six_tfiib_spreading_ssa4}).
 This difference in binding pattern makes peak calling ineffective for quantifying TFIIB signal in this case: ChIP-seq peak callers generally use different algorithms for calling `narrow' peaks (e.g. for sequence-specific transcription factors) and `broad' peaks (e.g. for histone modifications), meaning that a single algorithm is unable to call peaks that are meaningful for differential binding analyses between wild-type and \textit{spt6-1004}.
 Therefore, to see if changes in transcript levels in \textit{spt6-1004} correspond to changes in transcription initiation, we compared the change in TSS-seq signal at TSS-seq peaks in \textit{spt6-1004} to the change in TFIIB ChIP-nexus signal in the window extending 200 bp upstream of the TSS-seq peak.
-Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class \ref{fig:six_tss_v_tfiib}, indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
+Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class (Figure \ref{fig:six_tss_v_tfiib}), indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
 
 \begin{figure}[h]
     \centering
@@ -156,9 +156,9 @@ In \textit{spt6-1004}, the population of nucleosomes is much more homogeneous: n
 
 Previous studies observed two trends: 1) In wild-type cells, nucleosome positioning is weaker over highly transcribed genes than over moderately transcribed genes \citep{shivaswamy2008}, and 2) In \textit{spt6-1004} cells, the decrease in nucleosome occupancy is greater for highly transcribed genes \citep{ivanovska2011}.
 To re-examine these trends, we looked at the MNase-seq data in the context of NET-seq data, which reports the position of actively transcribing RNAPII and reflects a gene's level of transcription (Figure \ref{fig:six_mnase_heatmaps}) \citep{churchman2012}.
-The data support the first trend: in wild-type, genes with the strongest NET-seq signal have decreased MNase-seq signal.
-However, there is no obvious relationship between transcription level and the nucleosome changes observed in \textit{spt6-1004} (Figure \ref{fig:six_mnase_heatmaps}).
-The apparent discrepancy might be explained by the improved resolution and breadth of MNase-seq versus the MNase and microarray of chromosome III used in the previous study \citep{ivanovska2011}.
+The data support the first trend: in wild-type, genes with the strongest NET-seq signal have weak patterning of MNase-seq signal.
+However, we find no obvious relationship between transcription level and the nucleosome occupancy changes observed in \textit{spt6-1004} (Figure \ref{fig:six_mnase_heatmaps}): Genes with the greatest transcription do tend to have lower MNase-seq signal in \textit{spt6-1004}, but this is expected since these genes also have lower MNase-seq signal in wild-type.
+The discrepancy with prior work might be explained by the greater resolution and breadth of MNase-seq versus MNase and microarray of chromosome III \citep{ivanovska2011}.
 
 \begin{figure}[H]
     \centering
@@ -179,6 +179,10 @@ The aggregate MNase-seq dyad signal around all \textit{spt6-1004} intragenic TSS
 To discover these phasing patterns, we used the wild-type and \textit{spt6-1004} MNase-seq data flanking intragenic TSSs to train a self-organizing map to assign TSSs with similar MNase-seq patterns to nearby nodes in a rectangular grid (Figure \ref{fig:six_mnase_som}).
 This allowed us to see that, although there is considerable diversity in the nucleosome pattern surrounding intragenic TSSs, most intragenic TSSs occur in areas between the positions of nucleosome dyads.
 By hierarchically clustering the nodes of the self-organizing map, we further grouped intragenic TSSs into three major clusters differing primarily by the phasing of the nucleosome array relative to the TSS, as shown in Figure \ref{fig:six_intragenic_mnase_metagenes}.
+In all three clusters, nucleosomes are disrupted to similar levels in \textit{spt6-1004}.
+
+Because GC-poor DNA sequences are nucleosome disfavoring and are known to occur in promoter regions \citep{iyer1995,kaplan2008,tillo2009,zhang2009}, we also examined the GC content surrounding the three clusters of intragenic TSSs.
+For all three clusters, the GC content of the DNA drops just upstream of the TSS to a slightly lesser degree than for genic TSSs (Figure \ref{fig:six_intragenic_mnase_metagenes}).
 
 \begin{sidewaysfigure}
     \centering
@@ -203,9 +207,11 @@ By hierarchically clustering the nodes of the self-organizing map, we further gr
 
 \section{Other features of \textit{spt6-1004} intragenic promoters}
 
-The resolution with which we were able to identify intragenic TSSs allowed us to closely examine their sequence features and compare them to genic TSSs.
+MNase-seq indicates that nucleosomes are lost across the entire genome in \textit{spt6-1004}.
+However, TSSs observed in \textit{spt6-1004} occur in specific locations, suggesting that loss of nucleosomes is necessary but not sufficient for intragenic transcription, and that additional features such as the drop in GC content at intragenic TSSs (Figure \ref{fig:six_intragenic_mnase_metagenes}) are required.
+The resolution with which we were able to identify intragenic TSSs allowed us to closely examine sequence features that might contribute to intragenic transcription.
 
-\subsection{Information content and sequence preference of intragenic TSSs}
+\subsection{Information content and sequence preference}
 
 \begin{wrapfigure}[13]{R}{3in}
 \centering
@@ -214,13 +220,14 @@ The resolution with which we were able to identify intragenic TSSs allowed us to
 \label{fig:six_tss_seqlogos}
 \end{wrapfigure}
 
-To examine the DNA sequence preference of intragenic and genic TSSs in \textit{spt6-1004}, we aligned the sequences of all TSS-seq reads overlapping TSS-seq peaks of each class, and calculated the information content and sequence distribution for each class (Figure \ref{fig:six_tss_seqlogos}).
-Intragenic TSSs have a sequence preference almost identical to previously observed sequence preference of genic TSSs \citep{malabat2015}, suggesting that RNA polymerase initiates transcription similarly at genic and intragenic TSSs, and that the lack of intragenic initiation in wild-type is due to inaccessibility of the initiation sequence, possibly due to histones.
+To examine the DNA sequence preference of TSSs in \textit{spt6-1004}, we aligned the sequences of all TSS-seq reads overlapping TSS-seq peaks of each class, and calculated the information content and sequence distribution for each class.
+Intragenic TSSs have a sequence preference almost identical to the previously observed sequence preference of genic TSSs (Figure \ref{fig:six_tss_seqlogos}) \citep{malabat2015}, suggesting that RNA polymerase initiates transcription similarly at genic and intragenic TSSs.
 
-\subsection{Enrichment of the TATA box at intragenic TSSs}
+\subsection{Enrichment of the TATA box}
 
-To examine whether sequence-specific transcription factors contribute to the expression of intragenic transcripts in \textit{spt6-1004}, we looked for enrichment or depletion of the DNA sequence motifs associated with these factors upstream of intragenic TSSs.
-Exact matches to the TATA element consensus sequence TATAWAWR are enriched upstream between 100 and 150 nt upstream of intragenic TSSs, in the same position but to a lesser degree than the TATA enrichment observed upstream of genic TSSs (Figure \ref{fig:six_intragenic_tata}).
+A characteristic feature of canonical genic promoters is the presence of a TATA box or TATA-like DNA element which allows for the recruitment of Pol II and general transcription factors via binding of the TFIID complex, which includes TATA-binding protein \citep{rhee2012}.
+To examine whether the presence of TATA elements might contribute to \textit{spt6-1004} intragenic transcription, we looked for the presence of exact matches to the TATA element consensus sequence TATAWAWR upstream of \textit{spt6-1004} TSSs.
+TATA consensus elements are enriched between 100 and 150 nucleotides upstream of intragenic TSSs, in the same region but to a lesser degree than for genic TSSs (Figure \ref{fig:six_intragenic_tata}).
 This further supports the model that \textit{spt6-1004} intragenic promoters are sequences similar to canonical genic promoters, which become accessible for transcription initiation when the normal chromatin state is disturbed.
 
 \begin{SCfigure}[50][h]
@@ -230,7 +237,12 @@ This further supports the model that \textit{spt6-1004} intragenic promoters are
     \label{fig:six_intragenic_tata}
 \end{SCfigure}
 
-\subsection{\textit{De novo} motif discovery at intragenic TSSs}
+\subsection{Sequence motifs discovered}
+
+To discover additional sequence features of \textit{spt6-1004} intragenic promoters, we performed \textit{de novo} motif discovery using MEME-ChIP \citep{machanick2011} for the regions -100 to +30 nucleotides relative to TSS summits.
+The most enriched motif at both sense and antisense \textit{spt6-1004} intragenic TSSs is, with respect to sense genic transcription, a GA-rich motif with 3-nucleotide periodicity \ref{fig:six_meme_motifs}.
+This motif occurs at only a small subset of intragenic TSSs, but is highly unlikely to occur by chance (compare the expected to observed number of occurrences in Figure \ref{fig:six_meme_motifs}).
+The motif is not enriched at genic TSSs upregulated in \textit{spt6-1004}, and does not seem to be an obvious match to a sequence-specific factor in the databases searched (the closest match is to a factor called THO2) \citep{deboer2011,macisaac2006,newburger2008,pachkov2013,teixeira2017,zhu1999,weirauch2014}.
 
 \begin{figure}[h]
     \centering
@@ -244,10 +256,14 @@ This further supports the model that \textit{spt6-1004} intragenic promoters are
 \clearpage
 \section{Methods}
 
-\subsection{Yeast strain construction and grown conditions}
+\subsection{Yeast strain construction and growth conditions}
 
 All yeast strains were constructed by standard yeast transformation or crosses.
 The \textit{spt6-1004} and wild-type strains were grown as previously described \citep{cheung2008}: Cells were grown in YPD at 30\textdegree C to a concentration of approximately $1 \times 10^7$ cells/ml (OD$_{600} = 0.6$), at which point an equal volume of YPD medium pre-warmed to 44\textdegree C was added, and the cultures were shifted to 37\textdegree C for 80 minutes.
+
+\subsection{Western blotting}
+
+The protocols for western blotting and quantification are described in \citet{doris2018}.
 
 \subsection{Sequencing library preparation\\(TSS-seq, ChIP-nexus, MNase-seq, NET-seq)}
 
@@ -255,8 +271,7 @@ All library preparation methods are detailed in \citet{doris2018}.
 
 \subsection{Genome builds}
 
-The genome build used for \textit{S. cerevisiae} was R64-2-1.
-The genome build used for \textit{S. pombe} was ASM294v2.
+The genome build used for \textit{S. cerevisiae} was R64-2-1 \citep{engel2014}, and the genome build used for \textit{S. pombe} was ASM294v2 \citep{wood2002}.
 
 \subsection{TSS-seq data analysis}
 
@@ -266,14 +281,14 @@ The random hexamer molecular barcode on the 5$^\prime$ end of the read was then 
 Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} reference genomes using Tophat2 \citep{kim2013} without a reference transcriptome, and uniquely mapping reads were selected using SAMtools \citep{li2009}.
 Reads mapping to the same location as another read with the same molecular barcode were identified as PCR duplicates and removed using a custom Python script (adapted from \citet{mayer2015}).
 Coverage of the 5$^\prime$-most base, corresponding to the TSS, was extracted using bedtools genomecov \citep{quinlan2010} and normalized to the total number of uniquely mapping, non-duplicate \textit{S. pombe} reads.
-Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \citep{andrews2014}.
+Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \citep{andrews2010}.
 
-The pipeline additionally performs TSS-seq peak calling, differential expression, classification of peaks into genome categories, gene ontology analysis, motif enrichment analysis, \textit{de novo} motif discovery, sequence logo visualization, and data visualization with the option to separate data into clusters of similar signal.
+The pipeline additionally performs \hyperref[subsubsec:tss_peak_calling]{TSS-seq peak calling}, \hyperref[subsubsec:tss_differential_expression]{differential expression}, \hyperref[subsubsec:tss_peak_classification]{classification of peaks into genomic categories}, \hyperref[subsubsec:tss_seqlogos]{sequence logo visualization}, motif enrichment analysis, \hyperref[subsubsec:denovo_motif_discovery]{\textit{de novo} motif discovery}, gene ontology analysis \citep{young2010}, and data visualization with the option to separate data into clusters of similar signal.
 
 \subsubsection{Reannotation of \textit{S. cerevisiae} TSSs using TSS-seq data}
 
 TSS-seq coverage from two replicates of a wild-type \textit{S. cerevisiae} strain grown at 30\textdegree C in YPD was averaged and used to adjust the 5$^\prime$ ends of an annotation of major transcript isoforms based on TIF-seq data \citep{pelechano2013}.
-The 5$^\prime$ end of the original annotation was changed to the position of maximum TSS-seq signal in a window $\pm$ 250 nt of the original 5$^\prime$ end if the maximum TSS-seq signal was greater than the 95th percentile of all non-zero TSS-seq signal.
+The 5$^\prime$ end of the original annotation was changed to the position of maximum TSS-seq signal in a window $\pm$ 250 nt of the original 5$^\prime$ end if the maximum TSS-seq signal was greater than the 95$^\text{th}$ percentile of all non-zero TSS-seq signal.
 
 \subsubsection{TSS-seq peak calling}
 \label{subsubsec:tss_peak_calling}
@@ -300,6 +315,7 @@ In brief, IDR compares ranked lists of regions in order to set a cutoff, beyond 
 The python script used for 1-D watershed segmentation of TSS-seq data is \href{https://github.com/winston-lab/tss-seq/blob/master/scripts/tss_peakcalling.py}{available as part of the TSS-seq pipeline}, and the IDR implementation used in the pipeline is also \href{https://github.com/nboley/idr}{available on GitHub}.
 
 \subsubsection{TSS differential expression analysis}
+\label{subsubsec:tss_differential_expression}
 
 For TSS-seq differential expression analysis, TSS-seq peak-calling was performed \hyperref[subsubsec:tss_peak_calling]{as described above} for both \textit{S. cerevisiae} and the \textit{S. pombe} spike-in.
 The read counts for each peak in each condition were used as the input to differential expression analysis by DESeq2 \citep{love2014}, with the alternative hypothesis $\allowbreak \left\lvert\log_2 \left(\text{fold-change}\right) \right\rvert > 1.5$ and a false discovery rate of 0.1.
@@ -308,7 +324,7 @@ To normalize by spike-in, the size factors of the \textit{S. pombe} spike-in cou
 \subsubsection{Classification of TSS-seq peaks into genomic categories}
 \label{subsubsec:tss_peak_classification}
 
-TSS-seq peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above} and an annotation of all verified open reading frames (ORFs) and blocked reading frames in \textit{S. cerevisiae} \citep{crooks2004, engel2014}.
+TSS-seq peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above} and an annotation of all verified open reading frames (ORFs) and blocked reading frames in \textit{S. cerevisiae} \citep{engel2014}.
 First, `genic' regions were defined as follows: If a gene was present in both the transcript and ORF annotations, the genic region was defined as the interval (annotated TSS-30 nt, start codon).
 If gene was present in the transcript annotation but not the ORF annotation, the genic region was defined as the interval (annotated TSS - 30 nt, annotated TSS + 30 nt).
 If a gene was present only in the ORF annotation, the genic region was defined as the interval (start codon - 30 nt, start codon).
@@ -319,10 +335,23 @@ Peaks were classified as antisense if their summit position overlapped a transcr
 Finally, peaks were classified as intergenic if they did not overlap a transcript, reading frame, or genic region on either strand.
 
 \subsubsection{TSS information content and sequence composition}
+\label{subsubsec:tss_seqlogos}
 
 TSS-seq alignments were pooled for all replicates in a condition, and the DNA sequence flanking the position of every read overlapping TSS-seq peaks of a particular genomic category was extracted using SAMtools \citep{li2009} and bedtools \citep{quinlan2010}.
 The information content and sequence composition was quantified using WebLogo \citep{crooks2004}, with the zeroth-order Markov model of the \textit{S. cerevisiae} genomic sequence as the background composition.
 Sequence logos were plotting using helper functions from ggseqlogo \citep{wagih2017}.
+
+\subsubsection{Enrichment of the TATA box}
+
+An up-to-date version of the Snakemake \citep{koster2012} workflow used to test the enrichment of motifs is maintained at \href{https://github.com/winston-lab/motif-enrichment}{github.com/winston-lab/motif-\\enrichment}.
+To test for enrichment of consensus TATA boxes, FIMO \citep{grant2011} was used to search the \textit{S.cerevisiae} genome for matches to the query motif TATAWAWR (where the ambiguous bases are equiprobable) at a p-value threshold of $6 \times 10^{-4}$.
+Regions extending 200 nucleotides upstream of TSS summits were considered to contain a consensus TATA box if the entire motif was overlapping the region on the same strand.
+The frequency of motif occurrences in the regions of interest was compared to the frequency of occurrences in the regions upstream of 6000 randomly chosen locations, using Fisher's exact test.
+
+\subsubsection{\textit{De novo} motif discovery}
+\label{subsubsec:denovo_motif_discovery}
+
+\textit{De novo} motif discovery for the regions around TSSs was performed by running MEME-ChIP \citep{machanick2011} on the DNA sequence -100 to +30 nucleotides from the TSS summits of the \hyperref[subsubsec:tss_peak_classification]{genomic classes} of TSSs \hyperref[subsubsec:tss_differential_expression]{significantly upregulated} in \textit{spt6-1004} versus wild-type.
 
 \subsection{ChIP-nexus data analysis}
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to process ChIP-nexus libraries is maintained at \href{https://github.com/winston-lab/chip-nexus}{github.com/winston-lab/chip-nexus}.
@@ -332,8 +361,12 @@ Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} 
 Reads mapping to the same location as another read with the same molecular barcode were identified as PCR duplicates and removed using a custom Python script modified from \citet{mayer2015}.
 Coverage of the 5$^\prime$-most base, corresponding to the point of crosslinking, was extracted using bedtools genomecov \citep{quinlan2010}.
 The median fragment size estimated by MACS2 \citep{zhang2008} over all samples was used to generate coverage of factor protection and fragment midpoints, by extending reads to the fragment size, or by shifting reads by half the fragment size, respectively.
-Coverage was normalized to the total number of reads uniquely mapping to \textit{S. cerevisiae}.
-Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \cite{andrews2014}.
+Coverage was normalized to the total number of reads uniquely mapping to \textit{S. cerevisiae} (the \textit{S. pombe} spike-in was not used for normalization due to the low number of reads mapping to \textit{S. pombe}).
+Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \cite{andrews2010}.
+
+The ChIP-nexus pipeline additionally performs peak calling, differential occupancy analysis, and data visualization with the option to separate data into clusters of similar signal.
+
+An second Snakemake workflow for TFIIB-specific analyses is maintained at\\\href{https://github.com/winston-lab/chip-nexus-tfiib}{github.com/winston-lab/chip-nexus-tfiib}, and performs classification of TFIIB peaks into genomic categories, motif enrichment analysis, and gene ontology analysis.
 
 \subsubsection{A note on ChIP-nexus peak calling}
 \label{subsubsec:tfiib_peak_calling}
@@ -346,10 +379,12 @@ For estimation of change in TFIIB binding upstream of TSS-seq peaks, TFIIB fragm
 
 \subsubsection{Classification of TFIIB ChIP-nexus peaks into genomic categories}
 
-As for TSS-seq peaks, TFIIB ChIP-nexus peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above}, an annotation of all verified open reading frames (ORFs) and blocked reading frames \citep{crooks2004, engel2014}, and \hyperref[subsubsec:tss_peak_classification]{an annotation of `genic' regions derived from the transcript and ORF annotations}.
+As for TSS-seq peaks, TFIIB ChIP-nexus peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above}, an annotation of all verified open reading frames (ORFs) and blocked reading frames \citep{engel2014}, and \hyperref[subsubsec:tss_peak_classification]{an annotation of `genic' regions derived from the transcript and ORF annotations}.
 TFIIB ChIP-nexus peaks were classified as genic if they overlapped a genic region.
 Peaks were classified as intragenic if they were not classified as a genic peak, and the entire peak overlapped an open or closed reading frame.
 Finally, peaks were classified as intergenic if they did not overlap a transcript, reading frame, or genic region.
+
+\subsection{Comparison of TSS-seq to TFIIB ChIP-nexus}
 
 \subsection{MNase-seq data analysis}
 
@@ -357,9 +392,7 @@ Finally, peaks were classified as intergenic if they did not overlap a transcrip
 
 \subsubsection{Clustering of MNase-seq signal at \textit{spt6-1004} intragenic TSSs}
 
-\subsection{Motif enrichment}
-
-\subsection{\textit{De novo} motif discover motif discovery}
+\subsection{NET-seq data analysis}
 
 \clearpage
 \bibliographystyle{apalike}
