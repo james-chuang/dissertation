@@ -1,11 +1,11 @@
 
 import = function(path, annotation_id){
     read_tsv(path, col_types = 'ciicdcciicdccc') %>%
-        mutate(start = case_when(region_strand=="+" & motif_chrom != "." ~ region_start-motif_start,
-                                 region_strand=="-" & motif_chrom != "." ~ motif_start-region_end,
+        mutate(start = case_when(region_strand=="+" & motif_chrom != "." ~ motif_start-region_end,
+                                 region_strand=="-" & motif_chrom != "." ~ region_start-motif_end,
                                  motif_chrom=="." ~ as.integer(NaN)),
-               end = case_when(region_strand=="+" & motif_chrom != "." ~ region_start-motif_end,
-                               region_strand=="-" & motif_chrom != "." ~ motif_end-region_end,
+               end = case_when(region_strand=="+" & motif_chrom != "." ~ motif_end-region_end,
+                               region_strand=="-" & motif_chrom != "." ~ region_start-motif_start,
                                motif_chrom=="." ~ as.integer(NaN)),
                annotation = annotation_id) %>%
         arrange(region_score) %>%
@@ -17,7 +17,7 @@ main = function(theme_spec,
                 tata_genic_path,
                 tata_intra_path,
                 tata_anti_path,
-                tata_random_path,
+                # tata_random_path,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
@@ -26,14 +26,13 @@ main = function(theme_spec,
     ttf_import(fonts_path)
     loadfonts()
 
-    df = tata_genic_path %>%
-        import(annotation_id = "genic") %>%
+    df = tata_anti_path %>%
+        import(annotation_id = "antisense") %>%
+        bind_rows(tata_genic_path %>% import(annotation_id = "genic")) %>%
         bind_rows(tata_intra_path %>% import(annotation_id = "intragenic")) %>%
-        bind_rows(tata_anti_path %>% import(annotation_id = "antisense")) %>%
-        bind_rows(tata_random_path %>% import(annotation_id = "random")) %>%
         group_by(annotation) %>%
         mutate(n_regions = n_distinct(chrom, region_start, region_end, region_strand)) %>%
-        filter(motif_start >= 0) %>%
+        filter(! is.na(start)) %>%
         mutate(n_motifs = n()) %>%
         ungroup() %>%
         transmute(annotation = fct_inorder(annotation, ordered=TRUE),
@@ -42,18 +41,17 @@ main = function(theme_spec,
                   position = (end+start)/2) %>%
         group_by(annotation, n_regions, n_motifs) %>%
         do(density(x=.$position,
-                   from = -200,
-                   to = 0,
-                   cut = 0,
-                   bw = 4,
-                   kernel="gaussian") %>%
+                   kernel="gaussian",
+                   bw=3.333) %>%
                tidy())
 
     tata = ggplot(data = df,
            aes(x=x,
                y=y*n_motifs/n_regions,
+               group=annotation,
                fill=annotation)) +
         geom_area(na.rm=TRUE,
+                  # fill=NA
                   alpha=0.8,
                   linetype="blank",
                   size=0) +
@@ -64,15 +62,13 @@ main = function(theme_spec,
                            labels = function(x) case_when(x==-200 ~ "-200 nt",
                                                           x==0 ~ "TSS",
                                                           TRUE ~ as.character(x))) +
-        scale_y_continuous(#limits = c(0, 0.0105),
-                           expand = c(0,0),
-                           breaks = scales::pretty_breaks(n=1),
+        scale_y_continuous(expand = c(0,0),
+                           breaks = c(0,0.008),
                            name = "scaled density") +
-        scale_fill_tableau() +
-        # scale_fill_manual(values = c("#1F77B4",
-        #                              "#FF7F0E",
-        #                              "#2CA02C")) +
-        ggtitle("TATA consensus") +
+        scale_fill_manual(values = c("#E15759",
+                                     "#4E79A7",
+                                     "#F28E2B")) +
+        ggtitle("TATA consensus probability") +
         theme_default +
         theme(axis.title.x = element_blank(),
               axis.line.y = element_line(size=0.25, color="grey65"),
@@ -81,7 +77,7 @@ main = function(theme_spec,
               panel.border = element_blank(),
               panel.grid = element_blank(),
               legend.justification = c(0.5, 0.5),
-              legend.position = c(0.70, 0.7),
+              legend.position = c(0.30, 0.55),
               legend.key.width= unit(8, "pt"),
               legend.spacing.x = unit(1, "pt"),
               plot.margin = margin(11/2, 11, 11/2, 0, "pt"))
@@ -99,8 +95,7 @@ main(theme_spec = snakemake@input[["theme"]],
      tata_genic_path = snakemake@input[["tata_genic_path"]],
      tata_intra_path = snakemake@input[["tata_intra_path"]],
      tata_anti_path = snakemake@input[["tata_anti_path"]],
-     tata_random_path = snakemake@input[["tata_random_path"]],
+     # tata_random_path = snakemake@input[["tata_random_path"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],
      pdf_out = snakemake@output[["pdf"]])
-

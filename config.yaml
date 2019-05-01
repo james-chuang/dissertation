@@ -95,16 +95,16 @@ figures:
             height: 2.4
             width: 3
         intragenic_tata:
-            tata_genic: ../../intragenic/motif_analysis_tata/comparisons/all-genic-v-random/all-genic-v-random_condition_allFIMOresults.tsv.gz
-            tata_intragenic: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_condition_allFIMOresults.tsv.gz
-            tata_antisense: ../../intragenic/motif_analysis_tata/comparisons/all-antisense-v-random/all-antisense-v-random_condition_allFIMOresults.tsv.gz
-            tata_random: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_control_allFIMOresults.tsv.gz
-            height: 1.8
-            width: 3
+            tata_genic: ../../intragenic/motif_analysis_tata/comparisons/all-genic-v-random/all-genic-v-random_condition_unmergedFIMOresults.tsv.gz
+            tata_intragenic: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_condition_unmergedFIMOresults.tsv.gz
+            tata_antisense: ../../intragenic/motif_analysis_tata/comparisons/all-antisense-v-random/all-antisense-v-random_condition_unmergedFIMOresults.tsv.gz
+            # tata_random: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_control_allFIMOresults.tsv.gz
+            height: 2.4
+            width: 3.7
         meme_motifs:
             intragenic: ../../intragenic/tss-seq/motifs/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-diffexp-results-intragenic-up-meme_chip/combined.meme
             antisense: ../../intragenic/tss-seq/motifs/spt6-1004-37C-v-WT-37C/spikenorm/antisense/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-diffexp-results-antisense-up-meme_chip/combined.meme
-            height: 3
+            height: 2.2
             width: 6
     five:
         summary_metagenes:

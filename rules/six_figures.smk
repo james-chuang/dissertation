@@ -271,7 +271,7 @@ rule six_intragenic_tata:
         tata_genic_path = FIGURES["six"]["intragenic_tata"]["tata_genic"],
         tata_intra_path = FIGURES["six"]["intragenic_tata"]["tata_intragenic"],
         tata_anti_path = FIGURES["six"]["intragenic_tata"]["tata_antisense"],
-        tata_random_path = FIGURES["six"]["intragenic_tata"]["tata_random"],
+        # tata_random_path = FIGURES["six"]["intragenic_tata"]["tata_random"],
         theme = config["theme_spec"],
         fonts_path = config["fonts_path"],
     output:
