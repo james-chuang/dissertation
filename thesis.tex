@@ -1,6 +1,10 @@
 \documentclass[12pt,letterpaper,oneside]{book}
 \pagestyle{plain}
 
+\title{Lorem Ipsum}
+
+\author{James Chuang}
+
 \usepackage{sectsty}
 
 \chapternumberfont{\normalsize}
@@ -32,7 +36,7 @@
             tmargin=1.5in,
             bmargin=1.25in,
             footskip=0.50in,
-            showframe
+            % showframe
         ]{geometry}
 
 \usepackage{enumitem}
@@ -59,9 +63,10 @@
             breaklinks=true,
             pdftitle=Title\ of\ thesis,
             pdfcreator=James\ Chuang]{hyperref}
+\urlstyle{rm}
 
 \usepackage[round, sort]{natbib}
-\bibpunct{\color{black}(}{\color{black})}{\color{grey};}{a}{\color{grey},}{\color{grey},}
+\bibpunct{\color{grey}(}{\color{grey})}{\color{grey};}{a}{\color{grey},}{\color{grey},}
 \usepackage[]{chapterbib}
 \sectionbib{\section}{section}
 

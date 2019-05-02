@@ -19,7 +19,7 @@ Compared to protein-coding genes, the number of non-coding genes is less certain
 If we assume that there are five non-coding genes for each coding gene, this brings our estimate of the number of genes transcribed by Pol II to $1.2 \times 10^5$ genes.
 
 As you will see from yeast transcription start site data in later chapters, transcription initiation for a single gene generally occurs at multiple nucleotides, generating multiple major transcript isoforms per gene.
-Assuming that there are five major transcription start sites (TSSs) per gene, the proportion of the human genome at which transcription initiation occurs is
+Assuming that there are, on average, five major transcription start sites (TSSs) per gene, the proportion of the human genome at which transcription initiation occurs is
 \begin{align*}
     \frac{\left(1.2 \times 10^5 \; \text{genes}\right) \left(5 \; \frac{\text{TSSs}}{\text{gene}} \right)}
          {\left(6 \times 10^9 \; \text{possible TSSs} \right)}
@@ -30,8 +30,8 @@ Our rough estimate says that, when presented with ten thousand positions to choo
 Many factors are known to contribute to this remarkable specificity.
 Most notably, transcription initiation requires the presence of specific DNA sequence motifs, which increase the probability of Pol II binding to DNA together with necessary initiation factors \citep{haberle2018}.
 That factors known to associate with Pol II during transcription initiation control transcription initiation is unsurprising.
-A less obvious fact is that some transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes, also play a role in restricting where transcription initiation is allowed to occur \citep{kaplan2003, cheung2008, hennig2013}.
-Evidence suggests that these elongation factors are likely required to maintain normal chromatin structure over transcribed regions, and that the disruption of normal chromatin structure allows Pol II to initiate transcription in regions which are normally inacessible \citep{}.
+A less obvious fact is that some transcription \textit{elongation} factors, including histone chaperones and histone modification enzymes, also play a role in determining where transcription initiation is allowed to occur \citep{kaplan2003, cheung2008, hennig2013}.
+Evidence suggests that these elongation factors are likely required to maintain normal chromatin structure over transcribed regions, and that the disruption of normal chromatin structure allows Pol II to initiate transcription in regions which are normally inacessible.
 Chapters \ref{chapter:six} and \ref{chapter:five} of this dissertation describe our studies of \textbf{Spt6} and \textbf{Spt5}, two of the transcription elongation factors involved in this process.
 One phenotype observed when these factors are disrupted is \textbf{intragenic transcription}, transcription appearing to arise from within protein-coding sequences.
 In chapter \ref{chapter:stress}, I describe our efforts to understand how intragenic transcription might play a role in the cellular response to various stress conditions.
@@ -44,7 +44,7 @@ This mostly entails surveying available tools, selecting the tools most suitable
 
 The analysis of complex datasets like those in genomics presents challenges to achieving transparency and reproducibility when reporting methods and results.
 In building the data analysis pipelines behind the results of this dissertation, I have tried to meet these challenges by following best practices that would be standards for publication in an ideal world.
-All of my data analyses are open source (\href{https://github.com/winston-lab}{github.com/winston-lab}), and are designed to be reproducible by others: For all publications, an self-contained archive is uploaded which includes everything needed to go from raw data to the figures and results of the publication (e.g. \url{https://doi.org/10.5281/zenodo.1409826}).
+All of my data analyses are open source (\href{https://github.com/winston-lab}{github.com/winston-lab}), and are designed to be reproducible by others: For all publications, an self-contained archive is uploaded which includes everything needed to go from raw data to the figures and results of the publication (e.g.,\\\url{https://doi.org/10.5281/zenodo.1409826}).
 This level of accessibility is greatly facilitated by building data analyses using Snakemake \citep{koster2012}, one of several available frameworks for workflow management \citep{voss2017, ditommaso2017}.
 Snakemake's scalable execution and its ability to specify dependencies in virtual environments allow workflows to truly be reproducible: data analyses can be re-run on personal computers, computing clusters, or cloud environments, and the exact versions of the software used when initially running the data analysis will automagically be deployed.
 

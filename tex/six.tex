@@ -21,14 +21,14 @@ Consistent with its histone chaperone function, Spt6 influences chromatin struct
 \begin{wrapfigure}[10]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/six/six_spt6_western.pdf}
-    \caption[Western blot for Spt6 in wild-type and \textit{spt6-1004} cells,\\ at 30\textdegree C and after 80 minutes at 37\textdegree C.]{Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C. Spt6 and Dst1 from a spike-in were detected using $\alpha$-FLAG and $\alpha$-Myc antibodies, respectively. The mean $\pm$ standard deviation of three blots are shown below each lane.}
+    \caption[Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C.]{Western blot for Spt6 in wild-type and \textit{spt6-1004} cells, at 30\textdegree C and after 80 minutes at 37\textdegree C. Spt6 and Dst1 from a spike-in were detected using $\alpha$-FLAG and $\alpha$-Myc antibodies, respectively. The mean $\pm$ standard deviation of three blots are shown below each lane.}
     \label{fig:six_spt6_western}
 \end{wrapfigure}
 
 Studies in the yeasts \textit{Saccharomyces cerevisiae} and \textit{Schizosaccharomyces pombe} have previously examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
 As Spt6 is essential for viability in \textit{S. cerevisiae}, many of these studies use the same temperature-sensitive \textit{spt6} mutant used in this project, \textbf{\textit{spt6-1004}}, which encodes an in-frame deletion of a helix-hairpin-helix domain within Spt6 \citep{kaplan2003}.
 When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels (Figure \ref{fig:six_spt6_western}).
-A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences, in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
+A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
 \begin{wrapfigure}[8]{r}{3in}
     \centering
@@ -62,7 +62,7 @@ Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur toward
 \begin{figure}[H]
 \centering
 \includegraphics[width=6in]{figures/six/six_tss_seq_heatmaps.pdf}
-\caption[Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3$^\prime$ of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 92nd percentile are set to the 92nd percentile for visualization.}
+\caption[Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3$^\prime$ of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 92\textsuperscript{nd} percentile are set to the 92\textsuperscript{nd} percentile for visualization.}
 \label{fig:six_tss_seq_heatmaps}
 \end{figure}
 
@@ -73,7 +73,7 @@ Compared to previous studies identifying \textit{spt6-1004} intragenic transcrip
 \begin{SCfigure}[50][h]
     \centering
     \includegraphics[width=4in]{figures/six/six_tfiib_heatmap.pdf}
-    \caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85th percentile are set to the 85th percentile for visualization.}
+    \caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85\textsuperscript{th} percentile are set to the 85\textsuperscript{th} percentile for visualization.}
     \label{fig:six_tfiib_heatmap}
 \end{SCfigure}
 
@@ -85,7 +85,7 @@ As a result of intragenic/antisense induction and genic repression, expression l
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/six/six_tss_diffexp_summary.pdf}
-        \caption[Bar plot of the number of TSS-seq peaks of various genomic classes differentially expressed in \textit{spt6-1004} versus wild-type.]{Bar plots of the number of TSS-seq peaks differentially expressed in \textit{spt6-1004} versus wild-type, both after 80 minutes at 37\textdegree C. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
+        \caption[Bar plot of the number of TSS-seq peaks in various genomic classes differentially expressed in \textit{spt6-1004} versus wild-type.]{Bar plot of the number of TSS-seq peaks differentially expressed in \textit{spt6-1004} versus wild-type, both after 80 minutes at 37\textdegree C. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
         \label{fig:six_tss_diffexp_summary}
     \end{minipage}\hfill
     \begin{minipage}[t]{2.875in}
@@ -164,7 +164,7 @@ The discrepancy with prior work might be explained by the greater resolution and
 \begin{figure}[H]
     \centering
     \includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
-    \caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, aligned by genic TSS and arranged by sense NET-seq signal.]{
+    \caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, arranged by sense NET-seq signal.]{
         \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
             \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nt downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
             \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type).
@@ -241,7 +241,7 @@ This further supports the model that \textit{spt6-1004} intragenic promoters are
 \subsection{Sequence motifs discovered}
 
 To discover additional sequence features of \textit{spt6-1004} intragenic promoters, we performed \textit{de novo} motif discovery using MEME-ChIP \citep{machanick2011} for the regions -100 to +30 nucleotides relative to TSS summits.
-The most enriched motif found by MEME at both intragenic and antisense \textit{spt6-1004} TSSs is, with respect to sense genic transcription, a GA-rich motif with 3-nucleotide periodicity \ref{fig:six_meme_motifs}.
+The most enriched motif found by MEME at both intragenic and antisense \textit{spt6-1004} TSSs is, with respect to sense genic transcription, a GA-rich motif with 3-nucleotide periodicity (Figure \ref{fig:six_meme_motifs}).
 This motif occurs at only a small subset of intragenic TSSs, but is highly unlikely to occur by chance (compare the expected to observed number of occurrences in Figure \ref{fig:six_meme_motifs}).
 The motif is not enriched at genic TSSs upregulated in \textit{spt6-1004}, and is not an obvious match to a DNA-binding factor in the databases searched \citep{deboer2011,macisaac2006,newburger2008,pachkov2013,teixeira2017,zhu1999,weirauch2014}.
 If this motif is directly related to intragenic transcription, we speculate that it might create a DNA structure favorable for transcription initiation.
@@ -297,7 +297,7 @@ The pipeline additionally performs \hyperref[subsubsec:tss_peak_calling]{TSS-seq
 \subsubsection{Reannotation of \textit{S. cerevisiae} TSSs using TSS-seq data}
 
 TSS-seq coverage from two replicates of a wild-type \textit{S. cerevisiae} strain grown at 30\textdegree C in YPD was averaged and used to adjust the 5$^\prime$ ends of an annotation of major transcript isoforms based on TIF-seq data \citep{pelechano2013}.
-The 5$^\prime$ end of the original annotation was changed to the position of maximum TSS-seq signal in a window $\pm$ 250 nt of the original 5$^\prime$ end if the maximum TSS-seq signal was greater than the 95$^\text{th}$ percentile of all non-zero TSS-seq signal.
+The 5$^\prime$ end of the original annotation was changed to the position of maximum TSS-seq signal in a window $\pm$ 250 nt of the original 5$^\prime$ end if the maximum TSS-seq signal was greater than the 95\textsuperscript{th} percentile of all non-zero TSS-seq signal.
 
 \subsubsection{TSS-seq peak calling}
 \label{subsubsec:tss_peak_calling}
@@ -339,7 +339,7 @@ If gene was present in the transcript annotation but not the ORF annotation, the
 If a gene was present only in the ORF annotation, the genic region was defined as the interval (start codon - 30 nt, start codon).
 For the purposes of peak classification, regions were considered overlapping if they had at least one base of overlap.
 TSS-seq peaks were classified as genic if they overlapped a genic region on the same strand.
-Peaks were classified as intragenic if they were not classified as as genic peak, and their summit position overlapped an open or closed reading frame on the same strand.
+Peaks were classified as intragenic if they were not classified as a genic peak, and their summit position overlapped an open or closed reading frame on the same strand.
 Peaks were classified as antisense if their summit position overlapped a transcript on the opposite strand.
 Finally, peaks were classified as intergenic if they did not overlap a transcript, reading frame, or genic region on either strand.
 
@@ -347,7 +347,7 @@ Finally, peaks were classified as intergenic if they did not overlap a transcrip
 \label{subsubsec:tss_seqlogos}
 
 TSS-seq alignments were pooled for all replicates in a condition, and the DNA sequence flanking the position of every read overlapping TSS-seq peaks of a particular genomic category was extracted using SAMtools \citep{li2009} and bedtools \citep{quinlan2010}.
-The information content and sequence composition was quantified using WebLogo \citep{crooks2004}, with the zeroth-order Markov model of the \textit{S. cerevisiae} genomic sequence as the background composition.
+The information content and sequence composition of the sequences was quantified using WebLogo \citep{crooks2004}, with the zeroth-order Markov model of the \textit{S. cerevisiae} genomic sequence as the background composition.
 Sequence logos were plotting using helper functions from ggseqlogo \citep{wagih2017}.
 
 \subsubsection{Enrichment of the TATA box}
@@ -371,7 +371,7 @@ Reads mapping to the same location as another read with the same molecular barco
 Coverage of the 5$^\prime$-most base, corresponding to the point of crosslinking, was extracted using bedtools genomecov \citep{quinlan2010}.
 The median fragment size estimated by MACS2 \citep{zhang2008} over all samples was used to generate coverage of factor protection and fragment midpoints, by extending reads to the fragment size, or by shifting reads by half the fragment size, respectively.
 Coverage was normalized to the total number of reads uniquely mapping to \textit{S. cerevisiae} (the \textit{S. pombe} spike-in was not used for normalization due to the low number of reads mapping to \textit{S. pombe}).
-Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \cite{andrews2010}.
+Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \citep{andrews2010}.
 
 The ChIP-nexus pipeline additionally performs \hyperref[subsubsec:nexus_peak_calling]{peak calling}, \hyperref[subsubsec:nexus_differential_occupancy]{differential occupancy analysis}, and data visualization with the option to separate data into clusters of similar signal.
 
@@ -403,8 +403,7 @@ Finally, peaks were classified as intergenic if they did not overlap a transcrip
 \subsection{Comparison of TSS-seq to TFIIB ChIP-nexus}
 
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to compare TSS-seq data to TFIIB ChIP-nexus data is maintained at\\\href{https://github.com/winston-lab/tss-seq-vs-tfiib-nexus}{github.com/winston-lab/tss-seq-vs-tfiib-nexus}.
-The pipeline matches and compares peaks from the two assays, and also performs the TFIIB differential occupancy analysis over windows upstream of TSS-seq peaks shown in section \ref{sec:six_tss_tfiib}.
-This differential occupancy analysis was carried out in the same manner as the \hyperref[subsubsec:nexus_differential_occupancy]{differential occupancy analysis described above}, except TFIIB counts were taken over the window extending 200 bp upstream of TSS-seq peak summits.
+The pipeline matches and compares peaks from the two assays, and also performs the TFIIB differential occupancy analysis over windows upstream of TSS-seq peaks shown in section \ref{sec:six_tss_tfiib} and described in section \ref{subsubsec:nexus_differential_occupancy}.
 
 \subsection{MNase-seq data analysis}
 
