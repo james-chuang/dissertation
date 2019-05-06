@@ -44,7 +44,7 @@ This mostly entails surveying available tools, selecting the tools most suitable
 
 The analysis of complex datasets like those in genomics presents challenges to achieving transparency and reproducibility when reporting methods and results.
 In building the data analysis pipelines behind the results of this dissertation, I have tried to meet these challenges by following best practices that would be standards for publication in an ideal world.
-All of my data analyses are open source (\href{https://github.com/winston-lab}{github.com/winston-lab}), and are designed to be reproducible by others: For all publications, an self-contained archive is uploaded which includes everything needed to go from raw data to the figures and results of the publication (e.g.,\\\url{https://doi.org/10.5281/zenodo.1409826}).
+All of my data analyses are open source (\href{https://github.com/winston-lab}{github.com/winston-lab}), and are designed to be reproducible by others: For all publications, a self-contained archive is uploaded which includes everything needed to go from raw data to the figures and results of the publication (e.g.,\\\url{https://doi.org/10.5281/zenodo.1409826}).
 This level of accessibility is greatly facilitated by building data analyses using Snakemake \citep{koster2012}, one of several available frameworks for workflow management \citep{voss2017, ditommaso2017}.
 Snakemake's scalable execution and its ability to specify dependencies in virtual environments allow workflows to truly be reproducible: data analyses can be re-run on personal computers, computing clusters, or cloud environments, and the exact versions of the software used when initially running the data analysis will automagically be deployed.
 

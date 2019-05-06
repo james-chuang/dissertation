@@ -9,20 +9,18 @@
 
 \section{Introduction to Spt5 and prior work}
 
-Relevant information about Spt5 is summarized as follows \citep{shetty2017}:
+Spt5 is a fundamental component of the transcription elongation complex, with the distinction of being the only RNA polymerase-associated factor known to be conserved across all three domains of life \citep{hartzog2013, werner2012}.
+In eukaryotes, Spt5 heterodimerizes with the protein Spt4, forming a complex known as DSIF (DRB sensitivity-inducing factor) \citep{hartzog1998,hirtreiter2010,schwer2009,wada1998}.
+In metazoans, the phosphorylation state of DSIF controls promoter-proximal pausing, a regulatory transition state between transcription initiation and productive elongation \citep{adelman2012}.
 
-\begin{itemize}[nosep, topsep=.5em]
-    \item Spt5 is the only transcription factor known to be conserved in all three domains of life \citep{hartzog2013, werner2012}.
-    \item Spt5 co-localizes with elongating RNA Pol II \citep{mayer2010, rahl2010}.
-    \item Spt5 binds over the Pol II clamp domain, likely stabilizing the elongation complex \citep{hirtreiter2010, klein2011, martinez-rucobo2011}.
-    \item Spt5 physically recruits factors to the elongating transcription complex, in a manner dependent on the modification status of its C-terminal region (CTR) \citep{hartzog2013}:
-    \begin{itemize}[nosep]
-        \item in its unphosphorylated state, the CTR aids in recruiting the mRNA capping enzyme \citep{doamekpor2014, doamekpor2015, schneider2010, wen1999}
-        \item in its phosphorylated state, the CTR recruits the Paf1 complex, which is important for Pol II elongation \citep{liu2009, mbogning2013, wier2013, zhou2009}
-        \item Spt5 helps to recruit mRNA 3' end processing factors \citep{mayer2012, stadelmayer2014, yamamoto2014}.
-        \item Spt5 helps to recruit the Rpd3S histone deacetylase complex \citep{drouin2010}.
-    \end{itemize}
-\end{itemize}
+Within the elongation complex, biochemical and structural studies place Spt4/5 near the center of the action: Spt5 directly interacts with the noncoding strand of DNA \citep{crickard2016,meyer2015}, the nascent RNA \citep{blythe2016, crickard2016,meyer2015}, and the Pol II clamp domain, which sits above the nucleic acid cleft \citep{hirtreiter2010, martinez-rucobo2011, viktorovskaya2011, yamaguchi1999}.
+Binding of Spt5 to Pol II is likely to stabilize the elongation complex and enhance its processivity \citep{hirtreiter2010,klein2011,martinez-rucobo2011}, consistent with both in vitro studies showing that Spt5 reduces pausing of polymerase under nucleotide-limiting conditions \citep{guo2000,wada1998,zhu2007}, and in vivo studies showing elongation defects upon Spt4/5 mutation or depletion \citep{diamant2016,kramer2016,liu2012,mason2005,morillon2003,quan2010,rondon2003}.
+
+As it travels with elongating Pol II, Spt5 also recruits other factors, including the Rpd3S histone deactylase complex \citep{drouin2010} and mRNA 3$^\prime$-end processing factors \citep{mayer2012, stadelmayer2014, yamamoto2014}.
+The recruitment of still other factors to the elongation complex by Spt5 is dependent on the phosphorylation status of the Spt5 C-terminal region (CTR), a domain composed of tandem repeats analogous to the RNA Pol II C-terminal domain.
+When unphosphorylated, the Spt5 CTR aids in recruiting of the mRNA capping enzyme \citep{doamekpor2014, doamekpor2015, schneider2010, wen1999}, while when phosphorylated, the CTR recruits the Paf1 complex \citep{liu2009, mbogning2013, wier2013, zhou2009}, another complex involved in transcription elongation.
+
+Despite the close relationship of Spt5 to transcription and the transcription-associated processes described above, previous studies which knocked down Spt5 in zebrafish, mice, and HeLa cells observed only mild changes in transcript levels across the genome \citep{diamant2016b, komori2009, krishnan2008, stanlie2012}, a result which might be explained by inefficient knockdown of Spt5 and/or the lack of a spike-in control, without which it is impossible to observe genome-wide changes \citep{chen2016}.
 
 \begin{wrapfigure}[11]{r}{3in}
     \begin{tikzpicture}[x=3in, y=1in]
@@ -45,7 +43,7 @@ Relevant information about Spt5 is summarized as follows \citep{shetty2017}:
     \label{fig:five_depletion_diagram}
 \end{wrapfigure}
 
-\lipsum
+\lipsum[1]
 
 \begin{wrapfigure}[14]{r}{3in}
     \includegraphics[width=3in]{figures/five/five_summary_metagenes.pdf}
@@ -115,9 +113,47 @@ Relevant information about Spt5 is summarized as follows \citep{shetty2017}:
 
 \section{Methods}
 
-\subsection{A note on spike-in normalization for ChIP-seq experiments with input samples}
+\subsection{Yeast strain construction and growth conditions}
 
-In the course of determining how to do spike-in normalization for ChIP-seq libraries, I discovered the following error in a published spike-in normalization method.
+\textit{S. pombe} strain construction methods are detailed in \citet{shetty2017}.
+Spt5 depletion was carried out as follows: Cells were grown to a density of approximately $1 \times 10^7$ cells/ml ($\text{OD}_{600} \sim 0.5$), at which point thiamine hydrochloride and napthaleneacetic acid (NAA) were added to final concentrations of 100 nM and 0.5 mM, respectively.
+The cultures were then incubated with shaking for 4.5 hours at 30\textdegree C.
+
+\subsection{Sequencing library preparation\\(ChIP-seq, NET-seq, RNA-seq, TSS-seq, MNase-seq)}
+
+Library preparation methods for ChIP-seq, NET-seq, and RNA-seq are detailed in \citet{shetty2017}.
+TSS-seq and MNase-seq libraries were prepared as described in \citet{doris2018}, except the experimental species was \textit{S. pombe} and the spike-in species for TSS-seq was \textit{S. cerevisiae}.
+No spike-in was included in the MNase-seq libraries.
+
+\subsection{Genome builds}
+
+The genome build used for \textit{S. pombe} was ASM294v2 \citep{wood2002}, and the genome build used for \textit{S. cerevisiae} was R64-2-1 \citep{engel2014}.
+
+\subsection{NET-seq data analysis}
+
+NET-seq data analysis was performed as described in section \ref{subsec:net_seq}, except PCR duplicates were removed using a random hexamer molecular barcode present in the adapter, and spike-in normalization was performed by normalizing to the total number of uniquely mapping, non-duplicate \textit{S. cerevisiae} alignments.
+
+\subsection{RNA-seq data analysis}
+
+RNA-seq data analysis was performed using the Snakemake workflow for NET- and RNA-seq analysis described in section \ref{subsec:net_seq}, with the sequences of the ERCC92 synthetic spike-in mix (Thermo Fisher Scientific) as the spike-in genome.
+No PCR duplicate removal was performed because no molecular barcode was included in the adapter.
+
+\subsection{ChIP-seq data analysis}
+
+An up-to-date version of the Snakemake \citep{koster2012} workflow used to demultiplex single-end ChIP-seq libraries is maintained at \href{https://github.com/winston-lab/demultiplex-single-end}{github.com/winston-\\lab/demultiplex-single-end}.
+At the time of writing, demultiplexing was performed using fastq-multx \citep{aronesty2013}, allowing one mismatch to the barcode.
+
+An up-to-date version of the Snakemake \citep{koster2012} workflow used to process ChIP-seq libraries is maintained at \href{https://github.com/winston-lab/chip-seq}{github.com/winston-lab/chip-seq}.
+At the time of writing, 3$^\prime$ quality trimming was performed using cutadapt \citep{martin2011}.
+Reads were aligned to the combined \textit{S. pombe} and \textit{S. cerevisiae} genome using Bowtie 2 \citep{langmead2012}, and uniquely mapping alignments were selected using SAMtools \citep{li2009}.
+The median fragment size estimated by MACS2 \citep{zhang2008} over all samples was used to generate coverage of factor protection and fragment midpoints by extending reads to the fragment size, or by shifting reads by half the fragment size, respectively.
+Input and spike-in normalization was carried out \hyperref[subsubsec:chip_spikein]{as described below}.
+Quality statistics of raw, cleaned, non-aligning, and uniquely aligning reads were assessed using FastQC \citep{andrews2010}.
+
+\subsubsection{A note on spike-in normalization for ChIP-seq experiments with input samples}
+\label{subsubsec:chip_spikein}
+
+While determining how to do spike-in normalization for ChIP-seq experiments with input samples, I discovered the following error in a published spike-in normalization method.
 Throughout the following explanation, I use `experimental' and `spike-in' to refer to the two genomes present in the experiment, e.g., experimental signal and spike-in signal.
 
 The goal when including spike-ins in a ChIP-seq experiment is to be able to normalize the experimental signal, such that the normalized signal is proportional to the absolute abundance of the factor being immunoprecipitated.
@@ -160,7 +196,7 @@ We can rewrite this expression in terms of $\phi$, the proportion of the sample 
     \frac{C_\text{spike}}{C_\text{exp}} & = \frac{\phi}{1-\phi} & \alpha &= \frac{C_\text{spike}}{R_\text{spike} C_\text{exp}} \\
                                         && \alpha &= \frac{\phi}{R_\text{spike} \left(1-\phi \right)}.
 \end{align*}
-This form for $\alpha$ differs from the one presented in \citet{orlando} with no derivation:
+This form for $\alpha$ differs from the one presented in \citet{orlando2014} with no derivation:
 \begin{align*}
     \alpha &= \frac{\phi}{R_\text{spike} \left(1-\phi \right)} & \alpha_\text{orlando} &= \frac{\phi}{R_\text{spike}}.
 \end{align*}
@@ -306,12 +342,22 @@ Therefore, we can plug these values in for $C$ for both the input and IP librari
 Notice how $\alpha_\text{input}$ reduces down to normalizing by the experimental library size, with no dependence at all on the spike-in.
 This makes sense because the input always represents the same state, regardless of how much spike-in is added to it.
 The function of the spike-in in the input is only to allow us to estimate abundances in the corresponding IP library.
-Rewriting $\alpha_\text{IP}$ in the form 
+Rewriting $\alpha_\text{IP}$ in the form
 \begin{align*}
     \alpha_\text{IP} &\propto \frac{1}{R_{\text{IP}_\text{spike}} \frac{R_{\text{input}_\text{exp}}}{R_{\text{input}_\text{spike}}}}
 \end{align*}
 shows that $\alpha_\text{IP}$ will basically scale the experimental IP signal to the same scale as the experimental input signal, using the spike-in as a link between the two samples.
 This makes it natural to subtract the normalized input signal from the normalized IP signal: since they are on the same scale, the resulting coverage can be interpreted as reporting how much more IP signal was detected than was expected based on the input.
+
+\subsection{TSS-seq data analysis}
+
+TSS-seq data analysis was performed as described in section \ref{subsec:tss_seq}, except the experimental genome was \textit{S. pombe} and the spike-in genome was \textit{S. cerevisiae}.
+
+Reannotate
+
+\subsection{MNase-seq data analysis}
+
+MNase-seq data analysis was performed as described in section \ref{subsec:mnase_seq}, except the \textit{S. pombe} genome was used and no spike-in normalization was performed because no spike-in was included in the experiment.
 
 \newpage
 \bibliographystyle{apalike}

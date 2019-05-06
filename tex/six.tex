@@ -8,14 +8,14 @@
     \item [] generated TSS-seq and ChIP-nexus libraries
     \item [Olga Viktorovskaya] generated MNase-seq libraries
     \item [Magdalena Murawska] generated NET-seq libraries
-    \item [Dan Spatt] various experiments for publication
+    \item [Dan Spatt] Northern, Western, and ChIP experiments
 \end{description}
 
 \section{Introduction to Spt6 and intragenic transcription}
 
 The conserved transcription elongation factor Spt6 interacts directly with RNA polymerase II \citep{close2011, diebold2011, liu2011, sdano2017, sun2010, yoh2007}, histones \citep{bortvin1996, mccullough2015}, and another elongation factor called Spn1/Iws1 \citep{diebold2010b, li2018, mcdonald2010}.
-The classification of Spt6 as a transcription elongation factor is based on its association with elongating Pol II \citep{andrulis2000, ivanovska2011, kaplan2000, mayer2010}, and its ability to enhance elongation both \textit{in vitro} \citep{endoh2004} and \textit{in vivo} \citep{ardehali2009}, though Spt6 has also been shown to regulate initiation in a small number of cases \citep{adkins2006, ivanovska2011}.
-Evidence suggests that as Spt6 travels with elongating Pol II, it acts as a histone chaperone, reassembling nucleosomes after their displacement from DNA due to transcription \citep{duina2011}.
+The classification of Spt6 as a transcription elongation factor is based on its association with elongating Pol II \citep{andrulis2000, ivanovska2011, kaplan2000, mayer2010, krogan2002}, and its ability to enhance elongation both \textit{in vitro} \citep{endoh2004} and \textit{in vivo} \citep{ardehali2009}, though Spt6 has also been shown to regulate initiation in a small number of cases \citep{adkins2006, ivanovska2011}.
+Evidence suggests that as Spt6 travels with elongating Pol II, it acts as a histone chaperone, reassembling nucleosomes after their displacement from DNA due to transcription \citep{duina2011, ivanovska2011}.
 Consistent with its histone chaperone function, Spt6 influences chromatin structure \citep{bortvin1996, degennaro2013, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}; Spt6 is also required for some histone modifications, including H3K36 methylation \citep{carrozza2005, chu2006, yoh2008, youdell2008}, and, in some organisms, H3K4 and H3K27 methylation \citep{begum2012, chen2012, degennaro2013, wang2017, wang2013}.
 
 \begin{wrapfigure}[10]{r}{3in}
@@ -27,7 +27,7 @@ Consistent with its histone chaperone function, Spt6 influences chromatin struct
 
 Studies in the yeasts \textit{Saccharomyces cerevisiae} and \textit{Schizosaccharomyces pombe} have previously examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
 As Spt6 is essential for viability in \textit{S. cerevisiae}, many of these studies use the same temperature-sensitive \textit{spt6} mutant used in this project, \textbf{\textit{spt6-1004}}, which encodes an in-frame deletion of a helix-hairpin-helix domain within Spt6 \citep{kaplan2003}.
-When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels (Figure \ref{fig:six_spt6_western}).
+When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels, though cells are still viable  (Figure \ref{fig:six_spt6_western}, \citep{kaplan2003}).
 A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
 \begin{wrapfigure}[8]{r}{3in}
@@ -36,9 +36,12 @@ A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textb
     \caption[Diagram of transcript classes.]{Diagram of transcript orientation with respect to coding DNA sequences, for the categories of transcripts referred to in this document.}
     \label{fig:six_gene_diagram}
 \end{wrapfigure}
-Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{uwimana2017}.
-Studying intragenic transcription is difficult with these methods, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figures \ref{fig:six_gene_diagram}, \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}. Therefore, these methods can only discover intragenic transcripts which are highly expressed relative to the corresponding genic transcript, and are likely to find many false positives.
+Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{degennaro2013, uwimana2017}.
+Studying intragenic transcription is difficult with these methods, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figures \ref{fig:six_gene_diagram}, \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}.
+Identification of intragenic transcription has thus relied on identifying cases where the signal towards the 3$^\prime$ end of a transcript is greater than the signal towards the 5$^\prime$ end.
+However, this leads to both false positives, due to the inherent variability of the signal over a transcript, as well as false negatives, due to the requirement of the intragenic transcript to be well-expressed relative to its corresponding genic transcript in order to be identified.
 Additionally, these methods are assays of steady-state RNA levels, which makes them unable to distinguish whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly degraded in wild-type, or C) processing of full-length protein-coding RNAs.
+New transcription initiation has been shown to be responsible for individual cases of intragenic initiation \citep{kaplan2003}, but this has not previously been studied on a genome-wide scale.
 \begin{SCfigure}[40][h]
     \centering
     \includegraphics[width=4.4in]{figures/six/six_aat_assay_comparison.pdf}
@@ -54,7 +57,7 @@ When applied to the PIC component TFIIB, ChIP-nexus reports where transcription 
 \section{TSS-seq and TFIIB ChIP-nexus results for \textit{spt6-1004}}
 \label{sec:six_tss_tfiib}
 
-To study the relationship between Spt6 and transcription, TSS-seq and TFIIB ChIP-nexus libraries were prepared from wild-type and \textit{spt6-1004} cells, both shifted from 30\textdegree C to 37\textdegree C for 80 minutes.
+To study the relationship between Spt6 and transcription, TSS-seq and TFIIB ChIP-nexus libraries were prepared from wild-type and \textit{spt6-1004} cells, after cultures were shifted from 30\textdegree C to 37\textdegree C for 80 minutes.
 In wild-type cells, TSS-seq and TFIIB ChIP-nexus recapitulate their expected distributions over the genome: Most TSS signal is restricted to annotated genic TSSs, while most TFIIB signal is localized just upstream of the TSS (Figures \ref{fig:six_tss_seq_heatmaps}, \ref{fig:six_tfiib_heatmap}).
 In \textit{spt6-1004}, the signal for both assays infiltrates gene bodies, reflecting widespread intragenic expression of capped and polyadenylated transcripts, and suggesting that new transcription initiation contributes to the intragenic transcription phenotype.
 Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur towards the 3$^\prime$ end of genes, while antisense strand TSS-seq signal tends to occur towards the 5$^\prime$ end of genes.
@@ -114,7 +117,7 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
     \includegraphics[width=6in]{figures/six/six_tfiib_spreading_ssa4.pdf}
     \caption[TFIIB ChIP-nexus protection over the 20 kb flanking the gene \textit{SSA4}, in wild-type and \textit{spt6-1004} cells.]{
         \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
-            \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004}, over 20 kb of chromosome II flanking the \textit{SSA4} gene.
+            \item [top)] TFIIB ChIP-nexus protection in wild-type and \textit{spt6-1004}, over 20 kb of\\ chromosome II flanking the \textit{SSA4} gene.
             \item [bottom)] Expanded view of TFIIB protection over the \textit{SSA4} gene.
         \end{description}
     }
@@ -132,7 +135,7 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
 \section{MNase-seq results from \textit{spt6-1004}}
 
 Because a primary function of Spt6 is to act as histone chaperone that reassembles nucleosomes in the wake of transcription \citep{duina2011}, it is reasonable to expect that the transcriptional changes seen in \textit{spt6-1004} would be associated with changes in chromatin structure.
-The requirement for Spt6 in maintaining normal chromatin structure has been demonstrated in previous studies \citep{bortvin1996, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013}.
+The requirement for Spt6 in maintaining normal chromatin structure has been demonstrated in previous studies \citep{bortvin1996, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013, degennaro2013}.
 To re-examine this requirement in higher resolution, we assayed nucleosome protection genome-wide using micrococcal nuclease digestion of chromatin followed by sequencing (MNase-seq).
 
 \begin{figure}[h]
@@ -283,13 +286,14 @@ All library preparation methods are detailed in \citet{doris2018}.
 The genome build used for \textit{S. cerevisiae} was R64-2-1 \citep{engel2014}, and the genome build used for \textit{S. pombe} was ASM294v2 \citep{wood2002}.
 
 \subsection{TSS-seq data analysis}
+\label{subsec:tss_seq}
 
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to process TSS-seq libraries is maintained at \href{https://github.com/winston-lab/tss-seq}{github.com/winston-lab/tss-seq}.
 At the time of writing, removal of adapter sequences and random hexamer sequences from the 3$^\prime$ end of the read and 3$^\prime$ quality trimming were performed using cutadapt \citep{martin2011}.
 The random hexamer molecular barcode on the 5$^\prime$ end of the read was then removed and processed using a custom Python script (adapted from \citet{mayer2015}).
 Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} reference genomes using Tophat2 \citep{kim2013} without a reference transcriptome, and uniquely mapping reads were selected using SAMtools \citep{li2009}.
 Reads mapping to the same location as another read with the same molecular barcode were identified as PCR duplicates and removed using a custom Python script (adapted from \citet{mayer2015}).
-Coverage of the 5$^\prime$-most base, corresponding to the TSS, was extracted using bedtools genomecov \citep{quinlan2010} and normalized to the total number of uniquely mapping, non-duplicate \textit{S. pombe} reads.
+Coverage of the 5$^\prime$-most base, corresponding to the TSS, was extracted using bedtools genomecov \citep{quinlan2010} and normalized to the total number of uniquely mapping, non-duplicate \textit{S. pombe} alignments.
 Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-duplicate reads were assessed using FastQC \citep{andrews2010}.
 
 The pipeline additionally performs \hyperref[subsubsec:tss_peak_calling]{TSS-seq peak calling}, \hyperref[subsubsec:tss_differential_expression]{differential expression}, \hyperref[subsubsec:tss_peak_classification]{classification of peaks into genomic categories}, \hyperref[subsubsec:tss_seqlogos]{sequence logo visualization}, motif enrichment analysis, \hyperref[subsubsec:denovo_motif_discovery]{\textit{de novo} motif discovery}, gene ontology analysis \citep{young2010}, and data visualization with the option to separate data into clusters of similar signal.
@@ -366,7 +370,7 @@ The frequency of motif occurrences in the regions of interest was compared to th
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to process ChIP-nexus libraries is maintained at \href{https://github.com/winston-lab/chip-nexus}{github.com/winston-lab/chip-nexus}.
 At the time of writing, filtering for reads containing the constant region of the adapter on the 5$^\prime$ end of the read, 3$^\prime$ adapter removal, and 3$^\prime$ quality trimming were performed using cutadapt \citep{martin2011}.
 The random pentamer molecular barcode on the 5$^\prime$ end of the read was then removed and processed using a custom Python script modified from \citet{mayer2015}.
-Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} genomes using Bowtie2 \citep{langmead2012}, and uniquely mapping reads were selected using SAMtools \citep{li2009}.
+Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} genomes using Bowtie 2 \citep{langmead2012}, and uniquely mapping alignments were selected using SAMtools \citep{li2009}.
 Reads mapping to the same location as another read with the same molecular barcode were identified as PCR duplicates and removed using a custom Python script modified from \citet{mayer2015}.
 Coverage of the 5$^\prime$-most base, corresponding to the point of crosslinking, was extracted using bedtools genomecov \citep{quinlan2010}.
 The median fragment size estimated by MACS2 \citep{zhang2008} over all samples was used to generate coverage of factor protection and fragment midpoints, by extending reads to the fragment size, or by shifting reads by half the fragment size, respectively.
@@ -406,13 +410,14 @@ An up-to-date version of the Snakemake \citep{koster2012} workflow used to compa
 The pipeline matches and compares peaks from the two assays, and also performs the TFIIB differential occupancy analysis over windows upstream of TSS-seq peaks shown in section \ref{sec:six_tss_tfiib} and described in section \ref{subsubsec:nexus_differential_occupancy}.
 
 \subsection{MNase-seq data analysis}
+\label{subsec:mnase_seq}
 
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to demultiplex paired-end MNase-seq libraries is maintained at \href{https://github.com/winston-lab/demultiplex-paired-end}{github.com/winston-lab/demultiplex-paired-end}.
 At the time of writing, demultiplexing was performed using fastq-multx \citep{aronesty2013}, allowing one mismatch to the barcode, followed by filtering for and removal of the barcode on read 2 using cutadapt \citep{martin2011}.
 
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to process MNase-seq libraries is maintained at \href{https://github.com/winston-lab/mnase-seq}{github.com/winston-lab/mnase-seq}.
 At the time of writing, 3$^\prime$ quality trimming was performed using cutadapt \citep{martin2011}.
-Reads were aligned to the combined S. cerevisiae and S. pombe genome using Bowtie 1 \citep{langmead2009}, and correctly paired alignments were selected using SAMtools \citep{li2009}.
+Reads were aligned to the combined \textit{S. cerevisiae} and \textit{S. pombe} genome using Bowtie 1 \citep{langmead2009}, and correctly paired alignments were selected using SAMtools \citep{li2009}.
 Coverage of nucleosome protection and nucleosome dyads were extracted using bedtools \citep{quinlan2010} and custom shell scripts to get the entire fragment or the midpoint of the fragment, respectively.
 Smoothed nucleosome dyad coverage was generated by smoothing dyad coverage with a Gaussian kernel of 20 bp bandwidth.
 Coverage was normalized to the total number of correctly paired \textit{S. pombe} fragments.
@@ -436,6 +441,7 @@ The 48 `code vectors' representing the typical MNase-seq pattern for each node (
 The resulting dendrogram was cut to produce the three clusters of MNase-seq signal shown in Figures \ref{fig:six_mnase_som} and \ref{fig:six_intragenic_mnase_metagenes}.
 
 \subsection{NET-seq data analysis}
+\label{subsec:net_seq}
 
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to process NET-seq libraries is maintained at \href{https://github.com/winston-lab/net-and-rna-seq}{github.com/winston-lab/net-and-rna-seq}.
 
