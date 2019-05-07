@@ -112,7 +112,7 @@ figures:
             rnapii_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-RNAPII.tsv.gz
             spt5_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-Spt5.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
-            height: 3.6
+            height: 4.5
             width: 3
         rnapii_phosphomark_enrichment:
             data_paths:
@@ -123,18 +123,25 @@ figures:
                 - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_non-depleted-Ser2P-melted.tsv.gz
                 - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_depleted-Ser2P-melted.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
-            height: 1.5
-            width: 4.5
+            height: 1.8
+            width: 6
         rnaseq_heatmaps:
             rnaseq_data: ../../spt5/rna-seq/datavis/coding-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/coding-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-libsizenorm-wholeread-ANTISENSE.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
-            height: 3.3
-            width: 3
+            height: 3.75
+            width: 6
         tss_diffexp_summary:
             genic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             intragenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intragenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
             antisense: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/antisense/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
             intergenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intergenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
+            height: 1.75
+            width: 3
+        tss_expression_levels:
+            tss_genic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
+            tss_intragenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intragenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
+            tss_antisense: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/antisense/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
+            tss_intergenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intergenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
             height: 1.75
             width: 3
         mnase_metagene:

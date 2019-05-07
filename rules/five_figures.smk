@@ -85,4 +85,23 @@ rule five_mnase_metagene:
     script:
         "../scripts/five_mnase_metagene.R"
 
+rule five_tss_expression_levels:
+    input:
+        tss_genic = FIGURES["five"]["tss_expression_levels"]["tss_genic"],
+        tss_intragenic = FIGURES["five"]["tss_expression_levels"]["tss_intragenic"],
+        tss_antisense = FIGURES["five"]["tss_expression_levels"]["tss_antisense"],
+        tss_intergenic = FIGURES["five"]["tss_expression_levels"]["tss_intergenic"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/five/five_tss_expression_levels.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["tss_expression_levels"]["height"])),
+        width = eval(str(FIGURES["five"]["tss_expression_levels"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_tss_expression_levels.R"
+
+
 
