@@ -51,6 +51,23 @@ rule five_rnaseq_heatmaps:
     script:
         "../scripts/five_rnaseq_heatmaps.R"
 
+rule five_antisense_heatmaps:
+    input:
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+        tssseq_data = FIGURES["five"]["antisense_heatmaps"]["tssseq_data"],
+        rnaseq_data = FIGURES["five"]["antisense_heatmaps"]["rnaseq_data"],
+        netseq_data = FIGURES["five"]["antisense_heatmaps"]["netseq_data"],
+    output:
+        pdf = "figures/five/five_antisense_heatmaps.pdf"
+    params:
+        height = eval(str(FIGURES["five"]["antisense_heatmaps"]["height"])),
+        width = eval(str(FIGURES["five"]["antisense_heatmaps"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_antisense_heatmaps.R"
+
 rule five_tss_diffexp_summary:
     input:
         in_genic = FIGURES["five"]["tss_diffexp_summary"]["genic"],
@@ -70,21 +87,6 @@ rule five_tss_diffexp_summary:
     script:
         "../scripts/five_tss_diffexp_summary.R"
 
-rule five_mnase_metagene:
-    input:
-        theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
-        mnase_data = FIGURES["five"]["mnase_metagene"]["mnase_data"],
-    output:
-        pdf = "figures/five/five_mnase_metagene.pdf"
-    params:
-        height = eval(str(FIGURES["five"]["mnase_metagene"]["height"])),
-        width = eval(str(FIGURES["five"]["mnase_metagene"]["width"])),
-    conda:
-        "../envs/plot.yaml"
-    script:
-        "../scripts/five_mnase_metagene.R"
-
 rule five_tss_expression_levels:
     input:
         tss_genic = FIGURES["five"]["tss_expression_levels"]["tss_genic"],
@@ -102,6 +104,21 @@ rule five_tss_expression_levels:
         "../envs/plot.yaml"
     script:
         "../scripts/five_tss_expression_levels.R"
+
+rule five_mnase_metagene:
+    input:
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+        mnase_data = FIGURES["five"]["mnase_metagene"]["mnase_data"],
+    output:
+        pdf = "figures/five/five_mnase_metagene.pdf"
+    params:
+        height = eval(str(FIGURES["five"]["mnase_metagene"]["height"])),
+        width = eval(str(FIGURES["five"]["mnase_metagene"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_mnase_metagene.R"
 
 
 

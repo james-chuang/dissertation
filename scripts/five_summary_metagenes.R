@@ -44,7 +44,7 @@ main = function(theme_spec,
                                   "non-depleted-2",
                                   "depleted-1",
                                   "depleted-2"),
-                    assay_name="RNAPII ChIP-seq")) %>%
+                    assay_name="RNA Pol II ChIP-seq")) %>%
         bind_rows(import(spt5_data,
                     sample_list=c("non-depleted-1",
                                   "non-depleted-2",
@@ -65,8 +65,8 @@ main = function(theme_spec,
         scale_y_continuous(breaks = scales::pretty_breaks(n=3),
                            name = "standard score") +
         facet_wrap(~assay, ncol=1, scales="free_y") +
-        scale_color_ptol() +
-        scale_fill_ptol() +
+        scale_color_few() +
+        scale_fill_few() +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
               strip.text=element_text(size=9, hjust=0),

@@ -1,6 +1,7 @@
 
 import = function(df, path, category){
     df = read_tsv(path) %>%
+        filter(! is.na(log10_padj)) %>%
         mutate(category=category) %>%
         bind_rows(df, .) %>%
         return()
@@ -44,12 +45,15 @@ main = function(theme_spec,
                       aes(x=category, y=expression+1,
                           group=interaction(condition, category))) +
         geom_violin(aes(fill=condition),
-                    bw = .05,
-                    width=2,
+                    bw = .06,
+                    width=1.4,
                     position=position_dodge(width=0.6),
                     size=0.2) +
         geom_boxplot(position=position_dodge(width=0.6),
-                     width=0.08, notch=TRUE, outlier.size=0, outlier.stroke=0,
+                     width=0.12,
+                     notch=TRUE,
+                     outlier.size=0,
+                     outlier.stroke=0,
                      size=0.2) +
         scale_x_discrete(expand = c(0,0)) +
                          # limits = c("genic", "intragenic", "antisense", "intergenic", "")) +

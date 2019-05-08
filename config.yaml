@@ -130,6 +130,12 @@ figures:
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
             height: 3.75
             width: 6
+        antisense_heatmaps:
+            tssseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_TSS-seq-antisense.tsv.gz
+            rnaseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_RNA-seq-antisense.tsv.gz
+            netseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_NET-seq-antisense.tsv.gz
+            width: 6
+            height: 4
         tss_diffexp_summary:
             genic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             intragenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intragenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
@@ -150,8 +156,8 @@ figures:
             height: 2
     stress:
         tfiib_ridgelines:
-            width: 6
-            height: 6.2
+            width: 8.25
+            height: 4.4
             data_path: /n/groups/winston/jc459/intragenic/chipnexus-tfiib/datavis/genes-with-stress-induced-intra-peaks/libsizenorm/genes-with-stress-induced-intra-peaks-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
             diamide_genic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             diamide_intragenic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/intragenic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv

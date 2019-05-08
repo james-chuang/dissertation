@@ -48,7 +48,7 @@ In this system, Spt5 is expressed using the thiamine-repressible \textit{nmt81} 
 For all experiments described in this chapter, Spt5-depleted cells are sampled 4.5 hours after the start of depletion, at which point the levels of Spt5 on chromatin are about 12\% of non-depleted levels, as measured by ChIP-seq of Spt5 (Figure \ref{fig:five_summary_metagenes}, top panel).
 
 Using this system, we assayed various aspects of transcription and chromatin state across the genomes of Spt5-depleted and non-depleted cells.
-The results are presented below, with sections \ref{sec:five_pol_ii} and \ref{sec:five_rna_seq} describing reanalyses of data published in \citet{shetty2017} prior to my involvement in this project.
+The results are presented below, with section \ref{sec:five_pol_ii} and the RNA-seq part of section \ref{sec:five_transcriptome} describing my reanalyses of data published in \citet{shetty2017} prior to my involvement in this project.
 
 \section{RNA Polymerase II in Spt5 depletion}
 \label{sec:five_pol_ii}
@@ -59,7 +59,10 @@ The results are presented below, with sections \ref{sec:five_pol_ii} and \ref{se
     \label{fig:five_summary_metagenes}
 \end{wrapfigure}
 
-\lipsum[1]
+To examine the effects of Spt5 depletion on transcription, we performed Pol II ChIP-seq and NET-seq of Spt5-depleted and non-depleted cells.
+The data from the two assays paint somewhat different pictures of the changes in Pol II status upon Spt5 depletion.
+ChIP-seq reports that global levels of Pol II on chromatin in Spt5-depleted cells are roughly one-third that of non-depleted cells, with the polymerase remaining after Spt5 depletion tending to be located towards the 5$^\prime$ ends of genes.
+By contrast, NET-seq reports that total elongating Pol II is not depleted to an appreciable degree but is redistributed from the 3$^\prime$ to the 5$^\prime$ ends of genes.
 
 \begin{figure}
     \includegraphics[width=6in]{figures/five/five_rnapii_phosphomark_enrichment.pdf}
@@ -70,7 +73,7 @@ The results are presented below, with sections \ref{sec:five_pol_ii} and \ref{se
 \lipsum[1]
 
 \section{The transcriptome in Spt5 depletion}
-\label{sec:five_rna_seq}
+\label{sec:five_transcriptome}
 
 \begin{figure}[H]
     \centering
@@ -81,13 +84,12 @@ The results are presented below, with sections \ref{sec:five_pol_ii} and \ref{se
 
 \lipsum[1]
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    % \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-    \caption[Heatmaps of antisense TSS-seq, RNA-seq, and NET-seq signal from Spt5 depleted and non-depleted cells, over genes with Spt5-depletion-induced antisense TSSs.]{Caption wsdasdr zzzz.}
-    % \label{fig:stress_promoter_tss_polyenrichment}
+    \includegraphics[width=6in]{figures/five/five_antisense_heatmaps.pdf}
+    \caption[Heatmaps of antisense TSS-seq, RNA-seq, and NET-seq signal from Spt5 depleted and non-depleted cells, over genes with Spt5-depletion-induced antisense TSSs.]{Heatmaps of antisense TSS-seq, RNA-seq, and NET-seq signal in Spt5 non-depleted and depleted cells, over all genes overlapping an Spt5-depletion-induced antisense TSS, aligned by the sense, genic TSS of the gene and sorted by the distance from the genic TSS to the antisense TSS. Values are the mean of spike-in normalized coverage in non-overlapping 20 nt bins, over two or more replicates. Values above the 0.995 (TSS-seq), 0.98 (RNA-seq), or 0.96 (NET-seq) quantiles are set to their respective quantiles for visualization.}
+    \label{fig:five_antisense_heatmaps}
 \end{figure}
-
 
 \begin{figure}[H]
     \centering
@@ -109,9 +111,9 @@ The results are presented below, with sections \ref{sec:five_pol_ii} and \ref{se
 
 \section{Chromatin landscape in Spt5 depletion}
 
-\begin{wrapfigure}[10]{r}{3in}
+\begin{wrapfigure}[14]{r}{3in}
     \includegraphics[width=3in]{figures/five/five_mnase_metagene.pdf}
-    \caption[Average MNase-seq dyad signal from Spt5 depleted and non-depleted cells, over non-overlapping coding genes.]{Caption wsdasdr zzzz.}
+    \caption[Average MNase-seq dyad signal from Spt5 depleted and non-depleted cells, over non-overlapping coding genes.]{Average MNase-seq dyad signal from Spt5-depleted and non-depleted cells, over 1989 non-overlapping coding genes aligned by wild-type +1 nucleosome dyad. The solid line and shading are the median and inter-quartile range of the mean library-size normalized coverage over two (non-depleted) or three (depleted) replicates.}
     \label{fig:five_mnase_metagene}
 \end{wrapfigure}
 

@@ -1,6 +1,7 @@
 
 import = function(df, path, category){
     df = read_tsv(path) %>%
+        filter(! is.na(log10_padj)) %>%
         mutate(category=category) %>%
         bind_rows(df, .) %>%
         return()
@@ -33,12 +34,12 @@ main = function(theme_spec,
                       aes(x=category, y=expression+1,
                           group=interaction(condition, category))) +
         geom_violin(aes(fill=condition),
-                    bw = .1,
+                    bw = .08,
                     width=1.2,
-                    position=position_dodge(width=0.65),
+                    position=position_dodge(width=0.75),
                     size=0.2) +
-        geom_boxplot(position=position_dodge(width=0.65),
-                     width=0.17,
+        geom_boxplot(position=position_dodge(width=0.75),
+                     width=0.12,
                      notch=TRUE,
                      outlier.size=0,
                      outlier.stroke=0,
@@ -47,9 +48,10 @@ main = function(theme_spec,
                          # limits = c("genic", "intragenic", "antisense", "intergenic", "")) +
         scale_y_log10(name = "normalized counts",
                       breaks = c(10, 1000), labels = c(bquote(10^1), bquote(10^3))) +
-        scale_fill_ptol(guide=guide_legend(direction="vertical",
-                                           label.position="left",
-                                           label.hjust=1)) +
+        scale_fill_few(guide=guide_legend(direction="vertical",
+                                          label.position="left",
+                                          # label.hjust=1,
+                                          keyheight=unit(6, "pt"))) +
         # ggtitle("expression level of TSS-seq peaks") +
         theme_default +
         theme(axis.title.x = element_blank(),

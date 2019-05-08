@@ -89,7 +89,7 @@ main = function(theme_spec,
                                                         x==1.5 ~ paste(x, "kb"),
                                                         TRUE ~ as.character(x))) +
         scale_y_discrete(expand=c(0,0),
-                         name="RNAPII\nlevels") +
+                         name="RNA Pol II\nlevels") +
         theme_default +
         theme(axis.title.x=element_blank(),
               axis.title.y=element_text(angle=0,

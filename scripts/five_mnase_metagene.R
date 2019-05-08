@@ -39,8 +39,8 @@ main = function(theme_spec,
                            expand = c(0,0.002),
                            name = "normalized counts") +
         ggtitle("MNase-seq dyad signal") +
-        scale_color_ptol() +
-        scale_fill_ptol() +
+        scale_color_few() +
+        scale_fill_few() +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
               panel.grid = element_blank(),

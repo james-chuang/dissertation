@@ -201,7 +201,7 @@ main = function(theme_spec,
         scale_y_continuous(expand = c(0,1)) +
         coord_cartesian(clip="off") +
         theme_heatmap +
-        theme(plot.margin = margin(r=-0.15, unit="cm"),
+        theme(plot.margin = margin(r=-0.05, unit="cm"),
               axis.text.x.top = element_text(angle=15, vjust=0, hjust=0,
                                              margin = margin(b=5, unit="pt")),
               axis.title.x = element_text(size=9, color="black"),
@@ -210,7 +210,7 @@ main = function(theme_spec,
 
     figure_1a = plot_grid(diagram, tfiib_heatmap, align = "h",
               axis = "tb", nrow=1,
-              rel_widths = c(0.15, 1))
+              rel_widths = c(0.1, 1))
 
     ggplot2::ggsave(pdf_out,
                     plot=figure_1a,
