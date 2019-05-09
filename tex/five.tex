@@ -53,16 +53,21 @@ The results are presented below, with section \ref{sec:five_pol_ii} and the RNA-
 \section{RNA Polymerase II in Spt5 depletion}
 \label{sec:five_pol_ii}
 
-\begin{wrapfigure}[22]{r}{3in}
+\begin{wrapfigure}[23]{r}{3in}
     \includegraphics[width=3in]{figures/five/five_summary_metagenes.pdf}
-    \caption[Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5 depleted and non-depleted cells.]{Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates, taken in non-overlapping 20 bp bins and standardized per gene.}
+    \caption[Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5 depleted and non-depleted cells.]{Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates or one experiment (non-depleted NET-seq), taken in non-overlapping 20 bp bins and standardized per gene.}
     \label{fig:five_summary_metagenes}
 \end{wrapfigure}
 
 To examine the effects of Spt5 depletion on transcription, we performed Pol II ChIP-seq and NET-seq of Spt5-depleted and non-depleted cells.
-The data from the two assays paint somewhat different pictures of the changes in Pol II status upon Spt5 depletion.
+The data from the two assays paint somewhat different pictures of the changes in Pol II status upon Spt5 depletion (Figure \ref{fig:five_summary_metagenes}).
 ChIP-seq reports that global levels of Pol II on chromatin in Spt5-depleted cells are roughly one-third that of non-depleted cells, with the polymerase remaining after Spt5 depletion tending to be located towards the 5$^\prime$ ends of genes.
-By contrast, NET-seq reports that total elongating Pol II is not depleted to an appreciable degree but is redistributed from the 3$^\prime$ to the 5$^\prime$ ends of genes.
+By contrast, NET-seq reports that total elongating Pol II is not depleted to an appreciable degree but is redistributed from the 3$^\prime$ to the 5$^\prime$ ends of genes, with a greater 5$^\prime$ bias than that observed by ChIP-seq.
+
+We also performed ChIP-seq for two major post-translational modifications of the Pol II C-terminal domain (CTD), namely serine 5 phosphorylation and serine 2 phosphorylation.
+Looking at the relative enrichment of these modifications over gene bodies, we see that the CTD of the Pol II remaining at the 5$^\prime$ ends of genes after Spt5 depletion is enriched for phospho-serine 5 and depleted for phospho-serine 2.
+This is somewhat expected because phospho-serine 5 and 2 primarily occur towards the 5$^\prime$ and 3$^\prime$ ends of genes, respectively \citep{komarnitsky2000}.
+However, the 5$^\prime$ enrichment of phospho-serine 5 seen in Spt5 depleted cells is not observed in Spt5 non-depleted cells (note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
 
 \begin{figure}
     \includegraphics[width=6in]{figures/five/five_rnapii_phosphomark_enrichment.pdf}
@@ -70,7 +75,15 @@ By contrast, NET-seq reports that total elongating Pol II is not depleted to an 
     \label{fig:five_rnapii_phosphomark_enrichment}
 \end{figure}
 
-\lipsum[1]
+One possible explanation for the apparent discrepancy between the ChIP-seq and NET-seq results is the difference in immunoprecipitation strategy between the two techniques.
+The antibody used to immunoprecipitate Pol II for ChIP-seq was 8WG16, which recognizes the Pol II CTD.
+Reports of this antibody's relative affinity for the various CTD phosphoisoforms vary widely across studies in several species \citep{zeitlinger2007}.
+It is conceivable that, for \textit{S. pombe}, the 8WG16 antibody might fail to efficiently pull down a 5$^\prime$-biased phosphoisoform of Pol II that would be captured in NET-seq, which should theoretically capture all Pol II phosphoisoforms via FLAG pulldown of the Rpb3 subunit of Pol II.
+If this were the case, it could explain the lack of Pol II ChIP-seq signal from Spt5 non-depleted cells over the first ~500 base pairs of genes (Figure \ref{fig:five_rnapii_phosphomark_enrichment}).
+Furthermore, if the levels of this missing CTD phosphoisoform were elevated in Spt5-depleted cells versus non-depleted cells, this could also explain the difference in Spt5-depleted total Pol II levels on chromatin as observed by ChIP-seq and NET-seq.
+
+This missing 5$^\prime$-biased CTD phosphoisoform is not likely to be serine 5 phosphorylation, because ChIP-seq of this mark looks very much like ChIP-seq of Pol II (once again, note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
+One possible candidate is serine 7 phosphorylation.
 
 \section{The transcriptome in Spt5 depletion}
 \label{sec:five_transcriptome}
