@@ -11,14 +11,14 @@
 
 Spt5 is a fundamental component of the transcription elongation complex, with the distinction of being the only RNA polymerase-associated factor known to be conserved across all three domains of life \citep{hartzog2013, werner2012}.
 In eukaryotes, Spt5 heterodimerizes with the protein Spt4, forming a complex known as DSIF (DRB sensitivity-inducing factor) \citep{hartzog1998,hirtreiter2010,schwer2009,wada1998}.
-In metazoans, the phosphorylation state of DSIF controls promoter-proximal pausing, a regulatory transition state between transcription initiation and productive elongation \citep{adelman2012}.
+In metazoans, phosphorylation of DSIF controls the release of the elongation complex from promoter-proximal pausing, a regulatory transition state between transcription initiation and productive elongation \citep{adelman2012}.
 
 Within the elongation complex, biochemical and structural studies place Spt4/5 near the center of the action: Spt5 directly interacts with the noncoding strand of DNA \citep{crickard2016,meyer2015}, the nascent RNA \citep{blythe2016, crickard2016,meyer2015}, and the Pol II clamp domain, which sits above the nucleic acid cleft \citep{hirtreiter2010, martinez-rucobo2011, viktorovskaya2011, yamaguchi1999}.
-Binding of Spt5 to Pol II is likely to stabilize the elongation complex and enhance its processivity \citep{hirtreiter2010,klein2011,martinez-rucobo2011}, consistent with both in vitro studies showing that Spt5 reduces pausing of polymerase under nucleotide-limiting conditions \citep{guo2000,wada1998,zhu2007}, and in vivo studies showing elongation defects upon Spt4/5 mutation or depletion \citep{diamant2016,kramer2016,liu2012,mason2005,morillon2003,quan2010,rondon2003}.
+Binding of Spt5 to Pol II is likely to stabilize the elongation complex and enhance its processivity \citep{hirtreiter2010,klein2011,martinez-rucobo2011}, consistent with both \textit{in vitro} studies showing that Spt5 reduces pausing of polymerase under nucleotide-limiting conditions \citep{guo2000,wada1998,zhu2007}, and \textit{in vivo} studies showing elongation defects upon Spt4/5 mutation or depletion \citep{diamant2016,kramer2016,liu2012,mason2005,morillon2003,quan2010,rondon2003}.
 
-As it travels with elongating Pol II, Spt5 also recruits other factors, including the Rpd3S histone deactylase complex \citep{drouin2010} and mRNA 3$^\prime$-end processing factors \citep{mayer2012, stadelmayer2014, yamamoto2014}.
+As it travels with elongating Pol II, Spt5 recruits other factors, including the Rpd3S histone deactylase complex \citep{drouin2010} and mRNA 3$^\prime$-end processing factors \citep{mayer2012, stadelmayer2014, yamamoto2014}.
 The recruitment of still other factors to the elongation complex by Spt5 is dependent on the phosphorylation status of the Spt5 C-terminal region (CTR), a domain composed of tandem repeats analogous to the RNA Pol II C-terminal domain.
-When unphosphorylated, the Spt5 CTR aids in recruiting of the mRNA capping enzyme \citep{doamekpor2014, doamekpor2015, schneider2010, wen1999}, while when phosphorylated, the CTR recruits the Paf1 complex \citep{liu2009, mbogning2013, wier2013, zhou2009}, another complex involved in transcription elongation.
+When unphosphorylated, the Spt5 CTR aids in recruitment of the mRNA capping enzyme \citep{doamekpor2014, doamekpor2015, schneider2010, wen1999}, while when phosphorylated, the CTR recruits the Paf1 complex \citep{liu2009, mbogning2013, wier2013, zhou2009}, another complex involved in transcription elongation.
 
 Despite the close relationship of Spt5 to transcription and the transcription-associated processes described above, previous studies which knocked down Spt5 in zebrafish, mice, and HeLa cells observed only mild changes in transcript levels across the genome \citep{diamant2016b, komori2009, krishnan2008, stanlie2012}, a result which could potentially be explained by inefficient knockdown of Spt5 and/or the lack of a spike-in control, without which it is impossible to observe a global change over the entire genome \citep{chen2016}.
 
@@ -63,11 +63,12 @@ To examine the effects of Spt5 depletion on transcription, we performed Pol II C
 The data from the two assays paint somewhat different pictures of the changes in Pol II status upon Spt5 depletion (Figure \ref{fig:five_summary_metagenes}).
 ChIP-seq reports that global levels of Pol II on chromatin in Spt5-depleted cells are roughly one-third that of non-depleted cells, with the polymerase remaining after Spt5 depletion tending to be located towards the 5$^\prime$ ends of genes.
 By contrast, NET-seq reports that total elongating Pol II is not depleted to an appreciable degree but is redistributed from the 3$^\prime$ to the 5$^\prime$ ends of genes, with a greater 5$^\prime$ bias than that observed by ChIP-seq.
+We interpret this 5$^\prime$ shift of Pol II as reflecting a transcription elongation defect upon Spt5 depletion, consistent with previously reported elongation defects upon Spt4/5 disruption \citep{diamant2016,kramer2016,liu2012,mason2005,morillon2003,quan2010,rondon2003}.
 
-We also performed ChIP-seq for two major post-translational modifications of the Pol II C-terminal domain (CTD), namely serine 5 phosphorylation and serine 2 phosphorylation.
+To learn more about the state of Pol II in Spt5 depletion, we also performed ChIP-seq for two major post-translational modifications of the Pol II C-terminal domain (CTD), namely serine 5 phosphorylation and serine 2 phosphorylation.
 Looking at the relative enrichment of these modifications over gene bodies, we see that the CTD of the Pol II remaining at the 5$^\prime$ ends of genes after Spt5 depletion is enriched for phospho-serine 5 and depleted for phospho-serine 2.
-This is somewhat expected because phospho-serine 5 and 2 primarily occur towards the 5$^\prime$ and 3$^\prime$ ends of genes, respectively \citep{komarnitsky2000}.
-However, the 5$^\prime$ enrichment of phospho-serine 5 seen in Spt5 depleted cells is not observed in Spt5 non-depleted cells (note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
+This is somewhat expected due to the respective tendencies of phospho-serine 5 and 2 to occur towards the 5$^\prime$ and 3$^\prime$ ends of genes \citep{komarnitsky2000}.
+However, the 5$^\prime$ enrichment of phospho-serine 5 seen in Spt5 depleted cells is not observed in non-depleted cells (note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
 
 \begin{figure}
     \includegraphics[width=6in]{figures/five/five_rnapii_phosphomark_enrichment.pdf}
@@ -79,38 +80,62 @@ One possible explanation for the apparent discrepancy between the ChIP-seq and N
 The antibody used to immunoprecipitate Pol II for ChIP-seq was 8WG16, which recognizes the Pol II CTD.
 Reports of this antibody's relative affinity for the various CTD phosphoisoforms vary widely across studies in several species \citep{zeitlinger2007}.
 It is conceivable that, for \textit{S. pombe}, the 8WG16 antibody might fail to efficiently pull down a 5$^\prime$-biased phosphoisoform of Pol II that would be captured in NET-seq, which should theoretically capture all Pol II phosphoisoforms via FLAG pulldown of the Rpb3 subunit of Pol II.
-If this were the case, it could explain the lack of Pol II ChIP-seq signal from Spt5 non-depleted cells over the first ~500 base pairs of genes (Figure \ref{fig:five_rnapii_phosphomark_enrichment}).
+If this were the case, it could explain the relative lack of Pol II ChIP-seq signal from Spt5 non-depleted cells over the first ~500 base pairs of genes (Figure \ref{fig:five_rnapii_phosphomark_enrichment}).
 Furthermore, if the levels of this missing CTD phosphoisoform were elevated in Spt5-depleted cells versus non-depleted cells, this could also explain the difference in Spt5-depleted total Pol II levels on chromatin as observed by ChIP-seq and NET-seq.
 
-This missing 5$^\prime$-biased CTD phosphoisoform is not likely to be serine 5 phosphorylation, because ChIP-seq of this mark looks very much like ChIP-seq of Pol II (once again, note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
-One possible candidate is serine 7 phosphorylation.
+This missing CTD phosphoisoform is not likely to be serine 5 phosphorylation, because ChIP-seq of this mark looks very much like ChIP-seq of Pol II (once again, note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
+One possible candidate is serine 7 phosphorylation, a modification made early in transcription initiation which has been shown in an \textit{in vitro} human system to be a preferred substrate for P-TEFb to carry out phosphorylation of serine 5 \citep{czudnochowski2012}.
 
 \section{The transcriptome in Spt5 depletion}
 \label{sec:five_transcriptome}
 
-\begin{figure}[H]
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=4.5in]{figures/five/five_tss_vs_rna.pdf}
+    \caption[Scatterplot of fold-change in Spt5-depleted over non-depleted cells, comparing TSS-seq and RNA-seq.]{Scatterplot of fold-change in Spt5-depleted over non-depleted cells, comparing TSS-seq and RNA-seq. Each dot represents an RNA-seq measurement over an annotated transcript paired with a TSS-seq measurement over a genic peak assigned to the transcript. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from ERCC RNA spike-in counts (RNA-seq) or \textit{S. cerevisiae} cell spike-in counts (TSS-seq).}
+    \label{fig:five_tss_vs_rna}
+\end{figure}
+Given the transcriptional changes observed after Spt5 depletion, we performed RNA-seq and TSS-seq to further see how steady-state transcript levels are affected.
+Changes to the levels of genic transcripts after Spt5 depletion are generally mild, with the median gene being expressed at roughly 68\% of non-depleted levels as measured by RNA-seq with an RNA spike-in, or at 104\% of non-depleted levels as measured by TSS-seq with a cell spike-in.
+The difference in transcript level measurements between RNA-seq and TSS-seq can be explained by a change in the distribution of RNA-seq signal over genes in Spt5 depletion: RNA-seq signal is generally reduced over genes, except near the TSS at the very 5$^\prime$ end of genes (Figure \ref{fig:five_rnaseq_metagene}).
+We attribute this to defective elongation upon Spt5 depletion, which increases transcriptional pausing, early termination, and the use of intragenic polyadenylation sites, consistent with a previous report in budding yeast \citep{cui2003}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=4in]{figures/five/five_rnaseq_metagene.pdf}
+    \caption[Average sense RNA-seq signal over non-overlapping coding genes, from Spt5 depleted and non-depleted cells.]{Average sense RNA-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates, taken in non-overlapping 20 bp bins and standardized per gene.}
+    \label{fig:five_rnaseq_metagene}
+\end{figure}
+
+RNA-seq and TSS-seq also revealed the expression of many novel transcripts in Spt5 depletion, including over 900 antisense transcripts which tend to initiate within the first 500 basepairs downstream of the genic TSS (Figures \ref{fig:five_rnaseq_heatmaps}, \ref{fig:five_antisense_heatmaps}, \ref{fig:five_tss_diffexp_summary}).
+In general, these Spt5-repressed antisense transcripts are only a few hundred nucleotides in length (Figure \ref{fig:five_antisense_heatmaps}), and are expressed at a lower level than canonical genic transcripts (Figure \ref{fig:five_tss_expression_levels}).
+We also find no notable correlation upon Spt5 depletion between changes in antisense transcription and changes in overlapping genic transcription.
+Interestingly, the top motif found by \textit{de novo} motif discovery upstream of Spt5-repressed antisense TSSs is a GA-rich motif with 3-nucleotide periodicity, similar to the top motif found upstream of Spt6-repressed intragenic and antisense TSS in \textit{S. cerevisiae} (Figure \ref{fig:five_meme_motifs}).
+\begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/five/five_rnaseq_heatmaps.pdf}
     \caption[Heatmaps of antisense RNA-seq signal from Spt5 depleted and non-depleted cells, over non-overlapping coding genes.]{Heatmaps of antisense RNA-seq signal from Spt5 depleted and non-depleted cells, over 1989 non-overlapping coding genes aligned by non-depleted genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3$^\prime$ of the CPS, indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 93\textsuperscript{rd} percentile are set to the 93\textsuperscript{rd} percentile for visualization.}
     \label{fig:five_rnaseq_heatmaps}
 \end{figure}
 
-\lipsum[1]
+\clearpage
 
-\begin{figure}[H]
+% \begin{figure}[h]
+\begin{sidewaysfigure}
     \centering
-    \includegraphics[width=6in]{figures/five/five_antisense_heatmaps.pdf}
-    \caption[Heatmaps of antisense TSS-seq, RNA-seq, and NET-seq signal from Spt5 depleted and non-depleted cells, over genes with Spt5-depletion-induced antisense TSSs.]{Heatmaps of antisense TSS-seq, RNA-seq, and NET-seq signal in Spt5 non-depleted and depleted cells, over all genes overlapping an Spt5-depletion-induced antisense TSS, aligned by the sense, genic TSS of the gene and sorted by the distance from the genic TSS to the antisense TSS. Values are the mean of spike-in normalized coverage in non-overlapping 20 nt bins, over two or more replicates. Values above the 0.995 (TSS-seq), 0.98 (RNA-seq), or 0.96 (NET-seq) quantiles are set to their respective quantiles for visualization.}
+    % \includegraphics[width=6in]{figures/five/five_antisense_heatmaps.pdf}
+    \includegraphics[width=8.25in]{figures/five/five_antisense_heatmaps.pdf}
+    \caption[Heatmaps of antisense TSS-seq, RNA-seq, and NET-seq signal from Spt5 depleted and non-depleted cells, over genes with Spt5-depletion-induced antisense TSSs.]{Heatmaps of antisense TSS-seq, RNA-seq, and NET-seq signal in Spt5 non-depleted and depleted cells, over all genes overlapping an Spt5-depletion-induced antisense TSS, aligned by the sense, genic TSS and sorted by the distance from the genic TSS to the antisense TSS. Values are the mean of spike-in normalized coverage in non-overlapping 20 nt bins, over two or more replicates. Values above the 0.995 (TSS-seq), 0.98 (RNA-seq), or 0.96 (NET-seq) quantiles are set to their respective quantiles for visualization.}
     \label{fig:five_antisense_heatmaps}
-\end{figure}
+% \end{figure}
+\end{sidewaysfigure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/five/five_tss_diffexp_summary.pdf}
         \caption[Bar plot of the number of TSS-seq peaks in various genomic classes differentially expressed in Spt5 depleted versus non-depleted cells.]{Bar plot of the number of TSS-seq peaks differentially expressed in Spt5-depleted versus non-depleted cells. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
-        \label{fig:six_tss_diffexp_summary}
+        \label{fig:five_tss_diffexp_summary}
     \end{minipage}\hfill
     \begin{minipage}[t]{2.875in}
         \centering
@@ -120,7 +145,14 @@ One possible candidate is serine 7 phosphorylation.
     \end{minipage}
 \end{figure}
 
-\lipsum[1]
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6in]{figures/five/five_meme_motifs.pdf}
+    \caption[Sequence logos of motifs discovered by MEME upstream of Spt5-depletion-induced antisense TSSs.]{Sequence logos of motifs discovered by MEME \citep{bailey2015} in the window -100 to +30 bp relative to Spt5-depletion-induced antisense TSSs. The number of motif occurrences and the E-value, indicating the expected number of motif occurrences if the input sequences were scrambled, are shown for each motif.}
+    \label{fig:five_meme_motifs}
+\end{figure}
+
+\clearpage
 
 \section{Chromatin landscape in Spt5 depletion}
 
@@ -134,19 +166,13 @@ One possible candidate is serine 7 phosphorylation.
 
 \subsection{MNase-seq profile at Spt5-depletion-induced antisense TSSs}
 
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-\caption[A figure showing MNase-seq signal around Spt5-depletion-induced antisense TSSs.]{Caption wsdasdr zzzz.}
-% \label{fig:stress_promoter_tss_polyenrichment}
+\begin{figure}[h]
+    \includegraphics[width=6in]{figures/five/five_antisense_mnase_metagene.pdf}
+    \caption[A figure showing MNase-seq signal around Spt5-depletion-induced antisense TSSs.]{Caption wsdasdr zzzz.}
+    \label{fig:five_antisense_mnase_metagene}
 \end{figure}
 
-\section{Sequence motifs enriched at antisense TSSs}
-
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-\caption[A figure showing motifs enriched upstream of Spt5-depletion-induced antisense TSSs.]{Caption wsdasdr zzzz.}
-% \label{fig:stress_promoter_tss_polyenrichment}
-\end{figure}
+\lipsum[1]
 
 \section{Discussion}
 

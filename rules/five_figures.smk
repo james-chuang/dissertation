@@ -34,6 +34,38 @@ rule five_rnapii_phosphomark_enrichment:
     script:
         "../scripts/five_rnapii_phosphomark_enrichment.R"
 
+rule five_tss_vs_rna:
+    input:
+        tss_data = FIGURES["five"]["tss_vs_rna"]["tss_data"],
+        rna_data = FIGURES["five"]["tss_vs_rna"]["rna_data"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/five/five_tss_vs_rna.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["tss_vs_rna"]["height"])),
+        width = eval(str(FIGURES["five"]["tss_vs_rna"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_tss_vs_rna.R"
+
+rule five_rnaseq_metagene:
+    input:
+        data_path = FIGURES["five"]["rnaseq_metagene"]["data_path"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/five/five_rnaseq_metagene.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["rnaseq_metagene"]["height"])),
+        width = eval(str(FIGURES["five"]["rnaseq_metagene"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_rnaseq_metagene.R"
+
+
 rule five_rnaseq_heatmaps:
     input:
         rnaseq_data = FIGURES["five"]["rnaseq_heatmaps"]["rnaseq_data"],
@@ -105,6 +137,34 @@ rule five_tss_expression_levels:
     script:
         "../scripts/five_tss_expression_levels.R"
 
+rule five_build_motif_input:
+    input:
+        antisense = FIGURES["five"]["meme_motifs"]["antisense"],
+    output:
+        antisense = "figures/five/five_antisense_motif.meme"
+    conda:
+        "../envs/meme.yaml"
+    shell: """
+        meme2meme <(meme-get-motif -a -id HTCTTCYTCWTCYWCHTCHTC-MEME-1 {input.antisense}) \\
+                <(meme-get-motif -a -id RDRWARWNRAAARAAAAGAAARAAAADM-MEME-2 {input.antisense}) \\
+                <(meme-get-motif -a -id CASCAVCVSNWNCWMCDHCAVYDBCWYCRH-MEME-3 {input.antisense}) > {output.antisense}
+        """
+
+rule five_meme_motifs:
+    input:
+        antisense = "figures/five/five_antisense_motif.meme",
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/five/five_meme_motifs.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["meme_motifs"]["height"])),
+        width = eval(str(FIGURES["five"]["meme_motifs"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_meme_motifs.R"
+
 rule five_mnase_metagene:
     input:
         theme = config["theme_spec"],
@@ -119,6 +179,24 @@ rule five_mnase_metagene:
         "../envs/plot.yaml"
     script:
         "../scripts/five_mnase_metagene.R"
+
+rule five_antisense_mnase_metagene:
+    input:
+        mnase_data = FIGURES["five"]["antisense_mnase_metagene"]["mnase_data"],
+        gc_data = FIGURES["five"]["antisense_mnase_metagene"]["gc_data"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/five/five_antisense_mnase_metagene.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["antisense_mnase_metagene"]["height"])),
+        width = eval(str(FIGURES["five"]["antisense_mnase_metagene"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_antisense_mnase_metagene.R"
+
+
 
 
 

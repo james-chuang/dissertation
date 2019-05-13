@@ -125,35 +125,53 @@ figures:
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
             height: 1.8
             width: 6
+        tss_vs_rna:
+            tss_data: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
+            rna_data: ../../spt5/rna-seq/diff_exp/transcripts/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_rnaseq-spikenorm-transcripts-diffexp-results-genic-all.tsv
+            height: 3.3
+            width: 4.5
+        rnaseq_metagene:
+            data_path: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_RNA-seq-sense.tsv.gz
+            height: 3
+            width: 4
         rnaseq_heatmaps:
             rnaseq_data: ../../spt5/rna-seq/datavis/coding-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/coding-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-libsizenorm-wholeread-ANTISENSE.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
-            height: 3.75
+            height: 6
             width: 6
         antisense_heatmaps:
             tssseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_TSS-seq-antisense.tsv.gz
             rnaseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_RNA-seq-antisense.tsv.gz
             netseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_NET-seq-antisense.tsv.gz
-            width: 6
-            height: 4
+            width: 8.25
+            height: 4.25
         tss_diffexp_summary:
             genic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             intragenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intragenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
             antisense: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/antisense/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
             intergenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intergenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
-            height: 1.75
+            height: 2
             width: 3
         tss_expression_levels:
             tss_genic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             tss_intragenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intragenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
             tss_antisense: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/antisense/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
             tss_intergenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intergenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
-            height: 1.75
+            height: 2
             width: 3
         mnase_metagene:
             mnase_data: ../../spt5/mnase-seq/datavis/nonoverlapping-genes-plusonenuc/libsizenorm/nonoverlapping-genes-plusonenuc-allsamples-allannotations-midpoint-libsizenorm.tsv.gz
             width: 3
             height: 2
+        meme_motifs:
+            antisense: ../../spt5/tss-seq/motifs/depleted-v-non-depleted/spikenorm/antisense/depleted-v-non-depleted_tss-seq-spikenorm-diffexp-results-antisense-up-meme_chip/combined.meme
+            height: 2.2
+            width: 6
+        antisense_mnase_metagene:
+            mnase_data: ../../spt5/spt5-data-integration/datavis/antisense-tss/antisense-tss_MNase-seq.tsv.gz
+            gc_data: ../../spt5/spt5-data-integration/datavis/antisense-tss/antisense-tss_GC-pct.tsv.gz
+            height: 5.4
+            width: 6
     stress:
         tfiib_ridgelines:
             width: 8.25
