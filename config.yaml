@@ -167,10 +167,15 @@ figures:
             antisense: ../../spt5/tss-seq/motifs/depleted-v-non-depleted/spikenorm/antisense/depleted-v-non-depleted_tss-seq-spikenorm-diffexp-results-antisense-up-meme_chip/combined.meme
             height: 2.2
             width: 6
+        nuc_fuzz:
+            wt_mnase_quant: ../../spt5/mnase-seq/nucleosome_quantification/depleted-v-non-depleted/libsizenorm/pooled/nucleosome_quantification_data_non-depleted.Fnor.smooth.positions.xls
+            mut_mnase_quant: ../../spt5/mnase-seq/nucleosome_quantification/depleted-v-non-depleted/libsizenorm/pooled/nucleosome_quantification_data_depleted.Fnor.smooth.positions.xls
+            height: 1.9
+            width: 4
         antisense_mnase_metagene:
             mnase_data: ../../spt5/spt5-data-integration/datavis/antisense-tss/antisense-tss_MNase-seq.tsv.gz
             gc_data: ../../spt5/spt5-data-integration/datavis/antisense-tss/antisense-tss_GC-pct.tsv.gz
-            height: 5.4
+            height: 2.7
             width: 6
     stress:
         tfiib_ridgelines:

@@ -41,7 +41,7 @@ metagene = function(df,
                       y=mid,
                       color=group),
                   alpha=0.8) +
-        facet_grid(anno_labeled~.) +
+        facet_grid(.~anno_labeled) +
         scale_x_continuous(expand = c(0,0),
                            breaks = c(-0.4, 0, 0.4),
                            labels = function(x)case_when(x==0 ~ "TSS",
@@ -53,7 +53,7 @@ metagene = function(df,
         theme_default +
         theme(legend.justification = c(0, 1),
               legend.background = element_blank(),
-              legend.position = c(0.01, 0.96),
+              legend.position = c(0.01, 0.78),
               legend.key.height = unit(10, "pt"),
               axis.title.x = element_blank(),
               axis.title.y = element_text(hjust=0.5),
@@ -76,7 +76,8 @@ metagene = function(df,
                        family="FreeSans",
                        alpha=0.8) +
             scale_fill_few(labels = c("non-depleted", "depleted")) +
-            scale_color_few(labels = c("non-depleted", "depleted"))
+            scale_color_few(labels = c("non-depleted", "depleted")) +
+            theme(axis.text.x = element_blank())
     } else {
         plot = plot +
             scale_fill_manual(values="grey30") +
@@ -106,8 +107,8 @@ main = function(theme_spec,
     gc_plot = metagene(gc_df, ylabel="% (21bp)", assay="GC%")
 
     fig_five_a = plot_grid(mnase_plot, gc_plot,
-                           nrow=1,
-                     align="h", axis="tb")
+                           ncol=1,
+                     align="v", axis="lr")
 
     ggplot2::ggsave(pdf_out,
                     plot=fig_five_a,

@@ -299,6 +299,7 @@ Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-dupl
 The pipeline additionally performs \hyperref[subsubsec:tss_peak_calling]{TSS-seq peak calling}, \hyperref[subsubsec:tss_differential_expression]{differential expression}, \hyperref[subsubsec:tss_peak_classification]{classification of peaks into genomic categories}, \hyperref[subsubsec:tss_seqlogos]{sequence logo visualization}, motif enrichment analysis, \hyperref[subsubsec:denovo_motif_discovery]{\textit{de novo} motif discovery}, gene ontology analysis \citep{young2010}, and data visualization with the option to separate data into clusters of similar signal.
 
 \subsubsection{Reannotation of \textit{S. cerevisiae} TSSs using TSS-seq data}
+\label{subsubsec:tss_reannotation}
 
 TSS-seq coverage from two replicates of a wild-type \textit{S. cerevisiae} strain grown at 30\textdegree C in YPD was averaged and used to adjust the 5$^\prime$ ends of an annotation of major transcript isoforms based on TIF-seq data \citep{pelechano2013}.
 The 5$^\prime$ end of the original annotation was changed to the position of maximum TSS-seq signal in a window $\pm$ 250 nt of the original 5$^\prime$ end if the maximum TSS-seq signal was greater than the 95\textsuperscript{th} percentile of all non-zero TSS-seq signal.

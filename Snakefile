@@ -41,6 +41,7 @@ rule target:
         "figures/five/five_tss_expression_levels.pdf",
         "figures/five/five_meme_motifs.pdf",
         "figures/five/five_mnase_metagene.pdf",
+        "figures/five/five_nuc_fuzz.pdf",
         "figures/five/five_antisense_mnase_metagene.pdf",
         "figures/stress/stress_tfiib_ridgelines.pdf",
         "figures/stress/stress_tfiib_coverage.pdf",

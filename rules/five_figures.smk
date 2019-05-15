@@ -196,7 +196,20 @@ rule five_antisense_mnase_metagene:
     script:
         "../scripts/five_antisense_mnase_metagene.R"
 
-
-
+rule five_nuc_fuzz:
+    input:
+        wt_mnase_quant = FIGURES["five"]["nuc_fuzz"]["wt_mnase_quant"],
+        mut_mnase_quant = FIGURES["five"]["nuc_fuzz"]["mut_mnase_quant"],
+        theme = config["theme_spec"],
+        fonts_path = config["fonts_path"],
+    output:
+        pdf = "figures/five/five_nuc_fuzz.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["nuc_fuzz"]["height"])),
+        width = eval(str(FIGURES["five"]["nuc_fuzz"]["width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/five_nuc_fuzz.R"
 
 
