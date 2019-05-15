@@ -3,20 +3,44 @@
 
 \section{Collaborators}
 
-\begin{description}[align=right, labelwidth=5cm, noitemsep]
+\begin{description}[align=right, labelwidth=5cm, noitemsep, leftmargin=!]
     \item [Steve Doris] generated TSS-seq and ChIP-nexus libraries
-    \item [Dan Spatt] polyribosome fractionation, fitness competitions,
-    \item [] and other experiments
+    \item [Dan Spatt] polyribosome fractionation, fitness competitions,\\and other experiments
     \item [James Warner] fitness competitions and other experiments
 \end{description}
 
 \section{Possible functions for intragenic transcription in wild-type cells}
 
-\lipsum[1]
+ASE1 \citep{mcknight2014}.
+KAR4 \citep{gammie1999}.
+ASP3 \citep{huang2010}.
 
 \section{Discovery of stress-induced intragenic promoters by TFIIB ChIP-nexus and TSS-seq}
 
-\lipsum[1]
+\begin{wrapfigure}[10]{r}{3in}
+    \centering
+    \includegraphics[width=3in]{figures/stress/stress_gasch_comparison.pdf}
+    \caption[]{}
+    \label{fig:stress_gasch_comparison}
+\end{wrapfigure}
+To discover cases of stress-induced intragenic transcription initiation, we performed ChIP-nexus of TFIIB in wild-type yeast grown under the three stress conditions of oxidative stress, amino acid stress, and nitrogen stress, along with the control conditions of grown in rich YPD media and defined SC media.
+We identified 140 intragenic TFIIB peaks significantly induced at least 1.5-fold in at least one stress condition, with some peaks being induced in more than one stress (Figure \ref{fig:stress_tfiib_ridgelines}).
+\begin{SCfigure}[50][h]
+    \centering
+    \includegraphics[width=4in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
+    \caption[]{}
+    \label{fig:stress_nitrogen_gene_ontology}
+\end{SCfigure}
+
+
+%k \begin{tabular}{l | l | l}
+%                         & condition                 & control \\ \hline
+%     oxidative stress    & 45 minutes in rich medium (YPD) + 1mM diamide & rich medium (YPD) \\
+%     amino acid stress   & 30 minutes in defined medium lacking amino acids and adenine & defined medium (SC) \\
+%     nitrogen stress     & 8 hours in defined medium lacking amino acids and adenine and with limiting concentrations of 
+% \end{tabular}
+
+
 
 % \begin{figure}
 \begin{sidewaysfigure}
@@ -101,7 +125,23 @@
 
 \section{Methods}
 
-\lipsum[1]
+\subsection{Yeast growth conditions}
+
+\subsection{Genome builds}
+
+\subsection{TFIIB ChIP-nexus data analysis}
+
+\subsection{TSS-seq data analysis}
+
+\subsection{MNase-ChIP-seq data analysis}
+
+\subsection{Sucrose gradient fractionation}
+
+\subsection{Polysome-associated TSS-seq analysis}
+
+\subsection{Multiple genome alignment}
+
+\subsection{Diamide competitive fitness assays}
 
 \newpage
 \bibliographystyle{apalike}

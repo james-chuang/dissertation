@@ -1,5 +1,38 @@
 #!/usr/bin/env python
 
+rule gasch_comparison:
+    input:
+        gasch_one = FIGURES["stress"]["gasch_comparison"]["gasch_one"],
+        gasch_three = FIGURES["stress"]["gasch_comparison"]["gasch_three"],
+        tfiib_diamide = FIGURES["stress"]["gasch_comparison"]["tfiib_diamide"],
+        tfiib_aminoacid = FIGURES["stress"]["gasch_comparison"]["tfiib_aminoacid"],
+        fonts_path = config["fonts_path"],
+        theme = config["theme_spec"]
+    output:
+        pdf = "figures/stress/stress_gasch_comparison.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["gasch_comparison"]["width"])),
+        height = eval(str(FIGURES["stress"]["gasch_comparison"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_gasch_comparison.R"
+
+rule nitrogen_gene_ontology:
+    input:
+        nitrogen_ontology = FIGURES["stress"]["nitrogen_gene_ontology"]["data"],
+        fonts_path = config["fonts_path"],
+        theme = config["theme_spec"]
+    output:
+        pdf = "figures/stress/stress_nitrogen_gene_ontology.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["nitrogen_gene_ontology"]["width"])),
+        height = eval(str(FIGURES["stress"]["nitrogen_gene_ontology"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_nitrogen_gene_ontology.R"
+
 rule tfiib_ridgelines:
     input:
         data_path = FIGURES["stress"]["tfiib_ridgelines"]["data_path"],

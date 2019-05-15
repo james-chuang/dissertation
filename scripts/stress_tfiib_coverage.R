@@ -100,9 +100,10 @@ main = function(theme_spec,
                                           "nitrogen"),
                                labels = c("YPD",
                                           "SC",
-                                          "oxidative stress",
-                                          "amino acid stress",
-                                          "nitrogen stress"))) %>%
+                                          "oxidative\nstress",
+                                          "amino acid\nstress",
+                                          "nitrogen\nstress")),
+               gene = fct_inorder(gene)) %>%
         group_by(group, gene, position) %>%
         summarise(signal = mean(signal)) %>%
         group_by(gene) %>%
@@ -123,7 +124,7 @@ main = function(theme_spec,
                            expand = c(0,0)) +
         scale_y_continuous(expand = c(0,0),
                            breaks = scales::pretty_breaks(n=1),
-                           sec.axis = dup_axis(name = "normalized counts")) +
+                           sec.axis = dup_axis(name = "relative signal")) +
         theme_default +
         theme(strip.placement = "outside",
               strip.text = element_text(),

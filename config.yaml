@@ -178,6 +178,17 @@ figures:
             height: 2.7
             width: 6
     stress:
+        gasch_comparison:
+            gasch_one: ../../intragenic/other-datasets/gasch00/data/gasch00_fig1data_cleaned.tsv
+            gasch_three: ../../intragenic/other-datasets/gasch00/data/gasch00_fig3data_cleaned.tsv
+            tfiib_diamide: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
+            tfiib_aminoacid: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/genic/SD-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
+            width: 3
+            height: 3.5
+        nitrogen_gene_ontology:
+            data: ../../intragenic/chipnexus-tfiib-custom-analysis/gene_ontology/nitrogen-v-SC/libsizenorm/genic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-genic-up-gene-ontology-results.tsv
+            width: 4
+            height: 2
         tfiib_ridgelines:
             width: 8.25
             height: 4.4
@@ -216,20 +227,34 @@ figures:
                         - ../../intragenic/stress-data-integration/browser-shots/DSK2-nitrogen/DSK2-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
                     upstream: 350
                     downstream: 0
-                HEM15:
+                MRP20:
                     paths:
-                        - ../../intragenic/stress-data-integration/browser-shots/HEM15-diamide/HEM15-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
-                        - ../../intragenic/stress-data-integration/browser-shots/HEM15-aminoacid/HEM15-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
-                        - ../../intragenic/stress-data-integration/browser-shots/HEM15-nitrogen/HEM15-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
-                    upstream: 250
+                        - ../../intragenic/stress-data-integration/browser-shots/MRP20-diamide/MRP20-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/MRP20-aminoacid/MRP20-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/MRP20-nitrogen/MRP20-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                    upstream: 175
                     downstream: 0
-                RRT8:
+                VHR2:
                     paths:
-                        - ../../intragenic/stress-data-integration/browser-shots/RRT8-diamide/RRT8-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
-                        - ../../intragenic/stress-data-integration/browser-shots/RRT8-aminoacid/RRT8-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
-                        - ../../intragenic/stress-data-integration/browser-shots/RRT8-nitrogen/RRT8-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
-                    upstream: 350
+                        - ../../intragenic/stress-data-integration/browser-shots/VHR2-diamide/VHR2-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/VHR2-aminoacid/VHR2-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                        - ../../intragenic/stress-data-integration/browser-shots/VHR2-nitrogen/VHR2-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                    upstream: 175
                     downstream: 0
+                # RRT8:
+                #     paths:
+                #         - ../../intragenic/stress-data-integration/browser-shots/RRT8-diamide/RRT8-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                #         - ../../intragenic/stress-data-integration/browser-shots/RRT8-aminoacid/RRT8-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                #         - ../../intragenic/stress-data-integration/browser-shots/RRT8-nitrogen/RRT8-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                #     upstream: 350
+                #     downstream: 0
+                # HEM15:
+                #     paths:
+                #         - ../../intragenic/stress-data-integration/browser-shots/HEM15-diamide/HEM15-diamide_TFIIB-ChIP-nexus-protection.tsv.gz
+                #         - ../../intragenic/stress-data-integration/browser-shots/HEM15-aminoacid/HEM15-aminoacid_TFIIB-ChIP-nexus-protection.tsv.gz
+                #         - ../../intragenic/stress-data-integration/browser-shots/HEM15-nitrogen/HEM15-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
+                #     upstream: 250
+                #     downstream: 0
         promoter_tss_diffexp_summary:
             genic_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
             intra_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
