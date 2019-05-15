@@ -28,8 +28,8 @@ main = function(theme_spec,
     df = import(mnase_data, sample_list=sample_list)
 
     plot = ggplot(data = df, aes(x=position, color=group, fill=group)) +
-        geom_ribbon(aes(ymin=low, ymax=high), alpha=0.17, linetype='blank') +
-        geom_line(aes(y=mid), alpha=0.75) +
+        geom_ribbon(aes(ymin=low, ymax=high), alpha=0.2, linetype='blank') +
+        geom_line(aes(y=mid), alpha=0.85) +
         scale_x_continuous(breaks = seq(0, 1, 0.5),
                            labels = c("+1 dyad", "0.5", "1 kb"),
                            name = NULL,

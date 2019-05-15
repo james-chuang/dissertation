@@ -56,8 +56,8 @@ main = function(theme_spec,
 
     plot = ggplot(data = df, aes(x=position, color=group, fill=group)) +
         geom_vline(xintercept = c(0, 2), size=0.3, color="grey70") +
-        geom_ribbon(aes(ymin=low, ymax=high), alpha=0.17, linetype='blank') +
-        geom_line(aes(y=mid), alpha=0.75) +
+        geom_ribbon(aes(ymin=low, ymax=high), alpha=0.2, linetype='blank') +
+        geom_line(aes(y=mid), alpha=0.85) +
         scale_x_continuous(breaks = c(0, 2),
                            labels = c("TSS", "CPS"),
                            name = NULL,

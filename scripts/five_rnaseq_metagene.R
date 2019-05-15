@@ -44,9 +44,9 @@ main = function(theme_spec = "thesis_theme.R",
         geom_vline(xintercept = c(0,2),
                    color = "grey70",
                    size = 0.3) +
-        geom_ribbon(alpha=0.17,
+        geom_ribbon(alpha=0.2,
                     linetype="blank") +
-        geom_line(alpha=0.75) +
+        geom_line(alpha=0.85) +
         scale_x_continuous(expand = c(0,0),
                            breaks = c(0,2),
                            labels = c("TSS",

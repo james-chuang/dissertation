@@ -40,7 +40,7 @@ metagene = function(df,
                   aes(x=position,
                       y=mid,
                       color=group),
-                  alpha=0.8) +
+                  alpha=0.85) +
         facet_grid(.~anno_labeled) +
         scale_x_continuous(expand = c(0,0),
                            breaks = c(-0.4, 0, 0.4),

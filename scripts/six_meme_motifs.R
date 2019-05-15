@@ -66,15 +66,19 @@ motif_plot = function(df,
                                            base,
                                            direction)),
                      alpha=0.95) +
-        geom_text(data=df_annotation,
-                  aes(label=paste0("E-value=", eval,
-                                   "\nn=", nsites)),
+        geom_label(data=df_annotation,
+                  aes(label=paste0("expected: ", eval,
+                                   "\nobserved: ", nsites)),
                   x=29.5,
                   y=2,
                   hjust=1,
                   vjust=1,
                   size=5/72*25.4,
-                  family="FreeSans") +
+                  family="FreeSans",
+                  label.padding=unit(1, "pt"),
+                  label.size=NA,
+                  label.r=unit(0, "pt"),
+                  alpha = 0.7) +
         facet_grid(motif~direction) +
         scale_fill_manual(values = c('#109648', '#255C99', '#F7B32B', '#D62839', '#D62839'),
                           breaks = c('A','C','G','T','U'),

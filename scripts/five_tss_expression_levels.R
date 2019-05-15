@@ -49,7 +49,7 @@ main = function(theme_spec,
         scale_y_log10(name = "normalized counts",
                       breaks = c(10, 1000), labels = c(bquote(10^1), bquote(10^3))) +
         scale_fill_few(guide=guide_legend(direction="vertical",
-                                          label.position="left",
+                                          label.position="right",
                                           # label.hjust=1,
                                           keyheight=unit(6, "pt"))) +
         # ggtitle("expression level of TSS-seq peaks") +
@@ -60,6 +60,7 @@ main = function(theme_spec,
               legend.text = element_text(margin = margin(0,0,0,0,"pt")),
               legend.justification = c(0.5, 0.5),
               legend.box.margin = margin(0, 0, -10, 0, "pt"),
+              legend.spacing.x = unit(2, "pt"),
               plot.margin = margin(0,0,0,0,"pt"))
 
     ggsave(pdf_out,

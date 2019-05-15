@@ -77,13 +77,13 @@ However, the 5$^\prime$ enrichment of phospho-serine 5 seen in Spt5 depleted cel
 \end{figure}
 
 One possible explanation for the apparent discrepancy between the ChIP-seq and NET-seq results is the difference in immunoprecipitation strategy between the two techniques.
-The antibody used to immunoprecipitate Pol II for ChIP-seq was 8WG16, which recognizes the Pol II CTD.
+The antibody used to pull down Pol II for ChIP-seq was 8WG16, which recognizes the Pol II CTD.
 Reports of this antibody's relative affinity for the various CTD phosphoisoforms vary widely across studies in several species \citep{zeitlinger2007}.
-It is conceivable that, for \textit{S. pombe}, the 8WG16 antibody might fail to efficiently pull down a 5$^\prime$-biased phosphoisoform of Pol II that would be captured in NET-seq, which should theoretically capture all Pol II phosphoisoforms via FLAG pulldown of the Rpb3 subunit of Pol II.
+It is conceivable that, for \textit{S. pombe}, the 8WG16 antibody might fail to efficiently pull down a 5$^\prime$-biased phosphoisoform of Pol II that would be captured by NET-seq, a technique that should theoretically capture all Pol II phosphoisoforms via FLAG pulldown of the Rpb3 subunit of Pol II.
 If this were the case, it could explain the relative lack of Pol II ChIP-seq signal from Spt5 non-depleted cells over the first ~500 base pairs of genes (Figure \ref{fig:five_rnapii_phosphomark_enrichment}).
 Furthermore, if the levels of this missing CTD phosphoisoform were elevated in Spt5-depleted cells versus non-depleted cells, this could also explain the difference in Spt5-depleted total Pol II levels on chromatin as observed by ChIP-seq and NET-seq.
 
-This missing CTD phosphoisoform is not likely to be serine 5 phosphorylation, because ChIP-seq of this mark looks very much like ChIP-seq of Pol II (once again, note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
+This missing CTD phosphoisoform is not likely to be serine 5 phosphorylation, because ChIP-seq of this mark looks very much like ChIP-seq of Pol II (again, note the uniformity of relative Ser5P enrichment in non-depleted cells in figure \ref{fig:five_rnapii_phosphomark_enrichment}).
 One possible candidate is serine 7 phosphorylation, a modification made early in transcription initiation which has been shown in an \textit{in vitro} human system to be a preferred substrate for P-TEFb to carry out subsequent phosphorylation of serine 5 \citep{czudnochowski2012}.
 
 \section{The transcriptome in Spt5 depletion}
@@ -97,7 +97,7 @@ One possible candidate is serine 7 phosphorylation, a modification made early in
 \end{figure}
 Given the transcriptional changes observed after Spt5 depletion, we performed RNA-seq and TSS-seq to further see how the depletion affects steady-state transcript levels.
 Changes to the levels of genic transcripts after Spt5 depletion are generally mild, with the median gene being expressed at roughly 68\% of non-depleted levels as measured by RNA-seq with an RNA spike-in, or at 104\% of non-depleted levels as measured by TSS-seq with a cell spike-in (Figure \ref{fig:five_tss_vs_rna}).
-The difference in transcript level measurements between RNA-seq and TSS-seq can be explained by a change in the distribution of RNA-seq signal over genes in Spt5 depletion: RNA-seq signal is generally reduced over genes, except near the TSS at the very 5$^\prime$ end of genes (Figure \ref{fig:five_rnaseq_metagene}).
+The difference in transcript abundance measurements between RNA-seq and TSS-seq can be explained by a change in the distribution of RNA-seq signal over genes in Spt5 depletion: RNA-seq signal is generally reduced over genes, except near the TSS at the very 5$^\prime$ end of genes (Figure \ref{fig:five_rnaseq_metagene}).
 We attribute this to defective elongation upon Spt5 depletion, which increases transcriptional pausing, early termination, and the use of intragenic polyadenylation sites, consistent with a previous report in budding yeast \citep{cui2003}.
 \begin{figure}[h]
     \centering
@@ -106,10 +106,10 @@ We attribute this to defective elongation upon Spt5 depletion, which increases t
     \label{fig:five_rnaseq_metagene}
 \end{figure}
 
-RNA-seq and TSS-seq also revealed the expression of many novel transcripts in Spt5 depletion, including over 900 antisense transcripts which tend to initiate within the first 500 basepairs downstream of the genic TSS (Figures \ref{fig:five_rnaseq_heatmaps}, \ref{fig:five_antisense_heatmaps}, \ref{fig:five_tss_diffexp_summary}).
+RNA-seq and TSS-seq also revealed the expression of many novel transcripts in Spt5 depletion, including over 900 antisense transcripts which tend to initiate within the first 500 base pairs downstream of the genic TSS (Figures \ref{fig:five_rnaseq_heatmaps}, \ref{fig:five_antisense_heatmaps}, \ref{fig:five_tss_diffexp_summary}).
 In general, these Spt5-repressed antisense transcripts are only a few hundred nucleotides in length (Figure \ref{fig:five_antisense_heatmaps}), and are expressed at a lower level than canonical genic transcripts (Figure \ref{fig:five_tss_expression_levels}).
 We also find no notable correlation upon Spt5 depletion between changes in antisense transcription and changes in overlapping genic transcription.
-Interestingly, the top motif found by \textit{de novo} motif discovery upstream of Spt5-repressed antisense TSSs is a GA-rich motif with 3-nucleotide periodicity, similar to the top motif found upstream of Spt6-repressed intragenic and antisense TSSs in \textit{S. cerevisiae} (Figures \ref{fig:five_meme_motifs}, \ref{fig:six_meme_motifs}).
+Interestingly, the most significant motif found by \textit{de novo} motif discovery upstream of Spt5-repressed antisense TSSs is a GA-rich motif with 3-nucleotide periodicity, similar to the most significant motif found upstream of Spt6-repressed intragenic and antisense TSSs in \textit{S. cerevisiae} (Figures \ref{fig:five_meme_motifs}, \ref{fig:six_meme_motifs}).
 \begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/five/five_rnaseq_heatmaps.pdf}
@@ -148,13 +148,13 @@ Interestingly, the top motif found by \textit{de novo} motif discovery upstream 
 \begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/five/five_meme_motifs.pdf}
-    \caption[Sequence logos of motifs discovered by MEME upstream of Spt5-depletion-induced antisense TSSs.]{Sequence logos of motifs discovered by MEME \citep{bailey2015} in the window -100 to +30 bp relative to Spt5-depletion-induced antisense TSSs. The number of motif occurrences and the E-value, indicating the expected number of motif occurrences if the input sequences were scrambled, are shown for each motif.}
+    \caption[Sequence logos of motifs discovered by MEME upstream of Spt5-depletion-induced antisense TSSs.]{Sequence logos of motifs discovered by MEME \citep{bailey2015} in the window -100 to +30 bp relative to Spt5-depletion-induced antisense TSSs. For each motif, the observed number of occurrences and the expected number of occurrences if the input sequences were scrambled are shown.}
     \label{fig:five_meme_motifs}
 \end{figure}
 
 \clearpage
 
-\section{Chromatin landscape in Spt5 depletion}
+\section{The chromatin landscape in Spt5 depletion}
 
 \begin{wrapfigure}[15]{r}{3in}
     \includegraphics[width=3in]{figures/five/five_mnase_metagene.pdf}
@@ -191,7 +191,7 @@ In this work, we integrated multiple quantitative genomic approaches to study th
 Our NET-seq and Pol II ChIP-seq results show that, upon Spt5 depletion, Pol II becomes 'stuck' genome-wide at the 5$^\prime$ ends of genes, consistent with the role of Spt5 in stabilizing and enhancing the processivity of the elongation complex.
 By TSS-seq and RNA-seq, we see that Spt5 depletion causes mild decreases in steady state RNA signal over gene bodies, but not near the TSS.
 This is consistent with a model in which a decrease in elongation complex processivity upon Spt5 depletion causes increased pausing of the elongation complex, early termination, and the use of intragenic polyadenylation signals.
-Our transcriptomic assays also unexpectedly revealed that Spt5 depletion leads to the low-level expression of hundreds of antisense transcripts, primarily localized within the first 500 basepairs downstream of genic TSSs.
+Our transcriptomic assays also unexpectedly revealed that Spt5 depletion leads to the low-level expression of hundreds of antisense transcripts, primarily initiating within the first 500 base pairs downstream of genic TSSs.
 To determine if the expression of these antisense transcripts is due to changes in chromatin structure, we performed MNase-seq on Spt5-depleted and non-depleted cells, finding that the antisense transcripts initiate from regions that are already between nucleosomes in non-depleted cells.
 The full mechanism of how Spt5 normally represses these transcripts remains to be determined, perhaps involving histone modifications or factors recruited to the elongation complex by Spt5.
 
@@ -200,7 +200,7 @@ The full mechanism of how Spt5 normally represses these transcripts remains to b
 \subsection{Yeast strain construction and growth conditions}
 
 \textit{S. pombe} strain construction methods are detailed in \citet{shetty2017}.
-Spt5 depletion was carried out as follows: Cells were grown to a density of approximately $1 \times 10^7$ cells/ml ($\text{OD}_{600} \sim 0.5$), at which point thiamine hydrochloride and napthaleneacetic acid (NAA) were added to final concentrations of 100 nM and 0.5 mM, respectively.
+Spt5 depletion was carried out as follows: Cells were grown in EMM at 30\textdegree C to a density of approximately $1 \times 10^7$ cells/ml ($\text{OD}_{600} \sim 0.5$), at which point thiamine hydrochloride and napthaleneacetic acid (NAA) were added to final concentrations of 100 nM and 0.5 mM, respectively.
 The cultures were then incubated with shaking for 4.5 hours at 30\textdegree C.
 
 \subsection{Sequencing library preparation\\(ChIP-seq, NET-seq, RNA-seq, TSS-seq, MNase-seq)}
@@ -365,7 +365,7 @@ This time, we will skip the algebra:
     \text{signal}_{\text{orlando}_2} &= 0.15 &
 \end{align*}
 
-Both methods correctly detect that experimental signal levels in library 2 are 1/6th that of library 1.
+Both methods correctly detect that experimental signal levels in library two are 1/6th that of library one.
 
 Finally, consider two libraries from the same condition which were spiked in with different amounts of spike-in cells.
 Both libraries are sequenced to the same depth.
@@ -405,7 +405,8 @@ Since the libraries are from the same condition, we expect their total experimen
     \text{signal}_{\text{orlando}_1} &= 0.8 &
     \text{signal}_{\text{orlando}_2} &= 0.6
 \end{align*}
-Here, our method correctly normalizes the two samples to the same total experimental signal while using the Orlando $\alpha$ results in an apparent decrease in signal in library 2.
+
+Here, our method correctly normalizes the two samples to the same total experimental signal while using the Orlando $\alpha$ results in an apparent decrease in signal in library two.
 This is because the Orlando $\alpha$ fails to account for the fact that when you add more spike-in to a sample, you necessarily decrease the proportion of the sample that is experimental.
 In most experiments with spike-ins, this isn't an issue because we assume that $\phi$ is the same for all samples.
 However, for ChIP-seq experiments that include input samples, if we assume that the experimental and spike-in input sample read counts are proportional to the amounts of experimental and spike-in cells mixed, we can plug these values in for values of $\phi$ to get a more reliable estimation of experimental signal levels.

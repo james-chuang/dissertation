@@ -49,7 +49,10 @@ main = function(theme_spec = "thesis_theme.R",
         theme_default +
         theme(panel.grid.major.y = element_blank(),
               panel.grid.minor.y = element_blank()) +
-        theme(legend.position = c(0.33, 0.5))
+        theme(legend.position = c(0.33, 0.5),
+              panel.border = element_blank(),
+              axis.line = element_line(size = 0.2,
+                                       color = "grey70"))
 
     ggsave(pdf_out,
            plot=figure,
