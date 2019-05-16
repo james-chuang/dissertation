@@ -148,9 +148,9 @@ main = function(theme_spec,
                         position = "right") +
         coord_cartesian(clip="off") +
         theme_heatmap +
-        theme(axis.title.y = element_text(color="black", size=9, angle=90),
+        theme(axis.title.y = element_text(color="black", size=10, angle=90),
               panel.grid.major.x = element_line(color="gray80", size=0.1),
-              strip.text = element_text(size=9,
+              strip.text = element_text(size=10,
                                         color="black",
                                         hjust=0.5,
                                         vjust=0.5,
@@ -204,7 +204,7 @@ main = function(theme_spec,
         theme(plot.margin = margin(r=-0.05, unit="cm"),
               axis.text.x.top = element_text(angle=15, vjust=0, hjust=0,
                                              margin = margin(b=5, unit="pt")),
-              axis.title.x = element_text(size=9, color="black"),
+              axis.title.x = element_text(size=10, color="black"),
               axis.title.y = element_blank())
               # panel.border = element_rect(color="red", fill=NA))
 

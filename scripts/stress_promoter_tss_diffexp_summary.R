@@ -54,19 +54,19 @@ main = function(theme_spec,
                       hjust=case_when(direction==1 & n<40 ~ 0,
                                       direction==-1 & n<40 ~ 1,
                                       TRUE ~ 0.5)),
-                  size=9/72*25.4,
+                  size=10/72*25.4,
                   family="FreeSans") +
         geom_text(data = df %>% distinct(category),
                   aes(x=category, y=-500, label=category),
                   hjust=0, vjust=0.67,
-                  size=7/72*25.4,
+                  size=8/72*25.4,
                   family="FreeSans") +
         annotate(geom="label",
                  x=4.8, y=175/2, label="upregulated",
                  fill = "#af8dc3",
                  label.r = unit(0, "pt"),
                  label.size = NA,
-                 size = 7/72*25.4,
+                 size = 10/72*25.4,
                  family="FreeSans",
                  alpha=0.7) +
         annotate(geom="label",
@@ -74,7 +74,7 @@ main = function(theme_spec,
                  fill = "#7fbf7b",
                  label.r = unit(0, "pt"),
                  label.size = NA,
-                 size = 7/72*25.4,
+                 size = 10/72*25.4,
                  family="FreeSans",
                  alpha=0.7) +
         scale_x_discrete(expand = c(0,1)) +
@@ -84,57 +84,57 @@ main = function(theme_spec,
         theme_void() +
         theme(plot.margin = margin(b=-10, unit="pt"))
 
-    orf_label = textGrob(label="ORF",
-                         x=0.55, y=0.5,
-                         gp=gpar(fontsize=7,
-                                 fontfamily="FreeSans"))
-    orf_box = polygonGrob(x=c(0.375, 0.725*0.93, 0.725, 0.725*0.93, 0.375),
-                          y=c(0.6, 0.6, 0.5, 0.4, 0.4),
-                          gp = gpar(fill="grey80",
-                                    lwd=NA))
-    inter = textGrob(label = "intergenic",
-                     x=0.06, y=0.35, hjust=0, vjust=0.5,
-                     gp=gpar(fontsize=7, fontfamily="FreeSans"))
-    inter_dash = linesGrob(x=c(0.31, 0.31), y=c(0.45, 0.35), gp=gpar(lty="twodash"))
-    inter_arrow = linesGrob(x=c(0.31, 0.245), y=c(0.35, 0.35),
-                            arrow = arrow(length=unit(0.15, "cm")))
-    intra = textGrob(label = "intragenic",
-                     x=0.78, y=0.93, hjust=0, vjust=0.5,
-                     gp=gpar(fontsize=7, fontfamily="FreeSans"))
-    intra_dash = linesGrob(x=c(0.6, 0.6), y=c(0.65, 0.93), gp=gpar(lty="twodash"))
-    intra_arrow = linesGrob(x=c(0.6, 0.77), y=c(0.93, 0.93),
-                            arrow = arrow(length=unit(0.15, "cm")))
-    genic = textGrob(label = "genic",
-                     x=0.78, y=0.73, hjust=0, vjust=0.5,
-                     gp=gpar(fontsize=7, fontfamily="FreeSans"))
-    genic_dash = linesGrob(x=c(0.35, 0.35), y=c(0.56, 0.73), gp=gpar(lty="twodash"))
-    genic_arrow = linesGrob(x=c(0.35, 0.77), y=c(0.73, 0.73),
-                            arrow = arrow(length=unit(0.15, "cm")))
-    anti = textGrob(label = "antisense",
-                     x=0.19, y=0.2, hjust=0, vjust=0.5,
-                     gp=gpar(fontsize=7, fontfamily="FreeSans"))
-    anti_dash = linesGrob(x=c(0.5, 0.5), y=c(0.35, 0.2), gp=gpar(lty="twodash"))
-    anti_arrow = linesGrob(x=c(0.5, 0.37), y=c(0.2, 0.2),
-                            arrow = arrow(length=unit(0.15, "cm")))
-    genome_line = linesGrob(x=c(0.09,0.93), y=c(0.5, 0.5),
-                            gp=gpar(col="grey60"))
-    transcript_line = linesGrob(x=c(0.35,0.77), y=c(0.5, 0.5),
-                                gp=gpar(lwd=2,
-                                        col="grey25",
-                                        lineend="square"))
+    # orf_label = textGrob(label="ORF",
+    #                      x=0.55, y=0.5,
+    #                      gp=gpar(fontsize=7,
+    #                              fontfamily="FreeSans"))
+    # orf_box = polygonGrob(x=c(0.375, 0.725*0.93, 0.725, 0.725*0.93, 0.375),
+    #                       y=c(0.6, 0.6, 0.5, 0.4, 0.4),
+    #                       gp = gpar(fill="grey80",
+    #                                 lwd=NA))
+    # inter = textGrob(label = "intergenic",
+    #                  x=0.06, y=0.35, hjust=0, vjust=0.5,
+    #                  gp=gpar(fontsize=7, fontfamily="FreeSans"))
+    # inter_dash = linesGrob(x=c(0.31, 0.31), y=c(0.45, 0.35), gp=gpar(lty="twodash"))
+    # inter_arrow = linesGrob(x=c(0.31, 0.245), y=c(0.35, 0.35),
+    #                         arrow = arrow(length=unit(0.15, "cm")))
+    # intra = textGrob(label = "intragenic",
+    #                  x=0.78, y=0.93, hjust=0, vjust=0.5,
+    #                  gp=gpar(fontsize=7, fontfamily="FreeSans"))
+    # intra_dash = linesGrob(x=c(0.6, 0.6), y=c(0.65, 0.93), gp=gpar(lty="twodash"))
+    # intra_arrow = linesGrob(x=c(0.6, 0.77), y=c(0.93, 0.93),
+    #                         arrow = arrow(length=unit(0.15, "cm")))
+    # genic = textGrob(label = "genic",
+    #                  x=0.78, y=0.73, hjust=0, vjust=0.5,
+    #                  gp=gpar(fontsize=7, fontfamily="FreeSans"))
+    # genic_dash = linesGrob(x=c(0.35, 0.35), y=c(0.56, 0.73), gp=gpar(lty="twodash"))
+    # genic_arrow = linesGrob(x=c(0.35, 0.77), y=c(0.73, 0.73),
+    #                         arrow = arrow(length=unit(0.15, "cm")))
+    # anti = textGrob(label = "antisense",
+    #                  x=0.19, y=0.2, hjust=0, vjust=0.5,
+    #                  gp=gpar(fontsize=7, fontfamily="FreeSans"))
+    # anti_dash = linesGrob(x=c(0.5, 0.5), y=c(0.35, 0.2), gp=gpar(lty="twodash"))
+    # anti_arrow = linesGrob(x=c(0.5, 0.37), y=c(0.2, 0.2),
+    #                         arrow = arrow(length=unit(0.15, "cm")))
+    # genome_line = linesGrob(x=c(0.09,0.93), y=c(0.5, 0.5),
+    #                         gp=gpar(col="grey60"))
+    # transcript_line = linesGrob(x=c(0.35,0.77), y=c(0.5, 0.5),
+    #                             gp=gpar(lwd=2,
+    #                                     col="grey25",
+    #                                     lineend="square"))
 
-    diagram = gTree(children = gList(genome_line,
-                                     transcript_line,
-                                     intra_dash, intra_arrow,
-                                     genic_dash, genic_arrow,
-                                     inter_dash, inter_arrow,
-                                     anti_dash, anti_arrow,
-                                     orf_box, orf_label, inter, intra, anti, genic))
+    # diagram = gTree(children = gList(genome_line,
+    #                                  transcript_line,
+    #                                  intra_dash, intra_arrow,
+    #                                  genic_dash, genic_arrow,
+    #                                  inter_dash, inter_arrow,
+    #                                  anti_dash, anti_arrow,
+    #                                  orf_box, orf_label, inter, intra, anti, genic))
 
-    figure_2a = arrangeGrob(diagram, diffexp_summary, ncol=1, heights=c(0.5, 1))
+    # figure_2a = arrangeGrob(diagram, diffexp_summary, ncol=1, heights=c(0.5, 1))
 
     ggplot2::ggsave(pdf_out,
-                    plot=figure_2a,
+                    plot=diffexp_summary,
                     width=fig_width,
                     height=fig_height,
                     units="in",

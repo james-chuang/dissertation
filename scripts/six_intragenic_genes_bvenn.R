@@ -45,24 +45,24 @@ bvenn = function(lists, scale=1, title){
                     size=0.5, color="black", fill="grey90") +
         geom_text(data = data %>% filter(numbers > 0),
                   aes(x=x,y=y,label=numbers),
-                  size=7/72*25.4,
+                  size=8/72*25.4,
                   fontface="plain",
                   family="FreeSans") +
         geom_text(data = labels,
                   aes(x=x,y=y, label=name,
                       vjust=if_else(point=="point2", 0.8, 0.7)),
-                  size=7/72*25.4,
+                  size=8/72*25.4,
                   fontface="plain",
-                  parse=TRUE,
+                  # parse=TRUE,
                   family="FreeSans") +
         expand_limits(x = c(0, 1)) +
         coord_fixed() +
         ggtitle(title) +
         theme_void() +
-        theme(plot.title=element_text(size=9, face="plain", hjust=0.5,
-                                      margin = margin(t=4, b=2, unit="pt"),
+        theme(plot.title=element_text(size=10, face="plain", hjust=0.5,
+                                      margin = margin(t=0, b=2, unit="pt"),
                                       family="FreeSans"),
-              plot.margin = margin(4, 0, 0, 4, "pt"))
+              plot.margin = margin(0, 0, 0, 0, "pt"))
     return(plot)
 }
 
@@ -114,9 +114,11 @@ main = function(theme_spec,
                       uwimana_genes$sys_gene_name,
                       doris_genes$sys_name)
 
-    supp_one_f = bvenn(list("\"Cheung \" * italic(\"et al.\") * \", 2008\""=cheung_genes$sys_ORF_name,
-                           "\"Uwimana \" * italic(\"et al.\") * \", 2017\""=uwimana_genes$sys_gene_name,
-                           "phantom(g)*\"this work\"*phantom(g)"=doris_genes$sys_name),
+    # supp_one_f = bvenn(list("\"Cheung \" * italic(\"et al.\") * \", 2008\""=cheung_genes$sys_ORF_name,
+    #                        "\"Uwimana \" * italic(\"et al.\") * \", 2017\""=uwimana_genes$sys_gene_name,
+    supp_one_f = bvenn(list("RNA microarray"=cheung_genes$sys_ORF_name,
+                           "RNA-seq"=uwimana_genes$sys_gene_name,
+                           "TSS-seq"=doris_genes$sys_name),
                       scale=0.9, title="genes with sense intragenic transcripts")
 
     ggsave(pdf_out,

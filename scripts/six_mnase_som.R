@@ -40,7 +40,7 @@ main = function(theme_spec,
                    label.r=unit(0,"pt"),
                    label.padding=unit(3,"pt"),
                    show.legend = FALSE,
-                   size=7/72*25.4,
+                   size=8/72*25.4,
                    family="FreeSans") +
         facet_wrap(~unit,
                    ncol=8) +

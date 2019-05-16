@@ -60,7 +60,7 @@ main = function(theme_spec,
                                                 barheight=0.3)) +
         facet_grid(.~group, labeller=label_parsed) +
         theme_heatmap +
-        theme(strip.text.x = element_text(size=9,
+        theme(strip.text.x = element_text(size=10,
                                           margin=margin(6,0,0,0,"pt"),
                                           angle=0,
                                           color="black",
@@ -93,7 +93,7 @@ main = function(theme_spec,
                                                 barwidth=8, barheight=0.3, title.hjust=0.5)) +
         facet_grid(.~group, labeller=label_parsed) +
         theme_heatmap +
-        theme(strip.text.x = element_text(size=9,
+        theme(strip.text.x = element_text(size=10,
                                           margin=margin(6,0,0,0,"pt"),
                                           angle=0,
                                           color="black",
@@ -135,7 +135,7 @@ main = function(theme_spec,
                           mutate(label = "log[2](italic(\"spt6-1004\")/WT)"),
                        aes(x=nuc_center, y=index, width=100, fill=fuzziness_lfc)) +
         annotate(geom="rect", xmin=-400, xmax=1007, ymin=0, ymax=max(quant_df[["index"]]),
-                 fill="white", size=0) +
+                 fill="white", linetype="blank") +
         geom_tile(linetype="blank") +
         scale_x_continuous(breaks = scales::pretty_breaks(n=3),
                            labels = function(x){case_when(x==0 ~ "+1 dyad",
@@ -153,7 +153,7 @@ main = function(theme_spec,
                                                   barwidth=5, barheight=0.3, title.hjust=0.5)) +
         facet_grid(.~label, labeller = label_parsed) +
         theme_heatmap +
-        theme(strip.text.x = element_text(size=9,
+        theme(strip.text.x = element_text(size=10,
                                           margin=margin(6,0,0,0,"pt"),
                                           angle=0,
                                           color="black",
@@ -174,7 +174,7 @@ main = function(theme_spec,
                           mutate(label = "log[2](italic(\"spt6-1004\")/WT)"),
                       aes(x=nuc_center, y=index, width=100, fill=summit_lfc)) +
         annotate(geom="rect", xmin=-400, xmax=1007, ymin=0, ymax=max(quant_df[["index"]]),
-                 fill="white", size=0) +
+                 fill="white", linetype="blank") +
         geom_tile(linetype="blank") +
         scale_x_continuous(breaks = scales::pretty_breaks(n=3),
                            labels = function(x){case_when(x==0 ~ "+1 dyad",
@@ -192,7 +192,7 @@ main = function(theme_spec,
                                                   barwidth=5, barheight=0.3, title.hjust=0.5)) +
         facet_grid(.~label, labeller = label_parsed) +
         theme_heatmap +
-        theme(strip.text.x = element_text(size=9,
+        theme(strip.text.x = element_text(size=10,
                                           margin=margin(6,0,0,0,"pt"),
                                           angle=0,
                                         color="black",

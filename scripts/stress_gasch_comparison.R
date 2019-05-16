@@ -43,7 +43,7 @@ plot_scatter = function(df, xtitle, ytitle){
                      signif(2)),
                  hjust=0,
                  vjust=1,
-                 size=7/72*25.4,
+                 size=8/72*25.4,
                  label.size=NA,
                  label.padding=unit(1, "pt"),
                  label.r=unit(0, "pt"),
@@ -54,9 +54,10 @@ plot_scatter = function(df, xtitle, ytitle){
                            name=ytitle) +
         scale_color_viridis() +
         theme_default +
-        theme(legend.position="none",
-              axis.title.y=element_text(angle=0,
-                                        vjust=0.5))
+        theme(legend.position="none")
+        # theme(legend.position="none",
+        #       axis.title.y=element_text(angle=0,
+        #                                 vjust=0.5))
     return(plot)
 }
 
@@ -89,17 +90,16 @@ main = function(theme_spec = "thesis_theme.R",
                                 timepoint_id = "30m")
 
     scatter_diamide = plot_scatter(df = diamide,
-                                   xtitle = expression("Gasch " * italic("et al.") * ", 2000:" ~
-                                                           "log"[2] ~ textstyle(frac("45 min. oxidative stress", "YPD"))),
+                                   # xtitle = expression("RNA microarray log"[2] ~ textstyle(frac("45 min. oxidative stress", "YPD"))),
+                                   xtitle = expression("RNA microarray log"[2] ~ frac("45 min. oxidative stress", "YPD")),
                                    ytitle = expression(atop("TFIIB ChIP-nexus",
-                                                            "log"[2] ~ textstyle(frac("40 min. oxidative stress", "YPD"))))) +
-        theme(plot.margin=margin(b=8, r=4, unit="pt"))
+                                                            "log"[2] ~ frac("40 min. oxidative stress", "YPD")))) +
+        theme(plot.margin=margin(b=8, r=0, unit="pt"))
     scatter_aminoacid = plot_scatter(df = aminoacid,
-                                     xtitle = expression("Gasch " * italic("et al.") * ", 2000:" ~
-                                                             "log"[2] ~ textstyle(frac("30 min. amino acid stress", "SC"))),
+                                     xtitle = expression("RNA microarray log"[2] ~ frac("30 min. amino acid stress", "SC")),
                                      ytitle = expression(atop("TFIIB ChIP-nexus",
-                                                              "log"[2] ~ textstyle(frac("30 min. amino acid stress", "SC"))))) +
-        theme(plot.margin=margin(t=8, r=4, unit="pt"))
+                                                              "log"[2] ~ frac("30 min. amino acid stress", "SC")))) +
+        theme(plot.margin=margin(t=8, r=0, unit="pt"))
 
     figure = plot_grid(scatter_diamide,
                        scatter_aminoacid,

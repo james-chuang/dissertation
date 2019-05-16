@@ -184,11 +184,11 @@ figures:
             tfiib_diamide: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             tfiib_aminoacid: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/genic/SD-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             width: 3
-            height: 3.5
+            height: 4.2
         nitrogen_gene_ontology:
             data: ../../intragenic/chipnexus-tfiib-custom-analysis/gene_ontology/nitrogen-v-SC/libsizenorm/genic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-genic-up-gene-ontology-results.tsv
             width: 4
-            height: 2
+            height: 2.5
         tfiib_ridgelines:
             width: 8.25
             height: 4.4
@@ -260,7 +260,7 @@ figures:
             intra_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
             anti_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/antisense/diamide-v-YPD_antisense-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
             inter_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intergenic/diamide-v-YPD_intergenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
-            height: 4
+            height: 2
             width: 3
         promoter_tss_expression:
             genic_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200-matched-up.tsv

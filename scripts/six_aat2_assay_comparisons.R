@@ -42,7 +42,7 @@ main = function(theme_spec,
                            breaks = scales::pretty_breaks(n=2)) +
         theme_default +
         theme(axis.title.x = element_blank(),
-              axis.text.x = element_text(size=9, family="FreeSans"),
+              axis.text.x = element_text(size=10, family="FreeSans"),
               strip.text = element_text(hjust=0, family="FreeSans"),
               panel.spacing.y = unit(1, "pt"),
               panel.border = element_blank(),
@@ -64,7 +64,7 @@ main = function(theme_spec,
                  family="FreeSans",
                  fontface="italic",
                  x=(1.257)/2+0.028, y=0,
-                 size=9/72*25.4) +
+                 size=10/72*25.4) +
         scale_x_continuous(limits = c(-0.2, 1.6),
                            expand=c(0,0)) +
         scale_y_continuous(limits = c(-1, 1), expand=c(0,0)) +

@@ -43,11 +43,13 @@ main = function(theme_spec = "thesis_theme.R",
                           labels = c("biological process",
                                      "cellular compartment",
                                      "molecular function")) +
+        ggtitle("enriched gene ontology terms",
+                "nitrogen stress") +
         theme_default +
         theme(axis.title.y = element_blank(),
-              axis.text.y = element_text(size=7),
+              axis.text.y = element_text(size=8),
               legend.position = c(0.95, 0.45),
-              legend.text = element_text(size=7),
+              legend.text = element_text(size=8),
               axis.ticks.y = element_blank(),
               panel.grid.major.y = element_blank(),
               panel.grid.minor.x = element_blank(),

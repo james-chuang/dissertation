@@ -15,22 +15,25 @@ ASE1 \citep{mcknight2014}.
 KAR4 \citep{gammie1999}.
 ASP3 \citep{huang2010}.
 
+\clearpage
+
 \section{Discovery of stress-induced intragenic promoters by TFIIB ChIP-nexus and TSS-seq}
 
-\begin{wrapfigure}[10]{r}{3in}
+\begin{wrapfigure}[18]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/stress/stress_gasch_comparison.pdf}
-    \caption[]{}
+    \caption[Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal, for oxidative and amino acid stresses.]{Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal from \citet{gasch2000}, for oxidative and amino acid stresses. The Pearson correlation coefficient is shown for each comparison.}
     \label{fig:stress_gasch_comparison}
 \end{wrapfigure}
-To discover cases of stress-induced intragenic transcription initiation, we performed ChIP-nexus of TFIIB in wild-type yeast grown under the three stress conditions of oxidative stress, amino acid stress, and nitrogen stress, along with the control conditions of grown in rich YPD media and defined SC media.
+To discover cases of stress-induced intragenic transcription initiation, we performed ChIP-nexus of TFIIB in wild-type yeast in conditions of oxidative stress, amino acid stress, and nitrogen stress, along with controls of growth in rich YPD medium and defined SC medium.
+The genic TFIIB response to each of the stresses either correlated well with the expected transcriptomic response to the stress (Figure \ref{fig:stress_gasch_comparison}), or was enriched for metabolic pathways consistent with the cellular response to the stress (Figure \ref{fig:stress_nitrogen_gene_ontology}), indicating that TFIIB ChIP-nexus is able to 
 We identified 140 intragenic TFIIB peaks significantly induced at least 1.5-fold in at least one stress condition, with some peaks being induced in more than one stress (Figure \ref{fig:stress_tfiib_ridgelines}).
-\begin{SCfigure}[50][h]
+\begin{figure}[h]
     \centering
     \includegraphics[width=4in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
-    \caption[]{}
+    \caption[Gene ontology terms enriched in genes with upregulated genic TFIIB peaks in nitrogen stress.]{Gene ontology terms enriched in genes with significantly upregulated genic TFIIB peaks in nitrogen stress.}
     \label{fig:stress_nitrogen_gene_ontology}
-\end{SCfigure}
+\end{figure}
 
 
 %k \begin{tabular}{l | l | l}

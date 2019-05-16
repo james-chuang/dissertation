@@ -75,7 +75,7 @@ main = function(theme_spec,
                      fill="grey80") +
         geom_text(aes(x=(orf_start+orf_end)/2,
                       label=paste0("italic(\"", gene_id, "\")")),
-                  y=0, size=7/72*25.4, parse=TRUE,
+                  y=0, size=10/72*25.4, parse=TRUE,
                   family="FreeSans") +
         scale_x_continuous(expand = c(0,0)) +
         scale_y_continuous(limits = c(-1.5, 1.5), expand=c(0,0)) +
@@ -134,7 +134,7 @@ main = function(theme_spec,
               axis.title.y.left = element_blank(),
               axis.line.y.right = element_blank(),
               axis.ticks.y.right = element_blank(),
-              axis.text.y = element_text(size=5),
+              axis.text.y = element_text(size=8),
               axis.text.y.right = element_blank(),
               panel.border = element_blank(),
               panel.grid.major = element_line(color="grey93"),

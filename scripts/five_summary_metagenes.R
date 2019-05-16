@@ -69,7 +69,7 @@ main = function(theme_spec,
         scale_fill_few() +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
-              strip.text=element_text(size=9, hjust=0),
+              strip.text=element_text(size=10, hjust=0),
               panel.grid = element_blank(),
               legend.position = c(0.7, 0.27),
               legend.background = element_rect(color=NA, fill="white", size=0))

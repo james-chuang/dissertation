@@ -70,7 +70,7 @@ main = function(theme_spec,
                        y=y,
                        label=feature_name),
                   hjust=1,
-                  size=4/72*25.4,
+                  size=8/72*25.4,
                   label.r = unit(0, "pt"),
                   label.padding = unit(1, "pt"),
                   label.size = NA,
@@ -87,7 +87,7 @@ main = function(theme_spec,
         scale_color_tableau() +
         theme_default +
         theme(legend.position = c(0.4, 0.7),
-              plot.subtitle = element_text(size=7),
+              plot.subtitle = element_text(size=8),
               plot.margin=margin(0.5,0,0,0,"pt"))
 
     ggplot2::ggsave(pdf_out,

@@ -54,7 +54,7 @@ plot_heatmap = function(data_path, sample_list, anno_path, cps_dist,
                       label=group),
                   hjust=0,
                   nudge_y=if_else(experiment=="spt6", -250, -100),
-                  size=9/72*25.4,
+                  size=10/72*25.4,
                   parse=TRUE,
                   family="FreeSans") +
         scale_x_continuous(breaks = scales::pretty_breaks(n=3),

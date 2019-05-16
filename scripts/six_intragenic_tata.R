@@ -72,15 +72,15 @@ main = function(theme_spec,
         theme_default +
         theme(axis.title.x = element_blank(),
               axis.line.y = element_line(size=0.25, color="grey65"),
-              axis.text.y = element_text(size=5),
+              axis.text.x = element_text(size=10),
+              axis.text.y = element_text(size=8),
               axis.title.y = element_text(margin = margin(r=-5, unit="pt")),
               panel.border = element_blank(),
               panel.grid = element_blank(),
               legend.justification = c(0.5, 0.5),
               legend.position = c(0.30, 0.55),
               legend.key.width= unit(8, "pt"),
-              legend.spacing.x = unit(1, "pt"),
-              plot.margin = margin(11/2, 11, 11/2, 0, "pt"))
+              legend.spacing.x = unit(1, "pt"))
 
     ggsave(pdf_out,
            plot=tata,
