@@ -59,7 +59,7 @@ main = function(theme_spec,
         geom_text(data = df %>% distinct(category),
                   aes(x=category, y=-500, label=category),
                   hjust=0, vjust=0.67,
-                  size=8/72*25.4,
+                  size=10/72*25.4,
                   family="FreeSans") +
         annotate(geom="label",
                  x=4.8, y=175/2, label="upregulated",

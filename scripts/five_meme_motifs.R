@@ -73,12 +73,12 @@ motif_plot = function(df,
                   y=2,
                   hjust=1,
                   vjust=1,
-                  size=8/72*25.4,
+                  size=6/72*25.4,
                   family="FreeSans",
                   label.padding=unit(1, "pt"),
                   label.size=NA,
                   label.r=unit(0, "pt"),
-                  alpha = 0.7) +
+                  alpha = 0.3) +
         facet_grid(motif~direction) +
         scale_fill_manual(values = c('#109648', '#255C99', '#F7B32B', '#D62839', '#D62839'),
                           breaks = c('A','C','G','T','U'),
@@ -98,6 +98,7 @@ motif_plot = function(df,
         theme(axis.title.y = element_text(angle=0,
                                           hjust=1,
                                           vjust=0.5),
+              axis.text.x = element_text(size=10),
               axis.text.y = element_text(size=8),
               axis.title.x = element_blank(),
               panel.grid = element_blank(),
@@ -107,6 +108,7 @@ motif_plot = function(df,
               strip.text = element_text(color="black",
                                         size=10),
               strip.text.y = element_blank(),
+              panel.spacing.y = unit(8, "pt"),
               plot.title = element_text(size=10))
 }
 

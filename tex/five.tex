@@ -22,7 +22,7 @@ When unphosphorylated, the Spt5 CTR aids in recruitment of the mRNA capping enzy
 
 Despite the close relationship of Spt5 to transcription and the transcription-associated processes described above, previous studies which knocked down Spt5 in zebrafish, mice, and HeLa cells observed only mild changes in transcript levels across the genome \citep{diamant2016b, komori2009, krishnan2008, stanlie2012}, a result which could potentially be explained by inefficient knockdown of Spt5 and/or the lack of a spike-in control, without which it is impossible to observe a global change over the entire genome \citep{chen2016}.
 
-\begin{wrapfigure}[11]{r}{3in}
+\begin{wrapfigure}[9]{r}{3in}
     \begin{tikzpicture}[x=3in, y=1in]
         \draw [line width=2pt] (0,0.1) -- (0.95,0.1);
         \draw [->, line width=3pt] (0.1,0.1) -- (0.1,0.25) -- (0.25,0.25);
@@ -53,7 +53,7 @@ The results are presented below, with section \ref{sec:five_pol_ii} and the RNA-
 \section{RNA Polymerase II in Spt5 depletion}
 \label{sec:five_pol_ii}
 
-\begin{wrapfigure}[23]{r}{3in}
+\begin{wrapfigure}[21]{r}{3in}
     \includegraphics[width=3in]{figures/five/five_summary_metagenes.pdf}
     \caption[Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5 depleted and non-depleted cells.]{Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates or one experiment (non-depleted NET-seq), taken in non-overlapping 20 bp bins and standardized per gene.}
     \label{fig:five_summary_metagenes}
@@ -101,7 +101,7 @@ The difference in transcript abundance measurements between RNA-seq and TSS-seq 
 We attribute this to defective elongation upon Spt5 depletion, which increases transcriptional pausing, early termination, and the use of intragenic polyadenylation sites, consistent with a previous report in budding yeast \citep{cui2003}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=4in]{figures/five/five_rnaseq_metagene.pdf}
+    \includegraphics[width=6in]{figures/five/five_rnaseq_metagene.pdf}
     \caption[Average sense RNA-seq signal over non-overlapping coding genes, from Spt5 depleted and non-depleted cells.]{Average sense RNA-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates, taken in non-overlapping 20 bp bins and standardized per gene.}
     \label{fig:five_rnaseq_metagene}
 \end{figure}
@@ -156,7 +156,7 @@ Interestingly, the most significant motif found by \textit{de novo} motif discov
 
 \section{The chromatin landscape in Spt5 depletion}
 
-\begin{wrapfigure}[15]{r}{3in}
+\begin{wrapfigure}[13]{r}{3in}
     \includegraphics[width=3in]{figures/five/five_mnase_metagene.pdf}
     \caption[Average MNase-seq dyad signal from Spt5 depleted and non-depleted cells, over non-overlapping coding genes.]{Average MNase-seq dyad signal from Spt5-depleted and non-depleted cells, over 1989 non-overlapping coding genes aligned by wild-type +1 nucleosome dyad. The solid line and shading are the median and inter-quartile range of the mean library-size normalized coverage over two (non-depleted) or three (depleted) replicates.}
     \label{fig:five_mnase_metagene}
@@ -166,11 +166,14 @@ One hypothesis for why antisense transcripts are expressed upon Spt5 depletion i
 To observe possible changes to chromatin, we performed MNase-seq of Spt5-depleted and non-depleted cells (Figure \ref{fig:five_mnase_metagene}).
 Because no spike-in control was included in the experiment, we were unable to use the data to quantify nucleosome occupancy, however, the data do indicate that nucleosomes generally become less well-positioned upon Spt5 depletion (Figure \ref{fig:five_nuc_fuzz}), and that the severity of these changes increases as one moves downstream from the +1 nucleosome into gene bodies (Figure \ref{fig:five_mnase_metagene}).
 
-\begin{SCfigure}[50][h]
-    \includegraphics[width=4in]{figures/five/five_nuc_fuzz.pdf}
+% \begin{SCfigure}[50][h]
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6in]{figures/five/five_nuc_fuzz.pdf}
     \caption[Distributions of nucleosome fuzziness in Spt5-depleted and non-depleted cells.]{Distributions of nucleosome fuzziness in Spt5-depleted and non-depleted cells, quantified by DANPOS2 \citep{chen2013}.}
     \label{fig:five_nuc_fuzz}
-\end{SCfigure}
+% \end{SCfigure}
+\end{figure}
 
 The data also indicate that Spt5-repressed antisense TSSs generally occur in between the positions of nucleosome dyads, even when viewed as a group (Figure \ref{fig:five_antisense_mnase_metagene}).
 Given the tendency of these TSSs to initiate within 500 base pairs downstream of the genic TSS, this is consistent with these TSSs occurring between the +1 and +2, +2 and +3, or +3 and +4 nucleosomes.

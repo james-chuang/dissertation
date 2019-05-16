@@ -50,9 +50,10 @@ main = function(theme_spec,
         scale_fill_ptol(labels = c("wild-type", bquote(italic("spt6-1004")))) +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
+              axis.text.x = element_text(size=10),
               legend.position = c(0.65, 0.75),
               panel.grid = element_blank(),
-              plot.margin = margin(11, 11, 4, 0, "pt"))
+              plot.margin = margin(2, 13, 0, 0, "pt"))
 
     ggsave(pdf_out,
            plot=fig_four_a,

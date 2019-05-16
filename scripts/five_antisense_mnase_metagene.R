@@ -5,7 +5,7 @@ import = function(path,
                   col_names=c('group', 'sample', 'annotation',
                               'assay', 'index', 'position', 'signal')) %>%
         group_by(annotation) %>%
-        mutate(anno_labeled = paste0(annotation, " (", n_distinct(index), " TSSs)"))
+        mutate(anno_labeled = paste0(annotation, "\n(", n_distinct(index), " TSSs)"))
     if (normalize){
         df %<>%
             group_by(group, sample, annotation, anno_labeled, index) %>%
@@ -53,8 +53,8 @@ metagene = function(df,
         theme_default +
         theme(legend.justification = c(0, 1),
               legend.background = element_blank(),
-              legend.position = c(0.01, 0.78),
-              legend.key.height = unit(10, "pt"),
+              legend.position = c(0.01, 0.65),
+              legend.key.height = unit(12, "pt"),
               axis.title.x = element_blank(),
               axis.title.y = element_text(hjust=0.5),
               panel.spacing.x = unit(10, "pt"),
@@ -82,7 +82,8 @@ metagene = function(df,
         plot = plot +
             scale_fill_manual(values="grey30") +
             scale_color_manual(values="grey30") +
-            theme(legend.position="none")
+            theme(legend.position="none",
+                  axis.text.x = element_text(size=10))
     }
     return(plot)
 }

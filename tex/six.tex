@@ -30,7 +30,7 @@ As Spt6 is essential for viability in \textit{S. cerevisiae}, many of these stud
 When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels, though cells are still viable  (Figure \ref{fig:six_spt6_western}, \citep{kaplan2003}).
 A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
-\begin{wrapfigure}[8]{r}{3in}
+\begin{wrapfigure}[7]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/six/six_gene_diagram.pdf}
     \caption[Diagram of transcript classes.]{Diagram of transcript orientation with respect to coding DNA sequences, for the categories of transcripts referred to in this document.}
@@ -42,12 +42,14 @@ Identification of intragenic transcription has thus relied on identifying cases 
 However, this leads to both false positives, due to the inherent variability of the signal over a transcript, as well as false negatives, due to the requirement of the intragenic transcript to be well-expressed relative to its corresponding genic transcript in order to be identified.
 Additionally, these methods are assays of steady-state RNA levels, which makes them unable to distinguish whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly degraded in wild-type, or C) processing of full-length protein-coding RNAs.
 New transcription initiation has been shown to be responsible for individual cases of intragenic initiation \citep{kaplan2003}, but this has not previously been studied on a genome-wide scale.
-\begin{SCfigure}[40][h]
+% \begin{SCfigure}[40][h]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=4.4in]{figures/six/six_aat_assay_comparison.pdf}
+    \includegraphics[width=6in]{figures/six/six_aat_assay_comparison.pdf}
     \caption[RNA-seq, TSS-seq, and TFIIB ChIP-nexus signal at the \textit{AAT2} gene, in \textit{spt6-1004} after 80 minutes at 37\textdegree C.]{Sense strand RNA-seq signal, sense strand TSS-seq signal, and TFIIB ChIP-nexus protection at the \textit{AAT2} gene, in \textit{spt6-1004} after 80 minutes at 37\textdegree C.}
     \label{fig:six_aat_assay_comparison}
-\end{SCfigure}
+% \end{SCfigure}
+\end{figure}
 
 To address these challenges to studying intragenic transcription, we applied two genomic assays to \textit{spt6-1004}: transcription start-site sequencing (\textbf{TSS-seq}), and \textbf{ChIP-nexus of TFIIB}, a component of the RNA polymerase II pre-initiation complex (PIC).
 TSS-seq sequences the 5$^\prime$ end of capped and polyadenylated RNAs \citep{arribere2013, malabat2015}, allowing separation of intragenic from genic RNA signals and identification of intragenic transcript starts with single-nucleotide resolution (Figure \ref{fig:six_aat_assay_comparison}).
@@ -62,27 +64,28 @@ In wild-type cells, TSS-seq and TFIIB ChIP-nexus recapitulate their expected dis
 In \textit{spt6-1004}, the signal for both assays infiltrates gene bodies, reflecting widespread intragenic expression of capped and polyadenylated transcripts, and suggesting that new transcription initiation contributes to the intragenic transcription phenotype.
 Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur towards the 3$^\prime$ end of genes, while antisense strand TSS-seq signal tends to occur towards the 5$^\prime$ end of genes.
 
+\clearpage
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=6in]{figures/six/six_tss_seq_heatmaps.pdf}
-\caption[Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping coding genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3$^\prime$ of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 92\textsuperscript{nd} percentile are set to the 92\textsuperscript{nd} percentile for visualization.}
-\label{fig:six_tss_seq_heatmaps}
+    \centering
+    \includegraphics[width=6in]{figures/six/six_tss_seq_heatmaps.pdf}
+    \caption[Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping coding genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3$^\prime$ of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage over two replicates, in non-overlapping 20 nucleotide bins. Values above the 92\textsuperscript{nd} percentile are set to the 92\textsuperscript{nd} percentile for visualization.}
+    \label{fig:six_tss_seq_heatmaps}
 \end{figure}
+\begin{SCfigure}[50][h]
+% \begin{figure}[h]
+    \centering
+    \includegraphics[width=4in]{figures/six/six_tfiib_heatmap.pdf}
+    \caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage over two replicates, in non-overlapping 20 bp bins. Values above the 85\textsuperscript{th} percentile are set to the 85\textsuperscript{th} percentile for visualization.}
+    \label{fig:six_tfiib_heatmap}
+\end{SCfigure}
+% \end{figure}
+
+\clearpage
 
 The TSS-seq data were quantified by peak calling and differential expression analysis, and classified into genomic categories based on their position relative to coding genes.
 As suggested by the heatmap visualization (Figure \ref{fig:six_tss_seq_heatmaps}), we detect significant induction of over 4000 intragenic and antisense TSSs in \textit{spt6-1004} (Figure \ref{fig:six_tss_diffexp_summary}).
 Compared to previous studies identifying \textit{spt6-1004} intragenic transcription by tiled microarray and RNA-seq \citep{cheung2008, uwimana2017}, we identify intragenic transcription at over 1000 additional genes (Figure \ref{fig:six_intragenic_genes_bvenn}), with the additional information of exact start sites for all identified TSSs.
-
-\begin{SCfigure}[50][h]
-    \centering
-    \includegraphics[width=4in]{figures/six/six_tfiib_heatmap.pdf}
-    \caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage in non-overlapping 20 bp bins, averaged over two replicates. Values above the 85\textsuperscript{th} percentile are set to the 85\textsuperscript{th} percentile for visualization.}
-    \label{fig:six_tfiib_heatmap}
-\end{SCfigure}
-
-The TSS-seq data also revealed an unexpected downregulation of most genic TSSs: In this experiment, we detected a significant downregulation to levels below 67\% of wild-type levels at 75\% (3579/4792) of genic TSSs (Figure \ref{fig:six_tss_diffexp_summary}).
-As a result of intragenic/antisense induction and genic repression, expression levels in \textit{spt6-1004} of all classes of transcripts become similar to one another (Figure \ref{fig:six_tss_expression_levels}).
-
 \begin{figure}[H]
     \centering
     \begin{minipage}[t]{2.875in}
@@ -99,19 +102,18 @@ As a result of intragenic/antisense induction and genic repression, expression l
     \end{minipage}
 \end{figure}
 
-\begin{wrapfigure}[12]{r}{3in}
+The TSS-seq data also revealed an unexpected downregulation of most genic TSSs: In this experiment, we detected a significant downregulation to levels below 67\% of wild-type levels at 75\% (3579/4792) of genic TSSs (Figure \ref{fig:six_tss_diffexp_summary}).
+As a result of intragenic/antisense induction and genic repression, expression levels in \textit{spt6-1004} of all classes of transcripts become similar to one another (Figure \ref{fig:six_tss_expression_levels}).
+% \begin{wrapfigure}[12]{r}{3in}
+\begin{SCfigure}[50][h]
     \centering
-    \includegraphics[width=3in]{figures/six/six_tss_expression_levels.pdf}
+    \includegraphics[width=3.75in]{figures/six/six_tss_expression_levels.pdf}
     \caption[Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004} cells.]{Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004}, both after 80 minutes at 37\textdegree C. Normalized counts are the mean of spike-in size factor normalized counts from two replicates.}
     \label{fig:six_tss_expression_levels}
-\end{wrapfigure}
+\end{SCfigure}
 
 The changes in transcript levels in \textit{spt6-1004} observed by TSS-seq correspond with substantial differences in the pattern of TFIIB binding on the genome.
 While TFIIB in wild-type binds in discrete peaks within promoter regions, TFIIB in \textit{spt6-1004} binds much more promiscuously, with many loci having TFIIB signal spread over broad regions of the genome (Figure \ref{fig:six_tfiib_spreading_ssa4}).
-This difference in binding pattern makes peak calling ineffective for quantifying TFIIB signal in this case: ChIP-seq peak callers generally use different algorithms for calling `narrow' peaks (e.g. for sequence-specific transcription factors) and `broad' peaks (e.g. for histone modifications), meaning that a single algorithm is unable to call a unified set of peaks that is meaningful for differential binding analyses between wild-type and \textit{spt6-1004}.
-Therefore, to see if changes in transcript levels in \textit{spt6-1004} correspond to changes in transcription initiation, we compared the change in TSS-seq signal at TSS-seq peaks in \textit{spt6-1004} to the change in TFIIB ChIP-nexus signal in the window extending 200 bp upstream of the TSS-seq peak.
-Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class (Figure \ref{fig:six_tss_v_tfiib}), indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/six/six_tfiib_spreading_ssa4.pdf}
@@ -122,9 +124,13 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
         \end{description}
     }
     \label{fig:six_tfiib_spreading_ssa4}
-
-    \vspace{0.5em}
-
+\end{figure}
+This difference in binding pattern makes peak calling ineffective for quantifying TFIIB signal in this case: ChIP-seq peak callers generally use different algorithms for calling `narrow' peaks (e.g. for sequence-specific transcription factors) and `broad' peaks (e.g. for histone modifications), meaning that a single algorithm is unable to call a unified set of peaks that is meaningful for differential binding analyses between wild-type and \textit{spt6-1004}.
+Therefore, to see if changes in transcript levels in \textit{spt6-1004} correspond to changes in transcription initiation, we compared the change in TSS-seq signal at TSS-seq peaks in \textit{spt6-1004} to the change in TFIIB ChIP-nexus signal in the window extending 200 bp upstream of the TSS-seq peak.
+Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class (Figure \ref{fig:six_tss_v_tfiib}), indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
+    % \vspace{0.5em}
+\begin{figure}
+    \centering
     \includegraphics[width=6in]{figures/six/six_tss_v_tfiib.pdf}
     \caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
     \label{fig:six_tss_v_tfiib}
@@ -137,15 +143,14 @@ Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in 
 Because a primary function of Spt6 is to act as histone chaperone that reassembles nucleosomes in the wake of transcription \citep{duina2011}, it is reasonable to expect that the transcriptional changes seen in \textit{spt6-1004} would be associated with changes in chromatin structure.
 The requirement for Spt6 in maintaining normal chromatin structure has been demonstrated in previous studies \citep{bortvin1996, ivanovska2011, jeronimo2015, kaplan2003, perales2013, vanbakel2013, degennaro2013}.
 To re-examine this requirement in higher resolution, we assayed nucleosome protection genome-wide using micrococcal nuclease digestion of chromatin followed by sequencing (MNase-seq).
-
 \begin{figure}[h]
     \centering
-    \includegraphics[width=5in]{figures/six/six_mnase_metagene.pdf}
+    \includegraphics[width=6in]{figures/six/six_mnase_metagene.pdf}
     \caption[Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over non-overlapping genes aligned by wild-type +1 nucleosome dyad.]{Average MNase-seq dyad signal in wild-type and \textit{spt6-1004}, over 3522 non-overlapping coding genes aligned by wild-type +1 nucleosome dyad. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates (\textit{spt6-1004}) or one experiment (wild-type), in non-overlapping 20 bp bins.}
     \label{fig:six_mnase_metagene}
 \end{figure}
 
-\begin{wrapfigure}[11]{r}{3in}
+\begin{wrapfigure}[10]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/six/six_global_nuc_occ_fuzz.pdf}
     \caption[Contour plot of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}.]{Contour plot of the distribution of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
@@ -164,19 +169,22 @@ The data support the first trend: in wild-type, genes with the strongest NET-seq
 However, we find no obvious relationship between transcription level and the nucleosome occupancy changes observed in \textit{spt6-1004} (Figure \ref{fig:six_mnase_heatmaps}): Genes with the greatest transcription do tend to have lower MNase-seq signal in \textit{spt6-1004}, but this is expected since these genes also have lower MNase-seq signal in wild-type.
 The discrepancy with prior work might be explained by the greater resolution and breadth of MNase-seq versus MNase and microarray of chromosome III \citep{ivanovska2011}.
 
-\begin{figure}[H]
+% \begin{figure}[h]
+\begin{sidewaysfigure}
     \centering
-    \includegraphics[width=6in]{figures/six/six_mnase_heatmaps.pdf}
+    \includegraphics[width=8.25in]{figures/six/six_mnase_heatmaps.pdf}
     \caption[Heatmaps of sense NET-seq signal, MNase-seq dyad signal, nucleosome occupancy changes, and nucleosome fuzziness changes over non-overlapping coding genes, arranged by sense NET-seq signal.]{
         \begin{description}[align=right, nosep, itemindent=0pt, leftmargin=4.2em, font=\normalfont]
-            \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nt downstream from the genic TSS. Values are the mean of library-size normalized coverage in non-overlapping 20 nt bins, averaged over two replicates.
-            \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage in non-overlapping 20 bp bins, averaged over two replicates (\textit{spt6-1004}) or one experiment (wild-type).
+            \item [left)] Heatmap of sense strand NET-seq signal for 3522 non-overlapping genes, aligned by genic TSS and sorted by total sense strand NET-seq signal in the window extending 500 nt downstream from the genic TSS. Values are the mean of library-size normalized coverage over two replicates, in non-overlapping 20 nt bins.
+            \item [middle)] Heatmaps of MNase-seq dyad signal in wild-type and \textit{spt6-1004} for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel. Values are the mean of spike-in normalized coverage over two replicates (\textit{spt6-1004}) or one experiment (wild-type), in non-overlapping 20 bp bins.
             \item [right)] Heatmaps of fold-change in nucleosome occupancy and fuzziness for the same genes, aligned by wild-type +1 nucleosome dyad and arranged by sense NET-seq signal as in the leftmost panel.
         \end{description}
     }
     \label{fig:six_mnase_heatmaps}
-\end{figure}
+% \end{figure}
+\end{sidewaysfigure}
 
+\clearpage
 \subsection{Clustering of MNase-seq profiles at \textit{spt6-1004}-induced intragenic TSSs}
 
 The aggregate MNase-seq dyad signal around all \textit{spt6-1004} intragenic TSSs is aperiodic (Figure \ref{fig:six_intragenic_mnase_metagenes}, top left panel), which occurs as a result of destructive interference from offset nucleosome phasing patterns.
@@ -237,7 +245,7 @@ This further supports the model that \textit{spt6-1004} intragenic promoters are
 \begin{SCfigure}[50][h]
     \centering
     \includegraphics[width=3.7in]{figures/six/six_intragenic_tata.pdf}
-    \caption[Kernel density estimate of matches to a consensus TATA-box motif upstream of genic and \textit{spt6-1004}-induced intragenic TSSs.]{Scaled density of occurrences of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is scaled by the number of motif occurrences per region.}
+    \caption[Kernel density estimate of matches to a consensus TATA-box motif upstream of genic and \textit{spt6-1004}-induced intragenic TSSs.]{Scaled density of exact matches to the motif TATAWAWR upstream of TSSs. For each category, a Gaussian kernel density estimate of the positions of motif occurrences is scaled by the number of motif occurrences per region.}
     \label{fig:six_intragenic_tata}
 \end{SCfigure}
 

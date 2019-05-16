@@ -68,8 +68,8 @@ main = function(theme_spec,
               panel.border = element_blank(),
               axis.line = element_line(size=0.25, color="grey65"),
               axis.title.x = element_text(size=10),
-              legend.position = c(0.8, 0.99),
-              plot.margin = margin(11, 11/2, 0, 0, "pt"))
+              legend.position = c(0.85, 0.90),
+              plot.margin = margin(0, 11/2, 0, 0, "pt"))
 
     ggsave(pdf_out,
            plot=fig_four_c,

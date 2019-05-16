@@ -62,6 +62,8 @@ main = function(theme_spec = "thesis_theme.R",
         ggtitle("sense RNA-seq signal") +
         theme_default +
         theme(legend.position = c(0.55, 0.85),
+              legend.key.height = unit(12, "pt"),
+              axis.text.x = element_text(size=10),
               panel.grid = element_blank(),
               plot.margin = margin(t=1, unit="pt"))
 

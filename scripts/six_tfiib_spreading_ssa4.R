@@ -61,25 +61,28 @@ main = function(theme_spec,
                  label="SSA4",
                  x=1.929/2+0.054,
                  y=0.7,
-                 size=8/72*25.4,
+                 vjust = 0.6,
+                 size=10/72*25.4,
                  family="FreeSans",
                  fontface="italic") +
         scale_fill_ptol(labels=c("wild-type",
                                  bquote(italic("spt6-1004")))) +
         ggtitle("TFIIB ChIP-nexus protection") +
         theme_default +
-        theme(legend.key.height = unit(10, "pt"),
-              legend.position = c(0.78, 0.85),
+        theme(legend.key.height = unit(12, "pt"),
+              legend.spacing.y = unit(0, "pt"),
+              legend.position = c(0.83, 0.88),
               strip.background = element_rect(fill="grey90", size=0, color=NA),
               axis.title.y = element_text(margin=margin(r=1, unit="pt")),
               axis.title.x = element_blank(),
+              axis.text.x = element_text(size=10),
               panel.border = element_blank(),
               axis.line.y = element_line(size=0.25, color="grey70"),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.x = element_blank(),
               panel.grid.minor.y = element_blank(),
               panel.spacing.y = unit(1, "pt"),
-              plot.margin=margin(r=11, t=1, unit="pt"))
+              plot.margin=margin(r=16, t=1, unit="pt"))
 
     ggplot2::ggsave(pdf_out,
                     plot=fig_two_b,

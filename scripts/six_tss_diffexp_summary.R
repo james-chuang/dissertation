@@ -69,10 +69,10 @@ main = function(theme_spec,
 
     diffexp_summary = ggplot(data = summary_df) +
         geom_segment(aes(x=if_else(category=="genic", upregulated, -downregulated),
-                         xend=if_else(category=="genic", 1700, -3000),
+                         xend=if_else(category=="genic", 2100, -3200),
                          y=y+500, yend=y+500),
                          # y=y_unscaled+0.17, yend=y_unscaled+0.17),
-                     alpha=0.2, size=0.2) +
+                     alpha=0.2, size=0.3) +
         geom_rect(aes(xmin=0, xmax=upregulated,
                       ymax=ymax, ymin=ymin),
                       # ymax=ymax_unscaled, ymin=ymin_unscaled),
@@ -96,12 +96,12 @@ main = function(theme_spec,
                       label=downregulated),
                   size=10/72*25.4,
                   family="FreeSans") +
-        geom_text(aes(x=if_else(category=="genic", 1700, -3000),
+        geom_text(aes(x=if_else(category=="genic", 2100, -3200),
                       hjust = if_else(category=="genic", 1, 0),
                       y=y,
                       # y=y_unscaled,
                       label = category),
-                  size=8/72*25.4,
+                  size=10/72*25.4,
                   family="FreeSans") +
         annotate(geom="label",
                  x=max(summary_df[["upregulated"]])/2,

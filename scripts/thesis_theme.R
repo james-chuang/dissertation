@@ -32,7 +32,7 @@ theme_heatmap = theme_minimal() +
           legend.position = "top",
           legend.justification = c(0.5, 0.5),
           legend.title = element_text(size=10, margin=margin(0,0,0,0,"pt")),
-          legend.text = element_text(size=10, margin=margin(0,0,0,0,"pt"), vjust=1),
+          legend.text = element_text(size=8, margin=margin(0,0,0,0,"pt"), vjust=1),
           legend.margin = margin(0,0,0,0,"pt"),
           legend.box.margin = margin(0,0,0,0,"pt"),
           legend.box.spacing = unit(0, "pt"),
@@ -46,7 +46,7 @@ theme_heatmap = theme_minimal() +
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           axis.ticks.x = element_line(color="black"),
-          axis.ticks.length = unit(0.5, "pt"),
+          axis.ticks.length = unit(1, "pt"),
           plot.margin = margin(0,4,0,0,"pt"))
 
 add_label = function(grob, letter, x_pos=0, y_pos=0){

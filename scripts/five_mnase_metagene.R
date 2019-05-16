@@ -43,8 +43,9 @@ main = function(theme_spec,
         scale_fill_few() +
         theme_default +
         theme(legend.key.height = unit(10, "pt"),
+              axis.text.x = element_text(size=10),
               panel.grid = element_blank(),
-              legend.position = c(0.88, 0.95),
+              legend.position = c(0.98, 0.98),
               legend.background = element_rect(color=NA, fill="white", size=0))
 
     ggsave(pdf_out,

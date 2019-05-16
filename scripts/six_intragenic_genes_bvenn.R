@@ -39,7 +39,7 @@ bvenn = function(lists, scale=1, title){
 
     plot = ggplot() +
         geom_segment(data = triangle, aes(x=x,y=y,xend=xend,yend=yend),
-                     size=1.5, color="black") +
+                     size=1.5, color="black", alpha=0.8) +
         geom_circle(data = data,
                     aes(x0=x, y0=y, r=radius, fill=point),
                     size=0.5, color="black", fill="grey90") +
@@ -50,12 +50,16 @@ bvenn = function(lists, scale=1, title){
                   family="FreeSans") +
         geom_text(data = labels,
                   aes(x=x,y=y, label=name,
-                      vjust=if_else(point=="point2", 0.8, 0.7)),
-                  size=8/72*25.4,
+                      # vjust=if_else(point=="point2", 0.8, 0.7)),
+                      vjust=if_else(point=="point2", 0.9, 0.4)),
+                  size=10/72*25.4,
                   fontface="plain",
                   # parse=TRUE,
                   family="FreeSans") +
-        expand_limits(x = c(0, 1)) +
+        scale_x_continuous(limits = c(-0.12, 1.12),
+                           expand = c(0, 0)) +
+        scale_y_continuous(limits = c(0.13, 1),
+                           expand = c(0, 0)) +
         coord_fixed() +
         ggtitle(title) +
         theme_void() +

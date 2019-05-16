@@ -50,9 +50,9 @@ main = function(theme_spec = "thesis_theme.R",
                      alpha=0.7,
                      shape=16,
                      size=0.5) +
-        scale_x_continuous(name = expression("TSS-seq" ~ log[2] ~ textstyle(frac("depleted", "non-depleted"))),
+        scale_x_continuous(name = expression("TSS-seq log"[2] ~ textstyle(frac("depleted", "non-depleted"))),
                            breaks = scales::pretty_breaks(n=6)) +
-        scale_y_continuous(name = expression(atop("RNA-seq", log[2] ~ textstyle(frac("depleted", "non-depleted")))),
+        scale_y_continuous(name = expression(atop("RNA-seq", "log"[2] ~ textstyle(frac("depleted", "non-depleted")))),
                            breaks = scales::pretty_breaks(n=5)) +
         coord_equal() +
         scale_color_viridis(option="inferno",

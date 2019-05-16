@@ -63,11 +63,12 @@ main = function(theme_spec,
                                    expression(italic("spt6-1004"))),
                         guide=guide_legend(label.position="top",
                                            label.hjust=0.5,
-                                           keywidth=unit(30, "pt"),
-                                           keyheight=unit(6, "pt"))) +
+                                           keywidth=unit(0.6, "in"),
+                                           keyheight=unit(8, "pt"))) +
         # ggtitle("expression level of TSS-seq peaks") +
         theme_default +
         theme(axis.title.x = element_blank(),
+              axis.text.x = element_text(size=10),
               # panel.border = element_blank(),
               panel.grid.major.x = element_blank(),
               legend.position = "top",

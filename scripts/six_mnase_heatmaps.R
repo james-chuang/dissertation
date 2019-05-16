@@ -71,7 +71,7 @@ main = function(theme_spec,
               panel.grid.major.x = element_line(color="black"),
               panel.grid.major.y = element_line(color="black"),
               legend.box.margin = margin(0, 0, -5, 0, "pt"),
-              plot.margin = margin(0,4,0,0.5,"pt" ))
+              plot.margin = margin(0,6,0,0,"pt" ))
 
     mnase_plot = ggplot(data = mnase_df %>%
                             complete(group, index, position, fill=list(signal=0)),
@@ -105,7 +105,7 @@ main = function(theme_spec,
               panel.grid.minor.x = element_line(color="black"),
               panel.grid.major.y = element_line(color="black"),
               legend.box.margin = margin(0, 0, -5, 0, "pt"),
-              plot.margin = margin(0,4,0,0,"pt" ))
+              plot.margin = margin(0,6,0,0,"pt" ))
 
     quant_df = read_tsv(quant_data,
                         col_types = "ciicdcciiiiiiidddddddddddddddic") %>%
@@ -150,7 +150,7 @@ main = function(theme_spec,
                              breaks = scales::pretty_breaks(n=2),
                              name = "fuzziness",
                              guide=guide_colorbar(title.position="top",
-                                                  barwidth=5, barheight=0.3, title.hjust=0.5)) +
+                                                  barwidth=8, barheight=0.3, title.hjust=0.5)) +
         facet_grid(.~label, labeller = label_parsed) +
         theme_heatmap +
         theme(strip.text.x = element_text(size=10,
@@ -165,7 +165,7 @@ main = function(theme_spec,
               panel.grid.major.x = element_line(color="grey50"),
               panel.grid.minor.x = element_line(color="grey50"),
               panel.grid.major.y = element_line(color="grey70"),
-              plot.margin = margin(0,4,0,0,"pt" ))
+              plot.margin = margin(0,6,0,0,"pt" ))
 
     occ_plot = ggplot(data = quant_df %>%
                           filter(nuc_center-50>=-400 &
@@ -189,7 +189,7 @@ main = function(theme_spec,
                              breaks = scales::pretty_breaks(n=3),
                              name = "occupancy",
                              guide=guide_colorbar(title.position="top",
-                                                  barwidth=5, barheight=0.3, title.hjust=0.5)) +
+                                                  barwidth=8, barheight=0.3, title.hjust=0.5)) +
         facet_grid(.~label, labeller = label_parsed) +
         theme_heatmap +
         theme(strip.text.x = element_text(size=10,
@@ -204,7 +204,7 @@ main = function(theme_spec,
               panel.grid.major.x = element_line(color="grey50"),
               panel.grid.minor.x = element_line(color="grey50"),
               panel.grid.major.y = element_line(color="grey70"),
-              plot.margin = margin(0,4,0,0,"pt" ))
+              plot.margin = margin(0,6,0,0,"pt" ))
 
     fig_four_b = plot_grid(netseq_plot, mnase_plot, occ_plot, fuzz_plot, align="h", axis="tb", nrow=1,
                      rel_widths = c(0.2, 1, 0.5, 0.5))

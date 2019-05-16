@@ -55,6 +55,7 @@ main = function(theme_spec,
         # ggtitle("expression level of TSS-seq peaks") +
         theme_default +
         theme(axis.title.x = element_blank(),
+              axis.text.x = element_text(size=10),
               panel.grid.major.x = element_blank(),
               legend.position = "top",
               legend.text = element_text(margin = margin(0,0,0,0,"pt")),

@@ -79,8 +79,9 @@ main = function(theme_spec,
               panel.grid = element_blank(),
               legend.justification = c(0.5, 0.5),
               legend.position = c(0.30, 0.55),
-              legend.key.width= unit(8, "pt"),
-              legend.spacing.x = unit(1, "pt"))
+              legend.key.width= unit(12, "pt"),
+              legend.spacing.x = unit(1, "pt"),
+              plot.margin = margin(0,10,0,0,"pt"))
 
     ggsave(pdf_out,
            plot=tata,
