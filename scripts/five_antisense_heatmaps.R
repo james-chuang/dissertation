@@ -44,7 +44,6 @@ plot_heatmap = function(df, cutoff, colorbar_title, y_title){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 tss_path,
                 netseq_path,
                 rnaseq_path,
@@ -53,9 +52,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     library(cowplot)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     tss_df = import(tss_path)
     rnaseq_df = import(rnaseq_path)
@@ -78,11 +74,11 @@ main = function(theme_spec,
                     plot=plot,
                     width=fig_width,
                     height=fig_height,
-                    units="in")
+                    units="in",
+                    device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      tss_path = snakemake@input[["tssseq_data"]],
      netseq_path = snakemake@input[["netseq_data"]],
      rnaseq_path = snakemake@input[["rnaseq_data"]],

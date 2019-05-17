@@ -12,15 +12,11 @@ import = function(path, sample_list){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 mnase_data,
                 fig_width,
                 fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     sample_list = c("non-depleted-1, non-depleted-2", "non-depleted-3",
                     "depleted-1", "depleted-2", "depleted-3")
@@ -57,7 +53,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      mnase_data = snakemake@input[["mnase_data"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],

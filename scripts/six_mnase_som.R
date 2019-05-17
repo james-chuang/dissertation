@@ -1,13 +1,9 @@
 
 main = function(theme_spec,
-                fonts_path,
                 data_path,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = read_tsv(data_path) %>%
         mutate(group = ordered(group,
@@ -77,7 +73,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      data_path = snakemake@input[["som_data"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],

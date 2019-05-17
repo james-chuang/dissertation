@@ -31,7 +31,6 @@ import = function(df,
 }
 
 main = function(theme_spec,
-                fonts_path,
                 in_genic,
                 in_intra,
                 in_anti,
@@ -41,9 +40,6 @@ main = function(theme_spec,
                 fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = tibble() %>%
         import(in_genic, label_col_id="genic_name", category="genic") %>%
@@ -143,7 +139,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      in_genic = snakemake@input[["in_genic"]],
      in_intra = snakemake@input[["in_intra"]],
      in_anti = snakemake@input[["in_anti"]],

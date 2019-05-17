@@ -1,14 +1,10 @@
 
 main = function(theme_spec = "thesis_theme.R",
-                fonts_path,
                 data_path = "coding-transcripts-nonoverlapping-scaled_RNA-seq-sense.tsv.gz",
                 fig_width = 3,
                 fig_height = 2,
                 pdf_out = "test.pdf"){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = read_tsv(data_path,
                   col_names = c("group",
@@ -76,7 +72,6 @@ main = function(theme_spec = "thesis_theme.R",
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      data_path = snakemake@input[["data_path"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],

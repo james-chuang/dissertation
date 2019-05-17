@@ -23,7 +23,6 @@ import_bed = function(path){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 data_paths,
                 transcript_annotation, orf_annotation,
                 gene_ids,
@@ -32,9 +31,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     library(cowplot)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     annotation = import_bed(transcript_annotation) %>%
         left_join(import_bed(orf_annotation),
@@ -157,7 +153,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      data_paths = snakemake@input[["data_paths"]],
      transcript_annotation = snakemake@input[["transcript_annotation"]],
      orf_annotation = snakemake@input[["orf_annotation"]],

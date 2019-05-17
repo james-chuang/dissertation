@@ -20,7 +20,6 @@ filter_upregulated_promoters = function(tfiib_match_path, fdr_cutoff_tss, polyen
 }
 
 main = function(theme_spec,
-                fonts_path,
                 fdr_cutoff_tss,
                 matched_peaks_genic,
                 matched_peaks_intra,
@@ -29,9 +28,6 @@ main = function(theme_spec,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = filter_upregulated_promoters(matched_peaks_genic,
                                       fdr_cutoff_tss,
@@ -99,7 +95,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      fdr_cutoff_tss = snakemake@params[["fdr_cutoff_tss"]],
      matched_peaks_genic = snakemake@input[["matched_peaks_genic"]],
      matched_peaks_intra = snakemake@input[["matched_peaks_intra"]],

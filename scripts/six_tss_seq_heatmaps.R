@@ -1,6 +1,5 @@
 
 main = function(theme_spec,
-                fonts_path,
                 heatmap_scripts,
                 annotation,
                 sense_tss_data,
@@ -10,9 +9,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     source(heatmap_scripts)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     sample_list = c("WT-37C-1", "WT-37C-2", "spt6-1004-37C-1", "spt6-1004-37C-2")
     cps_dist = 0.3
@@ -48,7 +44,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      heatmap_scripts = snakemake@input[["heatmap_scripts"]],
      annotation = snakemake@input[["annotation"]],
      sense_tss_data = snakemake@input[["tss_sense"]],

@@ -7,7 +7,7 @@ rule five_summary_metagenes:
         spt5_data = FIGURES["five"]["summary_metagenes"]["spt5_data"],
         annotation = FIGURES["five"]["summary_metagenes"]["annotation"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_summary_metagenes.pdf",
     params:
@@ -23,7 +23,7 @@ rule five_rnapii_phosphomark_enrichment:
         data_paths = FIGURES["five"]["rnapii_phosphomark_enrichment"]["data_paths"],
         annotation = FIGURES["five"]["rnapii_phosphomark_enrichment"]["annotation"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_rnapii_phosphomark_enrichment.pdf",
     params:
@@ -39,7 +39,7 @@ rule five_tss_vs_rna:
         tss_data = FIGURES["five"]["tss_vs_rna"]["tss_data"],
         rna_data = FIGURES["five"]["tss_vs_rna"]["rna_data"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_tss_vs_rna.pdf",
     params:
@@ -54,7 +54,7 @@ rule five_rnaseq_metagene:
     input:
         data_path = FIGURES["five"]["rnaseq_metagene"]["data_path"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_rnaseq_metagene.pdf",
     params:
@@ -71,8 +71,8 @@ rule five_rnaseq_heatmaps:
         rnaseq_data = FIGURES["five"]["rnaseq_heatmaps"]["rnaseq_data"],
         annotation = FIGURES["five"]["rnaseq_heatmaps"]["annotation"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
         heatmap_scripts = "scripts/plot_heatmap.R",
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_rnaseq_heatmaps.pdf",
     params:
@@ -86,10 +86,10 @@ rule five_rnaseq_heatmaps:
 rule five_antisense_heatmaps:
     input:
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
         tssseq_data = FIGURES["five"]["antisense_heatmaps"]["tssseq_data"],
         rnaseq_data = FIGURES["five"]["antisense_heatmaps"]["rnaseq_data"],
         netseq_data = FIGURES["five"]["antisense_heatmaps"]["netseq_data"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_antisense_heatmaps.pdf"
     params:
@@ -107,7 +107,7 @@ rule five_tss_diffexp_summary:
         in_anti = FIGURES["five"]["tss_diffexp_summary"]["antisense"],
         in_inter = FIGURES["five"]["tss_diffexp_summary"]["intergenic"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_tss_diffexp_summary.pdf",
     params:
@@ -126,7 +126,7 @@ rule five_tss_expression_levels:
         tss_antisense = FIGURES["five"]["tss_expression_levels"]["tss_antisense"],
         tss_intergenic = FIGURES["five"]["tss_expression_levels"]["tss_intergenic"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_tss_expression_levels.pdf",
     params:
@@ -154,7 +154,7 @@ rule five_meme_motifs:
     input:
         antisense = "figures/five/five_antisense_motif.meme",
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_meme_motifs.pdf",
     params:
@@ -168,8 +168,8 @@ rule five_meme_motifs:
 rule five_mnase_metagene:
     input:
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
         mnase_data = FIGURES["five"]["mnase_metagene"]["mnase_data"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_mnase_metagene.pdf"
     params:
@@ -185,7 +185,7 @@ rule five_antisense_mnase_metagene:
         mnase_data = FIGURES["five"]["antisense_mnase_metagene"]["mnase_data"],
         gc_data = FIGURES["five"]["antisense_mnase_metagene"]["gc_data"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_antisense_mnase_metagene.pdf",
     params:
@@ -201,7 +201,7 @@ rule five_nuc_fuzz:
         wt_mnase_quant = FIGURES["five"]["nuc_fuzz"]["wt_mnase_quant"],
         mut_mnase_quant = FIGURES["five"]["nuc_fuzz"]["mut_mnase_quant"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/five/five_nuc_fuzz.pdf",
     params:

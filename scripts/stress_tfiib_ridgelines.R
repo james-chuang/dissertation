@@ -38,7 +38,6 @@ build_peak_lfc_df = function(genic_results,
 }
 
 main = function(theme_spec,
-                fonts_path,
                 data_path,
                 diamide_genic,
                 diamide_intragenic,
@@ -52,9 +51,6 @@ main = function(theme_spec,
     source(theme_spec)
     library(cowplot)
     library(ggridges)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     annotation_df = tibble()
     annotation_groups = c("DAN", "DA", "DN", "AN", "D", "A", "N")
@@ -221,7 +217,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      data_path = snakemake@input[["data_path"]],
      annotations = snakemake@input[["annotations"]],
      diamide_genic = snakemake@input[["diamide_genic"]],

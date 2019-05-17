@@ -1,5 +1,4 @@
 main = function(theme_spec,
-                fonts_path,
                 genic_path,
                 intra_path,
                 counts_path,
@@ -7,9 +6,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     library(ggrepel)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = read_tsv(genic_path) %>%
         select(tss_name,
@@ -82,7 +78,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      genic_path = snakemake@input[["genic_path"]],
      intra_path = snakemake@input[["intra_path"]],
      counts_path = snakemake@input[["counts_path"]],

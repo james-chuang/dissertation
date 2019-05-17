@@ -5,7 +5,7 @@ rule spt6_western:
         data_path = FIGURES["six"]["spt6_western"]["data_path"],
         blot_path = FIGURES["six"]["spt6_western"]["blot_path"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt"
     output:
         pdf = "figures/six/six_spt6_western.pdf",
     params:
@@ -18,7 +18,7 @@ rule spt6_western:
 
 rule six_gene_diagram:
     input:
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
         theme = config["theme_spec"]
     output:
         pdf = "figures/six/six_gene_diagram.pdf",
@@ -33,8 +33,8 @@ rule six_gene_diagram:
 rule six_aat_assay_comparison:
     input:
         data_path = FIGURES["six"]["aat_assay_comparison"]["data_path"],
-        fonts_path = config["fonts_path"],
-        theme = config["theme_spec"]
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_aat_assay_comparison.pdf",
     params:
@@ -47,12 +47,12 @@ rule six_aat_assay_comparison:
 
 rule six_tss_seq_heatmaps:
     input:
-        fonts_path = config["fonts_path"],
         theme = config["theme_spec"],
         heatmap_scripts = "scripts/plot_heatmap.R",
         annotation = FIGURES["six"]["tss_seq_heatmaps"]["annotation"],
         tss_sense = FIGURES["six"]["tss_seq_heatmaps"]["tss_sense"],
-        tss_antisense = FIGURES["six"]["tss_seq_heatmaps"]["tss_antisense"]
+        tss_antisense = FIGURES["six"]["tss_seq_heatmaps"]["tss_antisense"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_tss_seq_heatmaps.pdf"
     params:
@@ -65,11 +65,11 @@ rule six_tss_seq_heatmaps:
 
 rule six_tfiib_heatmap:
     input:
-        fonts_path = config["fonts_path"],
         theme = config["theme_spec"],
         heatmap_scripts = "scripts/plot_heatmap.R",
         annotation = FIGURES["six"]["tfiib_heatmap"]["annotation"],
         tfiib_data = FIGURES["six"]["tfiib_heatmap"]["tfiib_data"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_tfiib_heatmap.pdf"
     params:
@@ -87,7 +87,7 @@ rule six_tss_diffexp_summary:
         in_anti = FIGURES["six"]["tss_diffexp_summary"]["antisense"],
         in_inter = FIGURES["six"]["tss_diffexp_summary"]["intergenic"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_tss_diffexp_summary.pdf",
     params:
@@ -109,7 +109,7 @@ rule six_tss_expression_levels:
         # tfiib_intragenic = FIGURES["figure_one"]["one_d"]["tfiib_intragenic"],
         # tfiib_intergenic = FIGURES["figure_one"]["one_d"]["tfiib_intergenic"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_tss_expression_levels.pdf",
     params:
@@ -127,7 +127,7 @@ rule intragenic_genes_bvenn:
         uwimana_data = FIGURES["six"]["intragenic_genes_bvenn"]["uwimana_data"],
         tss_data = FIGURES["six"]["intragenic_genes_bvenn"]["tss_data"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_intragenic_genes_bvenn.pdf",
     params:
@@ -142,7 +142,7 @@ rule six_tfiib_spreading_ssa4:
     input:
         tfiib_data = FIGURES["six"]["tfiib_spreading_ssa4"]["tfiib_data"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_tfiib_spreading_ssa4.pdf",
     params:
@@ -159,7 +159,7 @@ rule six_tss_vs_tfiib:
         intragenic = FIGURES["six"]["tss_vs_tfiib"]["intragenic"],
         antisense = FIGURES["six"]["tss_vs_tfiib"]["antisense"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_tss_v_tfiib.pdf",
     params:
@@ -174,7 +174,7 @@ rule six_mnase_metagene:
     input:
         mnase_data = FIGURES["six"]["mnase_metagene"]["mnase_data"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_mnase_metagene.pdf",
     params:
@@ -190,7 +190,7 @@ rule six_global_nuc_occ_fuzz:
         wt_mnase_quant = FIGURES["six"]["global_nuc_occ_fuzz"]["wt_mnase_quant"],
         spt6_mnase_quant = FIGURES["six"]["global_nuc_occ_fuzz"]["spt6_mnase_quant"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_global_nuc_occ_fuzz.pdf",
     params:
@@ -208,7 +208,7 @@ rule six_mnase_heatmaps:
         quant_data = FIGURES["six"]["mnase_heatmaps"]["quant_data"],
         annotation = FIGURES["six"]["mnase_heatmaps"]["annotation"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_mnase_heatmaps.pdf",
     params:
@@ -224,7 +224,7 @@ rule six_mnase_som:
     input:
         som_data = FIGURES["six"]["mnase_som"]["som_data"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_mnase_som.pdf",
     params:
@@ -240,7 +240,7 @@ rule six_intragenic_mnase_metagenes:
         mnase_data = FIGURES["six"]["intragenic_mnase_metagenes"]["mnase_data"],
         gc_data = FIGURES["six"]["intragenic_mnase_metagenes"]["gc_data"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_intragenic_mnase_metagenes.pdf",
     params:
@@ -255,7 +255,7 @@ rule six_tss_seqlogos:
     input:
         data_paths = FIGURES["six"]["tss_seqlogos"]["data_paths"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_tss_seqlogos.pdf",
     params:
@@ -273,7 +273,7 @@ rule six_intragenic_tata:
         tata_anti_path = FIGURES["six"]["intragenic_tata"]["tata_antisense"],
         # tata_random_path = FIGURES["six"]["intragenic_tata"]["tata_random"],
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_intragenic_tata.pdf",
     params:
@@ -305,7 +305,7 @@ rule six_meme_motifs:
         intragenic = "figures/six/six_intragenic_motif.meme",
         antisense = "figures/six/six_antisense_motif.meme",
         theme = config["theme_spec"],
-        fonts_path = config["fonts_path"],
+        fonts = ".fonts_registered.txt",
     output:
         pdf = "figures/six/six_meme_motifs.pdf",
     params:

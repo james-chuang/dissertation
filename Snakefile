@@ -13,6 +13,7 @@ onsuccess:
 
 rule target:
     input:
+        ".fonts_registered.txt",
         "figures/six/six_spt6_western.pdf",
         "figures/six/six_gene_diagram.pdf",
         "figures/six/six_aat_assay_comparison.pdf",
@@ -50,3 +51,13 @@ rule target:
         "figures/stress/stress_promoter_tss_diffexp_summary.pdf",
         "figures/stress/stress_promoter_tss_expression.pdf",
         "figures/stress/stress_promoter_tss_polyenrichment.pdf",
+
+rule register_fonts:
+    input:
+        fonts_path = config["fonts_path"],
+    output:
+        output_path = ".fonts_registered.txt"
+    conda:
+        "envs/plot.yaml"
+    script:
+        "scripts/register_fonts.R"

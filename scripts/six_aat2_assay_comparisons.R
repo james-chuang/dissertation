@@ -1,13 +1,9 @@
 
 main = function(theme_spec,
                 data_path,
-                fonts_path,
                 pdf_out, fig_height, fig_width){
     source(theme_spec)
     library(cowplot)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = read_tsv(data_path,
                   col_names = c('condition', 'sample', 'annotation',
@@ -88,7 +84,6 @@ main = function(theme_spec,
 
 main(theme_spec = snakemake@input[["theme"]],
      data_path = snakemake@input[["data_path"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      pdf_out = snakemake@output[["pdf"]],
      fig_height = snakemake@params[["height"]],
      fig_width = snakemake@params[["width"]])

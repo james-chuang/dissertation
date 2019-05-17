@@ -1,14 +1,10 @@
 
 main = function(theme_spec = "thesis_theme.R",
-                fonts_path,
                 tss_data = "depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv",
                 rna_data = "depleted-v-non-depleted_rnaseq-spikenorm-transcripts-diffexp-results-genic-all.tsv",
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = read_tsv(tss_data) %>%
         inner_join(read_tsv(rna_data),
@@ -75,7 +71,6 @@ main = function(theme_spec = "thesis_theme.R",
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path=snakemake@input[["fonts_path"]],
      tss_data = snakemake@input[["tss_data"]],
      rna_data = snakemake@input[["rna_data"]],
      fig_width = snakemake@params[["width"]],

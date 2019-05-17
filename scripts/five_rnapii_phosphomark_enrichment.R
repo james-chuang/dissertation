@@ -10,16 +10,12 @@ import = function(path){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 data_paths,
                 annotation,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
     library(ggridges)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df=tibble()
     for (path in data_paths){
@@ -115,7 +111,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path=snakemake@input[["fonts_path"]],
      data_paths = snakemake@input[["data_paths"]],
      annotation = snakemake@input[["annotation"]],
      fig_width = snakemake@params[["width"]],

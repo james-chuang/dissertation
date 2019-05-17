@@ -1,6 +1,5 @@
 
 main = function(theme_spec,
-                fonts_path,
                 data_paths,
                 fig_width, fig_height,
                 pdf_out){
@@ -8,9 +7,6 @@ main = function(theme_spec,
     library(ggseqlogo)
     #we don't use ggseqlogo plotting because it doesn't allow prior to be taken into account
     #we just use their dataframes with font information for geom_polygon
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     slop=20
     tss_classes = c('genic', 'intragenic', 'antisense')
@@ -77,12 +73,15 @@ main = function(theme_spec,
               panel.border = element_blank(),
               plot.margin = margin(1,0,0,0,"pt"))
 
-    ggsave(pdf_out, plot=fig_five_c, width=fig_width, height=fig_height, units="in")
-    embed_fonts(pdf_out)
+    ggsave(pdf_out,
+           plot=fig_five_c,
+           width=fig_width,
+           height=fig_height,
+           units="in",
+           device=cairo_pdf)
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      data_paths = snakemake@input[["data_paths"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],

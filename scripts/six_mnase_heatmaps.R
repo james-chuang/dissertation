@@ -1,14 +1,10 @@
 
 main = function(theme_spec,
-                fonts_path,
                 netseq_data, mnase_data, quant_data, annotation_path,
                 fig_width, fig_height, assay,
                 pdf_out){
     source(theme_spec)
     library(cowplot)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     sample_ids = c("WT-37C-1", "spt6-1004-37C-1", "spt6-1004-37C-2")
     max_length = 1
@@ -218,7 +214,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      netseq_data = snakemake@input[["netseq_data"]],
      mnase_data = snakemake@input[["mnase_data"]],
      quant_data = snakemake@input[["quant_data"]],

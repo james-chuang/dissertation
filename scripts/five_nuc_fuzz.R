@@ -9,15 +9,11 @@ import = function(path, group){
 
 
 main = function(theme_spec = "thesis_theme.R",
-                fonts_path,
                 wt_mnase_quant = "nucleosome_quantification_data_non-depleted.Fnor.smooth.positions.xls",
                 mut_mnase_quant = "nucleosome_quantification_data_depleted.Fnor.smooth.positions.xls",
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = import(wt_mnase_quant, group="non-depleted") %>%
         bind_rows(import(mut_mnase_quant, group="depleted")) %>%
@@ -63,7 +59,6 @@ main = function(theme_spec = "thesis_theme.R",
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      wt_mnase_quant = snakemake@input[["wt_mnase_quant"]],
      mut_mnase_quant = snakemake@input[["mut_mnase_quant"]],
      fig_width = snakemake@params[["width"]],

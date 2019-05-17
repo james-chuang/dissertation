@@ -1,15 +1,11 @@
 
 main = function(theme_spec,
-                fonts_path,
                 tfiib_data,
                 fig_width,
                 fig_height,
                 pdf_out){
     source(theme_spec)
     library(ggforce)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     sample_list = c("WT-37C-1", "WT-37C-2", "spt6-1004-37C-1", "spt6-1004-37C-2")
 
@@ -94,7 +90,6 @@ main = function(theme_spec,
 
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      tfiib_data = snakemake@input[["tfiib_data"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],

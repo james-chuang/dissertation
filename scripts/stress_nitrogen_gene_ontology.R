@@ -1,13 +1,9 @@
 main = function(theme_spec = "thesis_theme.R",
-                fonts_path,
                 nitrogen_ontology_path = "nitrogen-v-SC_tfiib-chipnexus-libsizenorm-genic-up-gene-ontology-results.tsv",
                 fig_width,
                 fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     nitrogen_ontology = read_tsv(nitrogen_ontology_path) %>%
         mutate_at(vars(over_represented_pvalue,
@@ -64,7 +60,6 @@ main = function(theme_spec = "thesis_theme.R",
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      nitrogen_ontology_path = snakemake@input[["nitrogen_ontology"]],
      fig_width = snakemake@params[["width"]],
      fig_height = snakemake@params[["height"]],

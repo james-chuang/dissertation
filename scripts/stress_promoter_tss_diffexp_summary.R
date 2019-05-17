@@ -10,7 +10,6 @@ import = function(path, fdr_cutoff_tss, category_id){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 fdr_cutoff_tss,
                 genic_path,
                 intra_path,
@@ -19,9 +18,6 @@ main = function(theme_spec,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = import(path=genic_path, fdr_cutoff_tss=fdr_cutoff_tss, category_id="genic") %>%
         bind_rows(import(path=intra_path, fdr_cutoff_tss=fdr_cutoff_tss, category_id="intragenic")) %>%
@@ -142,7 +138,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      fdr_cutoff_tss = snakemake@params[["fdr_cutoff_tss"]],
      genic_path = snakemake@input[["genic_path"]],
      intra_path = snakemake@input[["intra_path"]],

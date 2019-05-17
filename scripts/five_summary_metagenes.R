@@ -19,7 +19,6 @@ import = function(path,
 }
 
 main = function(theme_spec,
-                fonts_path,
                 spt5_data,
                 netseq_data,
                 rnapii_data,
@@ -27,9 +26,6 @@ main = function(theme_spec,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     sample_list = c("non-depleted-1", "non-depleted-2", "depleted-1", "depleted-2")
 
@@ -84,7 +80,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path=snakemake@input[["fonts_path"]],
      spt5_data = snakemake@input[["spt5_data"]],
      netseq_data = snakemake@input[["netseq_data"]],
      rnapii_data = snakemake@input[["rnapii_data"]],

@@ -5,6 +5,7 @@
 *.nav
 *.snm
 *.xdv
+.fonts_registered.txt
 .snakemake/
 figures/
 Rplots.pdf

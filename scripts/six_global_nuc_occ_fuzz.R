@@ -9,16 +9,12 @@ import = function(path, group){
 
 
 main = function(theme_spec,
-                fonts_path,
                 wt_mnase_quant,
                 spt6_mnase_quant,
                 annotation,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = import(wt_mnase_quant, group="WT") %>%
         bind_rows(import(spt6_mnase_quant, group="spt6-1004")) %>%
@@ -80,7 +76,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      wt_mnase_quant = snakemake@input[["wt_mnase_quant"]],
      spt6_mnase_quant = snakemake@input[["spt6_mnase_quant"]],
      fig_width = snakemake@params[["width"]],

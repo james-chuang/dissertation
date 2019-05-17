@@ -13,7 +13,6 @@ import = function(path, annotation_id){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 tata_genic_path,
                 tata_intra_path,
                 tata_anti_path,
@@ -22,9 +21,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     library(broom)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = tata_anti_path %>%
         import(annotation_id = "antisense") %>%
@@ -92,7 +88,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      tata_genic_path = snakemake@input[["tata_genic_path"]],
      tata_intra_path = snakemake@input[["tata_intra_path"]],
      tata_anti_path = snakemake@input[["tata_anti_path"]],

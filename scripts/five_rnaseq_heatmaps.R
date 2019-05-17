@@ -1,15 +1,11 @@
 
 main = function(theme_spec,
-                fonts_path,
                 heatmap_scripts,
                 rnaseq_data, annotation,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
     source(heatmap_scripts)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     sample_list = c("non-depleted-1", "non-depleted-2", "depleted-1", "depleted-2")
 
@@ -33,7 +29,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      heatmap_scripts = snakemake@input[["heatmap_scripts"]],
      rnaseq_data = snakemake@input[["rnaseq_data"]],
      annotation = snakemake@input[["annotation"]],

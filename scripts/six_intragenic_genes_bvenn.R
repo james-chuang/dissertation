@@ -71,7 +71,6 @@ bvenn = function(lists, scale=1, title){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 common_names,
                 cheung_path,
                 uwimana_path,
@@ -81,9 +80,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     library(ggforce)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     sys_to_common = read_tsv(common_names,
                              col_names=c("sys_name","common_name"))
@@ -134,7 +130,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      common_names = snakemake@input[["common_names"]],
      cheung_path = snakemake@input[["cheung_data"]],
      uwimana_path = snakemake@input[["uwimana_data"]],

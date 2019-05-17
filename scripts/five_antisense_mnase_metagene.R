@@ -25,7 +25,22 @@ import = function(path,
 metagene = function(df,
                     assay,
                     ylabel=""){
-    plot = ggplot() +
+    plot = ggplot()
+    if (assay != "GC%"){
+        plot = plot +
+            annotate(geom="segment",
+                    x=0,
+                    xend=0.17,
+                    y=0.09,
+                    yend=0.09,
+                    arrow=arrow(length=unit(0.05, "npc"),
+                                type="closed"),
+                    color="grey70",
+                    size=1,
+                    linejoin="mitre")
+
+        }
+    plot = plot +
         geom_vline(xintercept=0,
                    size=0.4,
                    color="grey70") +
@@ -89,16 +104,12 @@ metagene = function(df,
 }
 
 main = function(theme_spec,
-                fonts_path,
                 mnase_data,
                 gc_data,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
     library(cowplot)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     mnase_df = import(mnase_data)
     gc_df = import(gc_data) %>%
@@ -120,7 +131,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts"]],
      mnase_data = snakemake@input[["mnase_data"]],
      gc_data = snakemake@input[["gc_data"]],
      fig_width = snakemake@params[["width"]],

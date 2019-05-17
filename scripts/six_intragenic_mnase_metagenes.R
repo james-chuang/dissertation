@@ -89,7 +89,6 @@ metagene = function(df,
 }
 
 main = function(theme_spec,
-                fonts_path,
                 mnase_data,
                 gc_data,
                 # rnapii_data, spt6_data,
@@ -97,9 +96,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     library(cowplot)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     mnase_df = import(mnase_data)
     # rnapii_df = import(rnapii_data, normalize=TRUE)
@@ -126,7 +122,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts"]],
      mnase_data = snakemake@input[["mnase_data"]],
      # rnapii_data = snakemake@input[["rnapii_data"]],
      # spt6_data = snakemake@input[["spt6_data"]],

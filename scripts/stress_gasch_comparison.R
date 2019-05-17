@@ -62,7 +62,6 @@ plot_scatter = function(df, xtitle, ytitle){
 }
 
 main = function(theme_spec = "thesis_theme.R",
-                fonts_path,
                 gasch_one_path = "gasch00_fig1data_cleaned.tsv",
                 gasch_three_path = "gasch00_fig3data_cleaned.tsv",
                 tfiib_diamide_path = "diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv",
@@ -73,9 +72,6 @@ main = function(theme_spec = "thesis_theme.R",
                 pdf_out){
     source(theme_spec)
     library(cowplot)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     gasch_one = import_gasch(gasch_one_path)
     gasch_three = import_gasch(gasch_three_path)
@@ -116,7 +112,6 @@ main = function(theme_spec = "thesis_theme.R",
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      gasch_one_path = snakemake@input[["gasch_one"]],
      gasch_three_path = snakemake@input[["gasch_three"]],
      tfiib_diamide_path = snakemake@input[["tfiib_diamide"]],

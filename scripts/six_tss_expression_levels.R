@@ -8,15 +8,11 @@ import = function(df, path, category){
 }
 
 main = function(theme_spec,
-                fonts_path,
                 tss_genic, tss_intragenic, tss_antisense, tss_intergenic,
                 # tfiib_genic, tfiib_intragenic, tfiib_intergenic,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     tss_df = tibble() %>%
         import(tss_genic, "genic") %>%
@@ -118,7 +114,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path= snakemake@input[["fonts_path"]],
      tss_genic = snakemake@input[["tss_genic"]],
      tss_intragenic = snakemake@input[["tss_intragenic"]],
      tss_antisense = snakemake@input[["tss_antisense"]],

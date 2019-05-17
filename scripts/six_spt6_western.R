@@ -1,6 +1,5 @@
 
 main = function(theme_spec,
-                fonts_path,
                 data_path,
                 blot_path,
                 fig_width,
@@ -8,9 +7,6 @@ main = function(theme_spec,
                 pdf_out){
     source(theme_spec)
     library(png)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = read_tsv(data_path) %>%
         select(1,2,3,4,5,18,19,20,21,22) %>%
@@ -129,7 +125,6 @@ main = function(theme_spec,
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      data_path = snakemake@input[["data_path"]],
      blot_path = snakemake@input[["blot_path"]],
      fig_width = snakemake@params[["width"]],

@@ -113,16 +113,12 @@ motif_plot = function(df,
 }
 
 main = function(theme_spec,
-                fonts_path,
                 intragenic_path,
                 antisense_path,
                 fig_width, fig_height,
                 pdf_out){
     source(theme_spec)
     library(universalmotif)
-
-    ttf_import(fonts_path)
-    loadfonts()
 
     df = parse_motifs(antisense_path,
                  category_id="antisense") %>%
@@ -188,7 +184,6 @@ get_motif_metadata = function(meme_path){
 }
 
 main(theme_spec = snakemake@input[["theme"]],
-     fonts_path = snakemake@input[["fonts_path"]],
      intragenic_path = snakemake@input[["intragenic"]],
      antisense_path = snakemake@input[["antisense"]],
      fig_width = snakemake@params[["width"]],
