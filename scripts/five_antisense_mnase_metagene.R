@@ -18,7 +18,10 @@ import = function(path,
                   high = quantile(signal, 0.75)) %>%
         ungroup() %>%
         mutate(group = ordered(group,
-                               levels=c("non-depleted", "depleted"))) %>%
+                               levels=c("non-depleted", "depleted")),
+               anno_labeled = ordered(anno_labeled,
+                                      levels=c("non-depleted genic\n(4801 TSSs)",
+                                               "antisense\n(932 TSSs)"))) %>%
         return()
 }
 
@@ -74,7 +77,7 @@ metagene = function(df,
               axis.title.y = element_text(hjust=0.5),
               panel.spacing.x = unit(10, "pt"),
               panel.grid = element_blank(),
-              plot.margin = margin(0.5,2,0,0,"pt"))
+              plot.margin = margin(0.5,2,4,0,"pt"))
     if (assay != "GC%"){
         plot = plot +
             geom_label(data = df %>%

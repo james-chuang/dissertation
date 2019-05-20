@@ -30,10 +30,10 @@ plot_scatter = function(df, xtitle, ytitle){
                     color="grey70") +
         stat_bin_hex(geom="point",
                      aes(color=..count..),
-                     binwidth=c(0.13, 0.13),
-                     size=0.3,
+                     binwidth=c(0.12, 0.12),
+                     size=0.7,
                      shape=16,
-                     alpha=0.8) +
+                     alpha=0.7) +
         annotate(geom="label",
                  x=min(df[["gasch_lfc"]], na.rm=TRUE),
                  y=max(df[["tfiib_lfc"]], na.rm=TRUE),
@@ -52,9 +52,10 @@ plot_scatter = function(df, xtitle, ytitle){
                            name=xtitle) +
         scale_y_continuous(breaks=scales::pretty_breaks(n=4),
                            name=ytitle) +
-        scale_color_viridis() +
+        scale_color_viridis(option="inferno") +
         theme_default +
-        theme(legend.position="none")
+        theme(legend.position="none",
+              axis.title.x=element_text(hjust=1))
         # theme(legend.position="none",
         #       axis.title.y=element_text(angle=0,
         #                                 vjust=0.5))

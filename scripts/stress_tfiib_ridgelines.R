@@ -140,7 +140,7 @@ main = function(theme_spec,
                            expand = c(0, 0.05),
                            breaks = scales::pretty_breaks(n=3)) +
         scale_y_reverse(expand = c(0,0),
-                        name = "TFIIB ChIP-nexus protection",
+                        name = "relative TFIIB ChIP-nexus protection",
                         position = "right") +
         coord_cartesian(clip="off") +
         theme_heatmap +
@@ -198,7 +198,7 @@ main = function(theme_spec,
         coord_cartesian(clip="off") +
         theme_heatmap +
         theme(plot.margin = margin(r=-0.05, unit="cm"),
-              axis.text.x.top = element_text(angle=15, vjust=0, hjust=0,
+              axis.text.x.top = element_text(angle=25, vjust=0, hjust=0,
                                              margin = margin(b=5, unit="pt")),
               axis.title.x = element_text(size=10, color="black"),
               axis.title.y = element_blank())

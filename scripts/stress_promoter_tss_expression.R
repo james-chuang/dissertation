@@ -36,14 +36,14 @@ main = function(theme_spec,
                          yend=y,
                          color=category),
                         alpha=0.4,
-                        size=0.3) +
+                        size=0.7) +
         geom_point(data = df,
                    aes(x=rlog_counts_mean,
                        y=y,
                        color=category),
                    shape=16,
                    alpha=0.95,
-                   size=0.4) +
+                   size=1.2) +
         geom_label(data = df %>%
                        filter(category=="intragenic"),
                    aes(x=rlog_counts_mean-rlog_counts_sd-0.1,
@@ -54,12 +54,13 @@ main = function(theme_spec,
                   label.r = unit(0, "pt"),
                   label.padding = unit(1, "pt"),
                   label.size = NA,
-                  family="FreeSans") +
+                  family="FreeSans",
+                  fontface="italic") +
         scale_y_continuous(name="percentile",
                            expand = c(0,0.03),
                            breaks = scales::pretty_breaks(n=3),
                            labels = function(x) 100*x) +
-        scale_x_continuous(name=expression("log"[2] * "(normalized counts), regularized"),
+        scale_x_continuous(name=expression("log"[2] * "(normalized counts)"),
                            breaks = scales::pretty_breaks(n=4)) +
         ggtitle("TSS expression levels in oxidative stress",
                 subtitle = "oxidative stress-induced promoters") +

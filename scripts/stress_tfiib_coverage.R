@@ -71,7 +71,7 @@ main = function(theme_spec,
                      fill="grey80") +
         geom_text(aes(x=(orf_start+orf_end)/2,
                       label=paste0("italic(\"", gene_id, "\")")),
-                  y=0, size=10/72*25.4, parse=TRUE,
+                  y=0, size=9/72*25.4, parse=TRUE,
                   family="FreeSans") +
         scale_x_continuous(expand = c(0,0)) +
         scale_y_continuous(limits = c(-1.5, 1.5), expand=c(0,0)) +
@@ -107,7 +107,12 @@ main = function(theme_spec,
 
     coverage_plot = ggplot(data = df,
            aes(x=position, y=signal)) +
-        geom_area(size=0.3, fill="#114477", color="#114477", alpha=0.9) +
+        geom_area(size=0.3,
+                  # fill="#114477",
+                  # color="#114477",
+                  fill = viridis(1),
+                  color = viridis(1),
+                  alpha=0.9) +
         facet_grid(group ~ gene,
                    scales="free_x",
                    space="free_x",
@@ -120,16 +125,18 @@ main = function(theme_spec,
                            expand = c(0,0)) +
         scale_y_continuous(expand = c(0,0),
                            breaks = scales::pretty_breaks(n=1),
-                           sec.axis = dup_axis(name = "relative signal")) +
+                           sec.axis = dup_axis(name = "relative TFIIB ChIP-nexus protection")) +
         theme_default +
         theme(strip.placement = "outside",
               strip.text = element_text(),
               strip.text.x = element_blank(),
               strip.text.y = element_text(angle=-180, hjust=1, vjust=0.5),
+              panel.spacing.y = unit(8, "pt"),
               axis.title.x = element_blank(),
               axis.title.y.left = element_blank(),
               axis.line.y.right = element_blank(),
               axis.ticks.y.right = element_blank(),
+              axis.text.x = element_text(size=10),
               axis.text.y = element_text(size=8),
               axis.text.y.right = element_blank(),
               panel.border = element_blank(),

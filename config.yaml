@@ -184,14 +184,14 @@ figures:
             tfiib_diamide: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             tfiib_aminoacid: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/genic/SD-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             width: 3
-            height: 4.2
+            height: 4.8
         nitrogen_gene_ontology:
             data: ../../intragenic/chipnexus-tfiib-custom-analysis/gene_ontology/nitrogen-v-SC/libsizenorm/genic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-genic-up-gene-ontology-results.tsv
             width: 4
             height: 2.5
         tfiib_ridgelines:
             width: 8.25
-            height: 4.4
+            height: 4.75
             data_path: /n/groups/winston/jc459/intragenic/chipnexus-tfiib/datavis/genes-with-stress-induced-intra-peaks/libsizenorm/genes-with-stress-induced-intra-peaks-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
             diamide_genic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             diamide_intragenic: /n/groups/winston/jc459/intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/intragenic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv
@@ -255,6 +255,12 @@ figures:
                 #         - ../../intragenic/stress-data-integration/browser-shots/HEM15-nitrogen/HEM15-nitrogen_TFIIB-ChIP-nexus-protection.tsv.gz
                 #     upstream: 250
                 #     downstream: 0
+        genic_vs_intra:
+            diamide: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic_v_intragenic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-genic-v-intragenic.tsv
+            aminoacid: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/genic_v_intragenic/SD-v-SC_tfiib-chipnexus-libsizenorm-genic-v-intragenic.tsv
+            nitrogen: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/nitrogen-v-SC/libsizenorm/genic_v_intragenic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-genic-v-intragenic.tsv
+            width: 4
+            height: 3
         promoter_tss_diffexp_summary:
             genic_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
             intra_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
@@ -275,3 +281,20 @@ figures:
             polyenrichment_intra: ../../intragenic/polysome-diamide-tss-comparison/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-diffexp-results-with-polysome-enrichment-intragenic.tsv
             height: 4
             width: 6
+        dsk2_summary:
+            mnase_chip_paths: ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_h3k4me3-chipseq-reduced.tsv.gz
+            tss_path: ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_TSSseq.tsv.gz
+            tfiib_path: ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_TFIIBnexus.tsv.gz
+            tfiib_diffbind_path: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/intragenic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv
+            transcript_annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs.bed
+            orf_annotation: ../../intragenic/genome/annotations/Scer_nondubious_ORFs_and_blocked_reading_frames-adjustedATG.bed
+            dsk2_pace_annotation: ../../intragenic/genome/annotations/DSK2_PACE_core_sites.bed
+            gene_ids: "DSK2"
+            up_distances: 350
+            down_distances: 0
+            modification: "h3k4me3"
+            refpointlabel: "genic TSS"
+            trim_pct: 0.1
+            x_label_dist: 1
+            width: 6
+            height: 3.5

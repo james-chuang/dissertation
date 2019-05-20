@@ -17,113 +17,122 @@
 
 ASE1 \citep{mcknight2014}.
 KAR4 \citep{gammie1999}.
+CIK1 \citep{benanti2009}.
 ASP3 \citep{huang2010}.
 
 \clearpage
 
 \section{Discovery of stress-induced intragenic promoters by TFIIB ChIP-nexus and TSS-seq}
 
-\begin{wrapfigure}[18]{r}{3in}
+\begin{wrapfigure}[20]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/stress/stress_gasch_comparison.pdf}
     \caption[Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal, for oxidative and amino acid stresses.]{Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal from \citet{gasch2000}, for oxidative and amino acid stresses. The Pearson correlation coefficient is shown for each comparison.}
     \label{fig:stress_gasch_comparison}
 \end{wrapfigure}
-To discover cases of stress-induced intragenic transcription initiation, we performed ChIP-nexus of TFIIB in wild-type yeast in conditions of oxidative stress, amino acid stress, and nitrogen stress, along with controls of growth in rich YPD medium and defined SC medium.
-The genic TFIIB response to each of the stresses either correlated well with the expected transcriptomic response to the stress (Figure \ref{fig:stress_gasch_comparison}), or was enriched for metabolic pathways consistent with the cellular response to the stress (Figure \ref{fig:stress_nitrogen_gene_ontology}), indicating that TFIIB ChIP-nexus is able to 
-We identified 140 intragenic TFIIB peaks significantly induced at least 1.5-fold in at least one stress condition, with some peaks being induced in more than one stress (Figure \ref{fig:stress_tfiib_ridgelines}).
+To discover cases of stress-induced intragenic transcription initiation, we performed ChIP-nexus of TFIIB for wild-type yeast under conditions of oxidative stress, amino acid stress, and nitrogen stress, along with controls of growth in rich YPD medium and defined SC medium.
+The genic TFIIB response to each of the stresses either correlates well with the expected transcriptomic response to the stress (Figure \ref{fig:stress_gasch_comparison}), or is enriched for metabolic pathways consistent with the cellular response to the stress (Figure \ref{fig:stress_nitrogen_gene_ontology}), confirming that TFIIB ChIP-nexus captures changes in transcription initiation and that the cells were stressed as intended.
+In total, we identify 140 intragenic TFIIB peaks significantly induced at least 1.5-fold in at least one stress condition, with some peaks being induced in more than one stress (Figures \ref{fig:stress_tfiib_coverage}, \ref{fig:stress_tfiib_ridgelines}).
+We also observe a slight negative correlation between stress-induced changes in intragenic TFIIB signal and changes in the corresponding genic TFIIB signal (Figure \ref{fig:stress_genic_vs_intra}).
 \begin{figure}[h]
     \centering
     \includegraphics[width=4in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
-    \caption[Gene ontology terms enriched in genes with upregulated genic TFIIB peaks in nitrogen stress.]{Gene ontology terms enriched in genes with significantly upregulated genic TFIIB peaks in nitrogen stress.}
+    \caption[Gene ontology terms enriched in genes with nitrogen-stress-induced genic TFIIB peaks]{Gene ontology terms enriched in genes with nitrogen-stress-induced genic TFIIB peaks.}
     \label{fig:stress_nitrogen_gene_ontology}
 \end{figure}
 
+\begin{figure}[h]
+    \includegraphics[width=6in]{figures/stress/stress_tfiib_coverage.pdf}
+    \label{fig:stress_tfiib_coverage}
+    \caption[TFIIB ChIP-nexus protection over four genes with stress-induced intragenic TFIIB peaks.]{Relative TFIIB ChIP-nexus protection over four genes with an intragenic TFIIB peak significantly induced in one or more of the stress conditions.}
+\end{figure}
 
-%k \begin{tabular}{l | l | l}
-%                         & condition                 & control \\ \hline
-%     oxidative stress    & 45 minutes in rich medium (YPD) + 1mM diamide & rich medium (YPD) \\
-%     amino acid stress   & 30 minutes in defined medium lacking amino acids and adenine & defined medium (SC) \\
-%     nitrogen stress     & 8 hours in defined medium lacking amino acids and adenine and with limiting concentrations of 
-% \end{tabular}
-
-
-
-% \begin{figure}
 \begin{sidewaysfigure}
     \includegraphics[width=8.25in]{figures/stress/stress_tfiib_ridgelines.pdf}
     \caption[TFIIB ChIP-nexus protection over all genes with stress-induced intragenic TFIIB peaks.]{Relative TFIIB ChIP-nexus protection over all genes with an intragenic TFIIB peak significantly induced in one or more of the stress conditions tested, as depicted in the left panel. Genes are aligned by start codon, and are sorted within each group by the distance from the start codon to the summit of the induced intragenic TFIIB peak. Data are shown for each gene up to the stop codon of the gene. Regions where TFIIB peaks are called are shaded in the stress conditions according to the fold-change of the peak relative to the corresponding control condition.}
     \label{fig:stress_tfiib_ridgelines}
 \end{sidewaysfigure}
 
-\begin{figure}
-\includegraphics[width=6in]{figures/stress/stress_tfiib_coverage.pdf}
-\label{fig:stress_tfiib_coverage}
-\caption[TFIIB ChIP-nexus protection over four genes with stress-induced intragenic TFIIB peaks.]{Caption asdflkj asldkfjlkj.}
+\begin{figure}[h]
+    \includegraphics[width=4in]{figures/stress/stress_genic_vs_intra.pdf}
+    \label{fig:stress_genic_vs_intra}
+    \caption[Scatterplot of change in intragenic versus genic TFIIB ChIP-nexus signal, for all pairs of intragenic and genic TFIIB peaks in the three stress conditions.]{Scatterplot comparing change in intragenic TFIIB ChIP-nexus signal to the change in genic TFIIB signal at the same gene, for all pairs of intragenic and genic TFIIB peaks in the three stress conditions. Error bars indicate $\pm$ 1 standard error, and the Pearson correlation coefficient is shown.}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=3in]{figures/stress/stress_promoter_tss_diffexp_summary.pdf}
-\caption[Bar plot of the number of promoters from various genomic classes differentially expressed in oxidative stress.]{Caption dsafklj asldkfjlkj.}
-\label{fig:stress_promoter_tss_diffexp_summary}
+Because the greatest changes to intragenic transcription initiation were detected in oxidative stress, we focused on this condition and performed TSS-seq to determine which intragenic initiation events produce stable RNAs and in which strand orientation these events occur.
+Considering only TSS peaks with a TFIIB peak overlapping the window extending 200 base pairs upstream of the TSS summit, we find cases of both sense intragenic and antisense TSSs that are differentially expressed in oxidative stress (Figure \ref{fig:stress_promoter_tss_diffexp_summary}).
+In general, intragenic TSSs are expressed at lower levels than genic TSSs: Among oxidative-stress-induced TSSs, the most abundant intragenic TSS in oxidative stress is present at levels comparable to the 54\textsuperscript{th} percentile of genic TSS abundances (Figure \ref{fig:stress_promoter_tss_expression}).
+
+\begin{figure}[h]
+    \includegraphics[width=3in]{figures/stress/stress_promoter_tss_diffexp_summary.pdf}
+    \caption[Bar plot of the number of promoters in various genomic classes differentially expressed in oxidative stress.]{Bar plot of the number of promoters in various genomic classes differentially expressed in oxidative stress.}
+    \label{fig:stress_promoter_tss_diffexp_summary}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-\caption[TSS-seq expression levels in oxidative stress of oxidative-stress-induced genic and intragenic promoters.]{Caption dsafklj zzzz.}
-\label{fig:stress_promoter_tss_diffexp_summary}
+\begin{figure}[h]
+    \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
+    \caption[TSS-seq expression levels in oxidative stress of oxidative-stress-induced genic and intragenic promoters.]{Cumulative distributions of TSS-seq expression levels in oxidative stress, for all genic and intragenic promoters significantly induced in oxidative stress. Error bars indicate $\pm$ one standard deviation.}
+    \label{fig:stress_promoter_tss_expression}
 \end{figure}
 
-\section{Chromatin landscape of oxidative-stress-induced promoters.}
+\clearpage
 
-\lipsum[1]
+% \section{Chromatin landscape of oxidative-stress-induced promoters.}
 
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-\caption[A figure showing TSS-seq, TFIIB ChIP-nexus, and MNase-ChIP-seq for the oxidative-stress-induced promoters.]{Caption dsafklj .}
-% \label{fig:stress_promoter_tss_diffexp_summary}
-\end{figure}
+% \lipsum[1]
+
+% \begin{figure}
+% % \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
+% \caption[A figure showing TSS-seq, TFIIB ChIP-nexus, and MNase-ChIP-seq for the oxidative-stress-induced promoters.]{Caption dsafklj .}
+% % \label{fig:stress_promoter_tss_diffexp_summary}
+% \end{figure}
 
 \section{Polysome enrichment of oxidative-stress-induced intragenic transcripts}
 
-\lipsum[1]
+Translation of a transcript requires that the transcript possesses both a 5$^\prime$-cap and a poly-A tail.
+Since the TSS-seq protocol enriches for both of these features, this implies that the oxidative-stress-dependent intragenic transcripts we detect by TSS-seq could potentially be translated.
+For sense strand intragenic transcripts, this could generate N-terminally-truncated protein isoforms.
+To see whether oxidative-stress-dependent intragenic transcripts are actually translated, we performed sucrose gradient fractionation, isolated the RNA associated with the polysome fraction, and sequenced TSS-seq libraries of the polysome-associated RNA.
+Among oxidative-stress-induced TSSs with corresponding TFIIB peaks, intragenic TSSs in oxidative stress are less enriched in the polysome fraction when compared to genic TSSs (Figure \ref{fig:stress_promoter_tss_polyenrichment}).
+However, during oxidative stress, half of the oxidative-stress-induced intragenic TSSs are present in polysomes at levels greater than the 25\textsuperscript{th} percentile of oxidative-stress-induced genic TSSs, indicating that many of the intragenic transcripts are translated at some level.
 
-\begin{figure}
-\includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-\caption[Polysome enrichment in oxidative stress, for oxidative-stress-induced genic and intragenic promoters.]{Caption wsdasdr zzzz.}
-\label{fig:stress_promoter_tss_polyenrichment}
-\end{figure}
-
-\section{TSS-seq analysis of oxidative stress in \textit{Saccharomyces sensu stricto} species}
-
-\lipsum[1]
-
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-\caption[A figure showing TSS-seq coverage over oxidative-stress-induced TSSs in the three species.]{Caption dsafklj .}
-% \label{fig:stress_promoter_tss_diffexp_summary}
-\end{figure}
-
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-\caption[A figure showing TSS-seq coverage over DSK2 in the three species, possibly with the corresponding northern blot.]{Caption dsafklj .}
-% \label{fig:stress_promoter_tss_diffexp_summary}
+\begin{figure}[h]
+    \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
+    \caption[Relative polysome enrichment in oxidative stress, for oxidative-stress-induced genic and intragenic promoters.]{Relative polysome enrichment in oxidative stress, for oxidative-stress-induced genic and intragenic promoters. Error bars indicate $\pm$ one standard error.}
+    \label{fig:stress_promoter_tss_polyenrichment}
 \end{figure}
 
 \section{Functions of intragenic DSK2 expression in oxidative stress}
 
 \lipsum[1]
 
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-\caption[A figure showing TSS-seq, TFIIB ChIP-nexus, and MNase-ChIP-seq at DSK2.]{Caption dsafklj .}
-% \label{fig:stress_promoter_tss_diffexp_summary}
+\begin{figure}[h]
+    \includegraphics[width=6in]{figures/stress/stress_dsk2_summary.pdf}
+    \caption[A figure showing TSS-seq, TFIIB ChIP-nexus, and MNase-ChIP-seq at DSK2.]{Caption dsafklj .}
+    \label{fig:stress_dsk2_summary}
 \end{figure}
 
 \begin{figure}
 % \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
 \caption[A figure showing DSK2 fitness competition results.]{Caption dsafklj .}
 % \label{fig:stress_promoter_tss_diffexp_summary}
+\end{figure}
+
+
+\section{TSS-seq analysis of oxidative stress in \textit{Saccharomyces sensu stricto} species}
+
+\lipsum[1]
+
+\begin{figure}
+    % \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
+    \caption[A figure showing TSS-seq coverage over oxidative-stress-induced TSSs in the three species.]{Caption dsafklj .}
+    % \label{fig:stress_promoter_tss_diffexp_summary}
+\end{figure}
+
+\begin{figure}
+    % \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
+    \caption[A figure showing TSS-seq coverage over DSK2 in the three species, possibly with the corresponding northern blot.]{Caption dsafklj .}
+    % \label{fig:stress_promoter_tss_diffexp_summary}
 \end{figure}
 
 \section{Discussion}

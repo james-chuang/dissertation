@@ -75,6 +75,23 @@ rule tfiib_coverage:
     script:
         "../scripts/stress_tfiib_coverage.R"
 
+rule genic_vs_intra:
+    input:
+        diamide = FIGURES["stress"]["genic_vs_intra"]["diamide"],
+        aminoacid = FIGURES["stress"]["genic_vs_intra"]["aminoacid"],
+        nitrogen = FIGURES["stress"]["genic_vs_intra"]["nitrogen"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/stress/stress_genic_vs_intra.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["genic_vs_intra"]["width"])),
+        height = eval(str(FIGURES["stress"]["genic_vs_intra"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_genic_vs_intra.R"
+
 rule promoter_tss_diffexp_summary:
     input:
         genic_path = FIGURES["stress"]["promoter_tss_diffexp_summary"]["genic_path"],
@@ -129,5 +146,33 @@ rule promoter_tss_polyenrichment:
         "../envs/plot.yaml"
     script:
         "../scripts/stress_promoter_tss_polyenrichment.R"
+
+rule dsk2_summary:
+    input:
+        mnase_chip_paths = FIGURES["stress"]["dsk2_summary"]["mnase_chip_paths"],
+        tss_path = FIGURES["stress"]["dsk2_summary"]["tss_path"],
+        tfiib_path = FIGURES["stress"]["dsk2_summary"]["tfiib_path"],
+        tfiib_diffbind_path = FIGURES["stress"]["dsk2_summary"]["tfiib_diffbind_path"],
+        transcript_annotation = FIGURES["stress"]["dsk2_summary"]["transcript_annotation"],
+        orf_annotation = FIGURES["stress"]["dsk2_summary"]["orf_annotation"],
+        dsk2_pace_annotation = FIGURES["stress"]["dsk2_summary"]["dsk2_pace_annotation"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/stress/stress_dsk2_summary.pdf",
+    params:
+        gene_ids = FIGURES["stress"]["dsk2_summary"]["gene_ids"],
+        up_distances = FIGURES["stress"]["dsk2_summary"]["up_distances"],
+        down_distances = FIGURES["stress"]["dsk2_summary"]["down_distances"],
+        modification = FIGURES["stress"]["dsk2_summary"]["modification"],
+        refpointlabel = FIGURES["stress"]["dsk2_summary"]["refpointlabel"],
+        trim_pct = FIGURES["stress"]["dsk2_summary"]["trim_pct"],
+        x_label_dist = FIGURES["stress"]["dsk2_summary"]["x_label_dist"],
+        width = eval(str(FIGURES["stress"]["dsk2_summary"]["width"])),
+        height = eval(str(FIGURES["stress"]["dsk2_summary"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_dsk2_summary.R"
 
 

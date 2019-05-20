@@ -52,14 +52,14 @@ main = function(theme_spec,
                          yend=y,
                          color=category),
                         alpha=0.4,
-                        size=0.3) +
+                        size=0.7) +
         geom_point(data = df,
                    aes(x=condition_polyenrichment,
                        y=y,
                        color=category),
                    shape=16,
                    alpha=0.95,
-                   size=0.4) +
+                   size=1.2) +
         geom_label(data = df %>%
                        filter(category=="intragenic"),
                    aes(x=condition_polyenrichment-condition_polyenrichment_SE-0.1,
@@ -70,14 +70,16 @@ main = function(theme_spec,
                   label.r = unit(0, "pt"),
                   label.padding = unit(1, "pt"),
                   label.size = NA,
-                  family="FreeSans") +
+                  family="FreeSans",
+                  fontface="italic") +
         scale_y_continuous(name="percentile",
-                           expand = c(0,0.02),
+                           expand = c(0,0.03),
                            breaks = scales::pretty_breaks(n=3),
                            labels = function(x) 100*x) +
-        scale_x_continuous(name=expression("polysome enrichment" %==%
+        scale_x_continuous(name=expression("relative polysome enrichment" %==%
                                                "log"[2] ~ textstyle(frac("polysome RNA",
-                                                                       "total RNA")))) +
+                                                                       "total RNA"))),
+                           expand=c(.06,0)) +
         ggtitle("polysome enrichment in oxidative stress",
                 subtitle = "oxidative stress-induced TSSs") +
         scale_color_tableau() +

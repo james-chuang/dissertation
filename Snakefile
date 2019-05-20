@@ -48,9 +48,11 @@ rule target:
         "figures/stress/stress_nitrogen_gene_ontology.pdf",
         "figures/stress/stress_tfiib_ridgelines.pdf",
         "figures/stress/stress_tfiib_coverage.pdf",
+        "figures/stress/stress_genic_vs_intra.pdf",
         "figures/stress/stress_promoter_tss_diffexp_summary.pdf",
         "figures/stress/stress_promoter_tss_expression.pdf",
         "figures/stress/stress_promoter_tss_polyenrichment.pdf",
+        "figures/stress/stress_dsk2_summary.pdf",
 
 rule register_fonts:
     input:
