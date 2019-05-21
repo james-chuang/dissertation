@@ -8,9 +8,9 @@ main = function(theme_spec,
                          y=0.46,
                          gp=gpar(fontsize=10,
                                  fontfamily="FreeSans"))
-    orf_box = roundrectGrob(x=0.58, y=0.45, width=0.55, height=0.23,
-                            r = unit(0.3, "snpc"),
-                            gp = gpar(fill="white"))
+    # orf_box = roundrectGrob(x=0.58, y=0.45, width=0.55, height=0.23,
+    #                         r = unit(0.3, "snpc"),
+    #                         gp = gpar(fill="white"))
     orf_box = polygonGrob(x=c(0.305,
                               (0.855-0.305)*0.93+0.305,
                               0.855,

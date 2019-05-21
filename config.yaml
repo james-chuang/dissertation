@@ -298,3 +298,25 @@ figures:
             x_label_dist: 1
             width: 6
             height: 3.5
+        diamide_fitnesscomp:
+            data_path: ../../intragenic/stress-small-data/fitness-competitions/datavis/2018_11_07/2018_11_07_cell_counts.tsv
+            width: 6
+            height: 2.75
+        dsk2_interyeast:
+            transcripts_scer: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs.bed
+            transcripts_smik: ../../intragenic/genome/annotations/s_mikatae/Smik_codingtranscripts-adjustedTSS.bed
+            transcripts_sbay: ../../intragenic/genome/annotations/s_bayanus_var_uvarum/Sbay_codingtranscripts-adjustedTSS.bed
+            orfs_scer: ../../intragenic/genome/annotations/Scer_nondubious_ORFs_and_blocked_reading_frames-adjustedATG.bed
+            orfs_smik: ../../intragenic/genome/annotations/s_mikatae/Smik_ORFs_3-adjustedATG.bed
+            orfs_sbay: ../../intragenic/genome/annotations/s_bayanus_var_uvarum/Sbay_ORFs_3-adjustedATG.bed
+            pace_scer: ../../intragenic/genome/annotations/DSK2_PACE_core_sites.bed
+            pace_smik: ../../intragenic/genome/annotations/s_mikatae/Smik_DSK2_PACE_core_sites.bed
+            pace_sbay: ../../intragenic/genome/annotations/s_bayanus_var_uvarum/Sbay_DSK2_PACE_core_sites.bed
+            peak_scer: ../../intragenic/tss-seq/diff_exp/peaks/diamide-v-YPD/spikenorm/intragenic/diamide-v-YPD_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
+            peak_smik: ../../intragenic/sequence_translation/annotation_translation/Scer-diamide-induced-TSS-Smik-coords.tsv
+            peak_sbay: ../../intragenic/sequence_translation/annotation_translation/Scer-diamide-induced-TSS-Sbay-coords.tsv
+            tss_scer: ../../intragenic/stress-data-integration/browser-shots/DSK2-diamide/DSK2-diamide_TSS-seq-sense.tsv.gz
+            tss_smik: ../../intragenic/smik-tss-seq/datavis/DSK2/spikenorm/DSK2-allsamples-allannotations-tss-seq-spikenorm-SENSE.tsv.gz
+            tss_sbay: ../../intragenic/sbay-tss-seq/datavis/DSK2/spikenorm/DSK2-allsamples-allannotations-tss-seq-spikenorm-SENSE.tsv.gz
+            width: 6
+            height: 3.5

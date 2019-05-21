@@ -3,7 +3,11 @@
 
 \section{Abstract}
 
-\lipsum[1]
+Spt5 is a conserved transcription elongation factor important for the processivity of the transcription complex, and many transcription-related processes.
+To study the requirement for Spt5 \textit{in vivo}, we have applied multiple genomic assays to \textit{Schizosaccharomyces pombe} cells depleted of Spt5.
+Our results reveal an accumulation of RNA Pol II over the 5$^\prime$ ends of genes upon Spt5 depletion, and a progressive decrease in transcript abundance towards the 3$^\prime$ ends of genes.
+This is consistent with a model in which Spt5 depletion causes Pol II elongation defects and increases early termination.
+We also unexpectedly discover that Spt5 depletion causes hundreds of antisense transcripts to be expressed across the genome, primarily initiating from within the first 500 base pairs of genes.
 
 \section{Collaborators}
 
@@ -138,7 +142,7 @@ Interestingly, the most significant motif found by \textit{de novo} motif discov
     \begin{minipage}[t]{2.875in}
         \centering
         \includegraphics[width=2.875in]{figures/five/five_tss_diffexp_summary.pdf}
-        \caption[Bar plot of the number of TSS-seq peaks in various genomic classes differentially expressed in Spt5-depleted versus non-depleted cells.]{Bar plot of the number of TSS-seq peaks differentially expressed in Spt5-depleted versus non-depleted cells. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
+        \caption[Bar plot of the number of TSS-seq peaks in various genomic classes detected as differentially expressed in Spt5-depleted versus non-depleted cells.]{Bar plot of the number of TSS-seq peaks detected as differentially expressed in Spt5-depleted versus non-depleted cells. The height of each bar is proportional to the total number of peaks in the category, including those not found to be significantly differentially expressed.}
         \label{fig:five_tss_diffexp_summary}
     \end{minipage}\hfill
     \begin{minipage}[t]{2.875in}
@@ -186,8 +190,7 @@ However, it is possible that the increased fuzziness in nucleosome positions upo
 We are also unable to rule out a wholesale decrease in nucleosome occupancy after Spt5 depletion, again due to the lack of a spike-in control.
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/five/five_antisense_mnase_metagene.pdf}
-    \caption[Average MNase-seq dyad signal and GC content in Spt5-depleted and non-depleted cells, flanking all antisense TSSs upregulated in Spt5-depleted cells (right panels), as well as all genic TSSs detected in non-depleted cells (left panels).]{
-        Average MNase-seq dyad signal and GC content of DNA for Spt5-depletion-induced antisense TSSs, as well as all genic TSSs detected in non-depleted cells. The solid line and shading are the median and inter-quartile range of the mean library-size normalized dyad coverage, over two (non-depleted) or three (depleted) replicates, in non-overlapping 10 bp bins.
+    \caption[Average MNase-seq dyad signal and GC content in Spt5-depleted and non-depleted cells, flanking all antisense TSSs upregulated in Spt5-depleted cells, as well as all genic TSSs detected in non-depleted cells.]{Average MNase-seq dyad signal and GC content of DNA for Spt5-depletion-induced antisense TSSs (left panels), as well as all genic TSSs detected in non-depleted cells (right panels). The solid line and shading are the median and inter-quartile range of the mean library-size normalized dyad coverage, over two (non-depleted) or three (depleted) replicates, in non-overlapping 10 bp bins.
 }
     \label{fig:five_antisense_mnase_metagene}
 \end{figure}

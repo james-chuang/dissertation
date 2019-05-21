@@ -175,4 +175,47 @@ rule dsk2_summary:
     script:
         "../scripts/stress_dsk2_summary.R"
 
+rule diamide_fitnesscomp:
+    input:
+        data_path = FIGURES["stress"]["diamide_fitnesscomp"]["data_path"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/stress/stress_diamide_fitnesscomp.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["diamide_fitnesscomp"]["width"])),
+        height = eval(str(FIGURES["stress"]["diamide_fitnesscomp"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_diamide_fitnesscomp.R"
+
+rule dsk2_interyeast:
+    input:
+        transcripts_scer = FIGURES["stress"]["dsk2_interyeast"]["transcripts_scer"],
+        transcripts_smik = FIGURES["stress"]["dsk2_interyeast"]["transcripts_smik"],
+        transcripts_sbay = FIGURES["stress"]["dsk2_interyeast"]["transcripts_sbay"],
+        orfs_scer = FIGURES["stress"]["dsk2_interyeast"]["orfs_scer"],
+        orfs_smik = FIGURES["stress"]["dsk2_interyeast"]["orfs_smik"],
+        orfs_sbay = FIGURES["stress"]["dsk2_interyeast"]["orfs_sbay"],
+        pace_scer = FIGURES["stress"]["dsk2_interyeast"]["pace_scer"],
+        pace_smik = FIGURES["stress"]["dsk2_interyeast"]["pace_smik"],
+        pace_sbay = FIGURES["stress"]["dsk2_interyeast"]["pace_sbay"],
+        peak_scer = FIGURES["stress"]["dsk2_interyeast"]["peak_scer"],
+        peak_smik = FIGURES["stress"]["dsk2_interyeast"]["peak_smik"],
+        peak_sbay = FIGURES["stress"]["dsk2_interyeast"]["peak_sbay"],
+        tss_scer = FIGURES["stress"]["dsk2_interyeast"]["tss_scer"],
+        tss_smik = FIGURES["stress"]["dsk2_interyeast"]["tss_smik"],
+        tss_sbay = FIGURES["stress"]["dsk2_interyeast"]["tss_sbay"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/stress/stress_dsk2_interyeast.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["dsk2_interyeast"]["width"])),
+        height = eval(str(FIGURES["stress"]["dsk2_interyeast"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_dsk2_interyeast.R"
 

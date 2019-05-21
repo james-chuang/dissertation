@@ -133,7 +133,7 @@ main = function(theme_spec,
                                             name = "smoothed MNase dyads,\nTFIIB protection,\nand sense TSS-seq",
                                             breaks = NULL),
                         expand = c(0,0),
-                        name = "minutes in\ndiamide") +
+                        name = "minutes in\noxidative\nstress") +
         scale_x_continuous(expand = c(0,0),
                            breaks = scales::pretty_breaks(n=3),
                            labels = function(x) case_when(x==0 ~ refpointlabel,

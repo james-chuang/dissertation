@@ -3,7 +3,10 @@
 
 \section{Abstract}
 
-\lipsum[1]
+Intragenic transcription opens up interesting possibilities for gene regulation in wild-type cells, and individual cases of intragenic transcription have previously been shown to be important for different biological processes.
+To discover uncharacterized instances of intragenic transcription, we applied high resolution genomic assays of transcription initiation to wild-type \textit{Saccharomyces cerevisiae} cells in three stress conditions.
+Focusing on the condition of oxidative stress, we characterize the expression and chromatin state of oxidative-stress-induced intragenic transcripts, and show that many of these transcripts are likely translated.
+Finally, we show that the expression of an oxidative-stress-induced intragenic transcript at the gene \textit{DSK2} is needed for survival in conditions of oxidative stress.
 
 \section{Collaborators}
 
@@ -30,10 +33,12 @@ ASP3 \citep{huang2010}.
     \caption[Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal, for oxidative and amino acid stresses.]{Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal from \citet{gasch2000}, for oxidative and amino acid stresses. The Pearson correlation coefficient is shown for each comparison.}
     \label{fig:stress_gasch_comparison}
 \end{wrapfigure}
+
 To discover cases of stress-induced intragenic transcription initiation, we performed ChIP-nexus of TFIIB for wild-type yeast under conditions of oxidative stress, amino acid stress, and nitrogen stress, along with controls of growth in rich YPD medium and defined SC medium.
 The genic TFIIB response to each of the stresses either correlates well with the expected transcriptomic response to the stress (Figure \ref{fig:stress_gasch_comparison}), or is enriched for metabolic pathways consistent with the cellular response to the stress (Figure \ref{fig:stress_nitrogen_gene_ontology}), confirming that TFIIB ChIP-nexus captures changes in transcription initiation and that the cells were stressed as intended.
 In total, we identify 140 intragenic TFIIB peaks significantly induced at least 1.5-fold in at least one stress condition, with some peaks being induced in more than one stress (Figures \ref{fig:stress_tfiib_coverage}, \ref{fig:stress_tfiib_ridgelines}).
 We also observe a slight negative correlation between stress-induced changes in intragenic TFIIB signal and changes in the corresponding genic TFIIB signal (Figure \ref{fig:stress_genic_vs_intra}).
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=4in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
@@ -65,7 +70,7 @@ In general, intragenic TSSs are expressed at lower levels than genic TSSs: Among
 
 \begin{figure}[h]
     \includegraphics[width=3in]{figures/stress/stress_promoter_tss_diffexp_summary.pdf}
-    \caption[Bar plot of the number of promoters in various genomic classes differentially expressed in oxidative stress.]{Bar plot of the number of promoters in various genomic classes differentially expressed in oxidative stress.}
+    \caption[Bar plot of the number of promoters in various genomic classes detected as differentially expressed in oxidative stress.]{Bar plot of the number of promoters in various genomic classes detected as differentially expressed in oxidative stress.}
     \label{fig:stress_promoter_tss_diffexp_summary}
 \end{figure}
 
@@ -89,12 +94,12 @@ In general, intragenic TSSs are expressed at lower levels than genic TSSs: Among
 
 \section{Polysome enrichment of oxidative-stress-induced intragenic transcripts}
 
-Translation of a transcript requires that the transcript possesses both a 5$^\prime$-cap and a poly-A tail.
+Translation of a transcript requires that the transcript possess both a 5$^\prime$-cap and a poly-A tail.
 Since the TSS-seq protocol enriches for both of these features, this implies that the oxidative-stress-dependent intragenic transcripts we detect by TSS-seq could potentially be translated.
 For sense strand intragenic transcripts, this could generate N-terminally-truncated protein isoforms.
-To see whether oxidative-stress-dependent intragenic transcripts are actually translated, we performed sucrose gradient fractionation, isolated the RNA associated with the polysome fraction, and sequenced TSS-seq libraries of the polysome-associated RNA.
-Among oxidative-stress-induced TSSs with corresponding TFIIB peaks, intragenic TSSs in oxidative stress are less enriched in the polysome fraction when compared to genic TSSs (Figure \ref{fig:stress_promoter_tss_polyenrichment}).
-However, during oxidative stress, half of the oxidative-stress-induced intragenic TSSs are present in polysomes at levels greater than the 25\textsuperscript{th} percentile of oxidative-stress-induced genic TSSs, indicating that many of the intragenic transcripts are translated at some level.
+To see how likely oxidative-stress-dependent intragenic transcripts are to be targets for translation, we performed sucrose gradient fractionation, isolated the RNA from the fractions containing polysomes, and sequenced TSS-seq libraries of the polysome-associated RNA.
+Among oxidative-stress-induced TSSs with corresponding TFIIB peaks, intragenic TSSs in oxidative stress are less somewhat less enriched in the polysome fraction compared to genic TSSs (Figure \ref{fig:stress_promoter_tss_polyenrichment}).
+However, half of the oxidative-stress-induced intragenic TSSs are found in polysomes during oxidative stress at levels greater than that of the 25\textsuperscript{th} percentile of oxidative-stress-induced genic TSSs, indicating that many of the intragenic transcripts we identify are translated at some level.
 
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
@@ -104,20 +109,23 @@ However, during oxidative stress, half of the oxidative-stress-induced intrageni
 
 \section{Functions of intragenic DSK2 expression in oxidative stress}
 
-\lipsum[1]
-
+To investigate a particular case of oxidative-stress-induced intragenic transcription in more depth, we focused on the gene \textit{DSK2}, which is associated with the intragenic TSS we found to be most significantly induced upon oxidative stress.
+The major \textit{DSK2} intragenic TSS is associated with a TFIIB peak that is similarly induced in oxidative stress (Figure \ref{fig:stress_dsk2_summary}), and the intragenic transcript is also found in polysomes at intermediate levels (Figure \ref{fig:stress_promoter_tss_polyenrichment}).
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_dsk2_summary.pdf}
-    \caption[A figure showing TSS-seq, TFIIB ChIP-nexus, and MNase-ChIP-seq at DSK2.]{Caption dsafklj .}
+    \caption[Sense TSS-seq signal, TFIIB ChIP-nexus protection, and MNase-ChIP-seq data at the \textit{DSK2} gene, over an oxidative stress timecourse.]{Sense TSS-seq signal (purple), TFIIB ChIP-nexus protection (grey), smoothed MNase-seq dyad signal, and relative H3K4me3 MNase-ChIP-seq enrichment over the gene \textit{DSK2}, over a timecourse of oxidative stress. MNase-seq and MNase-ChIP-seq data are from \citet{weiner2015}. The shaded bars on the \textit{DSK2} ORF indicate PACE-core elements on the sense (darker) or antisense (lighter) strands, which are potential binding sites for the transcription factor Rpn4 \citep{shirozu2015}. The lightly shaded region of the background indicates the boundaries of the intragenic TFIIB peak.}
     \label{fig:stress_dsk2_summary}
 \end{figure}
 
-\begin{figure}
-% \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-\caption[A figure showing DSK2 fitness competition results.]{Caption dsafklj .}
-% \label{fig:stress_promoter_tss_diffexp_summary}
-\end{figure}
+Dsk2 is a member of a family of partially redundant ubiquitin receptors that shuttle polyubiquitinated proteins to the proteasome for degradation.
+Upon inspection of the \textit{DSK2} DNA sequence, we discovered multiple PACE-core sequences within the \textit{DSK2} coding sequence, which are potential binding sites for the proteasome transcription factor Rpn4 \citep{shirozu2015}.
+By making silent mutations to three PACE-core elements occurring just upstream of the \textit{DSK2} intragenic TFIIB peak (the more darkly shaded sense strand PACE-core elements in Figure \ref{fig:stress_dsk2_summary}, two of which are adjacent to each other), we generated a strain named \textit{dsk2-pace} in which intragenic \textit{DSK2} expression is eliminated.
 
+\begin{figure}
+    \includegraphics[width=6in]{figures/stress/stress_diamide_fitnesscomp.pdf}
+    \caption[Percentage of \textit{dsk2-pace} cells over two days of competitive growth against wild-type \textit{DSK2} cells at various concentrations of diamide.]{Percentage of \textit{dsk2-pace} cells over two days of competitive growth against wild-type \textit{DSK2} cells at various concentrations of diamide. The lines and shading are the mean $\pm$ one standard deviation of six replicates: Three in which \textit{dsk2-pace} and \textit{DSK2} cells are respectively marked by expression of mCherry and YFP, and three in which the fluorophores are swapped between strains.}
+    \label{fig:stress_diamide_fitnesscomp}
+\end{figure}
 
 \section{TSS-seq analysis of oxidative stress in \textit{Saccharomyces sensu stricto} species}
 
@@ -130,9 +138,9 @@ However, during oxidative stress, half of the oxidative-stress-induced intrageni
 \end{figure}
 
 \begin{figure}
-    % \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-    \caption[A figure showing TSS-seq coverage over DSK2 in the three species, possibly with the corresponding northern blot.]{Caption dsafklj .}
-    % \label{fig:stress_promoter_tss_diffexp_summary}
+    \includegraphics[width=6in]{figures/stress/stress_dsk2_interyeast.pdf}
+    \caption[Sense TSS-seq signal over the \textit{DSK2} gene in \textit{Saccharomyces cerevisiae, mikatae, and uvarum} in unstressed and oxidative stress conditions.]{Relative sense TSS-seq signal over the \textit{DSK2} gene in \textit{Saccharomyces cerevisiae, mikatae, and uvarum} in unstressed and oxidative stress conditions. The shaded bars on the \textit{DSK2} gene diagrams indicate PACE-core elements on the sense (darker) or antisense (lighter) strands. The lightly shaded regions in the background indicate the boundaries of regions homologous to the two \textit{DSK2} intragenic TSS-seq peaks called in \textit{S. cerevisiae}, for each species.}
+    \label{fig:stress_dsk2_interyeast}
 \end{figure}
 
 \section{Discussion}
