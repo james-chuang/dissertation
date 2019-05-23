@@ -53,6 +53,7 @@ rule target:
         "figures/stress/stress_promoter_tss_expression.pdf",
         "figures/stress/stress_promoter_tss_polyenrichment.pdf",
         "figures/stress/stress_dsk2_summary.pdf",
+        "figures/stress/stress_dsk2_pace_northern.pdf",
         "figures/stress/stress_diamide_fitnesscomp.pdf",
         "figures/stress/stress_dsk2_interyeast.pdf",
 

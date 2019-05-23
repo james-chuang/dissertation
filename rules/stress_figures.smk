@@ -175,6 +175,21 @@ rule dsk2_summary:
     script:
         "../scripts/stress_dsk2_summary.R"
 
+rule dsk2_pace_northern:
+    input:
+        dsk_blot = FIGURES["stress"]["dsk2_pace_northern"]["dsk_blot"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/stress/stress_dsk2_pace_northern.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["dsk2_pace_northern"]["width"])),
+        height = eval(str(FIGURES["stress"]["dsk2_pace_northern"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_dsk2_pace_northern.R"
+
 rule diamide_fitnesscomp:
     input:
         data_path = FIGURES["stress"]["diamide_fitnesscomp"]["data_path"],

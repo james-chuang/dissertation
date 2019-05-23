@@ -12,16 +12,41 @@ Finally, we show that the expression of an oxidative-stress-induced intragenic t
 
 \begin{description}[align=right, labelwidth=5cm, noitemsep, leftmargin=!]
     \item [Steve Doris] generated TSS-seq and ChIP-nexus libraries
-    \item [Dan Spatt] polyribosome fractionation, fitness competitions,\\and other experiments
-    \item [James Warner] fitness competitions and other experiments
+    \item [Dan Spatt] polyribosome fractionation and competitive growth assays
+    \item [James Warner] Northern blots and competitive growth assays
 \end{description}
 
-\section{Possible functions for intragenic transcription in wild-type cells}
+\section{Functions of intragenic transcription in wild-type cells}
 
-ASE1 \citep{mcknight2014}.
-KAR4 \citep{gammie1999}.
-CIK1 \citep{benanti2009}.
-ASP3 \citep{huang2010}.
+In chapters \ref{chapter:six} and \ref{chapter:five}, we presented examples in which mutation of certain transcription elongation factors leads to the expression of intragenic transcripts, i.e., transcripts initiating from within gene bodies.
+This implies that wild-type cells have evolved to prevent the occurrence of spurious intragenic transcription.
+Despite this, our studies and others \citep{malabat2015, pelechano2013} consistently detect some instances of intragenic transcription in wild-type cells, some of which could have biological functions.
+% Intragenic transcription overlaps genic transcription, by definition, making it plausible that the function of an instance of intragenic transcription could be to regulate genic expression, in addition to possible functions that are independent of genic transcription.
+
+One mechanism by which intragenic transcription can exert a function is by being translated into a functional polypeptide or protein.
+Translation of a sense strand intragenic transcript is likely to lead to production of an N-terminally truncated protein, which may differ from the full-length protein in stability, subcellular localization, or function due to the absence of domains normally found in the full-length protein \citep{benanti2009, gammie1999, mcknight2014}.
+N-terminally truncated proteins can even exert dominant negative effects: Under DNA replication stress, intragenic transcription of the \textit{S. cerevisiae} mitotic spindle microtubule bundling gene \textit{Ase1} leads to the expression of an Ase1 protein lacking an N-terminal dimerization domain \citep{mcknight2014}.
+The intragenic Ase1 protein still possesses the normal C-terminal microtubule-binding domain, and evidence suggests that by binding microtubules but not dimerizing, intragenic Ase1 antagonizes the function of full-length Ase1.
+This interaction is important for the cellular response to replicative stress.
+
+In other cases, the process of intragenic transcription may be functionally important, rather than the product of intragenic transcription.
+As transcription occurs, co-transcriptional processses including chromatin remodeling and histone modification also take place via the recruitment of various factors to the transcription complex.
+These factors are often recruited in a manner dependent on the stage of transcription, which results in stereotypic patterns of chromatin state over transcribed regions.
+For example, in \textit{S. cerevisiae}, the Set1 complex responsible for methylation of histone H3 lysine 4 (H3K4) is recruited to Pol II specifically during early elongation, resulting in a pattern where H3K4 trimethylation (H3K4me3) is primarily found over the first 500 base pairs of transcribed regions.
+Since intragenic transcribed regions overlap genic transcribed regions, intragenic transcription has the potential to generate unususal patterns of nucleosome positioning and histone modification over a gene, which may influence expression from the genic promoter.
+This occurs at the \textit{S. cerevisiae} asparagine catabolic gene \textit{ASP3}, where intragenic transcription is necessary for wild-type levels of H3K4me3 over the 5$^\prime$-end of the gene and full induction of the gene upon nitrogen stress \citep{huang2010}.
+
+RNAi.
+R-loops.
+Transcription interference.
+No function.
+
+Linking transcript to function.
+
+% ASE1 \citep{mcknight2014}.
+% KAR4 \citep{gammie1999}.
+% CIK1 \citep{benanti2009}.
+% ASP3 \citep{huang2010}.
 
 \clearpage
 
@@ -48,9 +73,11 @@ We also observe a slight negative correlation between stress-induced changes in 
 
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_tfiib_coverage.pdf}
-    \label{fig:stress_tfiib_coverage}
     \caption[TFIIB ChIP-nexus protection over four genes with stress-induced intragenic TFIIB peaks.]{Relative TFIIB ChIP-nexus protection over four genes with an intragenic TFIIB peak significantly induced in one or more of the stress conditions.}
+    \label{fig:stress_tfiib_coverage}
 \end{figure}
+
+\clearpage
 
 \begin{sidewaysfigure}
     \includegraphics[width=8.25in]{figures/stress/stress_tfiib_ridgelines.pdf}
@@ -58,10 +85,12 @@ We also observe a slight negative correlation between stress-induced changes in 
     \label{fig:stress_tfiib_ridgelines}
 \end{sidewaysfigure}
 
+\clearpage
+
 \begin{figure}[h]
     \includegraphics[width=4in]{figures/stress/stress_genic_vs_intra.pdf}
-    \label{fig:stress_genic_vs_intra}
     \caption[Scatterplot of change in intragenic versus genic TFIIB ChIP-nexus signal, for all pairs of intragenic and genic TFIIB peaks in the three stress conditions.]{Scatterplot comparing change in intragenic TFIIB ChIP-nexus signal to the change in genic TFIIB signal at the same gene, for all pairs of intragenic and genic TFIIB peaks in the three stress conditions. Error bars indicate $\pm$ 1 standard error, and the Pearson correlation coefficient is shown.}
+    \label{fig:stress_genic_vs_intra}
 \end{figure}
 
 Because the greatest changes to intragenic transcription initiation were detected in oxidative stress, we focused on this condition and performed TSS-seq to determine which intragenic initiation events produce stable RNAs and in which strand orientation these events occur.
@@ -81,16 +110,6 @@ In general, intragenic TSSs are expressed at lower levels than genic TSSs: Among
 \end{figure}
 
 \clearpage
-
-% \section{Chromatin landscape of oxidative-stress-induced promoters.}
-
-% \lipsum[1]
-
-% \begin{figure}
-% % \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
-% \caption[A figure showing TSS-seq, TFIIB ChIP-nexus, and MNase-ChIP-seq for the oxidative-stress-induced promoters.]{Caption dsafklj .}
-% % \label{fig:stress_promoter_tss_diffexp_summary}
-% \end{figure}
 
 \section{Polysome enrichment of oxidative-stress-induced intragenic transcripts}
 
@@ -116,6 +135,13 @@ The major \textit{DSK2} intragenic TSS is associated with a TFIIB peak that is s
     \caption[Sense TSS-seq signal, TFIIB ChIP-nexus protection, and MNase-ChIP-seq data at the \textit{DSK2} gene, over an oxidative stress timecourse.]{Sense TSS-seq signal (purple), TFIIB ChIP-nexus protection (grey), smoothed MNase-seq dyad signal, and relative H3K4me3 MNase-ChIP-seq enrichment over the gene \textit{DSK2}, over a timecourse of oxidative stress. MNase-seq and MNase-ChIP-seq data are from \citet{weiner2015}. The shaded bars on the \textit{DSK2} ORF indicate PACE-core elements on the sense (darker) or antisense (lighter) strands, which are potential binding sites for the transcription factor Rpn4 \citep{shirozu2015}. The lightly shaded region of the background indicates the boundaries of the intragenic TFIIB peak.}
     \label{fig:stress_dsk2_summary}
 \end{figure}
+
+\begin{wrapfigure}[10]{r}{3in}
+    \centering
+    \includegraphics[width=3in]{figures/stress/stress_dsk2_pace_northern.pdf}
+    \caption[Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress.]{Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress induced by addition of diamide to the media.}
+    \label{fig:stress_dsk2_pace_northern}
+\end{wrapfigure}
 
 Dsk2 is a member of a family of partially redundant ubiquitin receptors that shuttle polyubiquitinated proteins to the proteasome for degradation.
 Upon inspection of the \textit{DSK2} DNA sequence, we discovered multiple PACE-core sequences within the \textit{DSK2} coding sequence, which are potential binding sites for the proteasome transcription factor Rpn4 \citep{shirozu2015}.

@@ -281,6 +281,31 @@ figures:
             polyenrichment_intra: ../../intragenic/polysome-diamide-tss-comparison/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-diffexp-results-with-polysome-enrichment-intragenic.tsv
             height: 4
             width: 6
+        diamide_summary:
+            data_paths:
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RFS1/RFS1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/MMF1/MMF1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PUP3/PUP3_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ARA1/ARA1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ASE1/ASE1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/BNA3/BNA3_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/CCS1/CCS1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/CTL1/CTL1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/DBP2/DBP2_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ECM15/ECM15_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ERV29/ERV29_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/FPR2/FPR2_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/GRX2/GRX2_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/HUT1/HUT1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PDI1/PDI1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PRE8/PRE8_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RDL1/RDL1_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RRT8/RRT8_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/SEC24/SEC24_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/TAD2/TAD2_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/YER187W/YER187W_h3k36me3-chipseq-reduced.tsv.gz
+                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/YER187W/YER187W_h3k36me3-chipseq-reduced.tsv.gz
         dsk2_summary:
             mnase_chip_paths: ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_h3k4me3-chipseq-reduced.tsv.gz
             tss_path: ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_TSSseq.tsv.gz
@@ -298,6 +323,10 @@ figures:
             x_label_dist: 1
             width: 6
             height: 3.5
+        dsk2_pace_northern:
+            dsk_blot: ../../intragenic/stress-small-data/northern-blots/JLW_20190509 DSK2-[Phosphor]_rotated.jpg
+            width: 3
+            height: 1.5
         diamide_fitnesscomp:
             data_path: ../../intragenic/stress-small-data/fitness-competitions/datavis/2018_11_07/2018_11_07_cell_counts.tsv
             width: 6
