@@ -386,6 +386,7 @@ The frequency of motif occurrences in the regions of interest was compared to th
 \textit{De novo} motif discovery for the regions around TSSs was performed by running MEME-ChIP \citep{machanick2011} on the DNA sequence -100 to +30 nucleotides from the TSS summits of the \hyperref[subsubsec:tss_peak_classification]{genomic classes} of TSSs \hyperref[subsubsec:tss_differential_expression]{significantly upregulated} in \textit{spt6-1004} versus wild-type.
 
 \subsection{ChIP-nexus data analysis}
+\label{subsec:chipnexus}
 An up-to-date version of the Snakemake \citep{koster2012} workflow used to process ChIP-nexus libraries is maintained at \href{https://github.com/winston-lab/chip-nexus}{github.com/winston-lab/chip-nexus}.
 At the time of writing, filtering for reads containing the constant region of the adapter on the 5$^\prime$ end of the read, 3$^\prime$ adapter removal, and 3$^\prime$ quality trimming were performed using cutadapt \citep{martin2011}.
 The random pentamer molecular barcode on the 5$^\prime$ end of the read was then removed and processed using a custom Python script modified from \citet{mayer2015}.

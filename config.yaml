@@ -331,6 +331,11 @@ figures:
             data_path: ../../intragenic/stress-small-data/fitness-competitions/datavis/2018_11_07/2018_11_07_cell_counts.tsv
             width: 6
             height: 2.75
+        interyeast_intragenic:
+            mikatae: ../../intragenic/interyeast-tss-seq-comparison/intersections/scer_intragenic_peaks-v-smik.tsv
+            uvarum: ../../intragenic/interyeast-tss-seq-comparison/intersections/scer_intragenic_peaks-v-sbay.tsv
+            width: 6
+            height: 2
         dsk2_interyeast:
             transcripts_scer: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs.bed
             transcripts_smik: ../../intragenic/genome/annotations/s_mikatae/Smik_codingtranscripts-adjustedTSS.bed

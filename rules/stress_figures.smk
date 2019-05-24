@@ -205,6 +205,22 @@ rule diamide_fitnesscomp:
     script:
         "../scripts/stress_diamide_fitnesscomp.R"
 
+rule interyeast_intragenic:
+    input:
+        mikatae = FIGURES["stress"]["interyeast_intragenic"]["mikatae"],
+        uvarum = FIGURES["stress"]["interyeast_intragenic"]["uvarum"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/stress/stress_interyeast_intragenic.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["interyeast_intragenic"]["width"])),
+        height = eval(str(FIGURES["stress"]["interyeast_intragenic"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_interyeast_intragenic.R"
+
 rule dsk2_interyeast:
     input:
         transcripts_scer = FIGURES["stress"]["dsk2_interyeast"]["transcripts_scer"],
