@@ -4,8 +4,8 @@
 \section{Abstract}
 
 Intragenic transcription opens up interesting possibilities for gene regulation in wild-type cells, and individual cases of intragenic transcription have previously been shown to be important for different biological processes.
-To discover uncharacterized instances of intragenic transcription, we applied high resolution genomic assays of transcription initiation to wild-type \textit{Saccharomyces cerevisiae} cells in three stress conditions.
-Focusing on the condition of oxidative stress, we characterize the expression and chromatin state of oxidative-stress-induced intragenic transcripts, and show that many of these transcripts are likely translated.
+To discover uncharacterized instances of intragenic transcription, we applied high resolution genomic assays of transcription initiation to wild-type \textit{Saccharomyces cerevisiae} under three stress conditions.
+For the condition of oxidative stress, we show that many intragenic transcripts are likely to be translated at some level.
 Finally, we show that the expression of an oxidative-stress-induced intragenic transcript at the gene \textit{DSK2} is needed for survival in conditions of oxidative stress.
 
 \section{Collaborators}
@@ -13,36 +13,33 @@ Finally, we show that the expression of an oxidative-stress-induced intragenic t
 \begin{description}[align=right, labelwidth=5cm, noitemsep, leftmargin=!]
     \item [Steve Doris] generated TSS-seq and ChIP-nexus libraries
     \item [Dan Spatt] polyribosome fractionation and competitive growth assays
-    \item [James Warner] Northern blots and competitive growth assays
+    \item [James Warner] Northern blots
 \end{description}
 
 \section{Functions of intragenic transcription in wild-type cells}
 
 In chapters \ref{chapter:six} and \ref{chapter:five}, we presented examples in which mutation of certain transcription elongation factors leads to the expression of intragenic transcripts, i.e., transcripts initiating from within gene bodies.
 This implies that wild-type cells have evolved to prevent the occurrence of spurious intragenic transcription.
-Despite this, our studies and others \citep{malabat2015, pelechano2013} consistently detect some instances of intragenic transcription in wild-type cells, some of which could have biological functions.
-% Intragenic transcription overlaps genic transcription, by definition, making it plausible that the function of an instance of intragenic transcription could be to regulate genic expression, in addition to possible functions that are independent of genic transcription.
+Despite this, our studies and others \citep{malabat2015, pelechano2013a} consistently detect some instances of intragenic transcription in wild-type cells, some of which could have biological functions.
 
 One mechanism by which intragenic transcription can exert a function is by being translated into a functional polypeptide or protein.
 Translation of a sense strand intragenic transcript is likely to lead to production of an N-terminally truncated protein, which may differ from the full-length protein in stability, subcellular localization, or function due to the absence of domains normally found in the full-length protein \citep{benanti2009, gammie1999, mcknight2014}.
-N-terminally truncated proteins can even exert dominant negative effects: Under DNA replication stress, intragenic transcription of the \textit{S. cerevisiae} mitotic spindle microtubule bundling gene \textit{Ase1} leads to the expression of an Ase1 protein lacking an N-terminal dimerization domain \citep{mcknight2014}.
-The intragenic Ase1 protein still possesses the normal C-terminal microtubule-binding domain, and evidence suggests that by binding microtubules but not dimerizing, intragenic Ase1 antagonizes the function of full-length Ase1.
-This interaction is important for the cellular response to replicative stress.
+N-terminally truncated proteins can even exert dominant negative effects: In \textit{S. cerevisiae} cells under DNA replication stress, intragenic transcription of the mitotic spindle microtubule bundling gene \textit{Ase1} leads to expression of an Ase1 protein which retains a C-terminal microtubule-binding domain but lacks an N-terminal dimerization domain \citep{mcknight2014}.
+Evidence suggests that by binding microtubules but not dimerizing, intragenic Ase1 antagonizes the function of full-length Ase1 and allows for the proper cellular response to replicative stress.
 
-In other cases, the process of intragenic transcription may be functionally important, rather than the product of intragenic transcription.
+In other cases, it may be the process of intragenic transcription that is important, rather than the RNA produced.
 As transcription occurs, co-transcriptional processses including chromatin remodeling and histone modification also take place via the recruitment of various factors to the transcription complex.
 These factors are often recruited in a manner dependent on the stage of transcription, which results in stereotypic patterns of chromatin state over transcribed regions.
 For example, in \textit{S. cerevisiae}, the Set1 complex responsible for methylation of histone H3 lysine 4 (H3K4) is recruited to Pol II specifically during early elongation, resulting in a pattern where H3K4 trimethylation (H3K4me3) is primarily found over the first 500 base pairs of transcribed regions.
-Since intragenic transcribed regions overlap genic transcribed regions, intragenic transcription has the potential to generate unususal patterns of nucleosome positioning and histone modification over a gene, which may influence expression from the genic promoter.
-This occurs at the \textit{S. cerevisiae} asparagine catabolic gene \textit{ASP3}, where sense strand intragenic transcription is necessary for wild-type levels of H3K4me3 over the 5$^\prime$-end of the gene and full induction of the gene upon nitrogen stress \citep{huang2010}.
-For other genes, antisense intragenic transcription leaves the H3K4me2 mark over the genic promoters of genes, modulating the kinetics of genic expression in response to environmental changes \citep{kim2012}.
+Since intragenic transcribed regions overlap genic transcribed regions, intragenic transcription can generate unusual patterns of nucleosome positioning and histone modification over a gene, which may influence expression from the genic promoter.
+One example of this occurs at the \textit{S. cerevisiae} asparagine catabolic gene \textit{ASP3}, where sense strand intragenic transcription is necessary for wild-type levels of H3K4me3 over the 5$^\prime$-end of the gene and full induction of the gene upon nitrogen stress \citep{huang2010}.
 
-RNAi.
-R-loops.
-Transcription interference.
-No function.
+Studies of antisense intragenic transcription (reviewed in \citet{pelechano2013b}) have revealed even more possibilities for gene regulation: Antisense transcription can physically block sense transcription, and antisense transcripts can base pair with sense RNAs to influence isoform selection, stability, and translation efficiency of the sense transcript.
+By base pairing with DNA, sense or antisense intragenic RNAs can also form R-loop structures with the potential to inhibit transcription or regulate processes like DNA methylation.
 
-Linking transcript to function.
+Investigating more cases of intragenic transcription is likely to lead to a better understanding of the many ways in which it can influence gene expression.
+However, this is complicated by the possibility that some cases of intragenic transcription have no real function.
+The sequence of a gene is constrained by the requirement to encode a functional protein, possibly resulting in the fortuitous formation of an intragenic promoter that is evolutionarily maintained in the absence of intragenic function.
 
 % ASE1 \citep{mcknight2014}.
 % KAR4 \citep{gammie1999}.
@@ -197,11 +194,19 @@ By TSS-seq, we do not find evidence of conservation for most oxidative-stress-de
 \section{Methods}
 
 \subsection{Yeast growth conditions}
+\label{subsec:stress_growth_conditions}
+
+For oxidative stress studies in all three yeast species, yeast were grown at 30\textdegree C in YPD rich medium to mid-log phase (OD\textsubscript{600} $\sim$ 0.4), at which point diamide was added to a final concentration of 1.5 mM.
+Samples were collected after 30 (\textit{S. bayanus}) or 45 minutes (\textit{S. cerevisiae} and \textit{S. mikatae}) of diamide treatment.
+
+For amino acid stress, \textit{S. cerevisiae} strain SD28 was grown at 30\textdegree C in SC synthetic complete medium to mid-log phase (OD\textsubscript{600} $\sim$ 0.4), collected by centrifugation, washed with SD minimal medium supplemented with uracil and lysine (SD+Ura+Lys; 0.15\% yeast nitrogen base, 0.5\% ammonium sulfate, 2\% glucose, 20 mg/L uracil, 0.004\% lysine), resuspended in an equal volume of SD+Ura+Lys, and harvested after 30 minutes of starvation.
+
+For nitrogen stress, \textit{S. cerevisiae} strain SD28 was grown at 30\textdegree C in SC to mid-log phase (OD\textsubscript{600} $\sim$ 0.4), collected by centrifugation, washed with nitrogen deficient medium (YNB-AA-AS; 0.0025\% ammonium sulfate, 2\% glucose, 20 mg/L uracil, 0.004\% lysine), and resuspended in an equal volume of nitrogen deficient medium, and harvested after 9.5 hours of starvation.
 
 \subsection{Genome builds}
 
 The genome build used for \textit{S. cerevisiae} was R64-2-1 \citep{engel2014}, and the genome build used for \textit{S. pombe} spike-ins was ASM294v2 \citep{wood2002}.
-For \textit{S. mikatae} and \textit{S. uvarum}, ultra-scaffold sequences from \citet{scannell11} were used as genomes.
+For \textit{S. mikatae }IFO 1815\textsuperscript{T} and \textit{S. uvarum }CBS 7001, ultra-scaffold sequences from \citet{scannell11} were used as genomes.
 
 \subsection{TFIIB ChIP-nexus data analysis}
 
@@ -215,6 +220,13 @@ For \textit{S. mikatae} and \textit{S. bayanus}, annotation of the 5$^\prime$ en
 The 5$^\prime$ end of an annotation was adjusted if it was above the 90\textsuperscript{th} (\textit{S. mikatae}) or 85\textsuperscript{th} (\textit{S. uvarum}) percentile of all non-zero TSS-seq signal.
 
 \subsection{Sucrose gradient fractionation}
+
+\textit{S. cerevisiae} strain SD28 was grown in 250 mL cultures in YPD or YPD with diamide \hyperref[subsec:stress_growth_conditions]{as described above}.
+Prior to harvesting, cells were treated with 0.1 mg/mL cycloheximide and incubated for 5 minutes at 30\textdegree C.
+Cell pellets were resuspended in 0.5 mL ice-cold polysome lysis buffer (20 mM Tris-HCl pH 8.0, 140 mM KCl, 1.5 mM MgCl\textsubscript{2}, 1\% Triton X-100, 100 \textmu g/mL cycloheximide), and lysed by bead beating as previously described \citep{degennaro2013}.
+Lysates containing approximately 50 A\textsubscript{260} absorbance units were layered on top of 10-50\% (weight/volume) sucrose gradients (20 mM Tris-HCl pH 8.0, 140 mM KCl, 5 mM MgCl\textsubscript{2}, 100 \textmu g/mL cycloheximide) made using a Biocomp Instruments gradient master.
+Gradients were centrifuged for 2 hours at 36,000 rpm in an SW-41 rotor and fractioned with a Brandel gradient fractionator and ISCO UA-6 detector.
+RNA from fractions 5-12 were pooled and used to construct TSS-seq libraries.
 
 \subsection{Polysome RNA TSS-seq analysis}
 
@@ -234,7 +246,7 @@ Reads were aligned to the \textit{S. cerevisiae} genome using Bowtie 2 \citep{la
 The median fragment size estimated by MACS2 \citep{zhang2008} over all samples was used to generate coverage of factor protection and fragment midpoints, by extending reads to the fragment size, or by shifting reads by half the fragment size, respectively.
 Smoothed nucleosome dyad coverage was generated by smoothing fragment midpoint coverage with a Gaussian kernel of 20 bp bandwidth.
 Coverage was normalized to the total number of reads uniquely mapping to the genome.
-Relative enrichment of histone modifications was calculated as a normalized log ratio of IP coverage over input (MNase-seq) coverage.
+Relative enrichment of histone modifications was calculated as a normalized log-ratio of IP coverage over input (MNase-seq) coverage.
 
 \subsection{Multiple genome alignment}
 
