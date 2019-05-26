@@ -45,6 +45,9 @@ plot_heatmap = function(data_path, sample_list, anno_path, cps_dist,
     heatmap = ggplot() +
         geom_raster(data=df, aes(x=position, y=sorted_index, fill=signal),
                     interpolate=FALSE) +
+        # geom_tile(data=df,
+        #           aes(x=position, y=sorted_index, fill=signal),
+        #           size=0) +
         geom_path(data = anno_df %>% filter(cps_position <= max_length),
                      aes(x=cps_position, y=sorted_index),
                   size=0.5, linetype="dotted", color="white", alpha=0.9) +

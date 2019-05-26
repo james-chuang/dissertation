@@ -250,3 +250,26 @@ rule dsk2_interyeast:
     script:
         "../scripts/stress_dsk2_interyeast.R"
 
+rule dsk2_interyeast_northern:
+    input:
+        dsk_scer = FIGURES["stress"]["dsk2_interyeast_northern"]["dsk_scer"],
+        snr_scer = FIGURES["stress"]["dsk2_interyeast_northern"]["snr_scer"],
+        hsp_scer = FIGURES["stress"]["dsk2_interyeast_northern"]["hsp_scer"],
+        dsk_smik = FIGURES["stress"]["dsk2_interyeast_northern"]["dsk_smik"],
+        snr_smik = FIGURES["stress"]["dsk2_interyeast_northern"]["snr_smik"],
+        hsp_smik = FIGURES["stress"]["dsk2_interyeast_northern"]["hsp_smik"],
+        dsk_sbay = FIGURES["stress"]["dsk2_interyeast_northern"]["dsk_sbay"],
+        snr_sbay = FIGURES["stress"]["dsk2_interyeast_northern"]["snr_sbay"],
+        hsp_sbay = FIGURES["stress"]["dsk2_interyeast_northern"]["hsp_sbay"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/stress/stress_dsk2_interyeast_northern.pdf",
+    params:
+        width = eval(str(FIGURES["stress"]["dsk2_interyeast_northern"]["width"])),
+        height = eval(str(FIGURES["stress"]["dsk2_interyeast_northern"]["height"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/stress_dsk2_interyeast_northern.R"
+

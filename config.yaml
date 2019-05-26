@@ -10,11 +10,11 @@ figures:
         spt6_western:
             data_path: ../../intragenic/spt6-small-data/spt6-western/Spt6_western_quantification_2.tsv
             blot_path: ../../intragenic/spt6-small-data/spt6-western/spt6-western-3.png
-            height: 1.3
+            height: 1.4
             width: 3
         gene_diagram:
             width: 3
-            height: 1
+            height: 1.2
         aat_assay_comparison:
             width: 6
             height: 2.8
@@ -23,13 +23,13 @@ figures:
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
             tss_sense: ../../intragenic/tss-seq/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/spikenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tss-seq-spikenorm-SENSE.tsv.gz
             tss_antisense: ../../intragenic/tss-seq/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/spikenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tss-seq-spikenorm-ANTISENSE.tsv.gz
-            height: 3.16
+            height: 3.9
             width: 6
         tfiib_heatmap:
             tfiib_data: ../../intragenic/chipnexus-tfiib/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
-            height: 3.16
-            width: 4
+            height: 3.9
+            width: 5
         tss_diffexp_summary:
             genic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/genic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             intragenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
@@ -49,7 +49,7 @@ figures:
             tss_intragenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
             tss_antisense: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/antisense/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
             tss_intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
-            height: 2.1
+            height: 2.38
             width: 3.75
         tfiib_spreading_ssa4:
             tfiib_data: ../../intragenic/spt6-data-integration/datavis/spreading-ssa4/spreading-ssa4_TFIIB-ChIP-nexus-protection.tsv.gz
@@ -281,31 +281,31 @@ figures:
             polyenrichment_intra: ../../intragenic/polysome-diamide-tss-comparison/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-diffexp-results-with-polysome-enrichment-intragenic.tsv
             height: 4
             width: 6
-        diamide_summary:
-            data_paths:
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RFS1/RFS1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/MMF1/MMF1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PUP3/PUP3_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ARA1/ARA1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ASE1/ASE1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/BNA3/BNA3_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/CCS1/CCS1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/CTL1/CTL1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/DBP2/DBP2_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ECM15/ECM15_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ERV29/ERV29_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/FPR2/FPR2_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/GRX2/GRX2_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/HUT1/HUT1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PDI1/PDI1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PRE8/PRE8_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RDL1/RDL1_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RRT8/RRT8_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/SEC24/SEC24_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/TAD2/TAD2_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/YER187W/YER187W_h3k36me3-chipseq-reduced.tsv.gz
-                - ../../intragenic/other-datasets/weiner15/datavis-single-locus/YER187W/YER187W_h3k36me3-chipseq-reduced.tsv.gz
+        # diamide_summary:
+        #     data_paths:
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RFS1/RFS1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/MMF1/MMF1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PUP3/PUP3_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ARA1/ARA1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ASE1/ASE1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/BNA3/BNA3_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/CCS1/CCS1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/CTL1/CTL1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/DBP2/DBP2_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ECM15/ECM15_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/ERV29/ERV29_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/FPR2/FPR2_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/GRX2/GRX2_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/HUT1/HUT1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PDI1/PDI1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/PRE8/PRE8_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RDL1/RDL1_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/RRT8/RRT8_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/SEC24/SEC24_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/TAD2/TAD2_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/YER187W/YER187W_h3k36me3-chipseq-reduced.tsv.gz
+        #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/YER187W/YER187W_h3k36me3-chipseq-reduced.tsv.gz
         dsk2_summary:
             mnase_chip_paths: ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_h3k4me3-chipseq-reduced.tsv.gz
             tss_path: ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_TSSseq.tsv.gz
@@ -354,3 +354,16 @@ figures:
             tss_sbay: ../../intragenic/sbay-tss-seq/datavis/DSK2/spikenorm/DSK2-allsamples-allannotations-tss-seq-spikenorm-SENSE.tsv.gz
             width: 6
             height: 3.5
+        dsk2_interyeast_northern:
+            dsk_scer: ../../intragenic/stress-small-data/northern-blots/scer_dsk2.png
+            snr_scer: ../../intragenic/stress-small-data/northern-blots/scer_u190.png
+            hsp_scer: ../../intragenic/stress-small-data/northern-blots/scer_hsp12.png
+            dsk_smik: ../../intragenic/stress-small-data/northern-blots/smik_dsk2.png
+            snr_smik: ../../intragenic/stress-small-data/northern-blots/smik_u190.png
+            hsp_smik: ../../intragenic/stress-small-data/northern-blots/smik_hsp12.png
+            dsk_sbay: ../../intragenic/stress-small-data/northern-blots/sbay_dsk2.png
+            snr_sbay: ../../intragenic/stress-small-data/northern-blots/sbay_u190.png
+            hsp_sbay: ../../intragenic/stress-small-data/northern-blots/sbay_hsp12.png
+            width: 5
+            height: 1.5
+

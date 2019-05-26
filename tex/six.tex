@@ -21,6 +21,8 @@ Altogether, we propose that the transcription changes in \textit{spt6-1004} are 
     \item [Dan Spatt] Northern, Western, and ChIP experiments
 \end{description}
 
+The results presented in this chapter are the product of updated versions of the analyses published in \citet{doris2018}.
+
 \section{Introduction to Spt6 and intragenic transcription}
 
 The conserved transcription elongation factor Spt6 interacts directly with RNA polymerase II \citep{close2011, diebold2011, liu2011, sdano2017, sun2010, yoh2007}, histones \citep{bortvin1996, mccullough2015}, and another elongation factor called Spn1/Iws1 \citep{diebold2010b, li2018, mcdonald2010}.
@@ -74,29 +76,27 @@ In wild-type cells, TSS-seq and TFIIB ChIP-nexus recapitulate their expected dis
 In \textit{spt6-1004}, the signal for both assays infiltrates gene bodies, reflecting widespread intragenic expression of capped and polyadenylated transcripts, and suggesting that new transcription initiation contributes to the intragenic transcription phenotype.
 Notably, sense strand TSS-seq signal in \textit{spt6-1004} tends to occur towards the 3$^\prime$ end of genes, while antisense strand TSS-seq signal tends to occur towards the 5$^\prime$ end of genes.
 
-\clearpage
-
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/six/six_tss_seq_heatmaps.pdf}
     \caption[Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes.]{Heatmaps of sense and antisense TSS-seq signal from wild-type and \textit{spt6-1004} cells, over 3522 non-overlapping coding genes aligned by wild-type genic TSS and sorted by annotated transcript length. Data are shown for each gene up to 300 nucleotides 3$^\prime$ of the cleavage and polyadenylation site (CPS), indicated by the white dotted line. Values are the mean of spike-in normalized coverage over two replicates, in non-overlapping 20 nucleotide bins. Values above the 92\textsuperscript{nd} percentile are set to the 92\textsuperscript{nd} percentile for visualization.}
     \label{fig:six_tss_seq_heatmaps}
 \end{figure}
-\begin{SCfigure}[50][h]
-% \begin{figure}[h]
+
+% \begin{SCfigure}[50][h]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=4in]{figures/six/six_tfiib_heatmap.pdf}
+    \includegraphics[width=5in]{figures/six/six_tfiib_heatmap.pdf}
     \caption[Heatmaps of TFIIB ChIP-nexus protection from wild-type and \textit{spt6-1004} cells, over non-overlapping coding genes]{Heatmaps of TFIIB binding measured by ChIP-nexus, over the same regions shown in Figure \ref{fig:six_tss_seq_heatmaps}. Values are the mean of library-size normalized coverage over two replicates, in non-overlapping 20 bp bins. Values above the 85\textsuperscript{th} percentile are set to the 85\textsuperscript{th} percentile for visualization.}
     \label{fig:six_tfiib_heatmap}
-\end{SCfigure}
-% \end{figure}
-
-\clearpage
+% \end{SCfigure}
+\end{figure}
 
 The TSS-seq data were quantified by peak calling and differential expression analysis, and classified into genomic categories based on their position relative to coding genes.
 As suggested by the heatmap visualization (Figure \ref{fig:six_tss_seq_heatmaps}), we detect significant induction of over 4000 intragenic and antisense TSSs in \textit{spt6-1004} (Figure \ref{fig:six_tss_diffexp_summary}).
 Compared to previous studies identifying \textit{spt6-1004} intragenic transcription by tiled microarray and RNA-seq \citep{cheung2008, uwimana2017}, we identify intragenic transcription at over 1000 additional genes (Figure \ref{fig:six_intragenic_genes_bvenn}), with the additional information of exact start sites for all identified TSSs.
-\begin{figure}[H]
+
+\begin{figure}[h]
     \centering
     \begin{minipage}[t]{2.875in}
         \centering
@@ -114,16 +114,14 @@ Compared to previous studies identifying \textit{spt6-1004} intragenic transcrip
 
 The TSS-seq data also revealed an unexpected downregulation of most genic TSSs: In this experiment, we detected a significant downregulation to levels below 67\% of wild-type levels at 75\% (3579/4792) of genic TSSs (Figure \ref{fig:six_tss_diffexp_summary}).
 As a result of intragenic/antisense induction and genic repression, expression levels in \textit{spt6-1004} of all classes of transcripts become similar to one another (Figure \ref{fig:six_tss_expression_levels}).
-% \begin{wrapfigure}[12]{r}{3in}
 \begin{SCfigure}[50][h]
     \centering
     \includegraphics[width=3.75in]{figures/six/six_tss_expression_levels.pdf}
     \caption[Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004} cells.]{Violin plots of expression level distributions for genomic classes of TSS-seq peaks in wild-type and \textit{spt6-1004}, both after 80 minutes at 37\textdegree C. Normalized counts are the mean of spike-in size factor normalized counts from two replicates.}
     \label{fig:six_tss_expression_levels}
 \end{SCfigure}
+\clearpage
 
-The changes in transcript levels in \textit{spt6-1004} observed by TSS-seq correspond with substantial differences in the pattern of TFIIB binding on the genome.
-While TFIIB in wild-type binds in discrete peaks within promoter regions, TFIIB in \textit{spt6-1004} binds much more promiscuously, with many loci having TFIIB signal spread over broad regions of the genome (Figure \ref{fig:six_tfiib_spreading_ssa4}).
 \begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/six/six_tfiib_spreading_ssa4.pdf}
@@ -135,18 +133,21 @@ While TFIIB in wild-type binds in discrete peaks within promoter regions, TFIIB 
     }
     \label{fig:six_tfiib_spreading_ssa4}
 \end{figure}
+
+The changes in transcript levels in \textit{spt6-1004} observed by TSS-seq correspond with substantial differences in the pattern of TFIIB binding on the genome.
+While TFIIB in wild-type binds in discrete peaks within promoter regions, TFIIB in \textit{spt6-1004} binds much more promiscuously, with many loci having TFIIB signal spread over broad regions of the genome (Figure \ref{fig:six_tfiib_spreading_ssa4}).
 This difference in binding pattern makes peak calling ineffective for quantifying TFIIB signal in this case: ChIP-seq peak callers generally use different algorithms for calling `narrow' peaks (e.g. for sequence-specific transcription factors) and `broad' peaks (e.g. for histone modifications), meaning that a single algorithm is unable to call a unified set of peaks that is meaningful for differential binding analyses between wild-type and \textit{spt6-1004}.
 Therefore, to see if changes in transcript levels in \textit{spt6-1004} correspond to changes in transcription initiation, we compared the change in TSS-seq signal at TSS-seq peaks in \textit{spt6-1004} to the change in TFIIB ChIP-nexus signal in the window extending 200 bp upstream of the TSS-seq peak.
 Changes in TSS-seq signal in \textit{spt6-1004} are associated with a change in TFIIB signal of the same sign at over 82\% of TSSs of any genomic class (Figure \ref{fig:six_tss_v_tfiib}), indicating that the increase in intragenic transcript levels and decrease in genic transcript levels observed in \textit{spt6-1004} are in large part explained by changes in transcription initiation.
     % \vspace{0.5em}
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/six/six_tss_v_tfiib.pdf}
-    \caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each dot represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
+    \caption[Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus.]{Scatterplots of fold-change in \textit{spt6-1004} over wild-type, comparing TSS-seq and TFIIB ChIP-nexus. Each point represents a TSS-seq peak paired with the window extending 200 bp upstream of the TSS-seq peak summit for quantification of TFIIB ChIP-nexus signal. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from the \textit{S. pombe} spike-in (TSS-seq), or \textit{S. cerevisiae} counts (ChIP-nexus).}
     \label{fig:six_tss_v_tfiib}
 \end{figure}
 
-\clearpage
+% \clearpage
 
 \section{MNase-seq results from \textit{spt6-1004}}
 
@@ -160,14 +161,15 @@ To re-examine this requirement in higher resolution, we assayed nucleosome prote
     \label{fig:six_mnase_metagene}
 \end{figure}
 
+In wild-type, the MNase-seq data recapitulate the expected signature over genes, with a nucleosome-depleted region upstream of a strongly positioned `+1' nucleosome, and a regularly phased array of nucleosomes over the gene body (Figure \ref{fig:six_mnase_metagene}).
+In \textit{spt6-1004}, nucleosome signal is severely reduced at canonical nucleosome positions and spreads into inter-nucleosome regions.
+
 \begin{wrapfigure}[10]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/six/six_global_nuc_occ_fuzz.pdf}
     \caption[Contour plot of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}.]{Contour plot of the distribution of nucleosome occupancy and fuzziness in wild-type and \textit{spt6-1004}. Dashed lines indicate median values.}
     \label{fig:six_global_nuc_occ_fuzz}
 \end{wrapfigure}
-In wild-type, the MNase-seq data recapitulate the expected signature over genes, with a nucleosome-depleted region upstream of a strongly positioned `+1' nucleosome, and a regularly phased array of nucleosomes over the gene body (Figure \ref{fig:six_mnase_metagene}).
-In \textit{spt6-1004}, nucleosome signal is severely reduced at canonical nucleosome positions and spreads into inter-nucleosome regions.
 Changes in aggregate nucleosome signal such as those observed in Figure \ref{fig:six_mnase_metagene} are the combination of changes to nucleosome occupancy (the number of reads assigned to a nucleosome), fuzziness (the standard deviation of read positions for a nucleosome), and position (the coordinate with the maximum reads for a nucleosome) \citep{chen2013}.
 Using DANPOS2 \citep{chen2013}, we called nucleosome positions and quantified these metrics for wild-type and \textit{spt6-1004}.
 Wild-type nucleosomes span a relatively wide range of occupancy and fuzziness space, with highly occupied nucleosomes tending to be less fuzzy (i.e., more well-positioned) (Figure \ref{fig:six_global_nuc_occ_fuzz}).
@@ -340,7 +342,7 @@ The adaptive kernel adjusts the kernel bandwidth to be smaller in regions of hig
 For all analyses in this document, adaptive smoothing was performed with $\sigma_\text{pilot} = 10$ and $\alpha = 0.2$.
 
 Following smoothing, an initial set of peaks is formed by assigning all nonzero signal in the original, unsmoothed coverage to the nearest local maximum of the smoothed coverage, and taking the minimum and maximum genomic coordinates of the original coverage as the peak boundaries for each local maximum of the smoothed coverage.
-Peaks are then trimmed to the smallest genomic interval that includes 95\% of the original coverage, and the probability of the peak begin generated by noise is estimated by a Poisson model where $\lambda$, the expected coverage, is the maximum of the expected coverage over the chromosome and the expected coverage in the 2 kb window upstream of the peak (\`a la the ChIP-seq peak caller MACS2 \citep{zhang2008}).
+Peaks are then trimmed to the smallest genomic interval that includes 95\% of the original coverage, and the probability of the peak begin generated by noise is estimated by a Poisson model where $\lambda$, the expected coverage, is the maximum of the expected coverage over the chromosome and the expected coverage in the 2 kb window upstream of the peak (\`a la the ChIP-seq peak caller MACS2 \citep{zhang2008})\footnote{Currently, the test is for the \textbf{max} signal of the peak. In \citet{doris2018}, the test was for the sum of the signal over the peak, which resulted in greater numbers of peaks called in \textit{spt6-1004}. The algorithm was changed while processing data for chapter \ref{chapter:stress} in order to only call peaks that have major TSSs.}.
 Finally, peaks are ranked by their significance under the Poisson model, and a final list of peaks for the group is generated using the IDR method ($\text{IDR}=0.1$) \citep{li2011}.
 In brief, IDR compares ranked lists of regions in order to set a cutoff, beyond which the regions are no longer consistent between replicates.
 
@@ -358,7 +360,7 @@ To normalize by spike-in, the size factors of the \textit{S. pombe} spike-in cou
 
 TSS-seq peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above} and an annotation of all verified open reading frames (ORFs) and blocked reading frames in \textit{S. cerevisiae} \citep{engel2014}.
 First, `genic' regions were defined as follows: If a gene was present in both the transcript and ORF annotations, the genic region was defined as the interval (annotated TSS-30 nt, start codon).
-If gene was present in the transcript annotation but not the ORF annotation, the genic region was defined as the interval (annotated TSS - 30 nt, annotated TSS + 30 nt).
+If a gene was present in the transcript annotation but not the ORF annotation, the genic region was defined as the interval (annotated TSS - 30 nt, annotated TSS + 30 nt).
 If a gene was present only in the ORF annotation, the genic region was defined as the interval (start codon - 30 nt, start codon).
 For the purposes of peak classification, regions were considered overlapping if they had at least one base of overlap.
 TSS-seq peaks were classified as genic if they overlapped a genic region on the same strand.

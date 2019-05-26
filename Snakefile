@@ -57,6 +57,7 @@ rule target:
         "figures/stress/stress_diamide_fitnesscomp.pdf",
         "figures/stress/stress_interyeast_intragenic.pdf",
         "figures/stress/stress_dsk2_interyeast.pdf",
+        "figures/stress/stress_dsk2_interyeast_northern.pdf",
 
 rule register_fonts:
     input:
