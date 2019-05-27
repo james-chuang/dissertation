@@ -43,7 +43,7 @@ main = function(theme_spec = "thesis_theme.R",
                 "nitrogen stress") +
         theme_default +
         theme(axis.title.y = element_blank(),
-              axis.text.y = element_text(size=8),
+              axis.text.y = element_text(size=10),
               legend.position = c(0.95, 0.45),
               legend.text = element_text(size=8),
               axis.ticks.y = element_blank(),

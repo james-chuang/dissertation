@@ -5,14 +5,17 @@
 
 Intragenic transcription opens up interesting possibilities for gene regulation in wild-type cells, and individual cases of intragenic transcription have previously been shown to be important for different biological processes.
 To discover uncharacterized instances of intragenic transcription, we applied high resolution genomic assays of transcription initiation to wild-type \textit{Saccharomyces cerevisiae} under three stress conditions.
-For the condition of oxidative stress, we show that many intragenic transcripts are likely to be translated at some level.
+For the condition of oxidative stress, we show that intragenic transcripts are generally expressed at lower levels than genic transcripts, and that many intragenic transcripts are likely to be translated at some level.
+By comparing intragenic transcription in three yeast species, we find that most examples of intragenic transcription identified in \textit{S. cerevisiae} are not conserved.
 Finally, we show that the expression of an oxidative-stress-induced intragenic transcript at the gene \textit{DSK2} is needed for survival in conditions of oxidative stress.
+
+\clearpage
 
 \section{Collaborators}
 
 \begin{description}[align=right, labelwidth=5cm, noitemsep, leftmargin=!]
     \item [Steve Doris] generated TSS-seq and ChIP-nexus libraries
-    \item [Dan Spatt] polyribosome fractionation and competitive growth assays
+    \item [Dan Spatt] polyribosome fractionation, competitive growth assays, and Northern blots
     \item [James Warner] Northern blots
 \end{description}
 
@@ -29,42 +32,41 @@ Evidence suggests that by binding microtubules but not dimerizing, intragenic As
 
 In other cases, it may be the process of intragenic transcription that is important, rather than the RNA produced.
 As transcription occurs, co-transcriptional processses including chromatin remodeling and histone modification also take place via the recruitment of various factors to the transcription complex.
-These factors are often recruited in a manner dependent on the stage of transcription, which results in stereotypic patterns of chromatin state over transcribed regions.
+These factors are often recruited in a manner dependent on the stage of transcription, which results in stereotypic patterns of chromatin state over transcribed regions \citep{smolle2013, buratowski2010}.
 For example, in \textit{S. cerevisiae}, the Set1 complex responsible for methylation of histone H3 lysine 4 (H3K4) is recruited to Pol II specifically during early elongation, resulting in a pattern where H3K4 trimethylation (H3K4me3) is primarily found over the first 500 base pairs of transcribed regions.
 Since intragenic transcribed regions overlap genic transcribed regions, intragenic transcription can generate unusual patterns of nucleosome positioning and histone modification over a gene, which may influence expression from the genic promoter.
 One example of this occurs at the \textit{S. cerevisiae} asparagine catabolic gene \textit{ASP3}, where sense strand intragenic transcription is necessary for wild-type levels of H3K4me3 over the 5$^\prime$-end of the gene and full induction of the gene upon nitrogen stress \citep{huang2010}.
 
-Studies of antisense intragenic transcription (reviewed in \citet{pelechano2013b}) have revealed even more possibilities for gene regulation: Antisense transcription can physically block sense transcription, and antisense transcripts can base pair with sense RNAs to influence isoform selection, stability, and translation efficiency of the sense transcript.
+Even more possibilities for gene regulation by intragenic transcription have been revealed by studies of antisense transcription (reviewed in \citet{pelechano2013b}): Antisense transcription can physically block sense transcription, and antisense transcripts can base pair with sense RNAs to influence isoform selection, stability, and translation efficiency of the sense transcript.
 By base pairing with DNA, sense or antisense intragenic RNAs can also form R-loop structures with the potential to inhibit transcription or regulate processes like DNA methylation.
 
-Investigating more cases of intragenic transcription is likely to lead to a better understanding of the many ways in which it can influence gene expression.
+We seek to better understand some of the many ways in which intragenic transcription can function in cells by investigating uncharacterized instances of intragenic transcription.
 However, this is complicated by the possibility that some cases of intragenic transcription have no real function.
-The sequence of a gene is constrained by the requirement to encode a functional protein, possibly resulting in the fortuitous formation of an intragenic promoter that is evolutionarily maintained in the absence of intragenic function.
+Because the sequence of a gene is constrained by the requirement to encode a functional protein, a fortuitously formed intragenic promoter could potentially be evolutionarily maintained in the absence of intragenic function.
+Therefore, with the reasoning that intragenic transcription which is regulated by an environmental perturbation is more likely to have a function, we decided to identify stress-regulated intragenic transcription in wild-type \textit{S. cerevisiae}.
 
 % ASE1 \citep{mcknight2014}.
 % KAR4 \citep{gammie1999}.
 % CIK1 \citep{benanti2009}.
 % ASP3 \citep{huang2010}.
 
-\clearpage
+\section{Discovery of stress-regulated intragenic promoters by TFIIB ChIP-nexus and TSS-seq}
 
-\section{Discovery of stress-induced intragenic promoters by TFIIB ChIP-nexus and TSS-seq}
-
-\begin{wrapfigure}[20]{r}{3in}
-    \centering
-    \includegraphics[width=3in]{figures/stress/stress_gasch_comparison.pdf}
-    \caption[Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal, for oxidative and amino acid stresses.]{Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal from \citet{gasch2000}, for oxidative and amino acid stresses. The Pearson correlation coefficient is shown for each comparison.}
-    \label{fig:stress_gasch_comparison}
-\end{wrapfigure}
-
-To discover cases of stress-induced intragenic transcription initiation, we performed ChIP-nexus of TFIIB for wild-type yeast under conditions of oxidative stress, amino acid stress, and nitrogen stress, along with controls of growth in rich YPD medium and defined SC medium.
+To discover cases of stress-regulated intragenic transcription initiation, we performed ChIP-nexus of TFIIB for wild-type yeast under conditions of oxidative stress, amino acid stress, and nitrogen stress, along with controls of growth in rich YPD medium and defined SC medium.
 The genic TFIIB response to each of the stresses either correlates well with the expected transcriptomic response to the stress (Figure \ref{fig:stress_gasch_comparison}), or is enriched for metabolic pathways consistent with the cellular response to the stress (Figure \ref{fig:stress_nitrogen_gene_ontology}), confirming that TFIIB ChIP-nexus captures changes in transcription initiation and that the cells were stressed as intended.
 In total, we identify 140 intragenic TFIIB peaks significantly induced at least 1.5-fold in at least one stress condition, with some peaks being induced in more than one stress (Figures \ref{fig:stress_tfiib_coverage}, \ref{fig:stress_tfiib_ridgelines}).
-We also observe a slight negative correlation between stress-induced changes in intragenic TFIIB signal and changes in the corresponding genic TFIIB signal (Figure \ref{fig:stress_genic_vs_intra}).
+We also observe a slight anti-correlation between stress-induced changes in intragenic TFIIB signal and changes in the corresponding genic TFIIB signal (Figure \ref{fig:stress_genic_vs_intra}).
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=4in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
+    \includegraphics[width=6in]{figures/stress/stress_gasch_comparison.pdf}
+    \caption[Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal, for oxidative and amino acid stresses.]{Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal from \citet{gasch2000}, for oxidative and amino acid stresses. The Pearson correlation coefficient is shown for each comparison.}
+    \label{fig:stress_gasch_comparison}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
     \caption[Gene ontology terms enriched in genes with nitrogen-stress-induced genic TFIIB peaks]{Gene ontology terms enriched in genes with nitrogen-stress-induced genic TFIIB peaks.}
     \label{fig:stress_nitrogen_gene_ontology}
 \end{figure}
@@ -91,23 +93,22 @@ We also observe a slight negative correlation between stress-induced changes in 
     \label{fig:stress_genic_vs_intra}
 \end{SCfigure}
 
-Because the greatest changes to intragenic transcription initiation were detected in oxidative stress, we focused on this condition and performed TSS-seq to determine which intragenic initiation events produce stable RNAs and in which strand orientation these events occur.
-Considering only TSS peaks with a TFIIB peak overlapping the window extending 200 base pairs upstream of the TSS summit, we find cases of both sense intragenic and antisense TSSs that are differentially expressed in oxidative stress (Figure \ref{fig:stress_promoter_tss_diffexp_summary}).
-In general, the induced intragenic TSSs we detect are expressed at lower levels than induced genic TSSs: The most abundant induced intragenic TSS is present in oxidative stress at levels comparable to the 54\textsuperscript{th} percentile of induced genic TSS abundances (Figure \ref{fig:stress_promoter_tss_expression}).
-
-\begin{SCfigure}[50][h]
+% \begin{SCfigure}[50][h]
+\begin{wrapfigure}[10]{r}{3in}
     \includegraphics[width=3in]{figures/stress/stress_promoter_tss_diffexp_summary.pdf}
     \caption[Bar plot of the number of promoters in various genomic classes detected as differentially expressed in oxidative stress.]{Bar plot of the number of TSS peaks in various genomic classes that have corresponding TFIIB peaks and are detected as differentially expressed in oxidative stress.}
     \label{fig:stress_promoter_tss_diffexp_summary}
-\end{SCfigure}
+% \end{SCfigure}
+\end{wrapfigure}
+Because the greatest changes to intragenic transcription initiation were detected in oxidative stress, we focused on this condition and performed TSS-seq to determine which intragenic initiation events produce stable RNAs and in which strand orientation these events occur.
+Considering only TSS peaks with a TFIIB peak overlapping the window extending 200 base pairs upstream of the TSS summit, we find cases of both sense intragenic and antisense TSSs that are differentially expressed in oxidative stress (Figure \ref{fig:stress_promoter_tss_diffexp_summary}).
+In general, the induced intragenic TSSs we detect are expressed at lower levels than induced genic TSSs: The most abundant induced intragenic TSS is present in oxidative stress at levels comparable to the 54\textsuperscript{th} percentile of induced genic TSS abundances (Figure \ref{fig:stress_promoter_tss_expression}).
 
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_promoter_tss_expression.pdf}
     \caption[TSS-seq expression levels in oxidative stress of oxidative-stress-induced genic and intragenic promoters.]{Cumulative distributions of TSS-seq expression levels in oxidative stress, for all genic and intragenic TSS peaks that have corresponding TFIIB peaks and are significantly induced in oxidative stress. Error bars indicate $\pm$ one standard deviation.}
     \label{fig:stress_promoter_tss_expression}
 \end{figure}
-
-\clearpage
 
 \section{Polysome enrichment of oxidative-stress-induced intragenic transcripts}
 
@@ -124,7 +125,7 @@ However, half of the induced intragenic TSSs are found in polysomes during oxida
     \label{fig:stress_promoter_tss_polyenrichment}
 \end{figure}
 
-\section{Functions of intragenic DSK2 expression in oxidative stress}
+\section{Functions of intragenic \textit{DSK2} expression in oxidative stress}
 
 To investigate a particular case of oxidative-stress-induced intragenic transcription in more depth, we focused on the gene \textit{DSK2}, which is associated with the intragenic TSS we found to be most significantly induced upon oxidative stress.
 The major \textit{DSK2} intragenic TSS is associated with a TFIIB peak that is similarly induced in oxidative stress (Figure \ref{fig:stress_dsk2_summary}), and the intragenic transcript is also found in polysomes at intermediate levels (Figure \ref{fig:stress_promoter_tss_polyenrichment}).
@@ -135,52 +136,72 @@ Using a published dataset of histone modification MNase-ChIP-seq data during a t
     \label{fig:stress_dsk2_summary}
 \end{figure}
 
-\begin{wrapfigure}[10]{r}{3in}
+\begin{wrapfigure}[9]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/stress/stress_dsk2_pace_northern.pdf}
-    \caption[Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress.]{Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress induced by addition of diamide to the media.}
+    \caption[Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress.]{Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress induced by addition of diamide to the media. \textit{XXXNNN} is shown as a loading control.}
     \label{fig:stress_dsk2_pace_northern}
 \end{wrapfigure}
 
 Dsk2 is a member of a family of partially redundant ubiquitin receptors that shuttle polyubiquitinated proteins to the proteasome for degradation.
-Upon inspection of the \textit{DSK2} DNA sequence, we discovered multiple PACE-core sequences within the \textit{DSK2} coding sequence, which are potential binding sites for the proteasome transcription factor Rpn4 \citep{shirozu2015}.
+Upon inspection of the \textit{DSK2} DNA sequence, we discovered multiple PACE-core motifs within the \textit{DSK2} coding sequence, which are potential binding sites for the proteasome transcription factor Rpn4 \citep{shirozu2015}.
 By making silent mutations to three PACE-core elements occurring just upstream of the \textit{DSK2} intragenic TFIIB peak (the more darkly shaded sense strand PACE-core elements in Figure \ref{fig:stress_dsk2_summary}, two of which are adjacent to each other), we generated a strain named \textit{dsk2-pace} in which intragenic \textit{DSK2} expression is eliminated (Figure \ref{fig:stress_dsk2_pace_northern}).
-Full length \textit{DSK2} transcript levels in diamide are not noticeably affected in the \textit{dsk2-pace} mutant, suggesting that intragenic \textit{DSK2} transcription does not affect genic \textit{DSK2} transcript levels.
-So far, our efforts to detect a possible intragenic Dsk2 protein have been inconclusive; If intragenic Dsk2 protein is produced, it may be highly unstable.
+Full length \textit{DSK2} transcript levels in diamide are not noticeably affected in the \textit{dsk2-pace} mutant, suggesting that a primary function of intragenic \textit{DSK2} transcription is not likely to be control of full-length \textit{DSK2} transcript levels.
+So far, our efforts to detect a possible intragenic Dsk2 protein have been inconclusive; if intragenic Dsk2 protein is produced, it may be highly unstable.
 
 To test whether intragenic \textit{DSK2} expression is important for the cellular response to oxidative stress, we performed competitive growth experiments in which wild-type \textit{DSK2} and \textit{dsk2-pace} cells, distinguishable by expression of different fluorophores, were co-cultured during a timecourse of oxidative stress induced by addition of diamide to the media.
 In these experiments, both strains contained deletions of \textit{RAD23}, another ubiquitin receptor that is partially redundant with \textit{DSK2}.
 At diamide concentrations around ~0.9-1.0 mM, we observe that \textit{dsk2-pace} cells begin to grow more slowly than wild-type \textit{DSK2} cells (Figure \ref{fig:stress_diamide_fitnesscomp}).
-After two days in 1.25 mM diamide, \textit{dsk2-pace} cells make up less than 2\% of the co-culture, indicating that intragenic \textit{DSK2} expression does play some role in the response to oxidative stress.
+After two days in 1.25 mM diamide, \textit{dsk2-pace} cells make up less than 2\% of the co-culture, strongly suggesting that intragenic \textit{DSK2} expression does play a role in the response to oxidative stress.
 
-Possible mechanisms for DSK2 function.
-
-\begin{figure}
+\begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_diamide_fitnesscomp.pdf}
     \caption[Percentage of \textit{dsk2-pace} cells over two days of competitive growth against wild-type \textit{DSK2} cells at various concentrations of diamide.]{Percentage of \textit{dsk2-pace} cells over two days of competitive growth against wild-type \textit{DSK2} cells at various concentrations of diamide. The lines and shading are the mean $\pm$ one standard deviation of six replicates: Three in which \textit{dsk2-pace} and \textit{DSK2} cells are respectively marked by expression of mCherry and YFP, and three in which the fluorophores are swapped between strains.}
     \label{fig:stress_diamide_fitnesscomp}
 \end{figure}
 
+How might intragenic \textit{DSK2} expression function during oxidative stress?
+Like other proteasome receptors, Dsk2 possesses an N-terminal ubiquitin-like domain which interacts with the proteasome, and a C-terminal ubiquitin-associating domain which binds polyubiquitin chains \citep{funakoshi2002}.
+Translation of the intragenic \textit{DSK2} transcript is predicted to generate an intragenic protein lacking the proteasome-interacting domain but retaining the polyubiquitin binding domain.
+Such an intragenic protein could bind certain polyubiquitinated targets without delivering them to the proteasome, in effect preventing their degradation.
+As noted above, we have so far been unable to reliably detect an intragenic Dsk2 protein; however, there is precedent for intragenic proteins to have different stability than their corresponding full-length forms \citep{gammie1999, benanti2009}.
+
+Interestingly, one study has shown that an interaction between Dsk2 and an uncharacterized protein called Irc22 is involved in conferring salt tolerance in \textit{S. cerevisiae} \citep{ishii2014}.
+This study showed that synthetic N-terminal truncations of Dsk2 missing the first 77 or 215 amino acids bound Irc22 more strongly than full-length Dsk2.
+By comparison, the intragenic Dsk2 protein predicted to be expressed in oxidative stress would be missing the first 152 amino acids of Dsk2.
+
+To further investigate the mode of intragenic \textit{DSK2} function, we are planning two additional fitness competition experiments.
+In the first experiment, we will test whether intragenic \textit{DSK2} expression can complemented in \textit{trans}, which should help differentiate whether it is intragenic \textit{DSK2} transcription, or the intragenic transcript or protein which provides protection from oxidative stress.
+If intragenic \textit{DSK2} can be complemented in \textit{trans}, we will test whether intragenic \textit{DSK2} translation is required for protection from oxidative stress by mutation of intragenic start codons.
+
 \section{TSS-seq analysis of oxidative stress in \textit{Saccharomyces sensu stricto} species}
 
-If an instance of intragenic transcription like that at \textit{DSK2} is functional, then it might be conserved between different species.
-To see if this is likely for the cases of oxidative-stress-dependent intragenic transcription we observe in \textit{S. cerevisiae}, we performed TSS-seq in oxidative stress for the related \textit{Saccharomyces sensu stricto} species \textit{Saccharomyces mikatae} and \textit{Saccharomyces uvarum}.
-We then performed a multiple genome alignment of the three species, and determined which TSS peaks in \textit{cerevisiae} have corresponding TSSs called in the homologous region of the other species.
-By TSS-seq, we do not find evidence of conservation for most oxidative-stress-dependent intragenic TSSs: Out of 39 differentially expressed intragenic \textit{cerevisiae} TSSs with matching TFIIB peaks, we find matching TSSs for only 5 TSSs in \textit{mikatae} (13\%) and 4 TSSs in \textit{uvarum} (10\%), compared to 42\% and 38\% of differentially expressed genic TSSs (Figure \ref{fig:stress_interyeast_intragenic}).
-
-\begin{figure}
+\begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_interyeast_intragenic.pdf}
     \caption[Heatmap of fold-change upon oxidative stress, for \textit{S. cerevisiae} intragenic TSSs differentially expressed in oxidative stress, and homologous TSSs found in \textit{S. mikatae} and \textit{S. uvarum}.]{Heatmap of fold-change upon oxidative stress, for all \textit{S. cerevisiae} intragenic TSSs differentially expressed in oxidative stress with corresponding TFIIB peaks, and homologous TSSs found in \textit{S. mikatae} and \textit{S. uvarum}. Grey tiles indicate that no homologous TSS was called in a species.}
     \label{fig:stress_interyeast_intragenic}
 \end{figure}
 
-\begin{figure}
+If an instance of intragenic transcription like that at \textit{DSK2} is functional, then it might be conserved between different species.
+To see if this is likely for the cases of oxidative-stress-dependent intragenic transcription we observe in \textit{S. cerevisiae}, we performed TSS-seq in oxidative stress for the related \textit{Saccharomyces sensu stricto} species \textit{Saccharomyces mikatae} and \textit{Saccharomyces uvarum}.
+We then performed a multiple genome alignment of the three species, and determined which TSS peaks in \textit{cerevisiae} have corresponding TSSs called in the homologous region of the other species.
+By TSS-seq, we do not find evidence of conservation for most oxidative-stress-dependent intragenic TSSs: Out of 39 differentially expressed intragenic \textit{cerevisiae} TSSs with matching TFIIB peaks, we find matching TSSs for only 5 TSSs in \textit{mikatae} (13\%) and 4 TSSs in \textit{uvarum} (10\%), compared to 42\% and 38\% of differentially expressed genic TSSs (Figure \ref{fig:stress_interyeast_intragenic}).
+This is a low level of intragenic conservation when compared to previous reports of conservation of antisense transcripts \citep{yassour2010, rhind2011}, but may be consistent with the reported tendency of long noncoding RNAs to be gained and lost at a rapid rate compared to protein-coding genes \citep{kutter2012}.
+
+Interestingly, the gene \textit{GRX2}, whose intragenic transcript is induced upon oxidative stress in all three species, is known to express two protein isoforms from different start codons \citep{pedrajas2002}.
+These two isoforms localize to different subcellular compartments, and our data suggest intragenic transcription may explain the use of the downstream start codon to express the shorter isoform.
+
+\begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_dsk2_interyeast.pdf}
     \caption[Sense TSS-seq signal over the \textit{DSK2} gene in \textit{Saccharomyces cerevisiae, mikatae, and uvarum} in unstressed and oxidative stress conditions.]{Relative sense TSS-seq signal over the \textit{DSK2} gene in \textit{Saccharomyces cerevisiae, mikatae, and uvarum} in unstressed and oxidative stress conditions. The shaded bars on the \textit{DSK2} gene diagrams indicate PACE-core elements on the sense (darker) or antisense (lighter) strands. The lightly shaded regions in the background indicate the boundaries of regions homologous to the two \textit{DSK2} intragenic TSS-seq peaks called in \textit{S. cerevisiae}, for each species.}
     \label{fig:stress_dsk2_interyeast}
 \end{figure}
 
-\begin{figure}
+For \textit{DSK2}, the three PACE-core elements needed for intragenic \textit{DSK2} expression in \textit{S. cerevisiae} are conserved in \textit{S. mikatae} but not \textit{S. bayanus} (Figure \ref{fig:stress_dsk2_interyeast}).
+Despite this, we do not observe the intragenic \textit{DSK2} TSS-seq peak in \textit{S. mikatae}, with only a miniscule amount of TSS-seq signal over the region homologous to the \textit{S. cerevisiae} peak.
+Consistent with this, when probing for \textit{DSK2} transcripts in the three species by Northern blot, we observe extremely low expression of intragenic \textit{DSK2} in \textit{S. mikatae} upon oxidative stress (Figure \ref{fig:stress_dsk2_interyeast_northern}).
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=5in]{figures/stress/stress_dsk2_interyeast_northern.pdf}
     \caption[Northern blot for \textit{DSK2} transcripts in the yeasts \textit{Saccharomyces cerevisiae, mikatae, and uvarum}, in the absence and presence of oxidative stress.]{Northern blot for \textit{DSK2} transcripts in the yeasts \textit{Saccharomyces cerevisiae, mikatae, and uvarum}, in the absence and presence of oxidative stress induced by addition of diamide to the media. \textit{HSP12} is shown as a positive control for oxidative stress, and \textit{SNR190} is shown as a loading control.}
@@ -189,7 +210,12 @@ By TSS-seq, we do not find evidence of conservation for most oxidative-stress-de
 
 \section{Discussion}
 
-\lipsum[1]
+In this work, we used high resolution genomic assays of transcription initiation to identify intragenic initiation regulated by three stress conditions.
+For the condition of oxidative stress, we show that intragenic transcripts are generally expressed at lower levels than genic transcripts, and many are likely to be translated at some level.
+Most of the oxidative-stress-regulated transcripts we identify are not conserved among three \textit{Saccharomyces sensu stricto} species, which may suggest that intragenic promoters evolve very rapidly.
+At least one instance of oxidative-stress-induced intragenic transcription, at the gene \textit{DSK2}, is important for yeast to survive under conditions of oxidative stress.
+Our ongoing experiments are aimed at determining how intragenic \textit{DSK2} functions to confer oxidative stress resistance.
+Further studies of examples of intragenic transcription like the ones identified in this study are likely to illuminate many ways in which intragenic transcription functions inside cells.
 
 \section{Methods}
 

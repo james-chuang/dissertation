@@ -88,21 +88,21 @@ main = function(theme_spec = "thesis_theme.R",
 
     scatter_diamide = plot_scatter(df = diamide,
                                    # xtitle = expression("RNA microarray log"[2] ~ textstyle(frac("45 min. oxidative stress", "YPD"))),
-                                   xtitle = expression("RNA microarray log"[2] ~ frac("45 min. oxidative stress", "YPD")),
+                                   xtitle = expression("RNA microarray log"[2] ~ frac("40 min. oxidative stress", "YPD")),
                                    ytitle = expression(atop("TFIIB ChIP-nexus",
-                                                            "log"[2] ~ frac("40 min. oxidative stress", "YPD")))) +
-        theme(plot.margin=margin(b=8, r=0, unit="pt"))
+                                                            "log"[2] ~ frac("45 min. oxidative stress", "YPD")))) +
+        theme(plot.margin=margin(b=0, r=4, unit="pt"))
     scatter_aminoacid = plot_scatter(df = aminoacid,
                                      xtitle = expression("RNA microarray log"[2] ~ frac("30 min. amino acid stress", "SC")),
                                      ytitle = expression(atop("TFIIB ChIP-nexus",
                                                               "log"[2] ~ frac("30 min. amino acid stress", "SC")))) +
-        theme(plot.margin=margin(t=8, r=0, unit="pt"))
+        theme(plot.margin=margin(t=0, l=4, unit="pt"))
 
     figure = plot_grid(scatter_diamide,
                        scatter_aminoacid,
-                       ncol=1,
-                       align="v",
-                       axis="lr")
+                       nrow=1,
+                       align="h",
+                       axis="tb")
 
     ggplot2::ggsave(pdf_out,
                     plot=figure,

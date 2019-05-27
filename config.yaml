@@ -112,7 +112,7 @@ figures:
             rnapii_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-RNAPII.tsv.gz
             spt5_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-Spt5.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
-            height: 4.5
+            height: 4.7
             width: 3
         rnapii_phosphomark_enrichment:
             data_paths:
@@ -128,16 +128,16 @@ figures:
         tss_vs_rna:
             tss_data: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             rna_data: ../../spt5/rna-seq/diff_exp/transcripts/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_rnaseq-spikenorm-transcripts-diffexp-results-genic-all.tsv
-            height: 3.3
+            height: 3
             width: 4.5
         rnaseq_metagene:
             data_path: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_RNA-seq-sense.tsv.gz
-            height: 3
-            width: 6
+            height: 2.25
+            width: 5
         rnaseq_heatmaps:
             rnaseq_data: ../../spt5/rna-seq/datavis/coding-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/coding-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-libsizenorm-wholeread-ANTISENSE.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
-            height: 6
+            height: 4.2
             width: 6
         antisense_heatmaps:
             tssseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_TSS-seq-antisense.tsv.gz
@@ -183,12 +183,12 @@ figures:
             gasch_three: ../../intragenic/other-datasets/gasch00/data/gasch00_fig3data_cleaned.tsv
             tfiib_diamide: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             tfiib_aminoacid: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/genic/SD-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
-            width: 3
-            height: 4.8
+            width: 6
+            height: 3
         nitrogen_gene_ontology:
             data: ../../intragenic/chipnexus-tfiib-custom-analysis/gene_ontology/nitrogen-v-SC/libsizenorm/genic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-genic-up-gene-ontology-results.tsv
-            width: 4
-            height: 2.5
+            width: 5
+            height: 3
         tfiib_ridgelines:
             width: 8.25
             height: 4.75
@@ -266,7 +266,7 @@ figures:
             intra_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
             anti_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/antisense/diamide-v-YPD_antisense-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
             inter_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intergenic/diamide-v-YPD_intergenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
-            height: 2
+            height: 1.9
             width: 3
         promoter_tss_expression:
             genic_path: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200-matched-up.tsv
@@ -322,7 +322,7 @@ figures:
             trim_pct: 0.1
             x_label_dist: 1
             width: 6
-            height: 3.5
+            height: 3.75
         dsk2_pace_northern:
             dsk_blot: ../../intragenic/stress-small-data/northern-blots/JLW_20190509 DSK2-[Phosphor]_rotated.jpg
             width: 3
@@ -353,7 +353,7 @@ figures:
             tss_smik: ../../intragenic/smik-tss-seq/datavis/DSK2/spikenorm/DSK2-allsamples-allannotations-tss-seq-spikenorm-SENSE.tsv.gz
             tss_sbay: ../../intragenic/sbay-tss-seq/datavis/DSK2/spikenorm/DSK2-allsamples-allannotations-tss-seq-spikenorm-SENSE.tsv.gz
             width: 6
-            height: 3.5
+            height: 3.25
         dsk2_interyeast_northern:
             dsk_scer: ../../intragenic/stress-small-data/northern-blots/scer_dsk2.png
             snr_scer: ../../intragenic/stress-small-data/northern-blots/scer_u190.png

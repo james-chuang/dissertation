@@ -1,4 +1,4 @@
-\chapter{Genomics of transcription elongation factor Spt5}
+\chapter{Genomics of the transcription elongation factor Spt5}
 \label{chapter:five}
 
 \section{Abstract}
@@ -21,7 +21,7 @@ Spt5 is a fundamental component of the transcription elongation complex, with th
 In eukaryotes, Spt5 heterodimerizes with the protein Spt4, forming a complex known as DSIF (DRB sensitivity-inducing factor) \citep{hartzog1998,hirtreiter2010,schwer2009,wada1998}.
 In metazoans, phosphorylation of DSIF controls the release of the elongation complex from promoter-proximal pausing, a regulatory transition state between transcription initiation and productive elongation \citep{adelman2012}.
 
-Within the elongation complex, biochemical and structural studies place Spt4/5 near the center of the action \citep{vos2018a, vos2018b, ehara2017, ehara2019}: Spt5 directly interacts with the noncoding strand of DNA \citep{crickard2016,meyer2015}, the nascent RNA \citep{blythe2016, crickard2016,meyer2015}, and the Pol II clamp domain, which sits above the nucleic acid cleft \citep{hirtreiter2010, martinez-rucobo2011, viktorovskaya2011, yamaguchi1999}.
+Within the elongation complex, biochemical and structural studies place Spt4/5 near the center of the action \citep{vos2018a, vos2018b, ehara2017, ehara2019}: Spt5 directly interacts with the noncoding strand of DNA \citep{crickard2016,meyer2015}, the nascent RNA \citep{blythe2016, crickard2016,meyer2015}, and the RNA Pol II clamp domain, which sits above the nucleic acid cleft \citep{hirtreiter2010, martinez-rucobo2011, viktorovskaya2011, yamaguchi1999}.
 Binding of Spt5 to Pol II is likely to stabilize the elongation complex and enhance its processivity \citep{hirtreiter2010,klein2011,martinez-rucobo2011,baluapuri2019}, consistent with both \textit{in vitro} studies showing that Spt5 reduces pausing of polymerase under nucleotide-limiting conditions \citep{guo2000,wada1998,zhu2007}, and \textit{in vivo} studies showing elongation defects upon Spt4/5 mutation or depletion \citep{diamant2016,kramer2016,liu2012,mason2005,morillon2003,quan2010,rondon2003}.
 
 As it travels with elongating Pol II, Spt5 recruits other factors, including the Rpd3S histone deactylase complex \citep{drouin2010} and mRNA 3$^\prime$-end processing factors \citep{mayer2012, stadelmayer2014, yamamoto2014}.
@@ -29,6 +29,10 @@ The recruitment of still other factors to the elongation complex by Spt5 is depe
 When unphosphorylated, the Spt5 CTR aids in recruitment of the mRNA capping enzyme \citep{doamekpor2014, doamekpor2015, schneider2010, wen1999}, while when phosphorylated, the Spt5 CTR recruits the Paf1 complex \citep{liu2009, mbogning2013, wier2013, zhou2009}, another complex involved in transcription elongation \citep{vanoss2017}.
 
 Despite the close relationship of Spt5 to transcription and the transcription-associated processes described above, many studies which knocked down Spt5 in zebrafish, mice, and HeLa cells observed only mild changes in transcript levels across the genome \citep{diamant2016b, komori2009, krishnan2008, stanlie2012, fitz2018}, a result that could potentially be explained by inefficient knockdown of Spt5 and/or the lack of a spike-in control, without which it is impossible to observe a global change over the entire genome \citep{chen2016}. \citep{henriques2018, naguib2019}.
+
+To study the requirement for Spt5 \textit{in vivo}, we use a system for conditionally depleting Spt5 protein in the fission yeast \textit{Schizosaccharomyces pombe}.
+In this system, Spt5 is expressed using the thiamine-repressible \textit{nmt81} promoter \citep{basi1993}, and is tagged with an auxin-inducible degron tag \citep{kanke2011}, such that addition of thiamine and auxin to the media results in repression of \textit{spt5\textsuperscript{+}} transcription and specific degradation of Spt5 protein (Figure \ref{fig:five_depletion_diagram}).
+For all experiments described in this chapter, Spt5-depleted cells are sampled 4.5 hours after the start of depletion, at which point the levels of Spt5 on chromatin are about 12\% of non-depleted levels, as measured by ChIP-seq of Spt5 (Figure \ref{fig:five_summary_metagenes}, top panel).
 
 \begin{wrapfigure}[9]{r}{3in}
     \begin{tikzpicture}[x=3in, y=1in]
@@ -51,27 +55,23 @@ Despite the close relationship of Spt5 to transcription and the transcription-as
     \label{fig:five_depletion_diagram}
 \end{wrapfigure}
 
-To study the requirement for Spt5 \textit{in vivo}, we use a system for conditionally depleting Spt5 protein in the fission yeast \textit{Schizosaccharomyces pombe}.
-In this system, Spt5 is expressed using the thiamine-repressible \textit{nmt81} promoter \citep{basi1993}, and is tagged with an auxin-inducible degron tag \citep{kanke2011}, such that addition of thiamine and auxin to the media results in repression of \textit{spt5\textsuperscript{+}} transcription and specific degradation of Spt5 protein (Figure \ref{fig:five_depletion_diagram}).
-For all experiments described in this chapter, Spt5-depleted cells are sampled 4.5 hours after the start of depletion, at which point the levels of Spt5 on chromatin are about 12\% of non-depleted levels, as measured by ChIP-seq of Spt5 (Figure \ref{fig:five_summary_metagenes}, top panel).
-
 Using this system, we assayed various aspects of transcription and chromatin structure across the genomes of Spt5-depleted and non-depleted cells.
 The results are presented below, with section \ref{sec:five_pol_ii} and the RNA-seq part of section \ref{sec:five_transcriptome} describing my reanalyses of data published in \citet{shetty2017} prior to my involvement in this project.
 
 \section{RNA Polymerase II in Spt5 depletion}
 \label{sec:five_pol_ii}
 
-\begin{wrapfigure}[21]{r}{3in}
-    \includegraphics[width=3in]{figures/five/five_summary_metagenes.pdf}
-    \caption[Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5-depleted and non-depleted cells.]{Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding transcripts scaled from TSS to CPS, plus 0.5 kb on both ends. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates or one experiment (non-depleted NET-seq), taken in non-overlapping 20 bp bins and standardized per gene.}
-    \label{fig:five_summary_metagenes}
-\end{wrapfigure}
-
 To examine the effects of Spt5 depletion on transcription, we performed Pol II ChIP-seq and NET-seq of Spt5-depleted and non-depleted cells.
 The data from the two assays paint somewhat different pictures of the changes in Pol II status upon Spt5 depletion (Figure \ref{fig:five_summary_metagenes}).
 ChIP-seq reports that global levels of Pol II on chromatin in Spt5-depleted cells are roughly one-third that of non-depleted cells, with the Pol II remaining after Spt5 depletion tending to be located towards the 5$^\prime$ ends of genes.
 By contrast, NET-seq reports that total elongating Pol II is not depleted to an appreciable degree but is redistributed from the 3$^\prime$ to the 5$^\prime$ ends of genes, with a greater 5$^\prime$ bias than that observed by ChIP-seq.
 We interpret this 5$^\prime$ shift of Pol II as reflecting a transcription elongation defect upon Spt5 depletion, consistent with previously reported elongation defects upon Spt4/5 disruption \citep{diamant2016,kramer2016,liu2012,mason2005,morillon2003,quan2010,rondon2003}.
+
+\begin{wrapfigure}[23]{r}{3in}
+    \includegraphics[width=3in]{figures/five/five_summary_metagenes.pdf}
+    \caption[Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5-depleted and non-depleted cells.]{Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding transcripts scaled from TSS to CPS, plus 0.5 kb on both ends. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates or one experiment (non-depleted NET-seq), taken in non-overlapping 20 bp bins and standardized per gene.}
+    \label{fig:five_summary_metagenes}
+\end{wrapfigure}
 
 To learn more about the state of Pol II after Spt5 depletion, we also performed ChIP-seq for two major post-translational modifications of the Pol II C-terminal domain (CTD), namely serine 5 phosphorylation and serine 2 phosphorylation.
 Looking at the relative enrichment of these modifications over gene bodies, we see that the CTD of the Pol II remaining at the 5$^\prime$ ends of genes after Spt5 depletion is enriched for phospho-serine 5 and depleted for phospho-serine 2.
@@ -109,7 +109,7 @@ The difference in transcript abundance measurements between RNA-seq and TSS-seq 
 We attribute this to defective elongation upon Spt5 depletion, which increases transcriptional pausing, early termination, and the use of intragenic polyadenylation sites, consistent with a previous report in budding yeast \citep{cui2003}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6in]{figures/five/five_rnaseq_metagene.pdf}
+    \includegraphics[width=5in]{figures/five/five_rnaseq_metagene.pdf}
     \caption[Average sense RNA-seq signal over non-overlapping coding genes, from Spt5-depleted and non-depleted cells.]{Average sense RNA-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates, taken in non-overlapping 20 bp bins and standardized per gene.}
     \label{fig:five_rnaseq_metagene}
 \end{figure}
@@ -118,6 +118,7 @@ RNA-seq and TSS-seq also revealed the expression of many novel transcripts in Sp
 In general, these Spt5-repressed antisense transcripts are only a few hundred nucleotides in length (Figure \ref{fig:five_antisense_heatmaps}), and are expressed at a lower level than canonical genic transcripts (Figure \ref{fig:five_tss_expression_levels}).
 We also find no notable correlation upon Spt5 depletion between changes in antisense transcription and changes in overlapping genic transcription.
 Interestingly, the most significant motif found by \textit{de novo} motif discovery upstream of Spt5-repressed antisense TSSs is a GA-rich motif with 3-nucleotide periodicity, similar to the most significant motif found upstream of Spt6-repressed intragenic and antisense TSSs in \textit{S. cerevisiae} (Figures \ref{fig:five_meme_motifs}, \ref{fig:six_meme_motifs}).
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/five/five_rnaseq_heatmaps.pdf}

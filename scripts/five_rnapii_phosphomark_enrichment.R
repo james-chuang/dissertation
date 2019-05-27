@@ -60,29 +60,30 @@ main = function(theme_spec,
         geom_hline(yintercept=c(1,2),
                    size=0.3) +
         geom_label(data = df %>%
-                       filter(group=="non-depleted") %>%
+                       filter(group=="depleted") %>%
                        distinct(group, factor),
-                   aes(label=paste0(factor, "\nenrichment"),
+                   aes(label=paste(factor, "enrichment"),
                        y=as.numeric(as.factor(factor))+1),
                    x=-0.4,
                    hjust=0,
-                   vjust=1.1,
+                   vjust=1.5,
                    size=10/72*25.4,
                    label.r=unit(0, "pt"),
                    label.size=NA,
                    label.padding=unit(2,"pt"),
-                   alpha=0.6,
+                   alpha=0.8,
                    family="FreeSans") +
         facet_grid(.~group) +
         scale_fill_viridis(guide=guide_colorbar(title="relative\nenrichment",
                                                 title.hjust=0,
                                                 barheight=4.9,
                                                 barwidth=0.5),
+                           breaks = scales::pretty_breaks(n=3)
                            option="viridis") +
         scale_x_continuous(expand=c(0,0),
                            breaks=scales::pretty_breaks(n=3),
                            labels=function(x) case_when(x==0 ~ "TSS",
-                                                        x==1.5 ~ paste(x, "kb"),
+                                                        x==2 ~ paste(x, "kb"),
                                                         TRUE ~ as.character(x))) +
         scale_y_discrete(expand=c(0,0),
                          name="RNA Pol II\nlevels") +
