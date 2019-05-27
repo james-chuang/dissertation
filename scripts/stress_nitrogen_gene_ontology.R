@@ -9,13 +9,13 @@ main = function(theme_spec = "thesis_theme.R",
         mutate_at(vars(over_represented_pvalue,
                        under_represented_pvalue),
                   ~-log10(.)) %>%
-        mutate(term = case_when(#term=="cellular amino acid metabolic process" ~
-                                #    "cellular amino acid\nmetabolic process",
-                                #term=="transmembrane transporter activity" ~
-                                #    "transmembrane\ntransporter activity",
-                                term=="nucleobase-containing small molecule metabolic process" ~
-                                    "nucleobase-containing\nsmall molecule metabolic process",
-                                TRUE ~ term)) %>%
+        #mutate(term = case_when(#term=="cellular amino acid metabolic process" ~
+        #                        #    "cellular amino acid\nmetabolic process",
+        #                        #term=="transmembrane transporter activity" ~
+        #                        #    "transmembrane\ntransporter activity",
+        #                        term=="nucleobase-containing small molecule metabolic process" ~
+        #                            "nucleobase-containing\nsmall molecule metabolic process",
+        #                        TRUE ~ term)) %>%
         mutate(term = fct_inorder(term))
 
     ontology_fdr_cutoff = 0.01

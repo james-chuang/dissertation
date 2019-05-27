@@ -39,7 +39,7 @@ Consistent with its histone chaperone function, Spt6 influences chromatin struct
 
 Studies in the yeasts \textit{Saccharomyces cerevisiae} and \textit{Schizosaccharomyces pombe} have previously examined the requirement for Spt6 in normal transcription \citep{cheung2008, degennaro2013, kaplan2003, pathak2018, uwimana2017, vanbakel2013}.
 As Spt6 is essential for viability in \textit{S. cerevisiae}, many of these studies use the same temperature-sensitive \textit{spt6} mutant used in this project, \textbf{\textit{spt6-1004}}, which encodes an in-frame deletion of a helix-hairpin-helix domain within Spt6 \citep{kaplan2003}.
-When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels, though cells are still viable  (Figure \ref{fig:six_spt6_western}, \citep{kaplan2003}).
+When \textit{spt6-1004} cells are shifted from 30\textdegree C to 37\textdegree C for 80 minutes, bulk Spt6 protein levels are depleted to about 20\% of wild-type levels, though cells are still viable  (Figure \ref{fig:six_spt6_western}) \citep{kaplan2003}.
 A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textbf{intragenic transcripts}, transcripts which appear to arise from within protein-coding sequences in both sense and antisense orientations relative to the coding gene (Figure \ref{fig:six_gene_diagram}) \citep{cheung2008, degennaro2013, kaplan2003, uwimana2017}.
 
 \begin{wrapfigure}[7]{r}{3in}
@@ -50,8 +50,8 @@ A notable phenotype of the \textit{spt6-1004} mutant is the appearance of \textb
 \end{wrapfigure}
 Previous genome-wide measurements of transcript levels in \textit{spt6-1004} relied on tiled microarrays \citep{cheung2008} and RNA sequencing \citep{degennaro2013, uwimana2017}.
 Studying intragenic transcription is difficult with these methods, since the signal for an intragenic transcript in the same orientation as the gene it overlaps is convoluted with the signal from the full-length `genic' transcript (Figures \ref{fig:six_gene_diagram}, \ref{fig:six_aat_assay_comparison}) \citep{cheung2008, lickwar2009}.
-Identification of intragenic transcription has thus relied on identifying cases where the signal towards the 3$^\prime$ end of a transcript is greater than the signal towards the 5$^\prime$ end.
-However, this leads to both false positives, due to the inherent variability of the signal over a transcript, as well as false negatives, due to the requirement of the intragenic transcript to be well-expressed relative to its corresponding genic transcript in order to be identified.
+Identification of intragenic transcription has thus relied on finding cases where the signal towards the 3$^\prime$ end of a transcript is greater than the signal towards the 5$^\prime$ end.
+However, this leads to both false positives, due to the inherent variability of the signal over a transcript, as well as false negatives, due to the requirement of the intragenic transcript to be well-expressed relative to its corresponding genic transcript in order to be detected.
 Additionally, these methods are assays of steady-state RNA levels, which makes them unable to distinguish whether the intragenic transcripts observed in \textit{spt6-1004} result from: A) new intragenic transcription initiation in the mutant, B) reduced decay of intragenic transcripts which are rapidly degraded in wild-type, or C) processing of full-length protein-coding RNAs.
 New transcription initiation has been shown to be responsible for individual cases of intragenic initiation \citep{kaplan2003}, but this has not previously been studied on a genome-wide scale.
 % \begin{SCfigure}[40][h]
@@ -197,7 +197,7 @@ The discrepancy with prior work might be explained by the greater resolution and
 \end{sidewaysfigure}
 
 \clearpage
-\subsection{Clustering of MNase-seq profiles at \textit{spt6-1004}-induced intragenic TSSs}
+\subsection[Clustering of MNase-seq profiles at\\ \textit{spt6-1004}-induced intragenic TSSs]{Clustering of MNase-seq profiles at \textit{spt6-1004}-induced intragenic TSSs}
 
 The aggregate MNase-seq dyad signal around all \textit{spt6-1004} intragenic TSSs is aperiodic (Figure \ref{fig:six_intragenic_mnase_metagenes}, top left panel), which occurs as a result of destructive interference from offset nucleosome phasing patterns.
 To discover these phasing patterns, we used the wild-type and \textit{spt6-1004} MNase-seq data flanking intragenic TSSs to train a self-organizing map to assign TSSs with similar MNase-seq patterns to nearby nodes in a rectangular grid (Figure \ref{fig:six_mnase_som}).
@@ -205,7 +205,7 @@ This allowed us to see that, although there is considerable diversity in the nuc
 By hierarchically clustering the nodes of the self-organizing map, we further grouped intragenic TSSs into three major clusters differing primarily by the phasing of the nucleosome array relative to the TSS, as shown in Figure \ref{fig:six_intragenic_mnase_metagenes}.
 In all three clusters, nucleosomes are disrupted to similar levels in \textit{spt6-1004}.
 
-Because GC-poor DNA sequences are nucleosome disfavoring and are known to occur in promoter regions \citep{iyer1995,kaplan2008,tillo2009,zhang2009}, we also examined the GC content surrounding the three clusters of intragenic TSSs.
+Because GC-poor DNA sequences in \textit{S. cerevisiae} are nucleosome disfavoring and are known to occur in promoter regions \citep{iyer1995,kaplan2008,tillo2009,zhang2009}, we also examined the GC content surrounding the three clusters of intragenic TSSs.
 For all three clusters, the GC content of the DNA drops just upstream of the TSS to a slightly lesser degree than for genic TSSs (Figure \ref{fig:six_intragenic_mnase_metagenes}).
 
 \begin{sidewaysfigure}
@@ -318,7 +318,7 @@ Quality statistics of raw, cleaned, non-aligning, and uniquely aligning non-dupl
 
 The pipeline additionally performs \hyperref[subsubsec:tss_peak_calling]{TSS-seq peak calling}, \hyperref[subsubsec:tss_differential_expression]{differential expression}, \hyperref[subsubsec:tss_peak_classification]{classification of peaks into genomic categories}, \hyperref[subsubsec:tss_seqlogos]{sequence logo visualization}, motif enrichment analysis, \hyperref[subsubsec:denovo_motif_discovery]{\textit{de novo} motif discovery}, gene ontology analysis \citep{young2010}, and data visualization with the option to separate data into clusters of similar signal.
 
-\subsubsection{Reannotation of \textit{S. cerevisiae} TSSs using TSS-seq data}
+\subsubsection[Reannotation of \textit{S. cerevisiae} TSSs\\ using TSS-seq data]{Reannotation of \textit{S. cerevisiae} TSSs using TSS-seq data}
 \label{subsubsec:tss_reannotation}
 
 TSS-seq coverage from two replicates of a wild-type \textit{S. cerevisiae} strain grown at 30\textdegree C in YPD was averaged and used to adjust the 5$^\prime$ ends of an annotation of major transcript isoforms based on TIF-seq data \citep{pelechano2013}.
@@ -342,7 +342,7 @@ The adaptive kernel adjusts the kernel bandwidth to be smaller in regions of hig
 For all analyses in this document, adaptive smoothing was performed with $\sigma_\text{pilot} = 10$ and $\alpha = 0.2$.
 
 Following smoothing, an initial set of peaks is formed by assigning all nonzero signal in the original, unsmoothed coverage to the nearest local maximum of the smoothed coverage, and taking the minimum and maximum genomic coordinates of the original coverage as the peak boundaries for each local maximum of the smoothed coverage.
-Peaks are then trimmed to the smallest genomic interval that includes 95\% of the original coverage, and the probability of the peak begin generated by noise is estimated by a Poisson model where $\lambda$, the expected coverage, is the maximum of the expected coverage over the chromosome and the expected coverage in the 2 kb window upstream of the peak (\`a la the ChIP-seq peak caller MACS2 \citep{zhang2008})\footnote{Currently, the test is for the \textbf{max} signal of the peak. In \citet{doris2018}, the test was for the sum of the signal over the peak, which resulted in greater numbers of peaks called in \textit{spt6-1004}. The algorithm was changed while processing data for chapter \ref{chapter:stress} in order to only call peaks that have major TSSs.}.
+Peaks are then trimmed to the smallest genomic interval that includes 95\% of the original coverage, and the probability of the peak being generated by noise is estimated by a Poisson model where $\lambda$, the expected coverage, is the maximum of the expected coverage over the chromosome and the expected coverage in the 2 kb window upstream of the peak (\`a la the ChIP-seq peak caller MACS2 \citep{zhang2008})\footnote{Currently, the test is for the \textbf{max} signal of the peak. In \citet{doris2018}, the test was for the sum of the signal over the peak, which resulted in greater numbers of peaks called in \textit{spt6-1004}. The algorithm was changed while processing data for chapter \ref{chapter:stress} in order to only call peaks that have major TSSs.}.
 Finally, peaks are ranked by their significance under the Poisson model, and a final list of peaks for the group is generated using the IDR method ($\text{IDR}=0.1$) \citep{li2011}.
 In brief, IDR compares ranked lists of regions in order to set a cutoff, beyond which the regions are no longer consistent between replicates.
 
@@ -355,13 +355,14 @@ For TSS-seq differential expression analysis, TSS-seq peak-calling was performed
 The read counts for each peak in each condition were used as the input to differential expression analysis by DESeq2 \citep{love2014}, with the alternative hypothesis $\allowbreak \left\lvert\log_2 \left(\text{fold-change}\right) \right\rvert > 1.5$ and a false discovery rate of 0.1.
 To normalize by spike-in, the size factors of the \textit{S. pombe} spike-in counts were used as the size factors for \textit{S. cerevisiae}, although we note that due to the median of ratios normalization used in DESeq2, the major TSS-seq results of this work are still observed when \textit{S. cerevisiae} size factors are used.
 
-\subsubsection{Classification of TSS-seq peaks into genomic categories}
+\subsubsection[Classification of TSS-seq peaks\\ into genomic categories]{Classification of TSS-seq peaks into genomic categories}
 \label{subsubsec:tss_peak_classification}
 
 TSS-seq peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above} and an annotation of all verified open reading frames (ORFs) and blocked reading frames in \textit{S. cerevisiae} \citep{engel2014}.
 First, `genic' regions were defined as follows: If a gene was present in both the transcript and ORF annotations, the genic region was defined as the interval (annotated TSS-30 nt, start codon).
 If a gene was present in the transcript annotation but not the ORF annotation, the genic region was defined as the interval (annotated TSS - 30 nt, annotated TSS + 30 nt).
 If a gene was present only in the ORF annotation, the genic region was defined as the interval (start codon - 30 nt, start codon).
+
 For the purposes of peak classification, regions were considered overlapping if they had at least one base of overlap.
 TSS-seq peaks were classified as genic if they overlapped a genic region on the same strand.
 Peaks were classified as intragenic if they were not classified as a genic peak, and their summit position overlapped an open or closed reading frame on the same strand.
@@ -419,7 +420,7 @@ A non-redundant list of peaks called in the condition and control groups being c
 For estimation of change in TFIIB binding upstream of TSS-seq peaks, TFIIB fragment midpoint counts in the window extending 200 bp upstream of the TSS-seq peak summit were used as the input to DESeq2.
 \textit{S. cerevisiae} counts were used for size factor calculation.
 
-\subsubsection{Classification of TFIIB ChIP-nexus peaks into genomic categories}
+\subsubsection[Classification of TFIIB ChIP-nexus peaks\\ into genomic categories]{Classification of TFIIB ChIP-nexus peaks into genomic categories}
 \label{subsubsec:tfiib_peak_classification}
 As for TSS-seq peaks, TFIIB ChIP-nexus peaks were assigned to genomic categories based on their position relative to the transcript annotation \hyperref[subsubsec:tss_reannotation]{described above}, an annotation of all verified open reading frames (ORFs) and blocked reading frames \citep{engel2014}, and \hyperref[subsubsec:tss_peak_classification]{an annotation of `genic' regions derived from the transcript and ORF annotations}.
 TFIIB ChIP-nexus peaks were classified as genic if they overlapped a genic region.
@@ -454,7 +455,7 @@ Quantification of nucleosome occupancy, fuzziness, and position shifts were calc
     \frac{\text{mean observed percent spike-in in condition libraries}}{\text{mean observed percent spike-in in control libraries}}.
 \end{align*}
 
-\subsubsection{Clustering of MNase-seq signal at \textit{spt6-1004} intragenic TSSs}
+\subsubsection[Clustering of MNase-seq signal\\ at \textit{spt6-1004} intragenic TSSs]{Clustering of MNase-seq signal at \textit{spt6-1004} intragenic TSSs}
 
 The Snakemake \citep{koster2012} workflow for clustering MNase-seq data by self/super-organizing map and hierarchical clustering is maintained at\\\href{https://github.com/winston-lab/cluster-mnase-seq}{github.com/winston-lab/cluster-mnase-seq}.
 To cluster \textit{spt6-1004} intragenic TSSs based on surrounding MNase-seq signal, spike-in normalized MNase-seq dyad signal in the window $\pm150$ bp of the TSS-seq peak summit of all intragenic TSS-seq peaks significantly upregulated in \textit{spt6-1004} was binned by taking the mean signal in non-overlapping 5 bp bins, and then averaged taking the mean of two replicates (\textit{spt6-1004}) or one experiment (wild-type).

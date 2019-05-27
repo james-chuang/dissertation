@@ -112,7 +112,7 @@ figures:
             rnapii_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-RNAPII.tsv.gz
             spt5_data: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_ChIPseq-Spt5.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
-            height: 4.7
+            height: 4.2
             width: 3
         rnapii_phosphomark_enrichment:
             data_paths:
@@ -132,13 +132,13 @@ figures:
             width: 4.5
         rnaseq_metagene:
             data_path: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_RNA-seq-sense.tsv.gz
-            height: 2.25
-            width: 5
+            height: 2.4
+            width: 3.75
         rnaseq_heatmaps:
             rnaseq_data: ../../spt5/rna-seq/datavis/coding-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/coding-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-libsizenorm-wholeread-ANTISENSE.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
-            height: 4.2
-            width: 6
+            height: 3.6
+            width: 5
         antisense_heatmaps:
             tssseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_TSS-seq-antisense.tsv.gz
             rnaseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_RNA-seq-antisense.tsv.gz
@@ -184,11 +184,11 @@ figures:
             tfiib_diamide: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             tfiib_aminoacid: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/SD-v-SC/libsizenorm/genic/SD-v-SC_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
             width: 6
-            height: 3
+            height: 2.5
         nitrogen_gene_ontology:
             data: ../../intragenic/chipnexus-tfiib-custom-analysis/gene_ontology/nitrogen-v-SC/libsizenorm/genic/nitrogen-v-SC_tfiib-chipnexus-libsizenorm-genic-up-gene-ontology-results.tsv
-            width: 5
-            height: 3
+            width: 6
+            height: 2.4
         tfiib_ridgelines:
             width: 8.25
             height: 4.75

@@ -1,4 +1,4 @@
-\chapter{Stress-responsive intragenic transcription}
+\chapter{Studies of the functions of intragenic transcription in stress}
 \label{chapter:stress}
 
 \section{Abstract}
@@ -33,9 +33,9 @@ Evidence suggests that by binding microtubules but not dimerizing, intragenic As
 In other cases, it may be the process of intragenic transcription that is important, rather than the RNA produced.
 As transcription occurs, co-transcriptional processses including chromatin remodeling and histone modification also take place via the recruitment of various factors to the transcription complex.
 These factors are often recruited in a manner dependent on the stage of transcription, which results in stereotypic patterns of chromatin state over transcribed regions \citep{smolle2013, buratowski2010}.
-For example, in \textit{S. cerevisiae}, the Set1 complex responsible for methylation of histone H3 lysine 4 (H3K4) is recruited to Pol II specifically during early elongation, resulting in a pattern where H3K4 trimethylation (H3K4me3) is primarily found over the first 500 base pairs of transcribed regions.
+For example, in \textit{S. cerevisiae}, the Set1 complex responsible for methylation of histone H3 lysine 4 (H3K4) is recruited to Pol II specifically during early elongation, resulting in a pattern where H3K4 trimethylation (H3K4me3) is primarily found over the first 500 base pairs of transcribed regions \citep{soares2017}.
 Since intragenic transcribed regions overlap genic transcribed regions, intragenic transcription can generate unusual patterns of nucleosome positioning and histone modification over a gene, which may influence expression from the genic promoter.
-One example of this occurs at the \textit{S. cerevisiae} asparagine catabolic gene \textit{ASP3}, where sense strand intragenic transcription is necessary for wild-type levels of H3K4me3 over the 5$^\prime$-end of the gene and full induction of the gene upon nitrogen stress \citep{huang2010}.
+One example of this occurs at the \textit{S. cerevisiae} asparagine catabolic gene \textit{ASP3}, where sense strand intragenic transcription is necessary for wild-type levels of H3K4me3 over the 5$^\prime$ end of the gene and full induction of the gene upon nitrogen stress \citep{huang2010}.
 
 Even more possibilities for gene regulation by intragenic transcription have been revealed by studies of antisense transcription (reviewed in \citet{pelechano2013b}): Antisense transcription can physically block sense transcription, and antisense transcripts can base pair with sense RNAs to influence isoform selection, stability, and translation efficiency of the sense transcript.
 By base pairing with DNA, sense or antisense intragenic RNAs can also form R-loop structures with the potential to inhibit transcription or regulate processes like DNA methylation.
@@ -50,26 +50,28 @@ Therefore, with the reasoning that intragenic transcription which is regulated b
 % CIK1 \citep{benanti2009}.
 % ASP3 \citep{huang2010}.
 
-\section{Discovery of stress-regulated intragenic promoters by TFIIB ChIP-nexus and TSS-seq}
+\section[Discovery of stress-regulated intragenic promoters\\ by TFIIB ChIP-nexus and TSS-seq]{Discovery of stress-regulated intragenic promoters by TFIIB ChIP-nexus and TSS-seq}
 
 To discover cases of stress-regulated intragenic transcription initiation, we performed ChIP-nexus of TFIIB for wild-type yeast under conditions of oxidative stress, amino acid stress, and nitrogen stress, along with controls of growth in rich YPD medium and defined SC medium.
 The genic TFIIB response to each of the stresses either correlates well with the expected transcriptomic response to the stress (Figure \ref{fig:stress_gasch_comparison}), or is enriched for metabolic pathways consistent with the cellular response to the stress (Figure \ref{fig:stress_nitrogen_gene_ontology}), confirming that TFIIB ChIP-nexus captures changes in transcription initiation and that the cells were stressed as intended.
 In total, we identify 140 intragenic TFIIB peaks significantly induced at least 1.5-fold in at least one stress condition, with some peaks being induced in more than one stress (Figures \ref{fig:stress_tfiib_coverage}, \ref{fig:stress_tfiib_ridgelines}).
 We also observe a slight anti-correlation between stress-induced changes in intragenic TFIIB signal and changes in the corresponding genic TFIIB signal (Figure \ref{fig:stress_genic_vs_intra}).
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=6in]{figures/stress/stress_gasch_comparison.pdf}
     \caption[Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal, for oxidative and amino acid stresses.]{Scatterplots comparing change in genic TFIIB signal to change in RNA microarray signal from \citet{gasch2000}, for oxidative and amino acid stresses. The Pearson correlation coefficient is shown for each comparison.}
     \label{fig:stress_gasch_comparison}
-\end{figure}
+% \end{figure}
+    \vspace{1em}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=5in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
+% \begin{figure}[h]
+%     \centering
+    \includegraphics[width=6in]{figures/stress/stress_nitrogen_gene_ontology.pdf}
     \caption[Gene ontology terms enriched in genes with nitrogen-stress-induced genic TFIIB peaks]{Gene ontology terms enriched in genes with nitrogen-stress-induced genic TFIIB peaks.}
     \label{fig:stress_nitrogen_gene_ontology}
 \end{figure}
+
+\clearpage
 
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_tfiib_coverage.pdf}
@@ -143,7 +145,7 @@ Using a published dataset of histone modification MNase-ChIP-seq data during a t
     \label{fig:stress_dsk2_pace_northern}
 \end{wrapfigure}
 
-Dsk2 is a member of a family of partially redundant ubiquitin receptors that shuttle polyubiquitinated proteins to the proteasome for degradation.
+Dsk2 is a member of a family of partially redundant ubiquitin receptors that shuttle polyubiquitinated proteins to the proteasome for degradation \citep{funakoshi2002}.
 Upon inspection of the \textit{DSK2} DNA sequence, we discovered multiple PACE-core motifs within the \textit{DSK2} coding sequence, which are potential binding sites for the proteasome transcription factor Rpn4 \citep{shirozu2015}.
 By making silent mutations to three PACE-core elements occurring just upstream of the \textit{DSK2} intragenic TFIIB peak (the more darkly shaded sense strand PACE-core elements in Figure \ref{fig:stress_dsk2_summary}, two of which are adjacent to each other), we generated a strain named \textit{dsk2-pace} in which intragenic \textit{DSK2} expression is eliminated (Figure \ref{fig:stress_dsk2_pace_northern}).
 Full length \textit{DSK2} transcript levels in diamide are not noticeably affected in the \textit{dsk2-pace} mutant, suggesting that a primary function of intragenic \textit{DSK2} transcription is not likely to be control of full-length \textit{DSK2} transcript levels.
@@ -174,7 +176,7 @@ To further investigate the mode of intragenic \textit{DSK2} function, we are pla
 In the first experiment, we will test whether intragenic \textit{DSK2} expression can complemented in \textit{trans}, which should help differentiate whether it is intragenic \textit{DSK2} transcription, or the intragenic transcript or protein which provides protection from oxidative stress.
 If intragenic \textit{DSK2} can be complemented in \textit{trans}, we will test whether intragenic \textit{DSK2} translation is required for protection from oxidative stress by mutation of intragenic start codons.
 
-\section{TSS-seq analysis of oxidative stress in \textit{Saccharomyces sensu stricto} species}
+\section[TSS-seq analysis of oxidative stress\\ in \textit{Saccharomyces sensu stricto} species]{TSS-seq analysis of oxidative stress in \textit{Saccharomyces sensu stricto} species}
 
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/stress/stress_interyeast_intragenic.pdf}
@@ -215,7 +217,7 @@ For the condition of oxidative stress, we show that intragenic transcripts are g
 Most of the oxidative-stress-regulated transcripts we identify are not conserved among three \textit{Saccharomyces sensu stricto} species, which may suggest that intragenic promoters evolve very rapidly.
 At least one instance of oxidative-stress-induced intragenic transcription, at the gene \textit{DSK2}, is important for yeast to survive under conditions of oxidative stress.
 Our ongoing experiments are aimed at determining how intragenic \textit{DSK2} functions to confer oxidative stress resistance.
-Further studies of examples of intragenic transcription like the ones identified in this study are likely to illuminate many ways in which intragenic transcription functions inside cells.
+Further studies of examples of intragenic transcription like the ones identified in this study are likely to illuminate many ways in which intragenic transcription functions within cells.
 
 \section{Methods}
 
@@ -229,6 +231,11 @@ For amino acid stress, \textit{S. cerevisiae} strain SD28 was grown at 30\textde
 
 For nitrogen stress, \textit{S. cerevisiae} strain SD28 was grown at 30\textdegree C in SC to mid-log phase (OD\textsubscript{600} $\sim$ 0.4), collected by centrifugation, washed with nitrogen deficient medium (YNB-AA-AS; 0.0025\% ammonium sulfate, 2\% glucose, 20 mg/L uracil, 0.004\% lysine), and resuspended in an equal volume of nitrogen deficient medium, and harvested after 9.5 hours of starvation.
 
+\subsection{Sequencing library preparation (TFIIB ChIP-nexus, TSS-seq)}
+
+TFIIB ChIP-nexus libraries and all TSS-seq libraries for all species, including polysome RNA TSS-seq libraries, were prepared as described in \citet{doris2018}.
+\textit{S. pombe} cells were used as a spike-in for all TSS-seq libraries except for polysome RNA TSS-seq libraries.
+
 \subsection{Genome builds}
 
 The genome build used for \textit{S. cerevisiae} was R64-2-1 \citep{engel2014}, and the genome build used for \textit{S. pombe} spike-ins was ASM294v2 \citep{wood2002}.
@@ -240,7 +247,7 @@ TFIIB ChIP-nexus data analyses were carried out as described in section \ref{sub
 
 \subsection{TSS-seq data analysis}
 
-TSS-seq data analyses were carried out as describd in section \ref{subsec:tss_seq}, except using the relevant genomes for \textit{S. mikatae} and \textit{S. bayanus} libraries.
+TSS-seq data analyses were carried out as described in section \ref{subsec:tss_seq}, except using the relevant genomes for \textit{S. mikatae} and \textit{S. bayanus} libraries.
 
 For \textit{S. mikatae} and \textit{S. bayanus}, annotation of the 5$^\prime$ ends of transcripts was performed as described in section \ref{subsubsec:tss_reannotation}, using ORF annotation GFFs from \citet{scannell11} as both transcript and ORF annotations, and two replicates of unstressed wild-type TSS-seq data.
 The 5$^\prime$ end of an annotation was adjusted if it was above the 90\textsuperscript{th} (\textit{S. mikatae}) or 85\textsuperscript{th} (\textit{S. uvarum}) percentile of all non-zero TSS-seq signal.
@@ -282,6 +289,12 @@ The multiple genome alignment is used to translate annotations such as TSSs call
 A separate Snakemake pipeline was created to find homologous TSSs between the three species by looking for overlap between \textit{S. cerevisiae} TSS peaks and peaks called in the other species which were translated into \textit{S. cerevisiae} coordinates.
 
 \subsection{Diamide competitive fitness assays}
+
+\lipsum[1]
+
+\subsection{Northern blotting}
+
+Northern blotting was performed as described in \citet{degennaro2013}.
 
 \newpage
 \bibliographystyle{apalike}

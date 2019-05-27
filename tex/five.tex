@@ -28,7 +28,8 @@ As it travels with elongating Pol II, Spt5 recruits other factors, including the
 The recruitment of still other factors to the elongation complex by Spt5 is dependent on the phosphorylation status of the Spt5 C-terminal region (CTR), a domain composed of tandem repeats analogous to the RNA Pol II C-terminal domain.
 When unphosphorylated, the Spt5 CTR aids in recruitment of the mRNA capping enzyme \citep{doamekpor2014, doamekpor2015, schneider2010, wen1999}, while when phosphorylated, the Spt5 CTR recruits the Paf1 complex \citep{liu2009, mbogning2013, wier2013, zhou2009}, another complex involved in transcription elongation \citep{vanoss2017}.
 
-Despite the close relationship of Spt5 to transcription and the transcription-associated processes described above, many studies which knocked down Spt5 in zebrafish, mice, and HeLa cells observed only mild changes in transcript levels across the genome \citep{diamant2016b, komori2009, krishnan2008, stanlie2012, fitz2018}, a result that could potentially be explained by inefficient knockdown of Spt5 and/or the lack of a spike-in control, without which it is impossible to observe a global change over the entire genome \citep{chen2016}. \citep{henriques2018, naguib2019}.
+Despite the close relationship of Spt5 to transcription and the transcription-associated processes described above, many studies which knocked down Spt5 in zebrafish, mice, and HeLa cells observed only mild changes in transcript levels across the genome \citep{diamant2016b, komori2009, krishnan2008, stanlie2012, fitz2018}, a result that could potentially be explained by inefficient knockdown of Spt5 and/or the lack of a spike-in control, without which it is impossible to observe a global change over the entire genome \citep{chen2016}.
+Consistent with this, more recent studies incoporating spike-in controls have observed global decreases in transcript abundances upon Spt4/5 depletion \citep{henriques2018, naguib2019}.
 
 To study the requirement for Spt5 \textit{in vivo}, we use a system for conditionally depleting Spt5 protein in the fission yeast \textit{Schizosaccharomyces pombe}.
 In this system, Spt5 is expressed using the thiamine-repressible \textit{nmt81} promoter \citep{basi1993}, and is tagged with an auxin-inducible degron tag \citep{kanke2011}, such that addition of thiamine and auxin to the media results in repression of \textit{spt5\textsuperscript{+}} transcription and specific degradation of Spt5 protein (Figure \ref{fig:five_depletion_diagram}).
@@ -67,7 +68,7 @@ ChIP-seq reports that global levels of Pol II on chromatin in Spt5-depleted cell
 By contrast, NET-seq reports that total elongating Pol II is not depleted to an appreciable degree but is redistributed from the 3$^\prime$ to the 5$^\prime$ ends of genes, with a greater 5$^\prime$ bias than that observed by ChIP-seq.
 We interpret this 5$^\prime$ shift of Pol II as reflecting a transcription elongation defect upon Spt5 depletion, consistent with previously reported elongation defects upon Spt4/5 disruption \citep{diamant2016,kramer2016,liu2012,mason2005,morillon2003,quan2010,rondon2003}.
 
-\begin{wrapfigure}[23]{r}{3in}
+\begin{wrapfigure}[21]{r}{3in}
     \includegraphics[width=3in]{figures/five/five_summary_metagenes.pdf}
     \caption[Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal over non-overlapping coding genes, from Spt5-depleted and non-depleted cells.]{Average Spt5 ChIP-seq, RNA Pol II ChIP-seq, and sense NET-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding transcripts scaled from TSS to CPS, plus 0.5 kb on both ends. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates or one experiment (non-depleted NET-seq), taken in non-overlapping 20 bp bins and standardized per gene.}
     \label{fig:five_summary_metagenes}
@@ -97,31 +98,33 @@ One possible candidate is serine 7 phosphorylation, a modification made early in
 \section{The transcriptome in Spt5 depletion}
 \label{sec:five_transcriptome}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=4.5in]{figures/five/five_tss_vs_rna.pdf}
-    \caption[Scatterplot of fold-change in Spt5-depleted over non-depleted cells, comparing TSS-seq and RNA-seq.]{Scatterplot of fold-change in Spt5-depleted over non-depleted cells, comparing TSS-seq and RNA-seq. Each dot represents an RNA-seq measurement over an annotated transcript paired with a TSS-seq measurement over a genic peak assigned to the transcript. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from ERCC RNA spike-in counts (RNA-seq) or \textit{S. cerevisiae} cell spike-in counts (TSS-seq).}
-    \label{fig:five_tss_vs_rna}
-\end{figure}
 Given the transcriptional changes observed after Spt5 depletion, we performed RNA-seq and TSS-seq to further see how the depletion affects steady-state transcript levels.
 Changes to the levels of genic transcripts after Spt5 depletion are generally mild, with the median gene being expressed at roughly 68\% of non-depleted levels as measured by RNA-seq with an RNA spike-in, or at 104\% of non-depleted levels as measured by TSS-seq with a cell spike-in (Figure \ref{fig:five_tss_vs_rna}).
 The difference in transcript abundance measurements between RNA-seq and TSS-seq can be explained by a change in the distribution of RNA-seq signal over genes in Spt5 depletion: RNA-seq signal is generally reduced over genes, except near the TSS at the very 5$^\prime$ end of genes (Figure \ref{fig:five_rnaseq_metagene}).
 We attribute this to defective elongation upon Spt5 depletion, which increases transcriptional pausing, early termination, and the use of intragenic polyadenylation sites, consistent with a previous report in budding yeast \citep{cui2003}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=5in]{figures/five/five_rnaseq_metagene.pdf}
-    \caption[Average sense RNA-seq signal over non-overlapping coding genes, from Spt5-depleted and non-depleted cells.]{Average sense RNA-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates, taken in non-overlapping 20 bp bins and standardized per gene.}
-    \label{fig:five_rnaseq_metagene}
+    \includegraphics[width=4.5in]{figures/five/five_tss_vs_rna.pdf}
+    \caption[Scatterplot of fold-change in Spt5-depleted over non-depleted cells, comparing TSS-seq and RNA-seq.]{Scatterplot of fold-change in Spt5-depleted over non-depleted cells, comparing TSS-seq and RNA-seq. Each dot represents an RNA-seq measurement over an annotated transcript paired with a TSS-seq measurement over a genic peak assigned to the transcript. Fold-changes are regularized fold-change estimates from DESeq2, with size factors determined from ERCC RNA spike-in counts (RNA-seq) or \textit{S. cerevisiae} cell spike-in counts (TSS-seq).}
+    \label{fig:five_tss_vs_rna}
 \end{figure}
 
 RNA-seq and TSS-seq also revealed the expression of many novel transcripts in Spt5 depletion, including over 900 antisense transcripts which tend to initiate within the first 500 base pairs downstream of the genic TSS (Figures \ref{fig:five_rnaseq_heatmaps}, \ref{fig:five_antisense_heatmaps}, \ref{fig:five_tss_diffexp_summary}).
+Unlike Spt6-repressed transcripts, which are biased towards being sense strand intragenic transcripts (Figure \ref{fig:six_tss_diffexp_summary}), most Spt5-repressed transcripts are biased towards being antisense transcripts (Figure \ref{fig:five_tss_diffexp_summary}).
 In general, these Spt5-repressed antisense transcripts are only a few hundred nucleotides in length (Figure \ref{fig:five_antisense_heatmaps}), and are expressed at a lower level than canonical genic transcripts (Figure \ref{fig:five_tss_expression_levels}).
 We also find no notable correlation upon Spt5 depletion between changes in antisense transcription and changes in overlapping genic transcription.
 Interestingly, the most significant motif found by \textit{de novo} motif discovery upstream of Spt5-repressed antisense TSSs is a GA-rich motif with 3-nucleotide periodicity, similar to the most significant motif found upstream of Spt6-repressed intragenic and antisense TSSs in \textit{S. cerevisiae} (Figures \ref{fig:five_meme_motifs}, \ref{fig:six_meme_motifs}).
 
+\begin{SCfigure}[50][h]
+    % \centering
+    \includegraphics[width=3.75in]{figures/five/five_rnaseq_metagene.pdf}
+    \caption[Average sense RNA-seq signal over non-overlapping coding genes, from Spt5-depleted and non-depleted cells.]{Average sense RNA-seq signal in Spt5 non-depleted and depleted cells, over 1989 non-overlapping coding genes scaled from TSS to CPS. The solid line and shading are the median and inter-quartile range of the mean spike-in normalized coverage over two replicates, taken in non-overlapping 20 nt bins and standardized per gene.}
+    \label{fig:five_rnaseq_metagene}
+\end{SCfigure}
+
 \begin{figure}[h]
     \centering
-    \includegraphics[width=6in]{figures/five/five_rnaseq_heatmaps.pdf}
+    \includegraphics[width=5in]{figures/five/five_rnaseq_heatmaps.pdf}
     \caption[Heatmaps of antisense RNA-seq signal from Spt5-depleted and non-depleted cells, over non-overlapping coding genes.]{Heatmaps of antisense RNA-seq signal from Spt5-depleted and non-depleted cells, over 1989 non-overlapping coding genes aligned by non-depleted genic TSS and sorted by annotated sense transcript length. Data are shown for each gene up to 300 nucleotides 3$^\prime$ of the CPS, indicated by the white dotted line. Values are the mean of spike-in normalized coverage in non-overlapping 20 nucleotide bins, averaged over two replicates. Values above the 93\textsuperscript{rd} percentile are set to the 93\textsuperscript{rd} percentile for visualization.}
     \label{fig:five_rnaseq_heatmaps}
 \end{figure}
@@ -186,15 +189,18 @@ Because no spike-in control was included in the experiment, we were unable to us
 
 The data also indicate that Spt5-repressed antisense TSSs generally occur in between the positions of nucleosome dyads, even when viewed as a group (Figure \ref{fig:five_antisense_mnase_metagene}).
 Given the tendency of these TSSs to initiate within 500 base pairs downstream of the genic TSS, this is consistent with these TSSs occurring between the +1 and +2, +2 and +3, or +3 and +4 nucleosomes.
-We do not observe a systematic change in MNase-seq signal around these TSSs upon Spt5 depletion, suggesting that Spt5-repressed antisense TSSs probably do not occur as a result of obvious changes to surrounding nucleosomes.
-However, it is possible that the increased fuzziness in nucleosome positions upon Spt5 depletion contributes to antisense initiation by creating a chromatin environment favorable for transcription initiation in a subset of the population.
-We are also unable to rule out a wholesale decrease in nucleosome occupancy after Spt5 depletion, again due to the lack of a spike-in control.
+Since \textit{S. pombe} nucleosomes have a preference for DNA with low GC content (\citet{moyle-heyrman2013}; left column of Figure \ref{fig:five_antisense_mnase_metagene}) and Spt5-repressed TSSs tend to occur between nucleosome positions, we observe an expected increase in GC content at Spt5-repressed antisense TSSs compared to the surrounding sequence.
+
 \begin{figure}[h]
     \includegraphics[width=6in]{figures/five/five_antisense_mnase_metagene.pdf}
-    \caption[Average MNase-seq dyad signal and GC content in Spt5-depleted and non-depleted cells, flanking all antisense TSSs upregulated in Spt5-depleted cells, as well as all genic TSSs detected in non-depleted cells.]{Average MNase-seq dyad signal and GC content of DNA for Spt5-depletion-induced antisense TSSs (left panels), as well as all genic TSSs detected in non-depleted cells (right panels). The solid line and shading are the median and inter-quartile range of the mean library-size normalized dyad coverage, over two (non-depleted) or three (depleted) replicates, in non-overlapping 10 bp bins.
+    \caption[Average MNase-seq dyad signal and GC content in Spt5-depleted and non-depleted cells, flanking all antisense TSSs upregulated in Spt5-depleted cells, as well as all genic TSSs detected in non-depleted cells.]{Average MNase-seq dyad signal and GC content of DNA in a 21 bp window for Spt5-depletion-induced antisense TSSs (left panels), as well as all genic TSSs detected in non-depleted cells (right panels). Arrows indicate the direction of transcription for each group of TSSs. The solid line and shading are the median and inter-quartile range of the mean library-size normalized dyad coverage, over two (non-depleted) or three (depleted) replicates, in non-overlapping 10 bp bins.
 }
     \label{fig:five_antisense_mnase_metagene}
 \end{figure}
+
+We do not observe a systematic change in MNase-seq signal around these TSSs upon Spt5 depletion (Figure \ref{fig:five_antisense_mnase_metagene}), suggesting that Spt5-repressed antisense TSSs probably do not occur as a result of obvious changes to surrounding nucleosomes.
+However, it is possible that the increased fuzziness in nucleosome positions upon Spt5 depletion contributes to antisense initiation by creating a chromatin environment favorable for transcription initiation in a subset of the population.
+We are also unable to rule out a wholesale decrease in nucleosome occupancy after Spt5 depletion, again owing to the lack of a spike-in control.
 
 \section{Discussion}
 
@@ -245,7 +251,7 @@ The median fragment size estimated by MACS2 \citep{zhang2008} over all samples w
 Input and spike-in normalization was carried out \hyperref[subsubsec:chip_spikein]{as described below}.
 Quality statistics of raw, cleaned, non-aligning, and uniquely aligning reads were assessed using FastQC \citep{andrews2010}.
 
-\subsubsection{A note on spike-in normalization for ChIP-seq experiments with input samples}
+\subsubsection[A note on spike-in normalization for ChIP-seq\\ experiments with input samples]{A note on spike-in normalization for ChIP-seq experiments with input samples}
 \label{subsubsec:chip_spikein}
 
 While determining how to do spike-in normalization for ChIP-seq experiments with input samples, I discovered the following error in a published spike-in normalization method.
@@ -258,6 +264,7 @@ The key to correctly determining $\alpha$ is defining exactly what this spike-in
 
 The measurement we begin with for determination of the spike-in signal of a library is the number of reads in the library which map uniquely to the spike-in genome, $R_{\text{spike}}$.
 This value will vary based on two factors: the sequencing depth of the library, and the proportion of cells which were spike-in cells, $\phi$:
+
 \begin{align*}
     R_{\text{spike}} &\equiv \text{the number of reads in the library mapping uniquely to the spike-in genome}; \\
     \phi &\equiv \text{the proportion of spike-in cells in the sample}.
@@ -420,12 +427,12 @@ Since the libraries are from the same condition, we expect their total experimen
 Here, our method correctly normalizes the two samples to the same total experimental signal while using the Orlando $\alpha$ results in an apparent decrease in signal in library two.
 This is because the Orlando $\alpha$ fails to account for the fact that when you add more spike-in to a sample, you necessarily decrease the proportion of the sample that is experimental.
 In most experiments with spike-ins, this isn't an issue because we assume that $\phi$ is the same for all samples.
-However, for ChIP-seq experiments that include input samples, if we assume that the experimental and spike-in input sample read counts are proportional to the amounts of experimental and spike-in cells mixed, we can plug these values in for values of $\phi$ to get a more reliable estimation of experimental signal levels.
+However, for ChIP-seq experiments that include input samples, if we assume that the experimental and spike-in input sample read counts are proportional to the amounts of experimental and spike-in cells, we can plug these values in for values of $\phi$ to get a more reliable estimation of experimental signal levels.
 In this case, it becomes important to use the correct equation for $\alpha$.
 
 So, putting everything together, here's how I use a spike-in control to normalize an IP ChIP-seq library paired with an input ChIP-seq library.
 
-As stated above, we assume that the experimental and spike-in read counts in the input sample are proportional to the numbers of experimental and spike-in cells used to prepare the library:
+As stated above, we assume that the experimental and spike-in read counts in the input sample are proportional to the numbers of experimental and spike-in cells used to prepare the library (In practice, the spike-in may be added as chromatin rather than cells. If the amount of spike-in chromatin added is calculated based on the number of experimental and spike-in cells, as for the ChIP-seq libraries described in this chapter, the following relations should still hold.):
 \begin{align*}
     R_{\text{input}_\text{exp}} \propto C_\text{exp}, \\
     R_{\text{input}_\text{spike}} \propto C_\text{spike}.
