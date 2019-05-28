@@ -126,7 +126,7 @@ main = function(theme_spec,
                            oob = scales::squish,
                            breaks = scales::pretty_breaks(n=3),
                            na.value="#0000004c") +
-        scale_color_manual(values = c("black", viridis(1)),
+        scale_color_manual(values = c("black", "black"),
                            guide=FALSE) +
         scale_y_reverse(breaks = c(0, 4, 8, 15, 30, 45, 60),
                         sec.axis = sec_axis(~.,

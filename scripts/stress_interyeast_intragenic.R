@@ -51,7 +51,7 @@ main = function(theme_spec = "thesis_theme.R",
                                  levels = c("sbay_lfc",
                                            "smik_lfc",
                                            "scer_lfc"),
-                                 labels = c("S. uvarum",
+                                 labels = c("S. bayanus",
                                            "S. mikatae",
                                            "S. cerevisiae")))
 

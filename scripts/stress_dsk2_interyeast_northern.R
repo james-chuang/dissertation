@@ -23,7 +23,7 @@ main = function(theme_spec = "thesis_theme.R",
 
     species_labels = textGrob(label=c("S. cerevisiae",
                                       "S. mikatae",
-                                      "S. uvarum"),
+                                      "S. bayanus"),
                                x=c(left_margin+blot_width/2,
                                    left_margin+3*blot_width/2+blot_buffer,
                                    left_margin+5*blot_width/2+2*blot_buffer),

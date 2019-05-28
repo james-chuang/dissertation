@@ -74,7 +74,7 @@ main = function(theme_spec,
                                  levels = c("cerevisiae", "mikatae", "bayanus"),
                                  labels = c("S. cerevisiae",
                                             "S. mikatae",
-                                            "S. uvarum")),
+                                            "S. bayanus")),
                group = ordered("oxidative stress", levels=c("YPD", "oxidative stress"))) %>%
         left_join(., filter(., annotation=="orf") %>%
                       select(orf_end=end, species),
@@ -122,7 +122,7 @@ main = function(theme_spec,
                                  levels = c("cerevisiae", "mikatae", "bayanus"),
                                  labels = c("S. cerevisiae",
                                             "S. mikatae",
-                                            "S. uvarum"))) %>%
+                                            "S. bayanus"))) %>%
         group_by(species) %>%
         mutate(mean = scales::rescale(mean))
 
