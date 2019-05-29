@@ -6,7 +6,7 @@
 Intragenic transcription opens up interesting possibilities for gene regulation in wild-type cells, and individual cases of intragenic transcription have previously been shown to be important for different biological processes.
 To discover uncharacterized instances of intragenic transcription, we applied high resolution genomic assays of transcription initiation to wild-type \textit{Saccharomyces cerevisiae} under three stress conditions.
 For the condition of oxidative stress, we show that intragenic transcripts are generally expressed at lower levels than genic transcripts, and that many intragenic transcripts are likely to be translated at some level.
-By comparing intragenic transcription in three yeast species, we find that most examples of intragenic transcription identified in \textit{S. cerevisiae} are not conserved.
+By comparing intragenic transcription in three yeast species, we find that most examples of oxidative-stress-regulated intragenic transcription identified in \textit{S. cerevisiae} are not conserved.
 Finally, we show that the expression of an oxidative-stress-induced intragenic transcript at the gene \textit{DSK2} is needed for survival in conditions of oxidative stress.
 
 \clearpage
@@ -33,7 +33,7 @@ Evidence suggests that by binding microtubules but not dimerizing, intragenic As
 In other cases, it may be the process of intragenic transcription that is important, rather than the RNA produced.
 As transcription occurs, co-transcriptional processses including chromatin remodeling and histone modification also take place via the recruitment of various factors to the transcription complex.
 These factors are often recruited in a manner dependent on the stage of transcription, which results in stereotypic patterns of chromatin state over transcribed regions \citep{smolle2013, buratowski2010}.
-For example, in \textit{S. cerevisiae}, the Set1 complex responsible for methylation of histone H3 lysine 4 (H3K4) is recruited to Pol II specifically during early elongation, resulting in a pattern where H3K4 trimethylation (H3K4me3) is primarily found over the first 500 base pairs of transcribed regions \citep{soares2017}.
+For example, in \textit{S. cerevisiae}, the Set1 complex responsible for methylation of histone H3 lysine 4 (H3K4) is recruited to Pol II specifically during early elongation, resulting in a pattern where H3K4 trimethylation (H3K4me3) is primarily found over the 5$^\prime$ ends of transcribed regions \citep{liu2005, barski2007, pokholok2005, soares2017}.
 Since intragenic transcribed regions overlap genic transcribed regions, intragenic transcription can generate unusual patterns of nucleosome positioning and histone modifications over a gene, which may influence expression from the genic promoter.
 One example of this occurs at the \textit{S. cerevisiae} asparagine catabolic gene \textit{ASP3}, where sense-strand intragenic transcription is necessary for wild-type levels of H3K4me3 over the 5$^\prime$ end of the gene and full induction of the gene upon nitrogen stress \citep{huang2010}.
 
@@ -141,7 +141,7 @@ Using a published dataset of histone modification MNase-ChIP-seq data during a t
 \begin{wrapfigure}[9]{r}{3in}
     \centering
     \includegraphics[width=3in]{figures/stress/stress_dsk2_pace_northern.pdf}
-    \caption[Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress.]{Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress induced by addition of diamide to the media. \textit{XXXNNN} is shown as a loading control.}
+    \caption[Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress.]{Northern blot for \textit{DSK2} transcripts in wild-type \textit{DSK2} and \textit{dsk2-pace} strains, in the absence or presence of oxidative stress induced by addition of diamide to the media. \textit{SNR190} is shown as a loading control.}
     \label{fig:stress_dsk2_pace_northern}
 \end{wrapfigure}
 
@@ -267,7 +267,7 @@ Polysome RNA TSS-seq libraries were processed in the same manner as total RNA TS
 A separate Snakemake pipeline was used to integrate data from total RNA and polysome RNA TSS-seq.
 This pipeline performs three differential expression analyses using DESeq2 \citep{love2014}: Two analyses compare polysome RNA to total RNA in either the experimental condition (i.e., oxidative stress) or the control condition (i.e., YPD) in order to estimate relative polysome enrichment, $\log_2 \frac{\text{polysome RNA}}{\text{total RNA}}$.
 Polysome enrichment is a relative measure of how much more or less polysome RNA is detected than is expected, given the amount of total RNA detected.
-The third differential expression analysis tests whether polysome enrichment changes between the control condition and the experimental condition, i.e. whether the experimental perturbation caused changes to the relative association of a transcript with polysomes.
+The third differential expression analysis tests whether polysome enrichment changes between the control condition and the experimental condition, i.e., whether the experimental perturbation caused changes to the relative association of a transcript with polysomes.
 The pipeline also finds all potential ORFs downstream of intragenic TSSs.
 
 \subsection{MNase-ChIP-seq data analysis}

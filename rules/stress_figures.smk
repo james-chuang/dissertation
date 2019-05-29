@@ -178,6 +178,7 @@ rule dsk2_summary:
 rule dsk2_pace_northern:
     input:
         dsk_blot = FIGURES["stress"]["dsk2_pace_northern"]["dsk_blot"],
+        snr_blot = FIGURES["stress"]["dsk2_pace_northern"]["snr_blot"],
         theme = config["theme_spec"],
         fonts = ".fonts_registered.txt",
     output:

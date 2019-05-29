@@ -325,6 +325,7 @@ figures:
             height: 3.75
         dsk2_pace_northern:
             dsk_blot: ../../intragenic/stress-small-data/northern-blots/JLW_20190509 DSK2-[Phosphor]_rotated.jpg
+            snr_blot: ../../intragenic/stress-small-data/northern-blots/JLW_20190529 DSK2 snr190 probe-[Phosphor].png
             width: 3
             height: 1.5
         diamide_fitnesscomp:
