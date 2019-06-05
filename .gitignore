@@ -5,6 +5,7 @@
 *.nav
 *.snm
 *.xdv
+*.vrb
 .fonts_registered.txt
 .snakemake/
 figures/

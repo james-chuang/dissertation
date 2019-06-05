@@ -1,6 +1,6 @@
 \documentclass[aspectratio=169]{beamer}
 \usepackage{tikz}
-\usetikzlibrary{shapes}
+\usetikzlibrary{shapes, positioning, calc}
 \usepackage{listings}
 \usepackage{fontspec}
 % \mode<presentation>
@@ -33,38 +33,38 @@
 
 \begin{frame}[t]
     \centering
-    \begin{tikzpicture}
-        \node[align=center] at (-2.5, 5.5){\large generate \\ \large hypotheses};
-        \draw [->, line width=3pt] (-2.5, 6) to [out=80, in=190] (-0.75, 7);
-        \node[align=center] at (0, 7){\large collect \\ \large data};
-        \draw [->, line width=3pt] (0.75, 7) to [out=350, in=100] (2.5, 6);
-        \node[align=center] at (2.5, 5.5){\large analyze \\ \large data};
-        \draw [->, line width=3pt] (2.4, 4.85) to [out=210, in=330] (-2.4, 4.85);
-        \draw [->, line width=3pt] (2.4, 4.85) to [out=210, in=70] (0, 3.25);
-        \node[align=left] at (0, 2.25){\large publications \\
-                                        \large .....PhD? \\
-                                        \large ..........\$\$\$\$?? \\
-                                        \large ...............Nobel prize?!?!?};
+    \begin{tikzpicture}[align=center, text depth=.25em, line width=3pt]
+        \node [] (hypothesis) {\large generate \\ \large hypotheses};
+        \node [] (datacollect) at ($ (hypothesis) + (40:2) $)  {\large collect \\ \large data};
+        \node [] (dataanalyze) at ($ (datacollect) + (-40:2) $)  {\large analyze \\ \large data};
+        \uncover<2->{\node [align=left, anchor=north west] (publications) at ($ (datacollect) + (-90:3.5) $) {publications \\
+                                                                            {\uncover<3->{...PhD?}} \\
+                                                                            {\uncover<4->{......\$\$\$\$???}} \\
+                                                                            {\uncover<4->{.........Nobel prize?!?!?!?}}
+                                                                    };}
+        \draw [-latex] (hypothesis.north) to [bend left=30] (datacollect.west);
+        \draw [-latex] (datacollect.east) to [bend left=30] (dataanalyze.north);
+        \draw [-latex] (dataanalyze.south) to [bend left=30] coordinate[pos=0.3] (midpoint) (hypothesis.south) ;
+        \uncover<2->{\draw [-latex] (midpoint) to [bend right=30] (publications.north west);}
     \end{tikzpicture}
 \end{frame}
 
-% {
-%     \setbeamertemplate{navigation symbols}{}
-%     \begin{frame}[plain]
-%         \begin{tikzpicture}[remember picture, overlay]
-%             \node[at=(current page.center)] {
-%                 \includegraphics[width=\paperwidth, height=\paperheight]{figures/montage.png}
-%             };
-%         \end{tikzpicture}
-%     \end{frame}
-% }
-
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/rulegraph.pdf}
+\begin{frame}[t, plain]
+    \centerline{
+    \begin{tikzpicture}
+        \node (rulegraph) {\includegraphics[width=\paperwidth]{figures/rulegraph.pdf}};
+        \uncover<2->{\fill [draw=none, fill=white, fill opacity=0.8] (rulegraph.north west) -- (rulegraph.north east) -- (rulegraph.south east) -- (rulegraph.south west) -- (rulegraph.north west) -- cycle;}
+        \uncover<2->{\node[] (rule) at (rulegraph.center) {\lstinputlisting[language=Python, backgroundcolor = \color{light-gray}, frame=l, framesep=0.4\textwidth, framerule=0pt, framexbottommargin=1cm]{figures/rule.smk}};}
+    \end{tikzpicture}
+    }
 \end{frame}
 
 \begin{frame}[plain]
-    \centerline{\includegraphics[width=\paperwidth]{figures/montage.png}}
+    \centerline{\includegraphics[height=\paperheight]{figures/montage.png}}
+\end{frame}
+
+\begin{frame}[t,plain]
+    \centerline{\includegraphics[width=\paperwidth, trim=0 0 0 0, clip]{figures/zenodo_screenshot.png}}
 \end{frame}
 
 \begin{frame}[t,plain]
