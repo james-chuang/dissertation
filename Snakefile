@@ -7,6 +7,7 @@ FIGURES = config["figures"]
 include: "rules/six_figures.smk"
 include: "rules/five_figures.smk"
 include: "rules/stress_figures.smk"
+include: "rules/presentation_figures.smk"
 
 onsuccess:
     shell("(bash compile.sh) > compile.log")
@@ -58,6 +59,8 @@ rule target:
         "figures/stress/stress_interyeast_intragenic.pdf",
         "figures/stress/stress_dsk2_interyeast.pdf",
         "figures/stress/stress_dsk2_interyeast_northern.pdf",
+        "figures/presentation/presentation_six_spt6_western.pdf",
+        "figures/presentation/presentation_six_gene_diagram.pdf",
 
 rule register_fonts:
     input:

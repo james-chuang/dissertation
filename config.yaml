@@ -367,4 +367,12 @@ figures:
             hsp_sbay: ../../intragenic/stress-small-data/northern-blots/sbay_hsp12.png
             width: 5
             height: 1.5
+    presentation:
+        spt6_western:
+            blot_path: ../../intragenic/spt6-small-data/spt6-western/spt6-western-3.png
+            height: 3.25
+            width: 7
+        gene_diagram:
+            width: 7
+            height: 3.25
 
