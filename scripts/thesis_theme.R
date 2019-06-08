@@ -68,6 +68,29 @@ theme_default_presentation = theme_light() +
           strip.background = element_blank(),
           strip.text = element_blank())
 
+theme_heatmap_presentation = theme_minimal() +
+    theme(text = element_text(size=12, color="black", face="plain", family="FreeSans"),
+          legend.position = "top",
+          legend.justification = c(0.5, 0.5),
+          legend.title = element_text(size=12, margin=margin(0,0,-4,0,"pt")),
+          legend.text = element_text(size=6, margin=margin(-4,0,0,0,"pt"), vjust=1),
+          legend.margin = margin(0,0,0,0,"pt"),
+          legend.box.margin = margin(0,0,0,0,"pt"),
+          legend.box.spacing = unit(0, "pt"),
+          panel.spacing.x = unit(2, "pt"),
+          panel.spacing.y = unit(2, "pt"),
+          strip.text = element_blank(),
+          axis.text.x = element_text(size=10, color="black", margin=margin(t=1, unit="pt")),
+          axis.text.y = element_blank(),
+          axis.title.x = element_blank(),
+          axis.title.y = element_text(size=10, margin=margin(r=0)),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          axis.ticks.x = element_line(color="black"),
+          axis.ticks.length = unit(1, "pt"),
+          plot.margin = margin(0,0,0,0,"pt"))
+
+
 add_label = function(grob, letter, x_pos=0, y_pos=0){
     return(arrangeGrob(grob,
                        top=textGrob(letter,

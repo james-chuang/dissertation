@@ -11,7 +11,7 @@ import = function(path, sample_list, experiment){
         df %<>%
             mutate(group = ordered(group,
                                    levels = c("WT-37C", "spt6-1004-37C"),
-                                   labels = c("WT", "italic(\"spt6-1004\")")))
+                                   labels = c("\"wild-type\"", "italic(\"spt6-1004\")")))
     } else if (experiment=="spt5"){
         df %<>%
             mutate(group = ordered(group,
@@ -21,10 +21,18 @@ import = function(path, sample_list, experiment){
     return(df)
 }
 
-plot_heatmap = function(data_path, sample_list, anno_path, cps_dist,
+plot_heatmap = function(data_path,
+                        sample_list,
+                        anno_path,
+                        cps_dist,
                         experiment = "spt6",
-                        max_length, add_ylabel, y_label="",
-                        cutoff_pct, colorbar_title){
+                        max_length,
+                        add_ylabel,
+                        y_label="",
+                        cutoff_pct,
+                        palette = "inferno",
+                        colorbar_title,
+                        theme = "paper"){
 
     anno_df = read_tsv(anno_path,
                        col_names = c('chrom', 'start', 'end',
@@ -45,9 +53,6 @@ plot_heatmap = function(data_path, sample_list, anno_path, cps_dist,
     heatmap = ggplot() +
         geom_raster(data=df, aes(x=position, y=sorted_index, fill=signal),
                     interpolate=FALSE) +
-        # geom_tile(data=df,
-        #           aes(x=position, y=sorted_index, fill=signal),
-        #           size=0) +
         geom_path(data = anno_df %>% filter(cps_position <= max_length),
                      aes(x=cps_position, y=sorted_index),
                   size=0.5, linetype="dotted", color="white", alpha=0.9) +
@@ -68,7 +73,7 @@ plot_heatmap = function(data_path, sample_list, anno_path, cps_dist,
         scale_y_continuous(breaks = function(x){seq(min(x)+500, max(x)-500, 500)},
                            name = if(add_ylabel){paste(n_distinct(df[["sorted_index"]]), y_label)} else {""},
                            expand = c(0, 0)) +
-        scale_fill_viridis(option = "inferno",
+        scale_fill_viridis(option = palette,
                            limits = c(NA, quantile(df[["signal"]], cutoff_pct)),
                            breaks = scales::pretty_breaks(n=2),
                            oob = scales::squish,
@@ -77,8 +82,15 @@ plot_heatmap = function(data_path, sample_list, anno_path, cps_dist,
                                                   barwidth=12,
                                                   barheight=0.3,
                                                   title.hjust=0.5)) +
-        facet_grid(.~group, labeller=label_parsed) +
-        theme_heatmap
+        facet_grid(.~group, labeller=label_parsed)
+
+    if(theme=="presentation"){
+        heatmap = heatmap +
+            theme_heatmap_presentation
+    } else {
+        heatmap = heatmap +
+            theme_heatmap
+    }
     return(heatmap)
 }
 

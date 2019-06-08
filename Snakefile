@@ -61,6 +61,11 @@ rule target:
         "figures/stress/stress_dsk2_interyeast_northern.pdf",
         "figures/presentation/presentation_six_spt6_western.pdf",
         "figures/presentation/presentation_six_gene_diagram.pdf",
+        "figures/presentation/presentation_six_aat_assay_comparison.pdf",
+        "figures/presentation/presentation_six_tss_seq_heatmaps.pdf",
+        "figures/presentation/presentation_six_tss_diffexp_summary.pdf",
+        "figures/presentation/presentation_six_tss_expression_levels.pdf",
+        "figures/presentation/presentation_six_tfiib_heatmap.pdf"
 
 rule register_fonts:
     input:

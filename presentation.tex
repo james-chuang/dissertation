@@ -144,45 +144,53 @@
     \centerline{\includegraphics[width=\paperwidth]{../../structures/elongating_transcription_complex_with_nucleosome.png}}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{The \textbf{\textit{spt6-1004}} mutant expresses \textbf{intragenic transcripts}}
     \centering
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/presentation/presentation_six_spt6_western.pdf}
+            \includegraphics<1->[width=\textwidth]{figures/presentation/presentation_six_spt6_western.pdf}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{tikzpicture}
-                \draw [line width=1pt, color=gray] (0,0) -- (7,0);
+                \draw<2> [line width=1pt, color=gray] (0,0) -- (7,0);
             \end{tikzpicture}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/six/six_aat_assay_comparison.pdf}
+\begin{frame}[t]
+    \begin{tikzpicture}
+        \node<1-3>[inner sep=0] (marker) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_aat_assay_comparison.pdf}};
+        \fill<1>[white] (marker.south east) rectangle (-6.55cm, 0.91cm);
+        \fill<2>[white] (marker.south east) rectangle (-6.55cm, -1.3cm);
+    \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/six/six_tss_seq_heatmaps.pdf}
+\begin{frame}[t]
+    \begin{tikzpicture}
+        \node<1-2>[inner sep=0] (marker) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_tss_seq_heatmaps.pdf}};
+        \fill<1>[white] (marker.south east) rectangle (marker.north);
+    \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Downregulation of genic TSSs in \textit{spt6-1004}:}
     \centering
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/six/six_tss_diffexp_summary.pdf}
+            \includegraphics<1->[width=\textwidth]{figures/presentation/presentation_six_tss_diffexp_summary.pdf}
         \end{column}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/six/six_tss_expression_levels.pdf}
+            \includegraphics<2>[width=\textwidth]{figures/presentation/presentation_six_tss_expression_levels.pdf}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/six/six_tfiib_heatmap.pdf}
+\begin{frame}[t]
+    \centering
+    \includegraphics[width=10.5cm]{figures/presentation/presentation_six_tfiib_heatmap.pdf}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{TFIIB binding patterns change drastically in \textit{spt6-1004}}
     \includegraphics[width=\textwidth]{figures/six/six_tfiib_spreading_ssa4.pdf}
 \end{frame}
 

@@ -12,12 +12,19 @@ figures:
             blot_path: ../../intragenic/spt6-small-data/spt6-western/spt6-western-3.png
             height: 1.4
             width: 3
+            beamer_height: 3.25
+            beamer_width: 7
         gene_diagram:
             width: 3
             height: 1.2
+            beamer_width: 7
+            beamer_height: 3.25
         aat_assay_comparison:
+            data_path: ../../intragenic/spt6-data-integration/browser-shots/AAT2/AAT2_all-assays.tsv.gz
             width: 6
             height: 2.8
+            beamer_width: 14
+            beamer_height: 7.65
             data_path: ../../intragenic/spt6-data-integration/browser-shots/AAT2/AAT2_all-assays.tsv.gz
         tss_seq_heatmaps:
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
@@ -25,18 +32,24 @@ figures:
             tss_antisense: ../../intragenic/tss-seq/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/spikenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tss-seq-spikenorm-ANTISENSE.tsv.gz
             height: 3.9
             width: 6
+            beamer_height: 7.65
+            beamer_width: 14
         tfiib_heatmap:
             tfiib_data: ../../intragenic/chipnexus-tfiib/datavis/verified-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/verified-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping_slopR300.bed
             height: 3.9
             width: 5
+            beamer_height: 7.65
+            beamer_width: 10.5
         tss_diffexp_summary:
             genic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/genic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             intragenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
             antisense: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/antisense/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-antisense-all.tsv
             intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
-            height: 2
             width: 2.875
+            height: 2
+            beamer_width: 7
+            beamer_height: 5.65
         intragenic_genes_bvenn:
             common_names: ../../intragenic/genomefiles_cerevisiae/Scer-sys-to-common-name.tsv
             cheung_data: ../../intragenic/other-datasets/cheung08/cheung08-S3.tsv
@@ -51,6 +64,8 @@ figures:
             tss_intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
             height: 2.38
             width: 3.75
+            beamer_width: 7
+            beamer_height: 5.65
         tfiib_spreading_ssa4:
             tfiib_data: ../../intragenic/spt6-data-integration/datavis/spreading-ssa4/spreading-ssa4_TFIIB-ChIP-nexus-protection.tsv.gz
             height: 3.1
@@ -367,12 +382,4 @@ figures:
             hsp_sbay: ../../intragenic/stress-small-data/northern-blots/sbay_hsp12.png
             width: 5
             height: 1.5
-    presentation:
-        spt6_western:
-            blot_path: ../../intragenic/spt6-small-data/spt6-western/spt6-western-3.png
-            height: 3.25
-            width: 7
-        gene_diagram:
-            width: 7
-            height: 3.25
 
