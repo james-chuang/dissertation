@@ -190,32 +190,51 @@
     \includegraphics[width=10.5cm]{figures/presentation/presentation_six_tfiib_heatmap.pdf}
 \end{frame}
 
-\begin{frame}{TFIIB binding patterns change drastically in \textit{spt6-1004}}
-    \includegraphics[width=\textwidth]{figures/six/six_tfiib_spreading_ssa4.pdf}
+\begin{frame}{TFIIB binding changes dramatically in \textit{spt6-1004}:}
+    \begin{tikzpicture}
+        \node<1>[inner sep=0] at (0,0) {\includegraphics[width=15cm]{figures/presentation/presentation_six_tfiib_spreading_swc0001.pdf}};
+        \fill<1>[white] (0.3,-0.1) rectangle (3.5, 0.50);
+        \node<2>[inner sep=0] at (0,0) {\includegraphics[width=15cm]{figures/presentation/presentation_six_tfiib_spreading_swc0002.pdf}};
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{new intragenic initiation explains most intragenic transcripts}
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_six_tss_v_tfiib.pdf}
 \end{frame}
 
 \begin{frame}
-    \includegraphics[width=\textwidth]{figures/six/six_tss_v_tfiib.pdf}
-\end{frame}
-
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/six/six_mnase_metagene.pdf}
-\end{frame}
-
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/six/six_intragenic_mnase_metagenes.pdf}
+    \begin{tikzpicture}
+        \node<1>[inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_mnase_metagene0001.pdf}};
+        \fill<1>[white] (-0.7,0.48) rectangle (2.2, 1);
+        \node<2>[inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_mnase_metagene0002.pdf}};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
     \centering
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/six/six_tss_seqlogos.pdf}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/six/six_intragenic_tata.pdf}
-        \end{column}
-    \end{columns}
+    \begin{tikzpicture}
+        \node<1-3>[inner sep=0] (marker) at (0,0) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_intragenic_mnase_metagenes.pdf}};
+        \fill<1-3>[white] (2.8,1.15) rectangle (marker.north east);
+        \fill<1>[white] (-1.8,-3.825) rectangle (marker.north east);
+        \fill<1-2>[white] (2.8,-3.825) rectangle (marker.north east);
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{GC content}
+\end{frame}
+
+\begin{frame}[t]
+    \centering
+    \includegraphics[width=12cm]{figures/presentation/presentation_six_tss_seqlogos.pdf}
+\end{frame}
+
+\begin{frame}
+    \centering
+    \begin{tikzpicture}
+        \node<1>[inner sep=0] at (0,0) {\includegraphics[width=12cm]{figures/presentation/presentation_six_intragenic_tata0001.pdf}};
+        % \fill<1>[white] (-0.7,0.48) rectangle (2.2, 1);
+        \node<2>[inner sep=0] at (0,0) {\includegraphics[width=12cm]{figures/presentation/presentation_six_intragenic_tata0002.pdf}};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Spt6 summary and model}
@@ -225,7 +244,7 @@
     \centerline{\includegraphics[width=\paperwidth]{../../structures/elongating_transcription_complex_with_nucleosome.png}}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Spt5 depletion system}
     \centering
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -247,13 +266,15 @@
             \end{tikzpicture}
         \end{column}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/five/five_summary_metagenes.pdf}
+            \pause
+            \includegraphics[width=\textwidth]{figures/presentation/presentation_five_spt5_depletion.pdf}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}
-    \includegraphics[width=\textwidth]{figures/five/five_summary_metagenes.pdf}
+    \centering
+    \includegraphics[width=12cm]{figures/presentation/presentation_five_netseq_meta.pdf}
 \end{frame}
 
 \begin{frame}
@@ -261,7 +282,8 @@
 \end{frame}
 
 \begin{frame}
-    \includegraphics[width=\textwidth]{figures/five/five_rnaseq_metagene.pdf}
+    \centering
+    \includegraphics[width=12cm]{figures/presentation/presentation_five_rnaseq_metagene.pdf}
 \end{frame}
 
 \begin{frame}

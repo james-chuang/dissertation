@@ -65,7 +65,16 @@ rule target:
         "figures/presentation/presentation_six_tss_seq_heatmaps.pdf",
         "figures/presentation/presentation_six_tss_diffexp_summary.pdf",
         "figures/presentation/presentation_six_tss_expression_levels.pdf",
-        "figures/presentation/presentation_six_tfiib_heatmap.pdf"
+        "figures/presentation/presentation_six_tfiib_heatmap.pdf",
+        expand("figures/presentation/presentation_six_tfiib_spreading_swc{frame}.pdf", frame=["0001", "0002"]),
+        "figures/presentation/presentation_six_tss_v_tfiib.pdf",
+        "figures/presentation/presentation_six_mnase_heatmaps.pdf",
+        expand("figures/presentation/presentation_six_mnase_metagene{frame}.pdf", frame=["0001", "0002"]),
+        "figures/presentation/presentation_six_intragenic_mnase_metagenes.pdf",
+        expand("figures/presentation/presentation_six_intragenic_tata{frame}.pdf", frame=["0001", "0002"]),
+        "figures/presentation/presentation_five_spt5_depletion.pdf",
+        "figures/presentation/presentation_five_netseq_meta.pdf",
+        "figures/presentation/presentation_five_rnaseq_metagene.pdf",
 
 rule register_fonts:
     input:
@@ -76,3 +85,4 @@ rule register_fonts:
         "envs/plot.yaml"
     script:
         "scripts/register_fonts.R"
+

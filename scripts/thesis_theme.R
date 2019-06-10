@@ -4,7 +4,6 @@ library(ggthemes)
 library(viridis)
 library(grid)
 library(gridExtra)
-library(svglite)
 library(Cairo)
 library(extrafont)
 

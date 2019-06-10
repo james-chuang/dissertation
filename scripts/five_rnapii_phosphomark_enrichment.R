@@ -78,7 +78,7 @@ main = function(theme_spec,
                                                 title.hjust=0,
                                                 barheight=4.9,
                                                 barwidth=0.5),
-                           breaks = scales::pretty_breaks(n=3)
+                           breaks = scales::pretty_breaks(n=3),
                            option="viridis") +
         scale_x_continuous(expand=c(0,0),
                            breaks=scales::pretty_breaks(n=3),

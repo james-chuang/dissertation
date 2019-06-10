@@ -1,0 +1,6 @@
+name: librsvg
+channels:
+    - conda-forge
+dependencies:
+    - librsvg=2.44.14
+

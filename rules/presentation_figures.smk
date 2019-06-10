@@ -116,3 +116,183 @@ rule presentation_six_tfiib_heatmap:
     script:
         "../scripts/presentation_six_tfiib_heatmap.R"
 
+rule presentation_six_tfiib_spreading_swc4:
+    input:
+        tfiib_data = FIGURES["six"]["tfiib_spreading_swc4"]["tfiib_data"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        frame_1 = "figures/presentation/presentation_six_tfiib_spreading_swc0001.svg",
+        frame_2 = "figures/presentation/presentation_six_tfiib_spreading_swc0002.svg",
+    params:
+        height = eval(str(FIGURES["six"]["tfiib_spreading_swc4"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["tfiib_spreading_swc4"]["beamer_width"])),
+    conda:
+        "../envs/gganimate.yaml"
+    script:
+        "../scripts/presentation_six_tfiib_spreading_swc4.R"
+
+rule presentation_six_tss_vs_tfiib:
+    input:
+        genic = FIGURES["six"]["tss_vs_tfiib"]["genic"],
+        intragenic = FIGURES["six"]["tss_vs_tfiib"]["intragenic"],
+        antisense = FIGURES["six"]["tss_vs_tfiib"]["antisense"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_six_tss_v_tfiib.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["tss_vs_tfiib"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["tss_vs_tfiib"]["beamer_width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_six_tss_vs_tfiib.R"
+
+rule presentation_six_mnase_heatmaps:
+    input:
+        netseq_data = FIGURES["six"]["mnase_heatmaps"]["netseq_data"],
+        mnase_data = FIGURES["six"]["mnase_heatmaps"]["mnase_data"],
+        # quant_data = FIGURES["six"]["mnase_heatmaps"]["quant_data"],
+        annotation = FIGURES["six"]["mnase_heatmaps"]["annotation"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_six_mnase_heatmaps.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["mnase_heatmaps"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["mnase_heatmaps"]["beamer_width"])),
+        assay = "NET-seq"
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_six_mnase_heatmaps.R"
+
+rule presentation_six_mnase_metagene:
+    input:
+        mnase_data = FIGURES["six"]["mnase_metagene"]["mnase_data"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        frame_1 = "figures/presentation/presentation_six_mnase_metagene0001.svg",
+        frame_2 = "figures/presentation/presentation_six_mnase_metagene0002.svg",
+    params:
+        height = eval(str(FIGURES["six"]["mnase_metagene"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["mnase_metagene"]["beamer_width"])),
+    conda:
+        "../envs/gganimate.yaml"
+    script:
+        "../scripts/presentation_six_mnase_metagene.R"
+
+rule presentation_six_intragenic_mnase_metagenes:
+    input:
+        mnase_data = FIGURES["six"]["intragenic_mnase_metagenes"]["mnase_data"],
+        # gc_data = FIGURES["six"]["intragenic_mnase_metagenes"]["gc_data"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_six_intragenic_mnase_metagenes.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["intragenic_mnase_metagenes"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["intragenic_mnase_metagenes"]["beamer_width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_six_intragenic_mnase_metagenes.R"
+
+rule presentation_six_tss_seqlogos:
+    input:
+        data_paths = FIGURES["six"]["tss_seqlogos"]["data_paths"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_six_tss_seqlogos.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["tss_seqlogos"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["tss_seqlogos"]["beamer_width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_six_tss_seqlogos.R"
+
+rule presentation_six_intragenic_tata:
+    input:
+        tata_genic_path = FIGURES["six"]["intragenic_tata"]["tata_genic"],
+        tata_intra_path = FIGURES["six"]["intragenic_tata"]["tata_intragenic"],
+        tata_anti_path = FIGURES["six"]["intragenic_tata"]["tata_antisense"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        frame_1 = "figures/presentation/presentation_six_intragenic_tata0001.svg",
+        frame_2 = "figures/presentation/presentation_six_intragenic_tata0002.svg",
+    params:
+        height = eval(str(FIGURES["six"]["intragenic_tata"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["intragenic_tata"]["beamer_width"])),
+    conda:
+        "../envs/gganimate.yaml"
+    script:
+        "../scripts/presentation_six_intragenic_tata.R"
+
+rule presentation_five_spt5_depletion:
+    input:
+        spt5_data = FIGURES["five"]["summary_metagenes"]["spt5_data"],
+        annotation = FIGURES["five"]["summary_metagenes"]["annotation"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_five_spt5_depletion.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["spt5_depletion"]["beamer_height"])),
+        width = eval(str(FIGURES["five"]["spt5_depletion"]["beamer_width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_five_spt5_depletion.R"
+
+rule presentation_five_netseq_meta:
+    input:
+        netseq_data = FIGURES["five"]["summary_metagenes"]["netseq_data"],
+        annotation = FIGURES["five"]["summary_metagenes"]["annotation"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_five_netseq_meta.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["netseq_meta"]["beamer_height"])),
+        width = eval(str(FIGURES["five"]["netseq_meta"]["beamer_width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_five_netseq_meta.R"
+
+rule presentation_five_rnaseq_metagene:
+    input:
+        data_path = FIGURES["five"]["rnaseq_metagene"]["data_path"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_five_rnaseq_metagene.pdf",
+    params:
+        height = eval(str(FIGURES["five"]["rnaseq_metagene"]["beamer_height"])),
+        width = eval(str(FIGURES["five"]["rnaseq_metagene"]["beamer_width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_five_rnaseq_metagene.R"
+
+rule convert_svg_to_pdf:
+    input:
+        svg = "figures/presentation/presentation_{figure}{frame}.svg",
+    output:
+        pdf = "figures/presentation/presentation_{figure}{frame}.pdf",
+    params:
+        h_0 = eval(str(FIGURES["six"]["tfiib_spreading_swc4"]["beamer_height"])),
+        w_0 = eval(str(FIGURES["six"]["tfiib_spreading_swc4"]["beamer_width"])),
+        h_1 = eval(str(FIGURES["six"]["mnase_metagene"]["beamer_height"])),
+        w_1 = eval(str(FIGURES["six"]["mnase_metagene"]["beamer_width"])),
+    conda:
+        "../envs/librsvg.yaml"
+    shell: """
+        rsvg-convert -f pdf -a -o {output.pdf} {input.svg}
+        """
+

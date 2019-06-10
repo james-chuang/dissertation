@@ -64,23 +64,31 @@ figures:
             tss_intergenic: ../../intragenic/tss-seq/diff_exp/peaks/spt6-1004-37C-v-WT-37C/spikenorm/intergenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-peaks-diffexp-results-intergenic-all.tsv
             height: 2.38
             width: 3.75
-            beamer_width: 7
             beamer_height: 5.65
+            beamer_width: 7
         tfiib_spreading_ssa4:
             tfiib_data: ../../intragenic/spt6-data-integration/datavis/spreading-ssa4/spreading-ssa4_TFIIB-ChIP-nexus-protection.tsv.gz
             height: 3.1
             width: 6
+        tfiib_spreading_swc4:
+            tfiib_data: ../../intragenic/spt6-data-integration/browser-shots/SWC4/SWC4_all-assays.tsv.gz
+            beamer_height: 5.65
+            beamer_width: 15
         tss_vs_tfiib:
             genic: ../../intragenic/tss-v-tfiib-nexus/window_diff_binding/spt6-1004-37C-v-WT-37C/tss-spikenorm/spt6-1004-37C-v-WT-37C_tss-spikenorm-window-200-tfiib-chipnexus-libsizenorm-diffbind-results-genic.tsv
             intragenic: ../../intragenic/tss-v-tfiib-nexus/window_diff_binding/spt6-1004-37C-v-WT-37C/tss-spikenorm/spt6-1004-37C-v-WT-37C_tss-spikenorm-window-200-tfiib-chipnexus-libsizenorm-diffbind-results-intragenic.tsv
             antisense: ../../intragenic/tss-v-tfiib-nexus/window_diff_binding/spt6-1004-37C-v-WT-37C/tss-spikenorm/spt6-1004-37C-v-WT-37C_tss-spikenorm-window-200-tfiib-chipnexus-libsizenorm-diffbind-results-antisense.tsv
-            width: 6
             height: 2.4
+            width: 6
+            beamer_height: 5.65
+            beamer_width: 14
         mnase_metagene:
             mnase_data: ../../intragenic/viktorovskaya-mnase-seq/datavis/verified-transcripts-nonoverlapping-plusonenuc/spikenorm/verified-transcripts-nonoverlapping-plusonenuc-allsamples-allannotations-midpoint-spikenorm.tsv.gz
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping-WT-NETseq-sort-plusone-nucdyad.bed
             height: 3.3
             width: 6
+            beamer_height: 6.65
+            beamer_width: 14
         global_nuc_occ_fuzz:
             wt_mnase_quant: ../../intragenic/viktorovskaya-mnase-seq/nucleosome_quantification/spt6-1004-37C-v-WT-37C/spikenorm/pooled/nucleosome_quantification_data_WT-37C.Fnor.smooth.positions.xls
             spt6_mnase_quant: ../../intragenic/viktorovskaya-mnase-seq/nucleosome_quantification/spt6-1004-37C-v-WT-37C/spikenorm/pooled/nucleosome_quantification_data_spt6-1004-37C.Fnor.smooth.positions.xls
@@ -93,6 +101,8 @@ figures:
             annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_transcripts_w_verifiedORFs-nonoverlapping-WT-NETseq-sort-plusone-nucdyad.bed
             height: 3.8
             width: 8.25
+            beamer_height: 7.65
+            beamer_width: 14
         mnase_som:
             som_data: ../../intragenic/cluster_intragenic_mnase/spt6-1004-37C-induced-intragenic-SOM-data.tsv.gz
             height: 4.7
@@ -102,6 +112,8 @@ figures:
             gc_data: ../../intragenic/spt6-data-integration/datavis/spt6-induced-intragenic-TSSs-MNase-clusters-v-genic/spt6-induced-intragenic-TSSs-MNase-clusters-v-genic_GC-pct.tsv.gz
             height: 6.1
             width: 6
+            beamer_height: 7.65
+            beamer_width: 14
         tss_seqlogos:
             data_paths:
                 - ../../intragenic/tss-seq/seq_logos/spt6-1004-37C/spt6-1004-37C-genic-seqlogo.tsv
@@ -109,6 +121,8 @@ figures:
                 - ../../intragenic/tss-seq/seq_logos/spt6-1004-37C/spt6-1004-37C-antisense-seqlogo.tsv
             height: 2.8
             width: 3
+            beamer_height: 6.65
+            beamer_width: 12
         intragenic_tata:
             tata_genic: ../../intragenic/motif_analysis_tata/comparisons/all-genic-v-random/all-genic-v-random_condition_unmergedFIMOresults.tsv.gz
             tata_intragenic: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_condition_unmergedFIMOresults.tsv.gz
@@ -116,6 +130,8 @@ figures:
             # tata_random: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_control_allFIMOresults.tsv.gz
             height: 2.4
             width: 3.7
+            beamer_height: 6.65
+            beamer_width: 12
         meme_motifs:
             intragenic: ../../intragenic/tss-seq/motifs/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-diffexp-results-intragenic-up-meme_chip/combined.meme
             antisense: ../../intragenic/tss-seq/motifs/spt6-1004-37C-v-WT-37C/spikenorm/antisense/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-diffexp-results-antisense-up-meme_chip/combined.meme
@@ -129,6 +145,12 @@ figures:
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
             height: 4.2
             width: 3
+        spt5_depletion:
+            beamer_height: 5.65
+            beamer_width: 7
+        netseq_meta:
+            beamer_height: 6.65
+            beamer_width: 12
         rnapii_phosphomark_enrichment:
             data_paths:
                 - ../../spt5/chipseq-rpb1norm-datavis/datavis/verified-transcripts-nonoverlapping/nonoverlapping-coding-genes_non-depleted-Rpb1-melted.tsv.gz
@@ -149,6 +171,8 @@ figures:
             data_path: ../../spt5/spt5-data-integration/datavis/coding-transcripts-nonoverlapping-scaled/coding-transcripts-nonoverlapping-scaled_RNA-seq-sense.tsv.gz
             height: 2.4
             width: 3.75
+            beamer_height: 6.65
+            beamer_width: 12
         rnaseq_heatmaps:
             rnaseq_data: ../../spt5/rna-seq/datavis/coding-transcripts-nonoverlapping-slopR300-TSS/libsizenorm/coding-transcripts-nonoverlapping-slopR300-TSS-allsamples-allannotations-libsizenorm-wholeread-ANTISENSE.tsv.gz
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
