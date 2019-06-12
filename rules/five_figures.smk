@@ -65,7 +65,6 @@ rule five_rnaseq_metagene:
     script:
         "../scripts/five_rnaseq_metagene.R"
 
-
 rule five_rnaseq_heatmaps:
     input:
         rnaseq_data = FIGURES["five"]["rnaseq_heatmaps"]["rnaseq_data"],

@@ -74,7 +74,18 @@ rule target:
         expand("figures/presentation/presentation_six_intragenic_tata{frame}.pdf", frame=["0001", "0002"]),
         "figures/presentation/presentation_five_spt5_depletion.pdf",
         "figures/presentation/presentation_five_netseq_meta.pdf",
+        "figures/presentation/presentation_five_rnapii_phosphomark_enrichment.pdf",
         "figures/presentation/presentation_five_rnaseq_metagene.pdf",
+        "figures/presentation/presentation_five_rnaseq_heatmaps.pdf",
+        "figures/presentation/presentation_five_antisense_heatmaps.pdf",
+        "figures/presentation/presentation_five_mnase_metagene.pdf",
+        "figures/presentation/presentation_stress_tfiib_ridgelines.pdf",
+        "figures/presentation/presentation_stress_tfiib_coverage.pdf",
+        "figures/presentation/presentation_stress_promoter_tss_expression.pdf",
+        "figures/presentation/presentation_stress_promoter_tss_polyenrichment.pdf",
+        "figures/presentation/presentation_stress_dsk2_summary.pdf",
+        "figures/presentation/presentation_stress_dsk2_pace_northern.pdf",
+        "figures/presentation/presentation_stress_diamide_fitnesscomp.pdf",
 
 rule register_fonts:
     input:

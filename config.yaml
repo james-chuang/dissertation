@@ -147,7 +147,7 @@ figures:
             width: 3
         spt5_depletion:
             beamer_height: 5.65
-            beamer_width: 7
+            beamer_width: "0.55*14"
         netseq_meta:
             beamer_height: 6.65
             beamer_width: 12
@@ -162,6 +162,8 @@ figures:
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping.bed
             height: 2
             width: 6
+            beamer_height: 6
+            beamer_width: 14
         tss_vs_rna:
             tss_data: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             rna_data: ../../spt5/rna-seq/diff_exp/transcripts/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_rnaseq-spikenorm-transcripts-diffexp-results-genic-all.tsv
@@ -178,12 +180,16 @@ figures:
             annotation: ../../spt5/genome/annotations/S_pombe_codingtranscripts-adjustedTSS-nonoverlapping-slopR300.bed
             height: 3.6
             width: 5
+            beamer_height: 7.65
+            beamer_width: 10.5
         antisense_heatmaps:
             tssseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_TSS-seq-antisense.tsv.gz
             rnaseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_RNA-seq-antisense.tsv.gz
             netseq_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-antidistsort/transcripts-w-anti-antidistsort_NET-seq-antisense.tsv.gz
             width: 8.25
             height: 4.8
+            beamer_height: 7.65
+            beamer_width: 14
         tss_diffexp_summary:
             genic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/genic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-genic-all.tsv
             intragenic: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/intragenic/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-intragenic-all.tsv
@@ -206,6 +212,12 @@ figures:
             mnase_data: ../../spt5/mnase-seq/datavis/nonoverlapping-genes-plusonenuc/libsizenorm/nonoverlapping-genes-plusonenuc-allsamples-allannotations-midpoint-libsizenorm.tsv.gz
             width: 3
             height: 2
+        presentation_mnase_metagene:
+            mnase_data: ../../spt5/spt5-data-integration/datavis/transcripts-w-anti-plusonenucdistsort/transcripts-w-anti-plusonenucdistsort_MNase-seq.tsv.gz
+            tss_peaks: ../../spt5/tss-seq/diff_exp/peaks/depleted-v-non-depleted/spikenorm/antisense/depleted-v-non-depleted_tss-seq-spikenorm-peaks-diffexp-results-antisense-up.tsv
+            nuc_dyads: ../../spt5/genome/annotations/transcripts_w_antisense_sortbyplusonenucdist.bed
+            beamer_height: 7.65
+            beamer_width: 14
         nuc_fuzz:
             wt_mnase_quant: ../../spt5/mnase-seq/nucleosome_quantification/depleted-v-non-depleted/libsizenorm/pooled/nucleosome_quantification_data_non-depleted.Fnor.smooth.positions.xls
             mut_mnase_quant: ../../spt5/mnase-seq/nucleosome_quantification/depleted-v-non-depleted/libsizenorm/pooled/nucleosome_quantification_data_depleted.Fnor.smooth.positions.xls
@@ -246,9 +258,19 @@ figures:
                 - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_5-Dia.bed
                 - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_6-Amino.bed
                 - ../../intragenic/genome/annotations/orfs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort/ORFs_w_stress_induced_intragenic_TFIIB_peaks_ATGdistsort_group_7-Nit.bed
+        presentation_tfiib_ridgelines:
+            data_path: ../../intragenic/chipnexus-tfiib/datavis/genes-with-diamide-induced-intra-peaks/libsizenorm/genes-with-diamide-induced-intra-peaks-allsamples-allannotations-tfiib-chipnexus-libsizenorm-protection.tsv.gz
+            diamide_genic: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/genic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-genic-all.tsv
+            diamide_intragenic: ../../intragenic/chipnexus-tfiib-custom-analysis/diff_binding/peaks/diamide-v-YPD/libsizenorm/intragenic/diamide-v-YPD_tfiib-chipnexus-libsizenorm-peaks-diffbind-results-intragenic-all.tsv
+            annotations:
+                - ../../intragenic/genome/annotations/orfs_w_diamide_induced_intragenic_TFIIB_peaks_ATGdistsort.bed
+            beamer_width: 14
+            beamer_height: 7.65
         tfiib_coverage:
-            width: 6
             height: "9/16*6"
+            width: 6
+            beamer_height: 6.65
+            beamer_width: 14
             transcript_annotation: ../../intragenic/genomefiles_cerevisiae/annotations/Scer_polIItranscripts-adjustedTSS.bed
             orf_annotation: ../../intragenic/genome/annotations/Scer_nondubious_ORFs_and_blocked_reading_frames-adjustedATG.bed
             data:
@@ -313,6 +335,8 @@ figures:
             counts_path: ../../intragenic/tss-seq/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-counts-rlogtransformed.tsv
             height: 4
             width: 6
+            beamer_height: 7.65
+            beamer_width: 14
         promoter_tss_polyenrichment:
             matched_peaks_genic: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/genic/diamide-v-YPD_genic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
             matched_peaks_intra: ../../intragenic/tss-v-tfiib-nexus/matched_peaks/diamide-v-YPD/tfiib_matched_to_tss/intragenic/diamide-v-YPD_intragenic-tss-seq-spikenorm-tfiib-libsizenorm-matched-peaks-distance200.tsv
@@ -320,6 +344,8 @@ figures:
             polyenrichment_intra: ../../intragenic/polysome-diamide-tss-comparison/diff_exp/peaks/diamide-v-YPD/spikenorm/diamide-v-YPD_tss-seq-spikenorm-peaks-diffexp-results-with-polysome-enrichment-intragenic.tsv
             height: 4
             width: 6
+            beamer_height: 7.65
+            beamer_width: 14
         # diamide_summary:
         #     data_paths:
         #         - ../../intragenic/other-datasets/weiner15/datavis-single-locus/DSK2/DSK2_h3k36me3-chipseq-reduced.tsv.gz
@@ -362,15 +388,21 @@ figures:
             x_label_dist: 1
             width: 6
             height: 3.75
+            beamer_width: 14
+            beamer_height: 7.65
         dsk2_pace_northern:
             dsk_blot: ../../intragenic/stress-small-data/northern-blots/JLW_20190509 DSK2-[Phosphor]_rotated.jpg
             snr_blot: ../../intragenic/stress-small-data/northern-blots/JLW_20190529 DSK2 snr190 probe-[Phosphor].png
             width: 3
             height: 1.5
+            beamer_width: 7
+            beamer_height: 4
         diamide_fitnesscomp:
             data_path: ../../intragenic/stress-small-data/fitness-competitions/datavis/2018_11_07/2018_11_07_cell_counts.tsv
             width: 6
             height: 2.75
+            beamer_width: 14
+            beamer_height: 6
         interyeast_intragenic:
             mikatae: ../../intragenic/interyeast-tss-seq-comparison/intersections/scer_intragenic_peaks-v-smik.tsv
             uvarum: ../../intragenic/interyeast-tss-seq-comparison/intersections/scer_intragenic_peaks-v-sbay.tsv

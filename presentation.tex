@@ -1,4 +1,5 @@
 \documentclass[aspectratio=169]{beamer}
+\usepackage{enumitem}
 \usepackage{tikz}
 \usetikzlibrary{shapes, positioning, calc}
 \usepackage[export]{adjustbox}
@@ -144,6 +145,16 @@
     \centerline{\includegraphics[width=\paperwidth]{../../structures/elongating_transcription_complex_with_nucleosome.png}}
 \end{frame}
 
+\begin{frame}{Spt6 project collaborators}
+    \centering
+    \begin{description}[align=right, leftmargin=!, labelwidth=5cm, noitemsep]
+        \item [Steve Doris] optimized TSS-seq and ChIP-nexus protocols\\generated TSS-seq and ChIP-nexus libraries
+        \item [Olga Viktorovskaya] generated MNase-seq libraries
+        \item [Magdalena Murawska] generated NET-seq libraries
+        \item [Dan Spatt] Northern, Western, and ChIP experiments
+    \end{description}
+\end{frame}
+
 \begin{frame}{The \textbf{\textit{spt6-1004}} mutant expresses \textbf{intragenic transcripts}}
     \centering
     \begin{columns}
@@ -244,10 +255,16 @@
     \centerline{\includegraphics[width=\paperwidth]{../../structures/elongating_transcription_complex_with_nucleosome.png}}
 \end{frame}
 
+\begin{frame}{Spt5 project collaborators}
+    \begin{description}[align=right, leftmargin=!, labelwidth=4cm, noitemsep]
+        \item [Ameet Shetty] generated NET-seq, ChIP-seq, RNA-seq,\\TSS-seq, and MNase-seq libraries
+    \end{description}
+\end{frame}
+
 \begin{frame}{Spt5 depletion system}
     \centering
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.45\textwidth}
             \begin{tikzpicture}[x=7cm, y=3cm]
                 \draw [line width=2pt] (0,0.1) -- (0.95,0.1);
                 \draw [->, line width=3pt] (0.1,0.1) -- (0.1,0.25) -- (0.25,0.25);
@@ -265,7 +282,7 @@
                 \node at (0.9, 0.7) {\scalebox{2}{$\varnothing$}};
             \end{tikzpicture}
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.55\textwidth}
             \pause
             \includegraphics[width=\textwidth]{figures/presentation/presentation_five_spt5_depletion.pdf}
         \end{column}
@@ -277,8 +294,8 @@
     \includegraphics[width=12cm]{figures/presentation/presentation_five_netseq_meta.pdf}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/five/five_rnapii_phosphomark_enrichment.pdf}
+\begin{frame}{wasdas}
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_five_rnapii_phosphomark_enrichment.pdf}
 \end{frame}
 
 \begin{frame}
@@ -286,43 +303,67 @@
     \includegraphics[width=12cm]{figures/presentation/presentation_five_rnaseq_metagene.pdf}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/five/five_rnaseq_heatmaps.pdf}
+\begin{frame}[t]
+    \centering
+    \includegraphics[width=10.5cm]{figures/presentation/presentation_five_rnaseq_heatmaps.pdf}
+\end{frame}
+
+\begin{frame}[t]
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_five_antisense_heatmaps.pdf}
+\end{frame}
+
+\begin{frame}[t]
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_five_mnase_metagene.pdf}
+\end{frame}
+
+\begin{frame}{Spt5 summary and model}
+\end{frame}
+
+\begin{frame}{WT intragenic transcription}
+\end{frame}
+
+\begin{frame}{project collaborators}
+    \centering
+\begin{description}[align=right, labelwidth=5cm, noitemsep, leftmargin=!]
+    \item [Steve Doris] generated TSS-seq and ChIP-nexus libraries
+    \item [Dan Spatt] polyribosome fractionation, competitive growth assays, and Northern blots
+    \item [James Warner] Northern blots
+\end{description}
+
+\end{frame}
+
+\begin{frame}[t]
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_tfiib_ridgelines.pdf}
 \end{frame}
 
 \begin{frame}
-    \includegraphics[width=\textwidth]{figures/five/five_antisense_heatmaps.pdf}
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_tfiib_coverage.pdf}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/stress/stress_tfiib_coverage.pdf}
+\begin{frame}[t]
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_promoter_tss_expression.pdf}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/stress/stress_tfiib_ridgelines.pdf}
+\begin{frame}[t]
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_promoter_tss_polyenrichment.pdf}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/stress/stress_promoter_tss_expression.pdf}
-\end{frame}
-
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/stress/stress_promoter_tss_polyenrichment.pdf}
-\end{frame}
-
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/stress/stress_dsk2_summary.pdf}
+\begin{frame}[t]
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_dsk2_summary.pdf}
 \end{frame}
 
 \begin{frame}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/stress/stress_dsk2_pace_northern.pdf}
+            \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_dsk2_pace_northern.pdf}
         \end{column}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/stress/stress_diamide_fitnesscomp.pdf}
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}
+    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_diamide_fitnesscomp.pdf}
 \end{frame}
 
 \end{document}
