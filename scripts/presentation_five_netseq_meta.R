@@ -50,10 +50,14 @@ main = function(theme_spec,
         facet_wrap(~assay, ncol=1, scales="free_y") +
         scale_color_few() +
         scale_fill_few() +
+        ggtitle("sense NET-seq",
+                subtitle="1989 nonoverlapping coding genes") +
         theme_default_presentation +
         theme(legend.key.height = unit(14, "pt"),
               legend.key.width = unit(25, "pt"),
-              strip.text=element_text(size=12, hjust=0),
+              # strip.text=element_text(size=12, hjust=0),
+              strip.text=element_blank(),
+              plot.subtitle = element_text(margin=margin(0,0,-2.5,0,"pt")) ,
               axis.text.x = element_text(size=12),
               panel.grid = element_blank(),
               legend.position = c(0.70, 0.85),

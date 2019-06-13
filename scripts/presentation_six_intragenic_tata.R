@@ -23,9 +23,9 @@ main = function(theme_spec,
     library(broom)
     library(gganimate)
 
-    df = tata_anti_path %>%
-        import(annotation_id = "antisense") %>%
-        bind_rows(tata_genic_path %>% import(annotation_id = "genic")) %>%
+    df = tata_genic_path %>%
+        import(annotation_id = "genic") %>%
+        bind_rows(tata_anti_path %>% import(annotation_id = "antisense")) %>%
         bind_rows(tata_intra_path %>% import(annotation_id = "intragenic")) %>%
         group_by(annotation) %>%
         mutate(n_regions = n_distinct(chrom, region_start, region_end, region_strand)) %>%
@@ -63,9 +63,7 @@ main = function(theme_spec,
         scale_y_continuous(expand = c(0,0),
                            breaks = c(0,0.008),
                            name = "scaled density") +
-        scale_fill_manual(values = c("#E15759",
-                                     "#4E79A7",
-                                     "#F28E2B")) +
+        scale_fill_calc() +
         ggtitle("TATA consensus probability") +
         theme_default +
         theme(axis.title.x = element_blank(),

@@ -49,7 +49,8 @@ main = function(theme_spec,
         # facet_wrap(~assay, ncol=1, scales="free_y") +
         scale_color_few() +
         scale_fill_few() +
-        ggtitle("Spt5 ChIP-seq") +
+        ggtitle("Spt5 ChIP-seq",
+                subtitle="1989 nonoverlapping coding genes") +
         theme_default_presentation +
         theme(legend.key.height = unit(14, "pt"),
               legend.key.width = unit(25, "pt"),
@@ -58,6 +59,7 @@ main = function(theme_spec,
               strip.text=element_text(size=12, hjust=0),
               axis.text.x = element_text(size=12),
               panel.grid = element_blank(),
+              plot.subtitle = element_text(margin=margin(0,0,0,0,"pt")) ,
               legend.position = "bottom",
               legend.direction="vertical",
               legend.justification= c(0.5,0.5))

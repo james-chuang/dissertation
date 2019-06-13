@@ -46,15 +46,17 @@ main = function(theme_spec = "thesis_theme.R",
                            expand = c(0,0),
                            labels = function(x){if_else(x<0, abs(x), x)},
                            name = "normalized counts") +
-        ggtitle("MNase-seq dyad signal") +
+        ggtitle("MNase-seq dyad signal",
+                subtitle="3522 nonoverlapping coding genes") +
         scale_color_ptol(labels = c("wild-type", bquote(italic("spt6-1004")))) +
         scale_fill_ptol(labels = c("wild-type", bquote(italic("spt6-1004")))) +
         theme_default_presentation +
         theme(legend.key.height = unit(14, "pt"),
               legend.key.width = unit(25, "pt"),
               axis.text.x = element_text(size=12),
-              legend.position = c(0.65, 0.75),
+              legend.position = c(0.65, 0.80),
               panel.grid = element_blank(),
+              plot.subtitle = element_text(margin=margin(0,0,-2.5,0,"pt")) ,
               plot.margin = margin(0, 15, 0, 0, "pt")) +
         transition_manual(frame,
                           cumulative=TRUE)

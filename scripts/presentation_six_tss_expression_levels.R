@@ -62,7 +62,7 @@ main = function(theme_spec,
         theme_default_presentation +
         theme(axis.title.x = element_blank(),
               axis.title.y = element_text(size=10),
-              axis.text.x = element_text(size=10),
+              axis.text.x = element_text(size=12),
               # axis.text.x = element_text(size=10, angle=12, hjust=0.6),
               panel.grid.major.x = element_blank(),
               panel.grid.minor.y = element_blank(),

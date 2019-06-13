@@ -45,7 +45,7 @@ main = function(theme_spec,
         import(in_genic, label_col_id="genic_name", category="genic") %>%
         import(in_intra, label_col_id="orf_name", category="intragenic") %>%
         import(in_anti, label_col_id="transcript_name", category="antisense") %>%
-        import(in_inter, label_col_id="name", category="intergenic") %>%
+        # import(in_inter, label_col_id="name", category="intergenic") %>%
         mutate(category = fct_inorder(category, ordered=TRUE),
                significance = if_else(log10_padj > -log10(alpha), TRUE, FALSE)) %>%
         mutate(direction = if_else(log2_foldchange >= 0, "upregulated", "downregulated"))
@@ -78,8 +78,8 @@ main = function(theme_spec,
                       ymax=ymax, ymin=ymin),
                       # ymax=ymax_unscaled, ymin=ymin_unscaled),
                   size=0.5, color="white", fill="#7fbf7b", alpha=0.9) +
-        geom_text(aes(x=if_else(upregulated>1000, upregulated/2, upregulated+30),
-                      hjust = if_else(upregulated>1000, 0.5, 0),
+        geom_text(aes(x=if_else(upregulated>900, upregulated/2, upregulated+30),
+                      hjust = if_else(upregulated>900, 0.5, 0),
                       y=y,
                       # y=y_unscaled,
                       label=upregulated),
@@ -97,7 +97,7 @@ main = function(theme_spec,
                       y=y,
                       # y=y_unscaled,
                       label = category),
-                  size=10/72*25.4,
+                  size=12/72*25.4,
                   family="FreeSans") +
         annotate(geom="label",
                  x=max(summary_df[["upregulated"]])/2,

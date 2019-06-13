@@ -56,6 +56,7 @@ theme_default_presentation = theme_light() +
           axis.title.x = element_text(size=12, margin=margin(1,0,0,0,"pt")),
           axis.title.y = element_text(size=12, margin=margin(0,1,0,0,"pt")),
           plot.title = element_text(size=12, color="black", face="plain", margin=margin(0,0,1,0,"pt")),
+          plot.subtitle = element_text(size=10, margin=margin(0,0,0,0,"pt")),
           plot.margin = margin(0, 0, 0, 0, "pt"),
           legend.title = element_blank(),
           legend.text = element_text(size=12),

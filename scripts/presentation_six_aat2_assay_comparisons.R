@@ -10,23 +10,26 @@ main = function(theme_spec = "thesis_theme.R",
     df = read_tsv(data_path,
                   col_names = c('condition', 'sample', 'annotation',
                                 'assay', 'index', 'position', 'signal')) %>%
-        filter(condition == "spt6-1004-37C") %>%
-        group_by(assay, position) %>%
+        filter(condition == "spt6-1004-37C",
+               assay %in% c("RNA-seq-sense",
+                            "TSS-seq-sense")) %>%
+        group_by(assay, position, condition) %>%
         summarise(signal = mean(signal)) %>%
         ungroup() %>%
         mutate(assay = ordered(assay,
                                levels = c("RNA-seq-sense",
-                                          "TSS-seq-sense",
-                                          "TFIIB-ChIP-nexus-protection"),
+                                          "TSS-seq-sense"),
+                                          # "TSS-seq-sense",
+                                          # "TFIIB-ChIP-nexus-protection"),
                                labels = c("\"RNA-seq (Uwimana \" * italic(\"et al.\") * \", 2017)\"",
-                                          "\"TSS-seq\"",
-                                          "\"TFIIB ChIP-nexus protection\"")))
+                                          "\"TSS-seq\"")))
+                                          # "\"TSS-seq\"",
+                                          # "\"TFIIB ChIP-nexus protection\"")))
 
     coverage = ggplot(data = df %>%
                filter(position %>% between(-0.2, 1.6)),
-           aes(x=position, y=signal)) +
-        geom_col(size=0.5,
-                 color=viridis(1)) +
+           aes(x=position, y=signal, color=condition, fill=condition)) +
+        geom_col(size=0.5) +
         facet_wrap(~assay,
                    scales= "free_y",
                    ncol=1,
@@ -39,6 +42,10 @@ main = function(theme_spec = "thesis_theme.R",
                            limits = c(0, NA),
                            expand = c(0,0),
                            breaks = scales::pretty_breaks(n=2)) +
+        scale_color_manual(values=c("#CC6677"),
+                           labels=c(bquote(italic("spt6-1004")))) +
+        scale_fill_manual(values=c("#CC6677"),
+                           labels=c(bquote(italic("spt6-1004")))) +
         theme_default_presentation +
         theme(axis.title.x = element_blank(),
               axis.text.x = element_text(size=12, family="FreeSans"),
@@ -50,7 +57,11 @@ main = function(theme_spec = "thesis_theme.R",
               axis.line.y = element_line(size=0.2,
                                          color="black"),
               axis.ticks = element_line(color="black"),
-              plot.margin = margin(t=-0.4, unit="cm"))
+              plot.margin = margin(t=-0.4, unit="cm"),
+              legend.key.height=unit(14, "pt"),
+              legend.key.width=unit(18, "pt"),
+              legend.spacing.x = unit(1, "pt"),
+              legend.position = c(1,1))
 
     diagram = ggplot() +
         annotate(geom="segment", color="grey50",
