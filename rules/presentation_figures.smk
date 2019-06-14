@@ -200,6 +200,23 @@ rule presentation_six_intragenic_mnase_metagenes:
     script:
         "../scripts/presentation_six_intragenic_mnase_metagenes.R"
 
+rule presentation_six_intragenic_gc:
+    input:
+        # mnase_data = FIGURES["six"]["intragenic_mnase_metagenes"]["mnase_data"],
+        gc_data = FIGURES["six"]["intragenic_mnase_metagenes"]["gc_data"],
+        theme = config["theme_spec"],
+        fonts = ".fonts_registered.txt",
+    output:
+        pdf = "figures/presentation/presentation_six_intragenic_gc.pdf",
+    params:
+        height = eval(str(FIGURES["six"]["intragenic_gc"]["beamer_height"])),
+        width = eval(str(FIGURES["six"]["intragenic_gc"]["beamer_width"])),
+    conda:
+        "../envs/plot.yaml"
+    script:
+        "../scripts/presentation_six_intragenic_gc.R"
+
+
 rule presentation_six_tss_seqlogos:
     input:
         data_paths = FIGURES["six"]["tss_seqlogos"]["data_paths"],

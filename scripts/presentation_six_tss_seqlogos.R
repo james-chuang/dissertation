@@ -9,7 +9,9 @@ main = function(theme_spec,
     #we just use their dataframes with font information for geom_polygon
 
     slop=20
-    tss_classes = c('genic', 'intragenic', 'antisense')
+    tss_classes = c("wild-type genic",
+                    "intragenic",
+                    "antisense")
 
     df = tibble()
     for (i in 1:length(data_paths)){
@@ -60,8 +62,9 @@ main = function(theme_spec,
                                                          x==10 ~ "+10 nt",
                                                          x>0 ~ paste0("+", x),
                                                          TRUE ~ as.character(x))) +
-        facet_grid(tss_class~., switch="y") +
-        ggtitle(bquote(italic("spt6-1004") ~ "TSSs")) +
+        facet_grid(tss_class~.,
+                   switch="y") +
+        ggtitle("TSS sequence preference") +
         theme_default_presentation +
         theme(legend.position = "none",
               axis.title.y = element_text(angle=0, hjust=1, vjust=0.5),
@@ -69,6 +72,7 @@ main = function(theme_spec,
               axis.text.x = element_text(size=12, color="black", face="plain",
                                          margin=margin(1,0,0,0,"pt")),
               axis.line = element_line(size=0.25, color="grey65"),
+              panel.spacing.y = unit(10, "pt"),
               panel.grid = element_blank(),
               panel.border = element_blank(),
               plot.margin = margin(1,0,0,0,"pt"))

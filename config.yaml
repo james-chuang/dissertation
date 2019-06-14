@@ -114,23 +114,26 @@ figures:
             width: 6
             beamer_height: 7.65
             beamer_width: 14
+        intragenic_gc:
+            beamer_height: 5.65
+            beamer_width: 14
         tss_seqlogos:
             data_paths:
-                - ../../intragenic/tss-seq/seq_logos/spt6-1004-37C/spt6-1004-37C-genic-seqlogo.tsv
+                - ../../intragenic/tss-seq/seq_logos/WT-37C/WT-37C-genic-seqlogo.tsv
                 - ../../intragenic/tss-seq/seq_logos/spt6-1004-37C/spt6-1004-37C-intragenic-seqlogo.tsv
                 - ../../intragenic/tss-seq/seq_logos/spt6-1004-37C/spt6-1004-37C-antisense-seqlogo.tsv
             height: 2.8
             width: 3
-            beamer_height: 6.65
+            beamer_height: 5.65
             beamer_width: 12
         intragenic_tata:
-            tata_genic: ../../intragenic/motif_analysis_tata/comparisons/all-genic-v-random/all-genic-v-random_condition_unmergedFIMOresults.tsv.gz
+            tata_genic: ../../intragenic/motif_analysis_tata/comparisons/wt-genic-v-random/wt-genic-v-random_condition_unmergedFIMOresults.tsv.gz
             tata_intragenic: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_condition_unmergedFIMOresults.tsv.gz
             tata_antisense: ../../intragenic/motif_analysis_tata/comparisons/all-antisense-v-random/all-antisense-v-random_condition_unmergedFIMOresults.tsv.gz
             # tata_random: ../../intragenic/motif_analysis_tata/comparisons/all-intragenic-v-random/all-intragenic-v-random_control_allFIMOresults.tsv.gz
             height: 2.4
             width: 3.7
-            beamer_height: 6.65
+            beamer_height: 5.65
             beamer_width: 12
         meme_motifs:
             intragenic: ../../intragenic/tss-seq/motifs/spt6-1004-37C-v-WT-37C/spikenorm/intragenic/spt6-1004-37C-v-WT-37C_tss-seq-spikenorm-diffexp-results-intragenic-up-meme_chip/combined.meme

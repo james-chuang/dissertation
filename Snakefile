@@ -71,6 +71,7 @@ rule target:
         "figures/presentation/presentation_six_mnase_heatmaps.pdf",
         expand("figures/presentation/presentation_six_mnase_metagene{frame}.pdf", frame=["0001", "0002"]),
         "figures/presentation/presentation_six_intragenic_mnase_metagenes.pdf",
+        "figures/presentation/presentation_six_intragenic_gc.pdf",
         expand("figures/presentation/presentation_six_intragenic_tata{frame}.pdf", frame=["0001", "0002"]),
         "figures/presentation/presentation_five_spt5_depletion.pdf",
         "figures/presentation/presentation_five_netseq_meta.pdf",

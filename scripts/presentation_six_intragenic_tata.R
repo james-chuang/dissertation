@@ -24,7 +24,7 @@ main = function(theme_spec,
     library(gganimate)
 
     df = tata_genic_path %>%
-        import(annotation_id = "genic") %>%
+        import(annotation_id = "wild-type genic") %>%
         bind_rows(tata_anti_path %>% import(annotation_id = "antisense")) %>%
         bind_rows(tata_intra_path %>% import(annotation_id = "intragenic")) %>%
         group_by(annotation) %>%
@@ -41,7 +41,7 @@ main = function(theme_spec,
                    kernel="gaussian",
                    bw=3.333) %>%
                tidy()) %>%
-        mutate(frame = if_else(annotation=="genic", 1, 2))
+        mutate(frame = if_else(annotation=="wild-type genic", 1, 2))
 
     figure = ggplot(data = df,
            aes(x=x,
@@ -63,9 +63,11 @@ main = function(theme_spec,
         scale_y_continuous(expand = c(0,0),
                            breaks = c(0,0.008),
                            name = "scaled density") +
-        scale_fill_calc() +
+        # scale_fill_calc() +
+        scale_fill_viridis_d(option="viridis",
+                             end=0.85) +
         ggtitle("TATA consensus probability") +
-        theme_default +
+        theme_default_presentation +
         theme(axis.title.x = element_blank(),
               axis.line.y = element_line(size=0.25, color="grey65"),
               axis.text.x = element_text(size=12),
