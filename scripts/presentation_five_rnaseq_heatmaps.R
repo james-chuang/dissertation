@@ -19,7 +19,7 @@ main = function(theme_spec,
                         add_ylabel=TRUE,
                         y_label = "nonoverlapping coding genes",
                         palette="magma",
-                        colorbar_title="antisense RNA-seq signal",
+                        colorbar_title="antisense RNA-seq",
                         theme="presentation")
 
     ggsave(pdf_out,

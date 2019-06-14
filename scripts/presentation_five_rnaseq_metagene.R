@@ -56,7 +56,7 @@ main = function(theme_spec = "thesis_theme.R",
                            expand = c(0,0)) +
         scale_fill_few() +
         scale_color_few() +
-        ggtitle("sense RNA-seq signal",
+        ggtitle("sense RNA-seq",
                 subtitle="1989 nonoverlapping coding genes") +
         theme_default_presentation +
         theme(legend.position = c(0.55, 0.85),
