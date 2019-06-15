@@ -21,7 +21,8 @@ main = function(theme_spec = "thesis_theme.R",
                                           "TSS-seq-sense"),
                                           # "TSS-seq-sense",
                                           # "TFIIB-ChIP-nexus-protection"),
-                               labels = c("\"RNA-seq (Uwimana \" * italic(\"et al.\") * \", 2017)\"",
+                               # labels = c("\"RNA-seq (Uwimana \" * italic(\"et al.\") * \", 2017)\"",
+                               labels = c("\"RNA-seq\"",
                                           "\"TSS-seq\"")))
                                           # "\"TSS-seq\"",
                                           # "\"TFIIB ChIP-nexus protection\"")))

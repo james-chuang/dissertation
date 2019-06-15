@@ -79,7 +79,7 @@ main = function(theme_spec,
         facet_grid(.~gene_id,
                    scales="free_x",
                    space="free_x") +
-        ggtitle("relative TFIIB ChIP-nexus protection") +
+        ggtitle("relative TFIIB protection") +
         theme_void() +
         theme(strip.text.x = element_blank(),
               plot.title = element_text(family="FreeSans",

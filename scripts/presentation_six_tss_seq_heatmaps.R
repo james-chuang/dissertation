@@ -24,7 +24,7 @@ main = function(theme_spec,
                                  add_ylabel=TRUE,
                                  y_label="nonoverlapping coding genes",
                                  palette="magma",
-                                 colorbar_title="sense TSS-seq signal",
+                                 colorbar_title="sense TSS-seq",
                                  theme="presentation")
 
     anti_heatmap = plot_heatmap(data_path=antisense_tss_data,
@@ -35,7 +35,7 @@ main = function(theme_spec,
                                 cutoff_pct=cutoff_pct,
                                 add_ylabel=FALSE,
                                 palette="magma",
-                                colorbar_title="antisense TSS-seq signal",
+                                colorbar_title="antisense TSS-seq",
                                 theme="presentation")
     figure_two = arrangeGrob(sense_heatmap, anti_heatmap, nrow=1)
 

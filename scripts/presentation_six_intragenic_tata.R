@@ -66,7 +66,7 @@ main = function(theme_spec,
         # scale_fill_calc() +
         scale_fill_viridis_d(option="viridis",
                              end=0.85) +
-        ggtitle("TATA consensus probability") +
+        ggtitle("TATA consensus density") +
         theme_default_presentation +
         theme(axis.title.x = element_blank(),
               axis.line.y = element_line(size=0.25, color="grey65"),

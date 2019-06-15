@@ -122,7 +122,7 @@ main = function(theme_spec = "thesis_theme.R",
                            breaks = scales::pretty_breaks(n=3)) +
         scale_y_reverse(expand = c(0,0),
                         name = paste(max(df[["index"]]), "induced intragenic peaks")) +
-        ggtitle("relative TFIIB ChIP-nexus protection") +
+        ggtitle("relative TFIIB protection") +
         theme_heatmap_presentation +
         theme(panel.grid.major.x = element_line(color="gray80", size=0.1),
               legend.position="bottom",

@@ -67,7 +67,7 @@ main = function(theme_spec = "thesis_theme.R",
                                                           TRUE ~ as.character(x))},
                            name=NULL) +
         scale_y_continuous(expand=c(0,0),
-                           name="GC%") +
+                           name="mean GC%") +
         scale_color_viridis_d(option="viridis",
                               end=0.85) +
         theme_default_presentation +

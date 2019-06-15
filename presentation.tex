@@ -60,7 +60,7 @@
             node[anchor=west, align=left] (results1) {{\uncover<3->{...get a PhD?}}};}
         \uncover<3->{\node [anchor=north west, align=left] at ($ (results1.west) + (-90:0.4em)$) {......make lots of money? \\
                                                                              .........win a Nobel prize?!? \\
-                                                                             ............end human suffering?!?!?};}
+                                                                             ............end all suffering?!?!?};}
     \end{tikzpicture}
 \end{frame}
 
@@ -256,7 +256,7 @@
         },
 }
 
-\begin{frame}[t]{Transcription}
+\begin{frame}[t]{An introduction to transcription}
     \begin{adjustbox}{center}
         \begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
             \pic {chromatin={1, 3, 4, ..., 8}{8}};
@@ -316,8 +316,22 @@
 
 \begin{frame}[t,plain]
     \begin{adjustbox}{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[>=latex]
             \node [anchor=south] (figure) {\includegraphics[width=\paperwidth]{../../structures/elongating_transcription_complex_with_nucleosome.png}};
+            \node [fill=white, text=crimson, inner sep=1pt] (spt6label) at (-0.3,7.5) {Spt6};
+            \node [fill=white, text=darkorange, inner sep=1pt] (spt5label) at (1.9,4.85) {Spt5};
+            \uncover<2>{
+                \node [ellipse,
+                       fill=crimson,
+                       opacity=0.7,
+                       minimum width=2.3cm,
+                       minimum height=1.5cm,
+                       rotate=-30] (spt6) at (2,6.0) {};
+                \node [] (spn1) at (3, 7.5) {Spn1/Iws1};
+                \node (histone) at (3.2,3) {};
+                \draw [<->, color=black!60, line width=2pt] (spt6) to [bend left=40] (histone);
+                \draw [<->, color=black!60, line width=2pt] (spt6.west) to [bend left=40] (spn1.west);
+            }
             \node [align=left,
                    font=\footnotesize] (figure){Vos \textit{et al.} (2018). \textit{Nature} \\
                                                    Farnung \textit{et al.} (2018). \textit{Nat. Commun.}};
@@ -326,7 +340,7 @@
 \end{frame}
 
 \begin{frame}{Spt6 project collaborators}
-    \begin{description}[align=right, leftmargin=!, labelwidth=0.5\textwidth]
+    \begin{description}[align=right, leftmargin=!, labelwidth=0.4\textwidth]
         \item [Steve Doris] TSS-seq and ChIP-nexus
         \item [Olga Viktorovskaya] MNase-seq
         \item [Magdalena Murawska] NET-seq
@@ -367,6 +381,9 @@
 \begin{frame}[t]
     \begin{tikzpicture}
         \node<1-2>[inner sep=0] (marker) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_aat_assay_comparison.pdf}};
+        \node [anchor=north east,
+                outer ysep=0.4cm,
+                font=\footnotesize] at (marker.south east) {RNA-seq: Uwimana \textit{et al.} (2017). \textit{Nucleic Acids Res.}};
         \fill<1>[white] (marker.south east) rectangle (-6.55cm, -0.2cm);
     \end{tikzpicture}
 \end{frame}
@@ -378,7 +395,7 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Downregulation of genic TSSs in \textit{spt6-1004}:}
+\begin{frame}{Genic transcript abundances are reduced}
     \centering
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -390,7 +407,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Measuring transcription initiation with TFIIB ChIP-nexus}
+\begin{frame}{TFIIB ChIP-nexus measures transcription initiation}
     \begin{tikzpicture}
         \node[inner sep=0] at (0,0) {\includegraphics[width=15cm]{figures/presentation/presentation_six_tfiib_spreading_swc0001.pdf}};
         \fill[white] (0.3,-0.1) rectangle (3.5, 0.50);
@@ -410,15 +427,16 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{new intragenic initiation explains most intragenic transcripts}
+\begin{frame}{Transcriptomic changes are mostly explained by changes in initiation}
     \includegraphics[width=\textwidth]{figures/presentation/presentation_six_tss_v_tfiib.pdf}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
     \begin{tikzpicture}
         \node<1>[inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_mnase_metagene0001.pdf}};
         \fill<1>[white] (-0.7,0.49) rectangle (2.2, 1.01);
         \node<2>[inner sep=0] at (0,0) {\includegraphics[width=\textwidth]{figures/presentation/presentation_six_mnase_metagene0002.pdf}};
+        \pic [yscale=0.3, xscale=0.234, transform shape] at ($(marker.south west) + (0:2.55cm)$) {chromatin={1, 2, ..., 8}{8}};
     \end{tikzpicture}
 \end{frame}
 
@@ -432,12 +450,12 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Features of intragenic promoters}
+\begin{frame}{Intragenic promoters have features of genic promoters}
     \centering
     \includegraphics[width=\textwidth]{figures/presentation/presentation_six_intragenic_gc.pdf}
 \end{frame}
 
-\begin{frame}{Features of intragenic promoters}
+\begin{frame}{Intragenic promoters have features of genic promoters}
     \centering
     \begin{tikzpicture}
         \node<1>[inner sep=0] at (0,0) {\includegraphics[width=12cm]{figures/presentation/presentation_six_intragenic_tata0001.pdf}};
@@ -447,21 +465,108 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Features of intragenic promoters}
+\begin{frame}{Intragenic promoters have features of genic promoters}
     \centering
     \includegraphics[width=12cm]{figures/presentation/presentation_six_tss_seqlogos.pdf}
 \end{frame}
 
-\begin{frame}{Spt6 summary and model}
+\begin{frame}[t]
+    \begin{adjustbox}{center}
+        \begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}, overlay]
+            \coordinate (chromatin1) at (-20.5,-2);
+            \coordinate (chromatin2) at (-20.5,-7);
+            \coordinate (chromatin3) at (-20.5,-12);
+            \pic<1> at (chromatin1) {chromatin={1, 3, 4, ..., 8}{8}};
+            \uncover<1>{
+                \pic[rotate=10] at (midpoint-3) {pol};
+                % \node[font=\Huge] at (midpoint-4 |- 0,0) {initiation};
+                \fill [color=viridis1, rotate=5] ($ (midpoint-3) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
+                \fill [color=viridis1!70!white, rotate=20] ($ (midpoint-3) + (200:1.4)$) ellipse [x radius=0.5, y radius=0.8];
+                \fill [color=viridis1, rotate=15] ($ (midpoint-3) + (150:1.2)$) ellipse [x radius=1, y radius=0.6];
+                \fill [color=viridis1!80!white, rotate=-30] ($ (midpoint-3) + (80:2.0)$) ellipse [x radius=1, y radius=0.6];
+                \draw [wrapping, rotate=10] (midpoint-3) to [bend left=9] (wrapping-end-1);
+                \draw [wrapping, rotate=10] (dnaexit) to [bend left=60] (midpoint-3);
+
+            }
+            \pic<1> at (chromatin2) {chromatin={1, 3, 4, ..., 8}{8}};
+            \uncover<1>{
+                \pic[rotate=10] at (midpoint-3) {pol};
+                \fill [color=viridis1, rotate=5] ($ (midpoint-3) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
+                \fill [color=viridis1!70!white, rotate=20] ($ (midpoint-3) + (200:1.4)$) ellipse [x radius=0.5, y radius=0.8];
+                \fill [color=viridis1, rotate=15] ($ (midpoint-3) + (150:1.2)$) ellipse [x radius=1, y radius=0.6];
+                \fill [color=viridis1!80!white, rotate=-30] ($ (midpoint-3) + (80:2.0)$) ellipse [x radius=1, y radius=0.6];
+                \draw [wrapping, rotate=10] (midpoint-3) to [bend left=9] (wrapping-end-1);
+                \draw [wrapping, rotate=10] (dnaexit) to [bend left=60] (midpoint-3);
+
+            }
+            \pic<1> at (chromatin3) {chromatin={1, 3, 4, ..., 8}{8}};
+            \uncover<1>{
+                \pic[rotate=10] at (midpoint-3) {pol};
+                \fill [color=viridis1, rotate=5] ($ (midpoint-3) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
+                \fill [color=viridis1!70!white, rotate=20] ($ (midpoint-3) + (200:1.4)$) ellipse [x radius=0.5, y radius=0.8];
+                \fill [color=viridis1, rotate=15] ($ (midpoint-3) + (150:1.2)$) ellipse [x radius=1, y radius=0.6];
+                \fill [color=viridis1!80!white, rotate=-30] ($ (midpoint-3) + (80:2.0)$) ellipse [x radius=1, y radius=0.6];
+                \draw [wrapping, rotate=10] (midpoint-3) to [bend left=9] (wrapping-end-1);
+                \draw [wrapping, rotate=10] (dnaexit) to [bend left=60] (midpoint-3);
+            }
+            \pic<2-> at (chromatin1) {chromatin={1, 4, 8}{8}};
+            \uncover<3>{
+                \pic at (midpoint-8) {pol};
+                \fill [color=viridis1, rotate=5] ($ (midpoint-8) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
+                \fill [color=viridis1!70!white, rotate=20] ($ (midpoint-8) + (200:1.4)$) ellipse [x radius=0.5, y radius=0.8];
+                \fill [color=viridis1, rotate=15] ($ (midpoint-8) + (150:1.2)$) ellipse [x radius=1, y radius=0.6];
+                \fill [color=viridis1!80!white, rotate=-30] ($ (midpoint-8) + (80:2.0)$) ellipse [x radius=1, y radius=0.6];
+                \draw [wrapping] (midpoint-8) to [bend left=9] (wrapping-end-4);
+                \draw [wrapping] (dnaexit) to [bend left=60] (midpoint-8);
+            }
+            \pic<2-> at (chromatin2) {chromatin={1, 6, 8}{8}};
+            \uncover<3>{
+                \pic [xscale=-1] at (midpoint-6) {pol};
+                \fill [xscale=-1, color=viridis1, rotate=5] ($ (midpoint-6) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
+                \fill [xscale=-1, color=viridis1!70!white, rotate=20] ($ (midpoint-6) + (200:1.4)$) ellipse [x radius=0.5, y radius=0.8];
+                \fill [xscale=-1, color=viridis1, rotate=15] ($ (midpoint-6) + (150:1.2)$) ellipse [x radius=1, y radius=0.6];
+                \fill [xscale=-1, color=viridis1!80!white, rotate=-30] ($ (midpoint-6) + (80:2.0)$) ellipse [x radius=1, y radius=0.6];
+                \draw [wrapping] (midpoint-6) to [bend right=6] (wrapping-start-6);
+                \draw [wrapping] (dnaexit) to [bend right=60] (midpoint-6);
+            }
+            \pic<2-> at (chromatin3) {chromatin={1, 3, 7, 8}{8}};
+            \uncover<3>{
+                \pic[rotate=10] at (midpoint-3) {pol};
+                \fill [color=viridis1, rotate=5] ($ (midpoint-3) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
+                \fill [color=viridis1!70!white, rotate=20] ($ (midpoint-3) + (200:1.4)$) ellipse [x radius=0.5, y radius=0.8];
+                \fill [color=viridis1, rotate=15] ($ (midpoint-3) + (150:1.2)$) ellipse [x radius=1, y radius=0.6];
+                \fill [color=viridis1!80!white, rotate=-30] ($ (midpoint-3) + (80:2.0)$) ellipse [x radius=1, y radius=0.6];
+                \draw [wrapping, rotate=10] (midpoint-3) to [bend left=9] (wrapping-end-1);
+                \draw [wrapping, rotate=10] (dnaexit) to [bend left=60] (midpoint-3);
+            }
+            \draw [line width=2pt, color=gray!90] (midpoint-3 |- 0,-14) -- coordinate[pos=0.07] (orfstart) coordinate[pos=0.85] (notch) coordinate[pos=0.93] (orfend) (midpoint-8 |- 0,-14);
+            \fill [fill=gray!45] ($(orfstart) + (-90:0.6)$) --
+                                 ($(orfstart) + (90:0.6)$) --
+                                 ($(notch) + (90:0.6)$) --
+                                 (orfend) --
+                                 ($(notch) + (-90:0.6)$) --
+                                 cycle;
+            \node [font=\Huge] at ($ (orfstart)!0.5!(orfend) $) {genes};
+        \end{tikzpicture}
+    \end{adjustbox}
 \end{frame}
 
-\begin{frame}[t,plain]
+\begin{frame}
     \begin{adjustbox}{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[overlay, shift={(-2.25,-4)}]
             \node [anchor=south] (figure) {\includegraphics[width=\paperwidth]{../../structures/elongating_transcription_complex_with_nucleosome.png}};
             \node [align=left,
                    font=\footnotesize] (figure){Vos \textit{et al.} (2018). \textit{Nature} \\
                                                    Farnung \textit{et al.} (2018). \textit{Nat. Commun.}};
+            \node [fill=white, text=crimson, inner sep=1pt] (spt6label) at (-0.3,7.5) {Spt6};
+            \node [fill=white, text=darkorange, inner sep=1pt] (spt5label) at (1.9,4.85) {Spt5};
+            \node<2> [align=left, anchor=north west,
+                    text width=9.5cm] at (2.4, 6.5) {recruits:\\
+                                            mRNA capping enzyme\\
+                                            Rpd3S HDAC complex\\
+                                            Paf1 complex\\
+                                            mRNA 3$^\prime$-end processing factors
+                                            };
         \end{tikzpicture}
     \end{adjustbox}
 \end{frame}
@@ -528,14 +633,67 @@
     \includegraphics[width=\textwidth]{figures/presentation/presentation_five_mnase_metagene.pdf}
 \end{frame}
 
-\begin{frame}{Spt5 summary and model}
+\begin{frame}[t]{Transcription without Spt5}
+    \begin{adjustbox}{center}
+        \begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+            \pic {chromatin={1, 3, 4, ..., 8}{8}};
+            \uncover<1>{
+                \pic[rotate=10] at (midpoint-3) {pol};
+                \node[font=\Huge] at (midpoint-3 |- 0,5) {initiation};
+                \fill [color=viridis1, rotate=5] ($ (midpoint-3) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
+                \fill [color=viridis1!70!white, rotate=20] ($ (midpoint-3) + (200:1.4)$) ellipse [x radius=0.5, y radius=0.8];
+                \fill [color=viridis1, rotate=15] ($ (midpoint-3) + (150:1.2)$) ellipse [x radius=1, y radius=0.6];
+                \fill [color=viridis1!80!white, rotate=-30] ($ (midpoint-3) + (80:2.0)$) ellipse [x radius=1, y radius=0.6];
+                \draw [wrapping, rotate=10] (midpoint-3) to [bend left=9] (wrapping-end-1);
+                \draw [wrapping, rotate=10] (dnaexit) to [bend left=60] (midpoint-3);
+            }
+            \uncover<2>{
+                \pic at (midpoint-5) {pol};
+                \node [font=\Huge, align=left] at (midpoint-5 |- 0,5) {stalling and \\ early termination};
+                \pic at (midpoint-5) {paf};
+                % \pic at (midpoint-5) {spt5={viridis1!70!white}};
+                % \pic at (midpoint-5) {spt6={viridis1!93!white}};
+                \draw [wrapping] (midpoint-5) to [bend left=10] (wrapping-end-4);
+                \draw [wrapping] (dnaexit) to [bend left=60] (midpoint-5);
+                \pic [rotate=10] at (midpoint-5) {rna={6}};
+            }
+            \uncover<3>{
+                \pic [xscale=-1] at (midpoint-5) {pol};
+                \node [font=\Huge, align=left] at (midpoint-5 |- 0,5) {possible antisense re-initiation};
+                \pic [xscale=-1] at (midpoint-5) {paf};
+                % % \pic at (midpoint-5) {spt5={viridis1!70!white}};
+                % % \pic at (midpoint-5) {spt6={viridis1!93!white}};
+                \draw [wrapping] (midpoint-5) to [bend right=10] (wrapping-start-5);
+                \draw [wrapping] (dnaexit) to [bend right=60] (midpoint-5);
+                % \pic at (midpoint-5) {rna={6}};
+            }
+            \uncover<4>{
+                \pic [xscale=-1] at (midpoint-4) {pol};
+                \node [font=\Huge, align=left] at (midpoint-4 |- 0,5) {antisense transcription};
+                \pic [xscale=-1] at (midpoint-4) {paf};
+                % % \pic at (midpoint-4) {spt5={viridis1!70!white}};
+                % % \pic at (midpoint-4) {spt6={viridis1!93!white}};
+                \draw [wrapping] (midpoint-4) to [bend right=10] (wrapping-start-4);
+                \draw [wrapping] (dnaexit) to [bend right=60] (midpoint-4);
+                \pic [xscale=-1] at (midpoint-4) {rna={3}};
+            }
+            \draw [line width=2pt, color=gray!90] (midpoint-3 |- 0,-3) -- coordinate[pos=0.07] (orfstart) coordinate[pos=0.85] (notch) coordinate[pos=0.93] (orfend) (midpoint-8 |- 0,-3);
+            \fill [fill=gray!45] ($(orfstart) + (-90:0.6)$) --
+                                 ($(orfstart) + (90:0.6)$) --
+                                 ($(notch) + (90:0.6)$) --
+                                 (orfend) --
+                                 ($(notch) + (-90:0.6)$) --
+                                 cycle;
+            \node [font=\Huge] at ($ (orfstart)!0.5!(orfend) $) {a gene};
+        \end{tikzpicture}
+    \end{adjustbox}
 \end{frame}
 
 \begin{frame}{WT intragenic transcription}
 \end{frame}
 
 \begin{frame}{project collaborators}
-    \begin{description}[align=right, labelwidth=0.5\textwidth, leftmargin=!]
+    \begin{description}[align=right, labelwidth=0.4\textwidth, leftmargin=!]
         \item [Steve Doris] TSS-seq and ChIP-nexus
         \item [Dan Spatt] polyribosome fractionation,\\competitive growth assays,\\and Northern blots
         \item [James Warner] Northern blots

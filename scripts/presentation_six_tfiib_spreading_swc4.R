@@ -90,7 +90,7 @@ main = function(theme_spec = "thesis_theme.R",
                  fontface="italic") +
         scale_fill_ptol(labels=c("wild-type",
                                  bquote(italic("spt6-1004")))) +
-        ggtitle("TFIIB ChIP-nexus protection") +
+        ggtitle("TFIIB protection") +
         theme_default_presentation +
         theme(legend.key.height = unit(14, "pt"),
               legend.key.width = unit(25, "pt"),

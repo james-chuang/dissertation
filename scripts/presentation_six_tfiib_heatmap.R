@@ -20,7 +20,7 @@ main = function(theme_spec,
                              add_ylabel=TRUE,
                              y_label = "nonoverlapping coding genes",
                              palette="magma",
-                             colorbar_title="TFIIB ChIP-nexus protection",
+                             colorbar_title="TFIIB protection",
                              theme="presentation")
 
     ggsave(pdf_out,
