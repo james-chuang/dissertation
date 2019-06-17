@@ -216,7 +216,6 @@ rule presentation_six_intragenic_gc:
     script:
         "../scripts/presentation_six_intragenic_gc.R"
 
-
 rule presentation_six_tss_seqlogos:
     input:
         data_paths = FIGURES["six"]["tss_seqlogos"]["data_paths"],
@@ -488,12 +487,14 @@ rule presentation_stress_diamide_fitnesscomp:
         theme = config["theme_spec"],
         fonts = ".fonts_registered.txt",
     output:
-        pdf = "figures/presentation/presentation_stress_diamide_fitnesscomp.pdf",
+        frame_1 = "figures/presentation/presentation_stress_diamide_fitnesscomp0001.svg",
+        frame_2 = "figures/presentation/presentation_stress_diamide_fitnesscomp0002.svg",
+        frame_3 = "figures/presentation/presentation_stress_diamide_fitnesscomp0003.svg",
     params:
         width = eval(str(FIGURES["stress"]["diamide_fitnesscomp"]["beamer_width"])),
         height = eval(str(FIGURES["stress"]["diamide_fitnesscomp"]["beamer_height"])),
     conda:
-        "../envs/plot.yaml"
+        "../envs/gganimate.yaml"
     script:
         "../scripts/presentation_stress_diamide_fitnesscomp.R"
 

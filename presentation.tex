@@ -18,6 +18,7 @@
 \definecolor{chartreuse}{HTML}{7FFF00}
 \definecolor{crimson}{HTML}{DC143C}
 \definecolor{viridis1}{HTML}{450154}
+\definecolor{viridismid}{HTML}{2A788E}
 \setbeamercolor{title}{fg=blue}
 \setbeamercolor{frametitle}{fg=blue}
 \setbeamercolor{structure}{fg=blue}
@@ -586,17 +587,17 @@
                 \draw [line width=2pt, color=gray!90] (0.1,0) coordinate (genicstart) -- (0.95,0) coordinate (genicend);
                 \fill [fill=gray!45] (0.15, -1) -- coordinate[midway] (orfstart) (0.15, 1) -- (0.85, 1) -- (0.92, 0) coordinate(orfend) -- (0.85, -1) -- cycle;
                 \node at ($ (orfstart)!0.5!(orfend) $) {\textit{spt5\textsuperscript{+}}};
-                \draw [->, line width=2pt] (genicstart) -- ($ (genicstart) + (90:2)$) --
+                \draw [->, line width=2pt, color=black!70] (genicstart) -- ($ (genicstart) + (90:2)$) --
                     node[midway] (promoter) {} ++(0.2,0) node (exprstart) {};
-                \draw [|-, line width=2pt] (promoter) -- ++(0, 3) node [anchor=south] (thiamine) {thiamine};
+                \draw [|-, line width=2pt, color=black!70] (promoter) -- ++(0, 3) node [anchor=south] (thiamine) {thiamine};
                 \draw (0.95,0 |- thiamine) node [outer sep=0pt, inner sep=0pt] (degraded) {\scalebox{2}{$\varnothing$}};
                 \node [ellipse, fill=darkorange, inner sep=2pt, outer sep=2pt] (spt5) at ($ (thiamine)!0.6!(degraded) $) {Spt5};
-                \draw [->, line width=2pt] (exprstart) .. controls ++(0.2,0) and ($ (thiamine)!0.35!(spt5) $) .. (spt5);
-                \draw [->, line width=2pt] (spt5) --
+                \draw [->, line width=2pt, color=black!70] (exprstart) .. controls ++(0.2,0) and ($ (thiamine)!0.35!(spt5) $) .. (spt5);
+                \draw [->, line width=2pt, color=black!70] (spt5) --
                     coordinate[pos=0.4] (auxincoord)
                     coordinate[pos=0.6] (auxintarget) (degraded);
                 \draw (auxincoord |- 0,9) node (auxin) {auxin};
-                \draw [line width=2pt] (auxin) to [bend right=40] (auxintarget);
+                \draw [line width=2pt, color=black!70] (auxin) to [bend right=40] (auxintarget);
             \end{tikzpicture}
         \end{column}
         \begin{column}{0.55\textwidth}
@@ -633,7 +634,7 @@
     \includegraphics[width=\textwidth]{figures/presentation/presentation_five_mnase_metagene.pdf}
 \end{frame}
 
-\begin{frame}[t]{Transcription without Spt5}
+\begin{frame}[t]{Transcription upon Spt5 depletion:}
     \begin{adjustbox}{center}
         \begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
             \pic {chromatin={1, 3, 4, ..., 8}{8}};
@@ -689,7 +690,25 @@
     \end{adjustbox}
 \end{frame}
 
-\begin{frame}{WT intragenic transcription}
+\begin{frame}{Intragenic transcription in wild-type cells}
+    \begin{tikzpicture}[x=14cm, y=0.4cm, >=latex, font=\normalsize, text=black]
+        \draw [line width=1pt, color=gray!50] (0,0) -- (1,0);
+        \draw [line width=2pt, color=gray!90] (0.1,0) coordinate (genicstart) -- (0.95,0) coordinate (genicend);
+        \draw [->, line width=3pt, color=black!70] (genicstart) -- ($ (genicstart) + (90:2)$) --
+            ++(0.1,0) node (exprstart) {};
+        \draw [->, line width=3pt, color=black!70] ($(genicstart)!0.4!(genicend)$) -- ++(0,2) --
+            ++(0.1,0) node (intraexprstart) {};
+        \fill [fill=gray!45] (0.15, -1) -- coordinate[midway] (orfstart) (0.15, 1) -- (0.85, 1) -- (0.92, 0) coordinate(orfend) -- (0.85, -1) -- cycle;
+        \fill [fill=viridis1!50!white, opacity=1, text opacity=1] (0.20, -1) -- coordinate[midway] (astart) (0.20, 1) -- (0.40, 1) -- coordinate[midway] (aend) (0.40, -1) -- cycle;
+        \fill [fill=viridismid!70!white, opacity=1, text opacity=1] (0.50, -1) -- coordinate[midway] (bstart) (0.50, 1) -- (0.70, 1) -- coordinate[midway] (bend) (0.70, -1) -- cycle;
+        \node at ($ (astart)!0.5!(aend) $) {A};
+        \node at ($ (bstart)!0.5!(bend) $) {B};
+        \node [ellipse, fill=viridismid!70!white, inner sep=6pt, outer sep=0.4cm, minimum width=2cm, opacity=1, text opacity=1] (genicb) at (0.85,8) {B};
+        \node [ellipse, fill=viridis1!50!white, inner sep=6pt, outer sep=2pt, minimum width=2cm, opacity=1, text opacity=1] (genica) at (genicb.west) {A};
+        \node [ellipse, fill=viridismid!70!white, inner sep=6pt, outer sep=2pt, minimum width=2cm, opacity=1, text opacity=1] (intrab) at (0.85,4) {B};
+        \draw [->, line width=2pt, color=black!70] (exprstart) .. controls ++(0.2,0) and ($ (0.15,8)!0.35!(genicb) $) .. (genica);
+        \draw [->, line width=2pt, color=black!70] (intraexprstart) .. controls ++(0.15,0) and ($ (0.55,4)!0.35!(intrab) $) .. (intrab);
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{project collaborators}
@@ -709,7 +728,15 @@
 \end{frame}
 
 \begin{frame}[t]
-    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_promoter_tss_expression.pdf}
+    \begin{tikzpicture}
+        \node[inner sep=0pt, outer sep=0pt] (figure) at (0,0) {\includegraphics[width=\textwidth]{figures/presentation/presentation_stress_promoter_tss_expression.pdf}};
+        \fill<2->[color=white, opacity=0.92] (figure.south west) rectangle (figure.north east);
+        \node<2->[align=left, fill=white] at (0,0) {How likely are intragenic transcripts to be translated?\\
+                                    \\
+                                    0. Isolate RNA associated with polysomes\\
+                                    1. Build TSS-seq libraries
+                                    };
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}[t]
@@ -725,24 +752,140 @@
     \end{adjustbox}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{intragenic \textit{DSK2} expression requires PACE elements}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_dsk2_pace_northern.pdf}
+            \begin{tikzpicture}[x=7cm, y=0.3cm, >=latex, font=\normalsize, text=black]
+                \draw [line width=1pt, color=gray!50] (0,0) -- (1,0);
+                \draw [line width=2pt, color=gray!90] (0.1,0) coordinate (genicstart) -- (0.95,0) coordinate (genicend);
+                \draw [->, line width=2pt, color=black!70] (genicstart) -- ($ (genicstart) + (90:2)$) --
+                    ++(0.1,0) node(exprstart) {};
+                \draw [->, line width=2pt, color=black!70] (0.4171,0) -- ++(0,2) --
+                    ++(0.1,0) node (intraexprstart) {};
+                \fill [fill=gray!45] (0.1129, -1) -- coordinate[midway] (orfstart) (0.1129, 1) -- (0.823, 1) -- (0.8765, 0) coordinate(orfend) -- (0.823, -1) -- cycle;
+                \fill [fill=crimson, opacity=0.1] (0.1898, -1) -- (0.1898, 1) -- (0.1939, 1) -- (0.1939, -1) -- cycle;
+                \fill [fill=crimson, opacity=0.1] (0.6009, -1) --  (0.6009, 1) -- (0.6050, 1) -- (0.6050, -1) -- cycle;
+                \fill [fill=crimson, opacity=0.1] (0.8418, -0.6486) --  (0.8418, 0.6486) -- (0.8459, 0.5720) -- (0.8459, -0.5720) -- cycle;
+                \fill [fill=crimson] (0.2906, -1) -- (0.2906, 1) -- (0.2946, 1) -- (0.2946, -1) -- cycle;
+                \fill [fill=crimson] (0.2946, -1) -- (0.2946, 1) -- (0.2987, 1) -- (0.2987, -1) -- cycle;
+                \fill [fill=crimson] (0.3130, -1) -- (0.3130, 1) -- (0.3171, 1) -- (0.3171, -1) -- cycle;
+                \node at ($(orfstart)!0.5!(orfend)$) {\textit{DSK2}};
+            \end{tikzpicture}
         \end{column}
         \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_dsk2_pace_northern.pdf}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}
-    \includegraphics[width=\textwidth]{figures/presentation/presentation_stress_diamide_fitnesscomp.pdf}
+\begin{frame}{\textit{dsk2-pace} cells respond poorly to oxidative stress}
+    \begin{tikzpicture}
+        \node<1>[inner sep=0] {\includegraphics[width=\textwidth]{figures/presentation/presentation_stress_diamide_fitnesscomp0001.pdf}};
+        \node<2>[inner sep=0] {\includegraphics[width=\textwidth]{figures/presentation/presentation_stress_diamide_fitnesscomp0002.pdf}};
+        \node<3>[inner sep=0] {\includegraphics[width=\textwidth]{figures/presentation/presentation_stress_diamide_fitnesscomp0003.pdf}};
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{One possible mechanism for intragenic \textit{DSK2} function}
+    \centering
+    \begin{tikzpicture}[x=14cm, y=0.4cm, >=latex, font=\normalsize, text=black]
+        \draw [line width=1pt, color=gray!50] (0,0) -- (1,0);
+        \draw [line width=2pt, color=gray!90] (0.1,0) coordinate (genicstart) -- (0.95,0) coordinate (genicend);
+        \draw [->, line width=3pt, color=black!70] (genicstart) -- ($ (genicstart) + (90:2)$) --
+            ++(0.1,0) node(exprstart) {};
+        \draw [->, line width=3pt, color=black!70] (0.4171,0) -- ++(0,2) --
+            ++(0.1,0) node (intraexprstart) {};
+        \fill [fill=gray!45] (0.1129, -1) -- coordinate[midway] (orfstart) (0.1129, 1) -- (0.823, 1) -- (0.8765, 0) coordinate(orfend) -- (0.823, -1) -- cycle;
+        \fill [fill=viridis1!50!white, opacity=1, text opacity=1] (0.1191, -1) -- coordinate[midway] (astart) (0.1191, 1) -- (0.2906, 1) -- coordinate[midway] (aend) (0.2906, -1) -- cycle;
+        \fill [fill=viridismid!70!white, opacity=1, text opacity=1] (0.7826, -1) -- coordinate[midway] (bstart) (0.7826, 1) -- (0.823, 1) -- (0.8704,0.1140) -- coordinate[midway] (bend) (0.8704, -0.1140) -- (0.823,-1) -- cycle;
+        \node at ($ (astart)!0.5!(aend) $) {UBL};
+        \node at ($ (bstart)!0.4!(bend) $) {UBA};
+        \draw [line width=2pt, color=black!70] (0.1191, -1.4) -- coordinate [midway] (ubl) (0.2906,-1.4);
+        \draw [line width=2pt, color=black!70] (0.7826, -1.4) -- coordinate [midway] (uba) (0.8704,-1.4);
+        \node (ublfunction) at (ubl |- 0,-3) {proteasome-binding};
+        \node (ubafunction) at (uba |- 0,-3) {polyubiquitin-binding};
+        \draw [line width=2pt, color=black!70, inner sep=0pt, outer sep=1pt] (ublfunction) -- (ubl);
+        \draw [line width=2pt, color=black!70, inner sep=0pt, outer sep=1pt] (ubafunction) -- (uba);
+
+        \node [ellipse, fill=gray!45, inner sep=3pt, outer sep=2pt, minimum width=2cm, minimum height=0.5cm, opacity=1, text opacity=1] (genicprot) at (0.75,8) {};
+        \node [ellipse, fill=viridismid!70!white, inner sep=3pt, outer sep=2pt, minimum width=1cm, opacity=1, text opacity=1] (genicb) at (genicprot.east) {UBA};
+        \node [ellipse, fill=viridis1!50!white, inner sep=6pt, outer sep=2pt, minimum width=1.5cm, opacity=1, text opacity=1] (genica) at (genicprot.west) {UBL};
+        \node [ellipse, fill=gray!45, inner sep=3pt, outer sep=2pt, minimum width=2cm, minimum height=0.5cm, opacity=1, text opacity=1] (intraprot) at (0.75,4) {};
+        \node [ellipse, fill=viridismid!70!white, inner sep=3pt, outer sep=2pt, minimum width=1cm, opacity=1, text opacity=1] (intrab) at (intraprot.east) {UBA};
+
+        \draw [->, line width=2pt, color=black!70] (exprstart) .. controls ++(0.2,0) and ($ (0.15,8)!0.35!(genicb) $) .. (genica);
+        \draw [->, line width=2pt, color=black!70] (intraexprstart) .. controls ++(0.15,0) and ($ (0.45,4)!0.35!(intraprot) $) .. (intraprot);
+        % \fill [fill=crimson] (0.2906, -1) -- (0.2906, 1) -- (0.2946, 1) -- (0.2946, -1) -- cycle;
+        % \fill [fill=crimson] (0.2946, -1) -- (0.2946, 1) -- (0.2987, 1) -- (0.2987, -1) -- cycle;
+        % \fill [fill=crimson] (0.3130, -1) -- (0.3130, 1) -- (0.3171, 1) -- (0.3171, -1) -- cycle;
+        \node at ($(orfstart)!0.5!(orfend)$) {\textit{DSK2}};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Summary}
+    \begin{adjustbox}{center}
+        \begin{tikzpicture}[scale=0.5, every node/.style={scale=0.5}]
+            \pic {chromatin={1, 3, 4, ..., 8}{8}};
+                \pic at (midpoint-5) {pol};
+                % \node [font=\Huge] at (midpoint-5 |- 0,5) {elongation};
+                \pic at (midpoint-5) {paf};
+                \pic at (midpoint-5) {spt5={darkorange}};
+                \pic at (midpoint-5) {spt6={crimson}};
+                \draw [wrapping] (midpoint-5) to [bend left=10] (wrapping-end-4);
+                \draw [wrapping] (dnaexit) to [bend left=60] (midpoint-5);
+                \pic at (midpoint-5) {rna={6}};
+            \draw [line width=2pt, color=gray!90] (midpoint-3 |- 0,-3) -- coordinate[pos=0.07] (orfstart) coordinate[pos=0.85] (notch) coordinate[pos=0.93] (orfend) (midpoint-8 |- 0,-3);
+            \fill [fill=gray!45] ($(orfstart) + (-90:0.6)$) --
+                                 ($(orfstart) + (90:0.6)$) --
+                                 ($(notch) + (90:0.6)$) --
+                                 (orfend) --
+                                 ($(notch) + (-90:0.6)$) --
+                                 cycle;
+            \node [font=\Huge] at ($ (orfstart)!0.5!(orfend) $) {a gene};
+        \end{tikzpicture}
+    \end{adjustbox}
 \end{frame}
 
 \begin{frame}{Acknowledgements}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}[]
+                \item Winston lab
+                    \begin{itemize}
+                        \item Fred Winston
+                        \item Ameet Shetty
+                        \item Steve Doris
+                        \item Olga Viktorovskaya
+                        \item Magdalena Murawska
+                        \item Dan Spatt
+                        \item Natalia Reim
+                        \item Rajaraman Gopalakrishnan
+                        \item Francheska Lopez Rivera
+                        \item Katie Weiner
+                        \item James Warner
+                        \item Mallory Rice
+                    \end{itemize}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item dissertation committee
+                    \begin{itemize}[]
+                        \item Fred Winston
+                        \item Mo Khalil
+                        \item Stirling Churchman
+                        \item John Ngo
+                        \item Wilson Wong
+                    \end{itemize}
+                \item HMS Research Computing
+            \end{itemize}
+            \begin{itemize}
+                \item \href{https://github.com/winston-lab}{github.com/winston-lab}
+                \item \href{https://github.com/james-chuang}{github.com/james-chuang}
+                % \item \href{https://james-chuang.github.io}{james-chuang.github.io}
+            \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \end{document}

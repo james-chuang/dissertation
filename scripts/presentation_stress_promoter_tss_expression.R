@@ -35,15 +35,15 @@ main = function(theme_spec,
                          y=y,
                          yend=y,
                          color=category),
-                        alpha=0.4,
-                        size=0.7) +
+                        alpha=0.6,
+                        size=0.5) +
         geom_point(data = df,
                    aes(x=rlog_counts_mean,
                        y=y,
                        color=category),
                    shape=16,
                    alpha=0.95,
-                   size=1.2) +
+                   size=1) +
         geom_label(data = df %>%
                        filter(category=="intragenic"),
                    aes(x=rlog_counts_mean-rlog_counts_sd-0.1,
@@ -62,8 +62,8 @@ main = function(theme_spec,
                            labels = function(x) 100*x) +
         scale_x_continuous(name=expression("log"[2] * "(normalized counts)"),
                            breaks = scales::pretty_breaks(n=4)) +
-        ggtitle("TSS expression levels in oxidative stress",
-                subtitle = "oxidative stress-induced promoters") +
+        ggtitle("transcript abundances in oxidative stress",
+                subtitle = "oxidative stress-induced transcripts") +
         scale_color_tableau() +
         theme_default_presentation +
         theme(legend.position = c(0.8, 0.40),

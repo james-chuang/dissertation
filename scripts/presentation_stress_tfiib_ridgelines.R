@@ -100,10 +100,11 @@ main = function(theme_spec = "thesis_theme.R",
 
     tfiib_heatmap = ggplot() +
         geom_ridgeline_gradient(data = df,
-                                aes(x=position, y=index, height=5*signal,
+                                aes(x=position, y=index, height=signal,
                                     fill=log2_foldchange,
                                     group=index),
-                       size=0.05) +
+                       size=0.05,
+                       scale=7) +
         facet_grid(. ~ group,
                    scales = "free_y",
                    space = "free_y") +

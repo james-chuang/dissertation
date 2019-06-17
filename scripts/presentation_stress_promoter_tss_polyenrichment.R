@@ -51,15 +51,15 @@ main = function(theme_spec,
                          y=y,
                          yend=y,
                          color=category),
-                        alpha=0.4,
-                        size=0.7) +
+                        alpha=0.6,
+                        size=0.5) +
         geom_point(data = df,
                    aes(x=condition_polyenrichment,
                        y=y,
                        color=category),
                    shape=16,
                    alpha=0.95,
-                   size=1.2) +
+                   size=1) +
         geom_label(data = df %>%
                        filter(category=="intragenic"),
                    aes(x=condition_polyenrichment-condition_polyenrichment_SE-0.1,
@@ -81,7 +81,7 @@ main = function(theme_spec,
                                                                        "total RNA"))),
                            expand=c(.06,0)) +
         ggtitle("polysome enrichment in oxidative stress",
-                subtitle = "oxidative stress-induced TSSs") +
+                subtitle = "oxidative stress-induced transcripts") +
         scale_color_tableau() +
         theme_default_presentation +
         theme(legend.position = c(0.4, 0.7),

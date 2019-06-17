@@ -86,7 +86,7 @@ rule target:
         "figures/presentation/presentation_stress_promoter_tss_polyenrichment.pdf",
         "figures/presentation/presentation_stress_dsk2_summary.pdf",
         "figures/presentation/presentation_stress_dsk2_pace_northern.pdf",
-        "figures/presentation/presentation_stress_diamide_fitnesscomp.pdf",
+        expand("figures/presentation/presentation_stress_diamide_fitnesscomp{frame}.pdf", frame=["0001", "0002", "0003"])
 
 rule register_fonts:
     input:
