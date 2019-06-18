@@ -5,7 +5,7 @@
 \usepackage[export]{adjustbox}
 \usepackage{listings}
 \usepackage{fontspec}
-% \mode<presentation>
+\mode<presentation>
 
 \lstset{basicstyle=\ttfamily}
 \definecolor{light-gray}{gray}{0.95}
@@ -76,12 +76,16 @@
     }
 \end{frame}
 
-\begin{frame}[plain]
-    \centerline{\includegraphics[height=\paperheight]{figures/montage.png}}
+\begin{frame}[t,plain]
+    \begin{tikzpicture}[remember picture, overlay, inner sep=0]
+        \node [anchor=north] at (current page.north) {\includegraphics[height=\paperheight]{figures/montage.png}};
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}[t,plain]
-    \centerline{\includegraphics[width=\paperwidth, trim=0 0 0 0, clip]{figures/zenodo_screenshot.png}}
+    \begin{tikzpicture}[remember picture, overlay, inner sep=0]
+        \node [anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{figures/zenodo_screenshot.png}};
+    \end{tikzpicture}
 \end{frame}
 
 \pgfdeclarelayer{backwrapping}
@@ -401,7 +405,7 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Genic transcript abundances are reduced}
+\begin{frame}{Genic transcript abundances are reduced in \textit{spt6-1004}}
     \centering
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -425,7 +429,7 @@
     \includegraphics[width=10.5cm]{figures/presentation/presentation_six_tfiib_heatmap.pdf}
 \end{frame}
 
-\begin{frame}{TFIIB binding changes dramatically in \textit{spt6-1004}:}
+\begin{frame}{TFIIB binding changes dramatically in \textit{spt6-1004}}
     \begin{tikzpicture}
         % \node<1>[inner sep=0] at (0,0) {\includegraphics[width=15cm]{figures/presentation/presentation_six_tfiib_spreading_swc0001.pdf}};
         % \fill<1>[white] (0.3,-0.1) rectangle (3.5, 0.50);
@@ -595,14 +599,14 @@
                 \node at ($ (orfstart)!0.5!(orfend) $) {\textit{spt5\textsuperscript{+}}};
                 \draw [->, line width=2pt, color=black!70] (genicstart) -- ($ (genicstart) + (90:2)$) --
                     node[midway] (promoter) {} ++(0.2,0) node (exprstart) {};
-                \draw [|-, line width=2pt, color=black!70] (promoter) -- ++(0, 3) node [anchor=south] (thiamine) {thiamine};
+                \draw [|-, line width=2pt, color=black!70, text=black] (promoter) -- ++(0, 3) node [anchor=south] (thiamine) {thiamine};
                 \draw (0.95,0 |- thiamine) node [outer sep=0pt, inner sep=0pt] (degraded) {\scalebox{2}{$\varnothing$}};
                 \node [ellipse, fill=darkorange, inner sep=2pt, outer sep=2pt] (spt5) at ($ (thiamine)!0.6!(degraded) $) {Spt5};
                 \draw [->, line width=2pt, color=black!70] (exprstart) .. controls ++(0.2,0) and ($ (thiamine)!0.35!(spt5) $) .. (spt5);
-                \draw [->, line width=2pt, color=black!70] (spt5) --
+                \draw [->, line width=2pt, color=black!70, text=black] (spt5) --
                     coordinate[pos=0.4] (auxincoord)
                     coordinate[pos=0.6] (auxintarget) (degraded);
-                \draw (auxincoord |- 0,9) node (auxin) {auxin};
+                \draw [text=black] (auxincoord |- 0,9) node (auxin) {auxin};
                 \draw [line width=2pt, color=black!70] (auxin) to [bend right=40] (auxintarget);
             \end{tikzpicture}
         \end{column}

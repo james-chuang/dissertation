@@ -9,5 +9,6 @@
 .fonts_registered.txt
 .snakemake/
 figures/
+acknowledgements.*
 Rplots.pdf
 compile.log
