@@ -70,6 +70,7 @@
     \centerline{
     \begin{tikzpicture}
         \node (rulegraph) {\includegraphics[width=\paperwidth]{figures/rulegraph.pdf}};
+        \uncover<2->{\node [anchor=north east, font=\footnotesize] at (rulegraph.south east) {Köster and Rahmann (2012). \textit{Bioinformatics}};}
         \uncover<2->{\fill [draw=none, fill=white, fill opacity=0.8] (rulegraph.north west) -- (rulegraph.north east) -- (rulegraph.south east) -- (rulegraph.south west) -- (rulegraph.north west) -- cycle;}
         \uncover<2->{\node[] (rule) at (rulegraph.center) {\lstinputlisting[language=Python, backgroundcolor = \color{light-gray}, frame=l, framesep=0.4\textwidth, framerule=0pt, framexbottommargin=1cm]{figures/rule.smk}};}
     \end{tikzpicture}
@@ -268,7 +269,7 @@
             \pic {chromatin={1, 3, 4, ..., 8}{8}};
             \uncover<2->{
                 \pic[rotate=10] at (midpoint-3) {pol};
-                \node[font=\Huge] at (midpoint-3 |- 0,5) {initiation};
+                \node[font=\Huge, align=center, anchor=south] at (midpoint-3 |- 0,5) {RNA polymerase II\\ \\initiation};
             }
             \uncover<5->{
                 \fill [color=viridis1, rotate=5] ($ (midpoint-3) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
@@ -282,7 +283,7 @@
             }
             \uncover<3->{
                 \pic at (midpoint-5) {pol};
-                \node [font=\Huge] at (midpoint-5 |- 0,5) {elongation};
+                \node [font=\Huge, anchor=south] at (midpoint-5 |- 0,5) {elongation};
             }
             \uncover<5>{
                 \pic at (midpoint-5) {paf};
@@ -296,7 +297,7 @@
             }
             \uncover<4->{
                 \pic at (midpoint-7) {pol};
-                \node [font=\Huge] at (midpoint-7 |- 0,5 ) {termination};
+                \node [font=\Huge, anchor=south] at (midpoint-7 |- 0,5 ) {termination};
             }
             \uncover<5->{
                 \fill [color=viridis1!90!white, rotate=30] ($ (midpoint-7) + (-80:0.9)$) ellipse [x radius=0.9, y radius=0.6];
