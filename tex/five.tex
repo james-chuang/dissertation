@@ -36,21 +36,22 @@ In this system, Spt5 is expressed using the thiamine-repressible \textit{nmt81} 
 For all experiments described in this chapter, Spt5-depleted cells are sampled 4.5 hours after the start of depletion, at which point the levels of Spt5 on chromatin are about 12\% of non-depleted levels, as measured by ChIP-seq of Spt5 (Figure \ref{fig:five_summary_metagenes}, top panel).
 
 \begin{wrapfigure}[9]{r}{3in}
-    \begin{tikzpicture}[x=3in, y=1in]
-        \draw [line width=2pt] (0,0.1) -- (0.95,0.1);
-        \draw [->, line width=3pt] (0.1,0.1) -- (0.1,0.25) -- (0.25,0.25);
-        \draw [line width=2pt] (0.175,0.6) -- (0.175, 0.32);
-        \draw [line width=2pt] (0.15, 0.32) -- (0.20, 0.32);
-        \node at (0.175, 0.7) {\normalsize thiamine};
-        \draw [fill=lightpurple, line width=1pt] (0.28, 0) rectangle (0.8, 0.2);
-        \node at (0.54, 0.1) {\normalsize \textit{spt5\textsuperscript{+}}};
-        \draw [->, line width=2pt] (0.33, 0.3) to [out=90, in=180] (0.5,0.7);
-        \draw [fill=lightpurple, line width=1pt] (0.62, 0.7) circle [x radius=0.1, y radius=0.15];
-        \node at (0.62, 0.7) {\normalsize Spt5};
-        \draw [->, line width=2pt] (0.73, 0.7) to (0.85, 0.7);
-        \node at (0.77, 1) {\normalsize auxin};
-        \draw [, line width=2pt] (0.77, 0.9) to [out=270, in=180] (0.80,0.7);
-        \node at (0.9, 0.7) {\scalebox{2}{$\varnothing$}};
+    \begin{tikzpicture}[x=3in, y=0.1in, >=latex, font=\normalsize, text=black]
+        \draw [line width=1pt, color=gray!50] (0,0) -- (1,0);
+        \draw [line width=2pt, color=gray!90] (0.1,0) coordinate (genicstart) -- (0.95,0) coordinate (genicend);
+        \fill [fill=gray!45] (0.15, -1) -- coordinate[midway] (orfstart) (0.15, 1) -- (0.85, 1) -- (0.92, 0) coordinate(orfend) -- (0.85, -1) -- cycle;
+        \node at ($ (orfstart)!0.5!(orfend) $) {\textit{spt5\textsuperscript{+}}};
+        \draw [->, line width=2pt, color=black!70] (genicstart) -- ($ (genicstart) + (90:2)$) --
+            node[midway] (promoter) {} ++(0.2,0) node (exprstart) {};
+        \draw [|-, line width=2pt, color=black!70, text=black] (promoter) -- ++(0, 3) node [anchor=south] (thiamine) {thiamine};
+        \draw (0.95,0 |- thiamine) node [outer sep=0pt, inner sep=0pt] (degraded) {\scalebox{2}{$\varnothing$}};
+        \node [ellipse, fill=darkorange, inner sep=2pt, outer sep=2pt] (spt5) at ($ (thiamine)!0.6!(degraded) $) {Spt5};
+        \draw [->, line width=2pt, color=black!70] (exprstart) .. controls ++(0.2,0) and ($ (thiamine)!0.35!(spt5) $) .. (spt5);
+        \draw [->, line width=2pt, color=black!70, text=black] (spt5) --
+            coordinate[pos=0.4] (auxincoord)
+            coordinate[pos=0.6] (auxintarget) (degraded);
+        \draw [text=black] (auxincoord |- 0,9) node (auxin) {auxin};
+        \draw [line width=2pt, color=black!70] (auxin) to [bend right=40] (auxintarget);
     \end{tikzpicture}
     \caption[Diagram of the dual-shutoff system used to deplete Spt5 from \textit{S. pombe}]{Diagram of the dual-shutoff system used to deplete Spt5 from \textit{S. pombe}. Spt5 is expressed from a thiamine-repressible promoter, and tagged with an auxin-inducible degron tag for specific degradation upon addition of auxin.}
     \label{fig:five_depletion_diagram}

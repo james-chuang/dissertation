@@ -24,7 +24,7 @@ main = function(theme_spec = "thesis_theme.R",
                         ymax=proportion_mean+proportion_sd,
                         ymin=proportion_mean-proportion_sd,
                         group=diamide),
-                    alpha=0.8) +
+                    alpha=0.6) +
         geom_line(aes(x=treatment_time,
                       y=proportion_mean,
                       group=diamide,

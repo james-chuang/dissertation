@@ -164,7 +164,7 @@ After two days in 1.25 mM diamide, \textit{dsk2-pace} cells make up less than 2\
 
 How might intragenic \textit{DSK2} expression function during oxidative stress?
 Like other proteasome receptors, Dsk2 possesses an N-terminal ubiquitin-like domain which interacts with the proteasome, and a C-terminal ubiquitin-associating domain which binds polyubiquitin chains \citep{funakoshi2002}.
-Translation of the intragenic \textit{DSK2} transcript is predicted to generate an intragenic protein lacking the proteasome-interacting domain but retaining the polyubiquitin binding domain.
+Translation of the intragenic \textit{DSK2} transcript is predicted to generate an intragenic protein lacking the\\ proteasome-interacting domain but retaining the polyubiquitin binding domain.
 Such an intragenic protein could bind certain polyubiquitinated targets without delivering them to the proteasome, in effect preventing their degradation.
 As noted above, we have so far been unable to reliably detect an intragenic Dsk2 protein; however, there is precedent for intragenic proteins to have different stability than their corresponding full-length forms \citep{gammie1999, benanti2009}.
 
@@ -265,7 +265,7 @@ RNA from fractions 5-12 were pooled and used to construct TSS-seq libraries.
 
 Polysome RNA TSS-seq libraries were processed in the same manner as total RNA TSS-seq libraries, except no spike-in normalization was performed because no spike-in was included.
 A separate Snakemake pipeline was used to integrate data from total RNA and polysome RNA TSS-seq.
-This pipeline performs three differential expression analyses using DESeq2 \citep{love2014}: Two analyses compare polysome RNA to total RNA in either the experimental condition (i.e., oxidative stress) or the control condition (i.e., YPD) in order to estimate relative polysome enrichment, $\log_2 \frac{\text{polysome RNA}}{\text{total RNA}}$.
+This pipeline performs three differential expression analyses using DESeq2 \citep{love2014}: Two analyses compare polysome RNA to total RNA in either the experimental condition (i.e., oxidative stress) or the control condition (i.e., YPD) in order to estimate relative polysome enrichment,\\ $\log_2 \frac{\text{polysome RNA}}{\text{total RNA}}$.
 Polysome enrichment is a relative measure of how much more or less polysome RNA is detected than is expected, given the amount of total RNA detected.
 The third differential expression analysis tests whether polysome enrichment changes between the control condition and the experimental condition, i.e., whether the experimental perturbation caused changes to the relative association of a transcript with polysomes.
 The pipeline also finds all potential ORFs downstream of intragenic TSSs.

@@ -67,7 +67,8 @@ main = function(theme_spec,
         scale_color_tableau() +
         theme_default +
         theme(legend.position = c(0.8, 0.40),
-              plot.subtitle = element_text(size=8),
+              plot.subtitle = element_text(size=8,
+                                           margin=margin(t=0, b=-2, unit="pt")),
               plot.margin=margin(0.5,0,0,0,"pt"))
 
     ggplot2::ggsave(pdf_out,

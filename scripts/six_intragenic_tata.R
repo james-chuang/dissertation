@@ -64,7 +64,7 @@ main = function(theme_spec,
         scale_fill_manual(values = c("#E15759",
                                      "#4E79A7",
                                      "#F28E2B")) +
-        ggtitle("TATA consensus probability") +
+        ggtitle("TATA consensus density") +
         theme_default +
         theme(axis.title.x = element_blank(),
               axis.line.y = element_line(size=0.25, color="grey65"),

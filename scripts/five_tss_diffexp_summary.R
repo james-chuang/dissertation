@@ -66,8 +66,8 @@ main = function(theme_spec,
     diffexp_summary = ggplot(data = summary_df) +
         geom_segment(aes(x=if_else(category=="genic", upregulated, -downregulated),
                          # xend=if_else(category=="genic", 1700, -3000),
-                         xend=-300,
-                         y=y+500, yend=y+500),
+                         xend=-450,
+                         y=y+300, yend=y+300),
                          # y=y_unscaled+0.17, yend=y_unscaled+0.17),
                          alpha=0.2,
                          size=0.2) +

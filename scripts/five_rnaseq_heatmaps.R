@@ -17,6 +17,7 @@ main = function(theme_spec,
                         max_length=2.5,
                         cutoff_pct=0.93,
                         add_ylabel=TRUE,
+                        palette="magma",
                         y_label = "nonoverlapping coding genes",
                         colorbar_title="antisense RNA-seq signal")
 
