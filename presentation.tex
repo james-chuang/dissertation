@@ -269,7 +269,8 @@
             \pic {chromatin={1, 3, 4, ..., 8}{8}};
             \uncover<2->{
                 \pic[rotate=10] at (midpoint-3) {pol};
-                \node[font=\Huge, align=center, anchor=south] at (midpoint-3 |- 0,5) {RNA polymerase II\\ \\initiation};
+                \node[font=\Huge, text height=1.5ex, text depth=0.25ex] at (midpoint-3 |- 0,5) {initiation};
+                \node[font=\Huge] at (midpoint-3 |- 0,7) {RNA polymerase II};
             }
             \uncover<5->{
                 \fill [color=viridis1, rotate=5] ($ (midpoint-3) + (-45:1.5)$) ellipse [x radius=2, y radius=0.8];
@@ -283,7 +284,7 @@
             }
             \uncover<3->{
                 \pic at (midpoint-5) {pol};
-                \node [font=\Huge, anchor=south] at (midpoint-5 |- 0,5) {elongation};
+                \node [font=\Huge, text height=1.5ex, text depth=0.25ex] at (midpoint-5 |- 0,5) {elongation};
             }
             \uncover<5>{
                 \pic at (midpoint-5) {paf};
@@ -297,7 +298,7 @@
             }
             \uncover<4->{
                 \pic at (midpoint-7) {pol};
-                \node [font=\Huge, anchor=south] at (midpoint-7 |- 0,5 ) {termination};
+                \node [font=\Huge, text height=1.5ex, text depth=0.25ex] at (midpoint-7 |- 0,5 ) {termination};
             }
             \uncover<5->{
                 \fill [color=viridis1!90!white, rotate=30] ($ (midpoint-7) + (-80:0.9)$) ellipse [x radius=0.9, y radius=0.6];
