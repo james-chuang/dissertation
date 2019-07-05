@@ -11,6 +11,10 @@ How it works:
   - Snakemake rules for generating individual figures are specified in `rules/`
   - Conda virtual environments that Snakemake uses to run rules are specified in `envs/`
 1. After all of the figures have been generated, Snakemake runs `compile.sh`, which uses TeX Live to typeset the thesis and presentation slides
+  - Q: Why is the compilation not also a Snakemake rule?
+    - A: Because the conda version of TeX Live [is broken](https://github.com/conda-forge/texlive-core-feedstock/issues/19#issuecomment-364760571), so I wasn't able run TeX Live in a virtual environment
+  - Q: Why Tex Live and not [Tectonic](https://tectonic-typesetting.github.io/en-US/)?
+    - A: I usually use Tectonic to typeset my LaTeX files, but I was unable to get around some errors that I believe had to do with including multiple TeX files with multiple bibliographies.
   - The TeX files are `thesis.tex`, `presentation.tex`, and the TeX files in `tex/`
   - Citation is done using the natbib package, with `.bib` files in `references/`
   - Layout of the dissertation is handled by options set in `thesis.tex` as well as `bu_ece_thesis_minimal.sty`, a stripped down version of `bu_ece_thesis.sty` from the [BU Engineering LaTeX template](http://www.bu.edu/eng/departments/ece/resourcesforcurrentstudent/ece-ms-and-phd-thesis-prep/ms-thesis-phd-dissertation/).
